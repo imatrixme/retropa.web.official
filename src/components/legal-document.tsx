@@ -18,26 +18,26 @@ export function LegalDocument({
 }: LegalDocumentProps) {
   return (
     <div className="mx-auto w-full max-w-6xl px-6 pb-28 pt-12 md:px-10">
-      <Card className="border-white/15 bg-white/5 py-0 backdrop-blur-xl">
-        <CardHeader className="gap-4 border-b border-white/10 py-8">
+      <Card className="border-border/70 bg-card/72 py-0 shadow-[0_24px_80px_-52px_rgba(72,103,255,0.45)] backdrop-blur-xl">
+        <CardHeader className="gap-4 border-b border-border/60 py-8">
           <Badge
             variant="outline"
-            className="w-fit border-white/30 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-white/75"
+            className="w-fit border-border/70 bg-background/35 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
           >
             Legal
           </Badge>
-          <CardTitle className="brand-display text-4xl tracking-[0.03em] text-white md:text-5xl">
+          <CardTitle className="brand-display text-4xl tracking-[0.03em] text-foreground md:text-5xl">
             {title}
           </CardTitle>
-          <p className="max-w-2xl text-sm leading-relaxed text-white/70">{subtitle}</p>
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+          <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">{subtitle}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
             Effective Date · {effectiveDate}
           </p>
         </CardHeader>
 
         <CardContent className="grid gap-10 py-10 md:grid-cols-[250px_1fr] md:items-start">
           <aside className="md:sticky md:top-28">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               On this page
             </h2>
             <ul className="mt-4 space-y-3">
@@ -45,7 +45,7 @@ export function LegalDocument({
                 <li key={section.id}>
                   <a
                     href={`#${section.id}`}
-                    className="text-sm text-white/75 transition hover:text-white"
+                    className="text-sm text-muted-foreground transition hover:text-foreground"
                   >
                     {section.title}
                   </a>
@@ -57,16 +57,16 @@ export function LegalDocument({
           <div className="space-y-8">
             {sections.map((section, sectionIndex) => (
               <section key={section.id} id={section.id} className="scroll-mt-28 space-y-4">
-                <h3 className="brand-display text-2xl tracking-[0.03em] text-white">
+                <h3 className="brand-display text-2xl tracking-[0.03em] text-foreground">
                   {section.title}
                 </h3>
-                <div className="space-y-4 text-sm leading-relaxed text-white/75">
+                <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
                 {sectionIndex < sections.length - 1 ? (
-                  <Separator className="mt-6 bg-white/10" />
+                  <Separator className="mt-6 bg-border/60" />
                 ) : null}
               </section>
             ))}

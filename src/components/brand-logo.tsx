@@ -21,7 +21,7 @@ export function BrandLogo({
     <div className={cn("inline-flex items-center gap-3", className)}>
       <div
         className={cn(
-          "relative overflow-hidden ring-1 ring-white/20 shadow-[0_14px_40px_-16px_rgba(133,96,255,0.8)]",
+          "relative overflow-hidden ring-1 ring-border/70 shadow-[0_14px_40px_-16px_rgba(88,120,255,0.55)]",
           imageSizeClassMap[size]
         )}
       >
@@ -35,8 +35,8 @@ export function BrandLogo({
       </div>
       {showWordmark ? (
         <div className="leading-tight">
-          <p className="brand-display text-xl tracking-[0.08em] text-white">Retropa</p>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/65">
+          <p className="brand-display text-xl tracking-[0.08em] text-foreground">Retropa</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
             iOS Retro Studio
           </p>
         </div>

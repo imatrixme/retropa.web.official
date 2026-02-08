@@ -6,6 +6,52 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --background: oklch(0.985 0.005 265);
+  --foreground: oklch(0.22 0.03 266);
+  --card: oklch(0.99 0.006 265 / 84%);
+  --card-foreground: oklch(0.22 0.03 266);
+  --popover: oklch(0.99 0.006 265 / 95%);
+  --popover-foreground: oklch(0.22 0.03 266);
+  --primary: oklch(0.56 0.21 284);
+  --primary-foreground: oklch(0.98 0.004 265);
+  --secondary: oklch(0.93 0.014 263);
+  --secondary-foreground: oklch(0.28 0.033 264);
+  --muted: oklch(0.935 0.012 264);
+  --muted-foreground: oklch(0.47 0.028 266);
+  --accent: oklch(0.81 0.125 198);
+  --accent-foreground: oklch(0.2 0.03 258);
+  --destructive: oklch(0.64 0.24 28);
+  --destructive-foreground: oklch(0.99 0.004 265);
+  --border: oklch(0.86 0.014 264 / 66%);
+  --input: oklch(0.86 0.014 264 / 66%);
+  --ring: oklch(0.6 0.17 284);
+  --radius: 1.2rem;
+  --chart-1: oklch(0.73 0.19 291);
+  --chart-2: oklch(0.75 0.13 197);
+  --chart-3: oklch(0.79 0.12 152);
+  --chart-4: oklch(0.75 0.18 338);
+  --chart-5: oklch(0.8 0.15 83);
+  --sidebar: oklch(0.98 0.006 265);
+  --sidebar-foreground: oklch(0.22 0.03 266);
+  --sidebar-primary: oklch(0.56 0.21 284);
+  --sidebar-primary-foreground: oklch(0.99 0.004 265);
+  --sidebar-accent: oklch(0.93 0.014 263);
+  --sidebar-accent-foreground: oklch(0.28 0.033 264);
+  --sidebar-border: oklch(0.86 0.014 264 / 66%);
+  --sidebar-ring: oklch(0.6 0.17 284);
+  --font-display: "Bodoni Moda", "Times New Roman", serif;
+  --font-body: "Manrope", "Avenir Next", sans-serif;
+  --site-grid-rgb: 53 70 106;
+  --site-gradient:
+    radial-gradient(circle at 14% 18%, rgba(123, 78, 255, 0.22), transparent 44%),
+    radial-gradient(circle at 85% 16%, rgba(31, 160, 247, 0.2), transparent 36%),
+    radial-gradient(circle at 48% 82%, rgba(26, 168, 138, 0.14), transparent 42%),
+    linear-gradient(136deg, #f7f9ff 0%, #edf2ff 44%, #e4ecff 100%);
+  --site-vignette:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(227, 236, 255, 0.14) 46%, rgba(216, 227, 251, 0.58) 100%);
+}
+
+.dark {
   --background: oklch(0.14 0.015 270);
   --foreground: oklch(0.96 0.01 265);
   --card: oklch(0.2 0.02 268 / 80%);
@@ -25,12 +71,6 @@
   --border: oklch(0.38 0.02 269 / 55%);
   --input: oklch(0.38 0.02 269 / 60%);
   --ring: oklch(0.74 0.16 286);
-  --radius: 1.2rem;
-  --chart-1: oklch(0.73 0.19 291);
-  --chart-2: oklch(0.75 0.13 197);
-  --chart-3: oklch(0.79 0.12 152);
-  --chart-4: oklch(0.75 0.18 338);
-  --chart-5: oklch(0.8 0.15 83);
   --sidebar: oklch(0.16 0.018 269);
   --sidebar-foreground: oklch(0.96 0.01 265);
   --sidebar-primary: oklch(0.76 0.18 287);
@@ -39,8 +79,14 @@
   --sidebar-accent-foreground: oklch(0.96 0.01 265);
   --sidebar-border: oklch(0.37 0.02 269 / 50%);
   --sidebar-ring: oklch(0.74 0.16 286);
-  --font-display: "Bodoni Moda", "Times New Roman", serif;
-  --font-body: "Manrope", "Avenir Next", sans-serif;
+  --site-grid-rgb: 255 255 255;
+  --site-gradient:
+    radial-gradient(circle at 20% 15%, rgba(124, 86, 255, 0.38), transparent 42%),
+    radial-gradient(circle at 82% 16%, rgba(0, 195, 255, 0.22), transparent 38%),
+    radial-gradient(circle at 45% 86%, rgba(0, 174, 122, 0.15), transparent 45%),
+    linear-gradient(135deg, #05060c 0%, #090b16 45%, #101327 100%);
+  --site-vignette:
+    radial-gradient(circle at center, transparent 0%, rgba(2, 4, 12, 0.68) 68%, rgba(1, 2, 8, 0.95) 100%);
 }
 
 @theme inline {
@@ -120,5 +166,25 @@
   .brand-display {
     font-family: var(--font-display);
     font-weight: 600;
+  }
+
+  .site-background {
+    background: var(--site-gradient);
+  }
+
+  .site-grid-overlay {
+    opacity: 0.52;
+    background-image:
+      linear-gradient(to right, rgb(var(--site-grid-rgb) / 9%) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--site-grid-rgb) / 9%) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .dark .site-grid-overlay {
+    opacity: 0.3;
+  }
+
+  .site-vignette-overlay {
+    background: var(--site-vignette);
   }
 }

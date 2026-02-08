@@ -2,16 +2,93 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/brand/retropa-app-logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Retropa for iOS · Skins, Filters, Haptics, Multi-Core Emulator</title>
     <meta
       name="description"
-      content="Retropa official website: premium iOS retro emulator experience, download guidance, terms of service, and privacy policy."
+      content="Retropa official website for iOS: premium retro emulator with Delta skin compatibility, custom button styles, librashader filters, multi-core switching, controller mapping, and localization packs."
     />
-    <title>Retropa · Official iOS Website</title>
+    <meta
+      name="keywords"
+      content="Retropa,iOS emulator,retro gaming,Delta skin,custom skins,librashader,slangp filters,controller mapping,haptic waveform,ROM support,multi-core emulator"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="author" content="Retropa" />
+
+    <link rel="canonical" href="https://retropa.app/" />
+    <link rel="alternate" hreflang="en" href="https://retropa.app/" />
+
+    <link rel="icon" type="image/png" href="/brand/retropa-app-logo.png" />
+    <link rel="apple-touch-icon" href="/brand/retropa-app-logo.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#edf2ff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090b16" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Retropa" />
+    <meta property="og:title" content="Retropa for iOS · Skins, Filters, Haptics, Multi-Core Emulator" />
+    <meta
+      property="og:description"
+      content="Explore the premium iOS emulator platform with Delta skin compatibility, filter packs, haptic customization, and per-system core switching."
+    />
+    <meta property="og:url" content="https://retropa.app/" />
+    <meta property="og:image" content="https://retropa.app/brand/retropa-app-logo.png" />
+    <meta property="og:image:alt" content="Retropa app logo" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Retropa for iOS" />
+    <meta
+      name="twitter:description"
+      content="Premium retro gaming on iOS with skins, filters, haptics, controller mapping, and localization packs."
+    />
+    <meta name="twitter:image" content="https://retropa.app/brand/retropa-app-logo.png" />
+
+    <script>
+      ;(() => {
+        const stored = localStorage.getItem("retropa.theme")
+        const theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light"
+        document.documentElement.classList.toggle("dark", theme === "dark")
+        document.documentElement.dataset.theme = theme
+        document.documentElement.style.colorScheme = theme
+      })()
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Retropa",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "iOS",
+        "url": "https://retropa.app/",
+        "downloadUrl": "https://apps.apple.com/",
+        "image": "https://retropa.app/brand/retropa-app-logo.png",
+        "description": "Premium iOS retro emulator with multi-core runtime, advanced skin system, controller mapping, filter packs, and localization packs.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "Delta skin compatibility (.deltaskin)",
+          "Flat2D / SVG2D / 3D skin rendering",
+          "Controller slot mapping and per-system profiles",
+          "Core Haptics waveform packs and per-action customization",
+          "Librashader filter pipeline with .slangp presets",
+          "Localization packs with runtime refresh"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/entries/home.tsx"></script>
   </body>
 </html>

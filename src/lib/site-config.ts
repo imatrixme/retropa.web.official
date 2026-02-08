@@ -1,11 +1,13 @@
 export const siteConfig = {
   name: "Retropa",
-  tagline: "A refined emulator experience for iPhone and iPad.",
+  siteUrl: "https://retropa.app",
+  tagline: "A premium retro gaming studio for iPhone and iPad.",
   description:
-    "Retropa brings premium retro gaming to modern iOS devices with precision emulation, elegant skins, and low-latency controls.",
+    "Retropa blends multi-core emulation, advanced skin customization, haptic waveform tuning, filter packs, and localization packs into a polished iOS experience.",
   appStoreUrl: "https://apps.apple.com/",
   supportEmail: "support@retropa.app",
   legalEffectiveDate: "February 8, 2026",
+  socialImage: "/brand/retropa-app-logo.png",
 } as const
 
 export type LegalSection = {

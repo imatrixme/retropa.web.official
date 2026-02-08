@@ -1,41 +1,43 @@
 # Retropa Official Website
 
-Premium marketing website for Retropa iOS app, built with Vite + React + TypeScript + shadcn/ui.
+Static marketing website for the Retropa iOS app.
 
-## Tech Stack
+## Stack
 
-- Vite + React 19 + TypeScript
+- Vite + React + TypeScript
 - Tailwind CSS v4
-- shadcn/ui components
-- React Router (`/`, `/terms`, `/privacy`)
+- shadcn/ui
+- Static multi-page build (`/`, `/terms/`, `/privacy/`)
 
-## Run Locally
+## Scripts
 
 ```bash
 npm install
 npm run dev
-```
-
-Local preview: `http://localhost:5173`
-
-## Build
-
-```bash
 npm run build
 npm run preview
+npm run lint
 ```
 
 ## Routes
 
-- `/` — Official landing page with product narrative and download CTA
-- `/terms` — Terms of Service
-- `/privacy` — Privacy Policy
+- `/` → Product landing page with download CTA and feature highlights
+- `/terms/` → Terms of Service
+- `/privacy/` → Privacy Policy
+
+## Static SEO Assets
+
+- `public/robots.txt`
+- `public/sitemap.xml`
+- `public/site.webmanifest`
+- Page-level canonical + OpenGraph + Twitter + JSON-LD metadata in each HTML entry
 
 ## Brand Assets
 
-- App-consistent logo asset: `public/brand/retropa-app-logo.png`
-- Source: `retropa/resources/Assets.xcassets/AppIcon.appiconset/复古游戏手柄融合图.png`
+- Website logo: `public/brand/retropa-app-logo.png`
+- Source asset: `retropa/resources/Assets.xcassets/AppIcon.appiconset/复古游戏手柄融合图.png`
 
-## Deployment Notes
+## Notes
 
-This project uses client-side routing. Configure static hosting rewrites so all unknown paths fallback to `index.html`.
+- The project is static and deployable on CDN/object storage.
+- If your production domain is not `https://retropa.app`, update canonical URLs and sitemap locations.

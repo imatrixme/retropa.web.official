@@ -1,0 +1,18 @@
+{
+  "name": "Retropa Official Website",
+  "short_name": "Retropa",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#090b16",
+  "theme_color": "#7d63ff",
+  "description": "Retropa official iOS app website with product highlights, legal pages, and download guidance.",
+  "icons": [
+    {
+      "src": "/brand/retropa-app-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

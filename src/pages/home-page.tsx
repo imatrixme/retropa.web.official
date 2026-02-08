@@ -1,14 +1,14 @@
 import {
-  ChevronRight,
+  ArrowUpRight,
+  Cpu,
   Download,
   Gamepad2,
+  Globe2,
   Layers,
-  Rocket,
-  ShieldCheck,
   Sparkles,
+  WandSparkles,
   Zap,
 } from "lucide-react"
-import { Link } from "react-router-dom"
 
 import { BrandLogo } from "@/components/brand-logo"
 import { Badge } from "@/components/ui/badge"
@@ -17,54 +17,116 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { siteConfig } from "@/lib/site-config"
 
-const highlights = [
+const spotlightFeatures = [
   {
-    title: "Console-grade performance",
+    title: "Skin System with Delta compatibility",
     description:
-      "Frame-accurate cores, low-latency input, and premium rendering tuned for iPhone and iPad.",
-    icon: Zap,
-  },
-  {
-    title: "Signature skin system",
-    description:
-      "2D and 3D skins with cinematic polish, customizable overlays, and tactile feedback details.",
+      "Runtime skin pipeline spans Flat2D, SVG2D, Delta2D, and 3D console shells. Delta .deltaskin packages are parsed and mapped by game type with safe fallback behavior.",
     icon: Layers,
   },
   {
-    title: "Daily-ready workflow",
+    title: "Per-system skin and control memory",
     description:
-      "Fast import, save-state stability, rewind capability, and polished controls that feel native.",
-    icon: Rocket,
+      "Retropa remembers skin mode and control layout per EmulatorSystemID, then auto-restores preferences when you switch ROM systems.",
+    icon: Sparkles,
   },
-]
+  {
+    title: "Controller mapping at pro depth",
+    description:
+      "Multiple physical controllers can connect simultaneously, each mapped to independent controller slots and per-system profiles with live rebinding.",
+    icon: Gamepad2,
+  },
+  {
+    title: "Taptic waveform studio",
+    description:
+      "Waveform packs support press/release patterns, per-action overrides, and curve presets through Core Haptics when available, with graceful fallback on unsupported devices.",
+    icon: Zap,
+  },
+  {
+    title: "Librashader filter pipeline",
+    description:
+      "Filters run through .slangp presets with split preview, runtime switching, and pass-through fallback. Active RetroPack resources are preferred when present.",
+    icon: WandSparkles,
+  },
+  {
+    title: "Multi-core runtime switch",
+    description:
+      "Core selection is configurable by system: mGBA, SkyEmu, SameBoy, RusticoNES, TetaNES, LakeSnes, JGenesis, and Ares are wired through the core selection store.",
+    icon: Cpu,
+  },
+  {
+    title: "Localization pack mechanism",
+    description:
+      "Localization .retropack bundles hot-load language strings with namespace lookup and fallback chain (namespace -> common -> default English), no app restart required.",
+    icon: Globe2,
+  },
+  {
+    title: "Retropack ecosystem",
+    description:
+      "A unified import pipeline handles visual packs, localization packs, shader packs, audio assets, docs, and patches with strict validation and safety guards.",
+    icon: ArrowUpRight,
+  },
+] as const
 
-const metrics = [
-  { value: "< 1 frame", label: "Input latency target" },
-  { value: "4K-ready", label: "Upscaled visual pipeline" },
-  { value: "Multi-core", label: "Optimized emulation runtime" },
-]
+const coreMatrix = [
+  { label: "Game Boy / Color / Advance", cores: "mGBA · SkyEmu · SameBoy · JGenesis · Ares" },
+  { label: "Nintendo DS", cores: "SkyEmu" },
+  { label: "NES", cores: "RusticoNES · TetaNES · JGenesis" },
+  { label: "SNES", cores: "LakeSnes · JGenesis" },
+  { label: "WonderSwan / Color", cores: "Ares" },
+  { label: "Neo Geo Pocket / Color", cores: "Ares" },
+  { label: "SMS / GG / MD / GEN", cores: "JGenesis" },
+] as const
+
+const romGroups = [
+  {
+    title: "Nintendo handheld",
+    extensions: [".gb", ".gbc", ".gba", ".nds"],
+  },
+  {
+    title: "Nintendo home console",
+    extensions: [".nes", ".fds", ".nsf", ".nsfe", ".unf", ".unif", ".sfc", ".smc", ".fig", ".swc", ".bs", ".st"],
+  },
+  {
+    title: "Sega and others",
+    extensions: [".sms", ".gg", ".md", ".smd", ".gen", ".ws", ".wsc", ".ngp", ".ngpc", ".ngc"],
+  },
+  {
+    title: "Containers",
+    extensions: [".zip", ".retropack"],
+  },
+] as const
+
+const highlights = [
+  { value: "4 skin layers", label: "Flat2D / SVG2D / Delta2D / 3D" },
+  { value: "8 cores", label: "Selectable by system" },
+  { value: "Waveform haptics", label: "Per-action tunable feedback" },
+] as const
 
 export function HomePage() {
   return (
     <div>
-      <section className="mx-auto grid w-full max-w-7xl gap-14 px-6 pb-20 pt-16 md:grid-cols-[1.1fr_0.9fr] md:px-10 md:pt-20">
+      <section className="mx-auto grid w-full max-w-7xl gap-14 px-6 pb-20 pt-16 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pt-20">
         <div className="space-y-7">
           <Badge
             variant="outline"
-            className="rounded-full border-white/30 bg-white/8 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/85"
+            className="rounded-full border-border/70 bg-card/80 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
           >
-            Premium iOS Emulator Experience
+            Premium iOS Emulator Website
           </Badge>
 
           <div className="space-y-5">
-            <h1 className="brand-display text-balance text-5xl leading-[1.02] tracking-[0.02em] text-white md:text-7xl">
-              Retro gaming,
+            <h1 className="brand-display text-balance text-5xl leading-[1.02] tracking-[0.02em] text-foreground md:text-7xl">
+              Retropa turns
               <br />
-              rebuilt with modern iOS elegance.
+              retro gameplay into
+              <br />
+              a crafted iOS product.
             </h1>
-            <p className="max-w-2xl text-lg leading-relaxed text-white/72 md:text-xl">
-              Retropa combines precision emulation technology with a luxury-first interface.
-              The result is a product that feels both nostalgic and unmistakably current.
+            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Built on a protocol-driven emulator architecture, Retropa combines core switching,
+              premium skins, deep controller tools, and legal-ready distribution pages in one
+              cohesive experience.
             </p>
           </div>
 
@@ -72,7 +134,7 @@ export function HomePage() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-white px-8 text-[15px] text-black hover:bg-white/90"
+              className="rounded-full bg-primary px-8 text-[15px] text-primary-foreground hover:bg-primary/90"
             >
               <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
                 <Download className="mr-2 h-4 w-4" />
@@ -84,61 +146,61 @@ export function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full border-white/30 bg-white/8 px-8 text-[15px] text-white hover:bg-white/15"
+              className="rounded-full border-border/70 bg-card/75 px-8 text-[15px] text-foreground hover:bg-card"
             >
-              <Link to="/privacy">
-                <ShieldCheck className="mr-2 h-4 w-4" />
-                Privacy first
-              </Link>
+              <a href="/privacy/">Read privacy policy</a>
             </Button>
           </div>
 
           <div className="grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-            {metrics.map((metric) => (
+            {highlights.map((metric) => (
               <div
                 key={metric.label}
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-md"
+                className="rounded-2xl border border-border/70 bg-card/80 px-4 py-4 shadow-[0_18px_40px_-28px_rgba(72,97,214,0.45)]"
               >
-                <p className="brand-display text-2xl tracking-[0.03em] text-white">{metric.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-white/58">{metric.label}</p>
+                <p className="brand-display text-2xl tracking-[0.03em] text-foreground">{metric.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                  {metric.label}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         <div className="relative">
-          <div className="absolute -right-8 -top-8 h-52 w-52 rounded-full bg-fuchsia-500/20 blur-3xl" />
-          <div className="absolute -bottom-12 left-2 h-64 w-64 rounded-full bg-cyan-400/16 blur-3xl" />
+          <div className="absolute -right-8 -top-8 h-52 w-52 rounded-full bg-primary/30 blur-3xl dark:bg-primary/22" />
+          <div className="absolute -bottom-12 left-2 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
 
-          <Card className="relative overflow-hidden border-white/15 bg-black/45 py-0 shadow-[0_24px_90px_-44px_rgba(88,134,255,0.9)] backdrop-blur-2xl">
-            <CardHeader className="border-b border-white/10 pb-7 pt-8">
+          <Card className="relative overflow-hidden border-border/70 bg-card/85 py-0 shadow-[0_24px_90px_-46px_rgba(88,113,255,0.75)] backdrop-blur-2xl">
+            <CardHeader className="border-b border-border/60 pb-7 pt-8">
               <div className="flex items-start justify-between gap-4">
                 <BrandLogo size="lg" showWordmark={false} />
-                <Badge className="rounded-full bg-emerald-300/90 px-3 py-1 text-black">
-                  iOS Native
+                <Badge className="rounded-full bg-accent px-3 py-1 text-accent-foreground">
+                  Static + SEO Ready
                 </Badge>
               </div>
-              <CardTitle className="brand-display mt-4 text-4xl leading-tight tracking-[0.02em] text-white">
-                Crafted for players
+              <CardTitle className="brand-display mt-4 text-4xl leading-tight tracking-[0.02em] text-foreground">
+                Feature depth users
                 <br />
-                who notice details.
+                can feel on day one.
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-5 py-7">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/55">
-                  Core stack
+              <div className="rounded-2xl border border-border/70 bg-background/45 p-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                  Designed from the iOS codebase
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {[
-                    "mGBA runtime",
-                    "Frame scheduler",
-                    "Shader pipeline",
-                    "Haptic touch mapping",
+                    "Delta skin parser",
+                    "Librashader presets",
+                    "Waveform haptics",
+                    "Controller slot mapping",
+                    "Localization packs",
                   ].map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-white/15 bg-white/6 px-3 py-1 text-xs text-white/75"
+                      className="rounded-full border border-border/70 bg-card/80 px-3 py-1 text-xs text-foreground/85"
                     >
                       {item}
                     </span>
@@ -147,13 +209,13 @@ export function HomePage() {
               </div>
 
               <div className="space-y-3">
-                {["Skin customization", "Save-state safety", "Portal interoperability"].map((item) => (
-                  <div key={item} className="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3">
-                    <div className="flex items-center gap-3">
-                      <Sparkles className="h-4 w-4 text-violet-300" />
-                      <p className="text-sm text-white/80">{item}</p>
-                    </div>
-                    <ChevronRight className="h-4 w-4 text-white/45" />
+                {[
+                  "Delta skin compatibility with orientation-aware layout",
+                  "Button style customization: dpad / joystick / joystickCross",
+                  "Filter packs via .slangp in RetroPack visual/shaders",
+                ].map((item) => (
+                  <div key={item} className="rounded-xl bg-background/45 px-4 py-3 text-sm text-foreground/85">
+                    {item}
                   </div>
                 ))}
               </div>
@@ -162,59 +224,114 @@ export function HomePage() {
         </div>
       </section>
 
-      <Separator className="mx-auto w-[calc(100%-3rem)] max-w-7xl bg-white/10 md:w-[calc(100%-5rem)]" />
+      <Separator className="mx-auto w-[calc(100%-3rem)] max-w-7xl bg-border/60 md:w-[calc(100%-5rem)]" />
 
       <section className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
-              Why teams choose Retropa
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Product highlights from real app capabilities
             </p>
-            <h2 className="brand-display mt-3 text-4xl tracking-[0.03em] text-white md:text-5xl">
-              Engineered substance,
+            <h2 className="brand-display mt-3 text-4xl tracking-[0.03em] text-foreground md:text-5xl">
+              Built for enthusiasts,
               <br />
-              not just aesthetics.
+              engineered for reliability.
             </h2>
-          </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-white/70">
-            <Gamepad2 className="h-4 w-4" />
-            Built for serious retro players
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {highlights.map((highlight) => (
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {spotlightFeatures.map((feature) => (
             <Card
-              key={highlight.title}
-              className="border-white/15 bg-white/6 py-0 backdrop-blur-lg transition hover:-translate-y-1 hover:bg-white/10"
+              key={feature.title}
+              className="h-full border-border/70 bg-card/82 py-0 transition hover:-translate-y-1 hover:shadow-[0_18px_40px_-28px_rgba(71,97,214,0.45)]"
             >
               <CardHeader className="pb-4 pt-6">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/12">
-                  <highlight.icon className="h-5 w-5 text-white" />
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/18 text-primary">
+                  <feature.icon className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-xl font-semibold text-white">{highlight.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold text-foreground">{feature.title}</CardTitle>
               </CardHeader>
-              <CardContent className="pb-6 text-sm leading-relaxed text-white/70">
-                {highlight.description}
+              <CardContent className="pb-6 text-sm leading-relaxed text-muted-foreground">
+                {feature.description}
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-6 pb-24 md:px-10 md:pb-28">
-        <Card className="overflow-hidden border-white/15 bg-gradient-to-br from-violet-500/25 via-cyan-400/12 to-emerald-400/15 py-0 backdrop-blur-2xl">
+      <section className="mx-auto w-full max-w-7xl px-6 pb-8 md:px-10">
+        <div className="grid gap-6 xl:grid-cols-2">
+          <Card className="border-border/70 bg-card/80 py-0">
+            <CardHeader className="pb-4 pt-6">
+              <CardTitle className="brand-display text-3xl tracking-[0.02em] text-foreground">
+                Core matrix and runtime switching
+              </CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Core selection is stored per system and can switch without redesigning your skin layer.
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-3 pb-6">
+              {coreMatrix.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-xl border border-border/60 bg-background/45 px-4 py-3"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                    {row.label}
+                  </p>
+                  <p className="mt-1 text-sm text-foreground/88">{row.cores}</p>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70 bg-card/80 py-0">
+            <CardHeader className="pb-4 pt-6">
+              <CardTitle className="brand-display text-3xl tracking-[0.02em] text-foreground">
+                ROM and package format coverage
+              </CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Import routing supports direct files and zipped archives, with explicit validation and
+                unsupported-type rejection (for example .pce / .sgx).
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-4 pb-6">
+              {romGroups.map((group) => (
+                <div key={group.title}>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                    {group.title}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.extensions.map((ext) => (
+                      <span
+                        key={ext}
+                        className="rounded-full border border-border/70 bg-background/50 px-3 py-1 text-xs text-foreground/85"
+                      >
+                        {ext}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-6 pb-24 pt-14 md:px-10 md:pb-28">
+        <Card className="overflow-hidden border-border/70 bg-gradient-to-br from-primary/22 via-accent/14 to-emerald-500/10 py-0 backdrop-blur-xl">
           <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/58">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Download Retropa
               </p>
-              <h3 className="brand-display mt-2 text-4xl tracking-[0.03em] text-white">
-                Start your next retro session.
+              <h3 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground">
+                Experience it directly on iOS.
               </h3>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/78">
-                Install Retropa on your iOS device and experience premium emulation design,
-                legal transparency, and a workflow made for daily play.
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                From Delta skin compatibility to waveform-level haptics and filter-pack extensibility,
+                Retropa is designed to invite exploration from your very first launch.
               </p>
             </div>
 
@@ -222,7 +339,7 @@ export function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-white px-7 text-black hover:bg-white/90"
+                className="rounded-full bg-primary px-7 text-primary-foreground hover:bg-primary/90"
               >
                 <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
                   Download now
@@ -232,9 +349,9 @@ export function HomePage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full border-white/35 bg-black/30 px-7 text-white hover:bg-black/45"
+                className="rounded-full border-border/80 bg-card/75 px-7 text-foreground hover:bg-card"
               >
-                <Link to="/terms">Review terms</Link>
+                <a href="/terms/">Review terms</a>
               </Button>
             </div>
           </CardContent>
