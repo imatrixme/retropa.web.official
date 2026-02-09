@@ -1,16 +1,17 @@
 import {
   ArrowUpRight,
+  CheckCircle2,
   Cpu,
   Download,
   Gamepad2,
   Globe2,
   Layers,
+  ShieldCheck,
   Sparkles,
   WandSparkles,
   Zap,
 } from "lucide-react"
 
-import { BrandLogo } from "@/components/brand-logo"
 import { LogoWall } from "@/components/logo-wall"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -24,87 +25,90 @@ import {
 } from "@/content/emulator-catalog"
 import { siteConfig } from "@/lib/site-config"
 
-const spotlightFeatures = [
+const compatibilityPillars = [
   {
-    title: "Skin System with Delta compatibility",
+    title: "RetroArch Filter Stack: Full Support",
     description:
-      "Runtime skin pipeline spans Flat2D, SVG2D, Delta2D, and 3D console shells. Delta .deltaskin packages are parsed and mapped by game type with safe fallback behavior.",
-    icon: Layers,
-  },
-  {
-    title: "Per-system skin and control memory",
-    description:
-      "Retropa remembers skin mode and control layout per EmulatorSystemID, then auto-restores preferences when you switch ROM systems.",
-    icon: Sparkles,
-  },
-  {
-    title: "Controller mapping at pro depth",
-    description:
-      "Multiple physical controllers can connect simultaneously, each mapped to independent controller slots and per-system profiles with live rebinding.",
-    icon: Gamepad2,
-  },
-  {
-    title: "Taptic waveform studio",
-    description:
-      "Waveform packs support press/release patterns, per-action overrides, and curve presets through Core Haptics when available, with graceful fallback on unsupported devices.",
-    icon: Zap,
-  },
-  {
-    title: "Librashader filter pipeline",
-    description:
-      "Filters run through .slangp presets with split preview, runtime switching, and pass-through fallback. Active RetroPack resources are preferred when present.",
+      "Run full RetroArch shader chains with .slang / .slangp presets, multi-pass ordering, parameter controls, and stable runtime switching.",
     icon: WandSparkles,
   },
   {
-    title: "Multi-core runtime switch",
+    title: "Delta Skin Packages: Full Compatibility",
     description:
-      "Core selection is configurable by system: mGBA, SkyEmu, SameBoy, RusticoNES, TetaNES, LakeSnes, JGenesis, and Ares are wired through the core selection store.",
+      "Import Delta .deltaskin packages directly, preserve layout intent, and keep controls responsive across portrait and landscape transitions.",
+    icon: Layers,
+  },
+] as const
+
+const spotlightFeatures = [
+  {
+    title: "Per-system memory that respects your habits",
+    description:
+      "Retropa remembers your preferred core, skin mode, and control layout for each console system so you can return exactly where comfort starts.",
+    icon: Sparkles,
+  },
+  {
+    title: "Controller mapping with studio-level depth",
+    description:
+      "Multiple physical controllers can run in parallel with independent slot mapping, profile save, and live remap behavior during gameplay.",
+    icon: Gamepad2,
+  },
+  {
+    title: "Haptics tuned by intent, not by chance",
+    description:
+      "Waveform packs support per-action press/release patterns and fallback behavior so tactile feedback feels deliberate on every device.",
+    icon: Zap,
+  },
+  {
+    title: "Core switching without breaking flow",
+    description:
+      "mGBA, SkyEmu, SameBoy, RusticoNES, TetaNES, LakeSnes, JGenesis, and Ares are wired into one runtime model with coherent behavior.",
     icon: Cpu,
   },
   {
-    title: "Localization pack mechanism",
+    title: "Localization packs that ship with craft",
     description:
-      "Localization .retropack bundles hot-load language strings with namespace lookup and fallback chain (namespace -> common -> default English), no app restart required.",
+      "Language packs hot-load instantly with reliable namespace fallback, letting community or regional updates feel native instead of patched.",
     icon: Globe2,
   },
   {
-    title: "Retropack ecosystem",
+    title: "Pack ecosystem with strict validation",
     description:
-      "A unified import pipeline handles visual packs, localization packs, shader packs, audio assets, docs, and patches with strict validation and safety guards.",
+      "Visual, shader, localization, audio, and document packs follow one import pipeline with integrity checks before runtime activation.",
     icon: ArrowUpRight,
   },
 ] as const
 
 const highlights = [
-  { value: "4 skin layers", label: "Flat2D / SVG2D / Delta2D / 3D" },
-  { value: "8 cores", label: "Selectable by system" },
-  { value: "Waveform haptics", label: "Per-action tunable feedback" },
+  { value: "RetroArch .slangp", label: "full filter pipeline" },
+  { value: "Delta .deltaskin", label: "full compatibility" },
+  { value: "8 runtime cores", label: "system-aware switching" },
 ] as const
 
 export function HomePage() {
   return (
     <div>
-      <section className="mx-auto grid w-full max-w-7xl gap-14 px-6 pb-20 pt-16 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pt-20">
+      <section className="mx-auto grid w-full max-w-7xl gap-12 px-6 pb-20 pt-10 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pt-14">
         <div className="space-y-7">
           <Badge
             variant="outline"
-            className="rounded-full border-border/70 bg-card/80 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
+            className="rounded-full border-border/70 bg-card/82 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
           >
-            Premium iOS Emulator Website
+            Crafted for people who still care how games feel
           </Badge>
 
           <div className="space-y-5">
-            <h1 className="brand-display text-balance text-5xl leading-[1.02] tracking-[0.02em] text-foreground md:text-7xl">
-              Retropa turns
+            <h1 className="brand-display text-balance text-[3.15rem] leading-[0.98] tracking-[0.02em] text-foreground md:text-[5.2rem]">
+              A better home
               <br />
-              retro gameplay into
+              for the games
               <br />
-              a crafted iOS product.
+              that raised us.
             </h1>
-            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Built on a protocol-driven emulator architecture, Retropa combines core switching,
-              premium skins, deep controller tools, and legal-ready distribution pages in one
-              cohesive experience.
+            <p className="editorial-lede max-w-2xl">
+              Retropa is not nostalgia as decoration. It is careful engineering for players who know
+              timing, texture, and control memory by heart. Every frame, filter, and touch target is
+              designed to preserve what made these games matter in the first place.
             </p>
           </div>
 
@@ -112,7 +116,7 @@ export function HomePage() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-primary px-8 text-[15px] text-primary-foreground hover:bg-primary/90"
+              className="rounded-full bg-primary px-8 text-[15px] text-primary-foreground shadow-[0_16px_42px_-20px_rgba(88,113,255,0.9)] hover:bg-primary/90"
             >
               <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
                 <Download className="mr-2 h-4 w-4" />
@@ -124,9 +128,9 @@ export function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full border-border/70 bg-card/75 px-8 text-[15px] text-foreground hover:bg-card"
+              className="rounded-full border-border/70 bg-card/76 px-8 text-[15px] text-foreground hover:bg-card"
             >
-              <a href="/cores/">Explore emulator cores</a>
+              <a href="#compatibility">Read compatibility promise</a>
             </Button>
           </div>
 
@@ -136,8 +140,10 @@ export function HomePage() {
                 key={metric.label}
                 className="rounded-2xl border border-border/70 bg-card/80 px-4 py-4 shadow-[0_18px_40px_-28px_rgba(72,97,214,0.45)]"
               >
-                <p className="brand-display text-2xl tracking-[0.03em] text-foreground">{metric.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                <p className="brand-display text-[1.75rem] leading-none tracking-[0.02em] text-foreground">
+                  {metric.value}
+                </p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.13em] text-muted-foreground">
                   {metric.label}
                 </p>
               </div>
@@ -145,84 +151,129 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute -right-8 -top-8 h-52 w-52 rounded-full bg-primary/30 blur-3xl dark:bg-primary/22" />
-          <div className="absolute -bottom-12 left-2 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
-
-          <Card className="relative overflow-hidden border-border/70 bg-card/85 py-0 shadow-[0_24px_90px_-46px_rgba(88,113,255,0.75)] backdrop-blur-2xl">
-            <CardHeader className="border-b border-border/60 pb-7 pt-8">
-              <div className="flex items-start justify-between gap-4">
-                <BrandLogo size="lg" showWordmark={false} />
-                <Badge className="rounded-full bg-accent px-3 py-1 text-accent-foreground">
-                  Static + SEO Ready
-                </Badge>
-              </div>
-              <CardTitle className="brand-display mt-4 text-4xl leading-tight tracking-[0.02em] text-foreground">
-                Feature depth users
-                <br />
-                can feel on day one.
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-5 py-7">
-              <div className="rounded-2xl border border-border/70 bg-background/45 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-                  Designed from the iOS codebase
+        <Card className="h-fit overflow-hidden border-border/70 bg-card/84 py-0 shadow-[0_26px_90px_-52px_rgba(74,105,255,0.76)] backdrop-blur-xl">
+          <CardHeader className="border-b border-border/60 pb-6 pt-7">
+            <p className="editorial-kicker">Compatibility Promise</p>
+            <CardTitle className="brand-display mt-2 text-[2.35rem] leading-[1.04] tracking-[0.02em] text-foreground">
+              Two commitments
+              <br />
+              we treat as non-negotiable.
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-5 py-6">
+            {compatibilityPillars.map((pillar) => (
+              <article
+                key={pillar.title}
+                className="rounded-2xl border border-border/65 bg-background/45 p-4 shadow-[0_12px_30px_-28px_rgba(88,113,255,0.8)]"
+              >
+                <p className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <pillar.icon className="h-4 w-4 text-primary" />
+                  {pillar.title}
                 </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {[
-                    "Delta skin parser",
-                    "Librashader presets",
-                    "Waveform haptics",
-                    "Controller slot mapping",
-                    "Localization packs",
-                  ].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-border/70 bg-card/80 px-3 py-1 text-xs text-foreground/85"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
+              </article>
+            ))}
 
-              <div className="space-y-3">
-                {[
-                  "Delta skin compatibility with orientation-aware layout",
-                  "Button style customization: dpad / joystick / joystickCross",
-                  "Filter packs via .slangp in RetroPack visual/shaders",
-                ].map((item) => (
-                  <div key={item} className="rounded-xl bg-background/45 px-4 py-3 text-sm text-foreground/85">
-                    {item}
-                  </div>
-                ))}
-              </div>
+            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3">
+              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-300 dark:text-emerald-200">
+                <ShieldCheck className="h-4 w-4" />
+                Built from real runtime behavior
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/88">
+                What we claim on this page is tied to the production code path, not marketing-only
+                mock behavior.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <Separator className="mx-auto w-[calc(100%-3rem)] max-w-7xl bg-border/60 md:w-[calc(100%-5rem)]" />
+
+      <section id="compatibility" className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
+        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="editorial-kicker">Compatibility before cosmetics</p>
+            <h2 className="brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
+              Built for confidence,
+              <br />
+              not checkbox marketing.
+            </h2>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {compatibilityPillars.map((pillar) => (
+            <Card
+              key={pillar.title}
+              className="h-full border-border/70 bg-card/82 py-0 shadow-[0_20px_48px_-34px_rgba(71,97,214,0.6)]"
+            >
+              <CardHeader className="pb-4 pt-6">
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/16 text-primary">
+                  <pillar.icon className="h-5 w-5" />
+                </div>
+                <CardTitle className="text-2xl font-semibold leading-tight text-foreground">
+                  {pillar.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pb-6 text-sm leading-relaxed text-muted-foreground">
+                {pillar.description}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-6 pb-10 md:px-10">
+        <div className="mb-9">
+          <p className="editorial-kicker">Core and system logos</p>
+          <h2 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground md:text-5xl">
+            Official assets in motion
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Core and console logos are sourced from official project repositories and Wikimedia,
+            then normalized into performance-safe PNG assets for smooth page rendering.
+          </p>
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-2">
+          <Card className="border-border/70 bg-card/80 py-0">
+            <CardHeader className="pb-4 pt-6">
+              <CardTitle className="text-xl font-semibold text-foreground">Emulator core wall</CardTitle>
+            </CardHeader>
+            <CardContent className="pb-6">
+              <LogoWall items={homepageCoreLogoWall} direction="left" durationSeconds={34} />
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70 bg-card/80 py-0">
+            <CardHeader className="pb-4 pt-6">
+              <CardTitle className="text-xl font-semibold text-foreground">System wall</CardTitle>
+            </CardHeader>
+            <CardContent className="pb-6">
+              <LogoWall items={homepageSystemLogoWall} direction="right" durationSeconds={44} />
             </CardContent>
           </Card>
         </div>
       </section>
 
-      <Separator className="mx-auto w-[calc(100%-3rem)] max-w-7xl bg-border/60 md:w-[calc(100%-5rem)]" />
-
       <section className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Product highlights from real app capabilities
-            </p>
-            <h2 className="brand-display mt-3 text-4xl tracking-[0.03em] text-foreground md:text-5xl">
-              Built for enthusiasts,
+            <p className="editorial-kicker">Real capability highlights</p>
+            <h2 className="brand-display mt-3 text-4xl leading-tight tracking-[0.03em] text-foreground md:text-5xl">
+              Premium feel starts with
               <br />
-              engineered for reliability.
+              reliable internals.
             </h2>
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {spotlightFeatures.map((feature) => (
             <Card
               key={feature.title}
-              className="h-full border-border/70 bg-card/82 py-0 transition hover:-translate-y-1 hover:shadow-[0_18px_40px_-28px_rgba(71,97,214,0.45)]"
+              className="h-full border-border/70 bg-card/82 py-0 transition hover:-translate-y-1 hover:shadow-[0_20px_42px_-30px_rgba(71,97,214,0.62)]"
             >
               <CardHeader className="pb-4 pt-6">
                 <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/18 text-primary">
@@ -238,118 +289,91 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-6 pb-6 md:px-10">
-        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              Emulator support visualized
-            </p>
-            <h2 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground md:text-5xl">
-              Core and ROM logo wall
-            </h2>
-          </div>
-          <Button
-            asChild
-            variant="outline"
-            className="w-fit rounded-full border-border/70 bg-card/75 px-6 text-foreground hover:bg-card"
-          >
-            <a href="/cores/">Open complete core catalog</a>
-          </Button>
-        </div>
-
-        <div className="grid gap-6 xl:grid-cols-2">
-          <Card className="border-border/70 bg-card/80 py-0">
-            <CardHeader className="pb-4 pt-6">
-              <CardTitle className="text-xl font-semibold text-foreground">Emulator cores</CardTitle>
-            </CardHeader>
-            <CardContent className="pb-6">
-              <LogoWall items={homepageCoreLogoWall} direction="left" durationSeconds={34} />
-            </CardContent>
-          </Card>
-
-          <Card className="border-border/70 bg-card/80 py-0">
-            <CardHeader className="pb-4 pt-6">
-              <CardTitle className="text-xl font-semibold text-foreground">Systems and ROM groups</CardTitle>
-            </CardHeader>
-            <CardContent className="pb-6">
-              <LogoWall items={homepageSystemLogoWall} direction="right" durationSeconds={44} />
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-7xl px-6 pb-8 md:px-10">
-        <div className="grid gap-6 xl:grid-cols-2">
-          <Card className="border-border/70 bg-card/80 py-0">
-            <CardHeader className="pb-4 pt-6">
-              <CardTitle className="brand-display text-3xl tracking-[0.02em] text-foreground">
-                Core matrix and runtime switching
+      <section className="mx-auto w-full max-w-7xl px-6 pb-10 md:px-10">
+        <div className="grid gap-5 xl:grid-cols-[1.12fr_0.88fr]">
+          <Card className="relative overflow-hidden border-primary/25 bg-gradient-to-br from-card/90 via-card/82 to-primary/12 py-0">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_94%_0%,rgba(122,92,255,0.25),transparent_42%)]" />
+            <CardHeader className="relative pb-4 pt-6">
+              <CardTitle className="brand-display text-[1.75rem] leading-[1.06] tracking-[0.02em] text-foreground md:text-[2rem]">
+                System-to-core matrix
               </CardTitle>
-              <p className="text-sm text-muted-foreground">
-                Core selection is stored per system and can switch without redesigning your skin layer.
+              <p className="text-xs uppercase tracking-[0.13em] text-muted-foreground">
+                Dense routing map · per-system core preference memory
               </p>
             </CardHeader>
-            <CardContent className="space-y-3 pb-6">
-              {coreMatrixRows.map((row) => (
-                <div
-                  key={row.label}
-                  className="rounded-xl border border-border/60 bg-background/45 px-4 py-3"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    {row.label}
-                  </p>
-                  <p className="mt-1 text-sm text-foreground/88">{row.cores}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-
-          <Card className="border-border/70 bg-card/80 py-0">
-            <CardHeader className="pb-4 pt-6">
-              <CardTitle className="brand-display text-3xl tracking-[0.02em] text-foreground">
-                ROM and package format coverage
-              </CardTitle>
-              <p className="text-sm text-muted-foreground">
-                Import routing supports direct files and zipped archives, with explicit validation and
-                unsupported-type rejection (for example .pce / .sgx).
-              </p>
-            </CardHeader>
-            <CardContent className="space-y-4 pb-6">
-              {romSupportGroups.map((group) => (
-                <div key={group.id}>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    {group.label}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {group.extensions.map((ext) => (
-                      <span
-                        key={ext}
-                        className="rounded-full border border-border/70 bg-background/50 px-3 py-1 text-xs text-foreground/85"
-                      >
-                        {ext}
+            <CardContent className="relative pb-6">
+              <div className="grid gap-2 sm:grid-cols-2">
+                {coreMatrixRows.map((row) => (
+                  <div
+                    key={row.label}
+                    className="rounded-xl border border-border/60 bg-background/50 px-3 py-2.5 transition hover:border-primary/35 hover:bg-background/70"
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="truncate text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                        {row.label}
+                      </p>
+                      <span className="rounded-full border border-primary/35 bg-primary/12 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-primary">
+                        Auto
                       </span>
-                    ))}
+                    </div>
+                    <p className="mt-1.5 text-xs leading-relaxed text-foreground/88">{row.cores}</p>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="relative overflow-hidden border-accent/35 bg-gradient-to-br from-card/90 via-card/82 to-accent/14 py-0">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(39,194,225,0.22),transparent_44%)]" />
+            <CardHeader className="relative pb-4 pt-6">
+              <CardTitle className="brand-display text-[1.75rem] leading-[1.06] tracking-[0.02em] text-foreground md:text-[2rem]">
+                ROM format clarity
+              </CardTitle>
+              <p className="text-xs uppercase tracking-[0.13em] text-muted-foreground">
+                Extension matrix · deterministic import behavior
+              </p>
+            </CardHeader>
+            <CardContent className="relative pb-6">
+              <div className="grid gap-2 sm:grid-cols-2">
+                {romSupportGroups.map((group) => (
+                  <div
+                    key={group.id}
+                    className="rounded-xl border border-border/60 bg-background/50 px-3 py-2.5 transition hover:border-accent/45 hover:bg-background/70"
+                  >
+                    <p className="truncate text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/86">
+                      {group.label}
+                    </p>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      {group.extensions.map((extension) => (
+                        <span
+                          key={`${group.id}-${extension}`}
+                          className="rounded-full border border-border/70 bg-background/60 px-2 py-0.5 text-[10px] font-medium text-foreground/82"
+                        >
+                          {extension}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </div>
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-24 pt-14 md:px-10 md:pb-28">
-        <Card className="overflow-hidden border-border/70 bg-gradient-to-br from-primary/22 via-accent/14 to-emerald-500/10 py-0 backdrop-blur-xl">
+        <Card className="overflow-hidden border-border/70 bg-gradient-to-br from-primary/20 via-accent/10 to-emerald-500/8 py-0 backdrop-blur-xl">
           <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Download Retropa
-              </p>
-              <h3 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground">
-                Experience it directly on iOS.
+              <p className="editorial-kicker">Download Retropa</p>
+              <h3 className="brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
+                Keep the classics,
+                <br />
+                keep the feeling.
               </h3>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                From Delta skin compatibility to waveform-level haptics and filter-pack extensibility,
-                Retropa is designed to invite exploration from your very first launch.
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                If you care about authenticity as much as modern polish, Retropa is built for your
+                daily play—not just for screenshots.
               </p>
             </div>
 
@@ -369,7 +393,10 @@ export function HomePage() {
                 size="lg"
                 className="rounded-full border-border/80 bg-card/75 px-7 text-foreground hover:bg-card"
               >
-                <a href="/terms/">Review terms</a>
+                <a href="/cores/">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Inspect core catalog
+                </a>
               </Button>
             </div>
           </CardContent>

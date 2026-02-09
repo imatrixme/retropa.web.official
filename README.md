@@ -39,6 +39,7 @@ npm run lint
 - PWA icons (derived from app icon): `public/brand/retropa-site-logo-192.png`, `public/brand/retropa-site-logo-512.png`
 - Source app icon: `public/brand/retropa-app-logo.png`
 - Logo-wall source trace: `public/logo-wall/sources.json`
+- System hardware photos (Wikimedia, normalized to 512×512 transparent PNG): `public/logo-wall/system-photos/*.png`
 
 ## Notes
 

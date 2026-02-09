@@ -15,6 +15,7 @@ export type EmulatorCoreItem = LogoWallItem & {
 export type SystemSupportItem = LogoWallItem & {
   coreIds: Array<EmulatorCoreItem["id"]>
   romExtensions: string[]
+  hardwarePhotoPath?: string
 }
 
 export type RomGroupItem = LogoWallItem & {
@@ -148,6 +149,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Game Boy system logo",
     coreIds: ["mgba", "skyemu", "sameboy", "jgenesis"],
     romExtensions: [".gb"],
+    hardwarePhotoPath: "/logo-wall/system-photos/game-boy.png",
   },
   {
     id: "game-boy-color",
@@ -156,6 +158,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Game Boy Color system logo",
     coreIds: ["mgba", "skyemu", "sameboy", "jgenesis"],
     romExtensions: [".gbc"],
+    hardwarePhotoPath: "/logo-wall/system-photos/game-boy-color.png",
   },
   {
     id: "game-boy-advance",
@@ -164,6 +167,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Game Boy Advance system logo",
     coreIds: ["mgba", "skyemu", "jgenesis", "ares"],
     romExtensions: [".gba"],
+    hardwarePhotoPath: "/logo-wall/system-photos/game-boy-advance.png",
   },
   {
     id: "nintendo-ds",
@@ -172,6 +176,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Nintendo DS system logo",
     coreIds: ["skyemu"],
     romExtensions: [".nds"],
+    hardwarePhotoPath: "/logo-wall/system-photos/nintendo-ds.png",
   },
   {
     id: "nes",
@@ -180,6 +185,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "NES system logo",
     coreIds: ["rusticones", "tetanes", "jgenesis"],
     romExtensions: [".nes", ".fds", ".nsf", ".nsfe", ".unf", ".unif"],
+    hardwarePhotoPath: "/logo-wall/system-photos/nes.png",
   },
   {
     id: "snes",
@@ -188,6 +194,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "SNES system logo",
     coreIds: ["lakesnes", "jgenesis"],
     romExtensions: [".sfc", ".smc", ".fig", ".swc", ".bs", ".st"],
+    hardwarePhotoPath: "/logo-wall/system-photos/snes.png",
   },
   {
     id: "sega-master-system",
@@ -196,6 +203,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Sega Master System logo",
     coreIds: ["jgenesis"],
     romExtensions: [".sms"],
+    hardwarePhotoPath: "/logo-wall/system-photos/sega-master-system.png",
   },
   {
     id: "game-gear",
@@ -204,6 +212,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Game Gear logo",
     coreIds: ["jgenesis"],
     romExtensions: [".gg"],
+    hardwarePhotoPath: "/logo-wall/system-photos/game-gear.png",
   },
   {
     id: "mega-drive",
@@ -212,6 +221,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Mega Drive logo",
     coreIds: ["jgenesis"],
     romExtensions: [".md", ".smd"],
+    hardwarePhotoPath: "/logo-wall/system-photos/mega-drive.png",
   },
   {
     id: "genesis",
@@ -220,6 +230,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Genesis logo",
     coreIds: ["jgenesis"],
     romExtensions: [".gen"],
+    hardwarePhotoPath: "/logo-wall/system-photos/genesis.png",
   },
   {
     id: "wonderswan",
@@ -228,6 +239,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "WonderSwan logo",
     coreIds: ["ares"],
     romExtensions: [".ws"],
+    hardwarePhotoPath: "/logo-wall/system-photos/wonderswan.png",
   },
   {
     id: "wonderswan-color",
@@ -236,6 +248,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "WonderSwan Color logo",
     coreIds: ["ares"],
     romExtensions: [".wsc"],
+    hardwarePhotoPath: "/logo-wall/system-photos/wonderswan-color.png",
   },
   {
     id: "neo-geo-pocket",
@@ -244,6 +257,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Neo Geo Pocket logo",
     coreIds: ["ares"],
     romExtensions: [".ngp"],
+    hardwarePhotoPath: "/logo-wall/system-photos/neo-geo-pocket.png",
   },
   {
     id: "neo-geo-pocket-color",
@@ -252,6 +266,7 @@ export const systemSupportMatrix: SystemSupportItem[] = [
     alt: "Neo Geo Pocket Color logo",
     coreIds: ["ares"],
     romExtensions: [".ngpc", ".ngc"],
+    hardwarePhotoPath: "/logo-wall/system-photos/neo-geo-pocket-color.png",
   },
   {
     id: "containers",

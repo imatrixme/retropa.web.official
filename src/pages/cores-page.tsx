@@ -1,4 +1,4 @@
-import { ArrowUpRight, Cpu, Download, Github, Layers3 } from "lucide-react"
+import { ArrowUpRight, CheckCircle2, Download, Github, Layers3, ShieldCheck } from "lucide-react"
 
 import { LogoWall } from "@/components/logo-wall"
 import { Badge } from "@/components/ui/badge"
@@ -17,34 +17,34 @@ const coreNameById = new Map(emulatorCores.map((core) => [core.id, core.label]))
 export function CoresPage() {
   return (
     <div>
-      <section className="mx-auto w-full max-w-7xl px-6 pb-12 pt-14 md:px-10 md:pt-18">
+      <section className="mx-auto w-full max-w-7xl px-6 pb-12 pt-10 md:px-10 md:pt-14">
         <div className="grid gap-8 xl:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
             <Badge
               variant="outline"
-              className="rounded-full border-border/70 bg-card/80 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
+              className="rounded-full border-border/70 bg-card/82 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
             >
-              Core Catalog
+              Emulator Core Catalog
             </Badge>
 
             <div>
-              <h1 className="brand-display text-balance text-5xl leading-[1.03] tracking-[0.02em] text-foreground md:text-6xl">
-                Emulator cores,
+              <h1 className="brand-display text-balance text-[3.3rem] leading-[0.96] tracking-[0.02em] text-foreground md:text-[5rem]">
+                Core lineage,
                 <br />
                 system matrix,
                 <br />
-                and ROM coverage.
+                and source truth.
               </h1>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                This page maps each integrated emulator core to supported game systems, accepted ROM
-                extensions, and the upstream GitHub repository used by Retropa integration.
+              <p className="editorial-lede mt-4 max-w-2xl">
+                This page shows exactly which emulator cores power Retropa, which consoles each core
+                serves, and where each project lives on GitHub. No blurred claims, no hidden footnotes.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
               <Button
                 asChild
-                className="rounded-full bg-primary px-7 text-primary-foreground hover:bg-primary/90"
+                className="rounded-full bg-primary px-7 text-primary-foreground shadow-[0_16px_42px_-20px_rgba(88,113,255,0.9)] hover:bg-primary/90"
               >
                 <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
                   <Download className="mr-2 h-4 w-4" />
@@ -63,27 +63,42 @@ export function CoresPage() {
 
           <Card className="border-border/70 bg-card/82 py-0 shadow-[0_24px_90px_-54px_rgba(82,106,236,0.68)] backdrop-blur-xl">
             <CardHeader className="border-b border-border/60 pb-6 pt-7">
-              <CardTitle className="brand-display text-3xl tracking-[0.03em] text-foreground">
-                Catalog scope
+              <CardTitle className="brand-display text-4xl leading-[1.04] tracking-[0.03em] text-foreground">
+                Compatibility standards
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3 py-6 text-sm leading-relaxed text-muted-foreground">
-              <p>
-                Core cards below include repository origin, supported systems, and ROM extension
-                signals that mirror homepage claims.
-              </p>
-              <p>
-                Logo assets are local static files and keep route behavior compatible with static
-                hosting and multi-page deployment.
-              </p>
-              <div className="rounded-xl border border-border/60 bg-background/45 px-4 py-3 text-foreground/86">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                  Current catalog
+            <CardContent className="space-y-4 py-6 text-sm leading-relaxed text-muted-foreground">
+              <article className="rounded-xl border border-border/60 bg-background/45 px-4 py-3">
+                <p className="inline-flex items-center gap-2 font-semibold text-foreground">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  RetroArch filter chain support
                 </p>
-                <p className="mt-1 text-lg font-semibold">
-                  {emulatorCores.length} cores · {systemSupportMatrix.length} support groups
+                <p className="mt-2">
+                  Full .slang / .slangp pipeline support is expected in runtime behavior and reflected
+                  in product capability communication.
                 </p>
-              </div>
+              </article>
+
+              <article className="rounded-xl border border-border/60 bg-background/45 px-4 py-3">
+                <p className="inline-flex items-center gap-2 font-semibold text-foreground">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  Delta skin compatibility
+                </p>
+                <p className="mt-2">
+                  Delta skin package compatibility is maintained as a first-class contract, including
+                  layout-safe fallback behavior.
+                </p>
+              </article>
+
+              <article className="rounded-xl border border-emerald-500/35 bg-emerald-500/10 px-4 py-3">
+                <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-300 dark:text-emerald-200">
+                  <ShieldCheck className="h-4 w-4" />
+                  Source traceability
+                </p>
+                <p className="mt-2 text-foreground/88">
+                  Core logos and system logos are sourced and versioned with explicit origin records.
+                </p>
+              </article>
             </CardContent>
           </Card>
         </div>
@@ -94,8 +109,8 @@ export function CoresPage() {
           <Card className="border-border/70 bg-card/80 py-0">
             <CardHeader className="pb-4 pt-6">
               <CardTitle className="inline-flex items-center gap-2 text-xl font-semibold text-foreground">
-                <Cpu className="h-5 w-5 text-primary" />
-                Emulator core logo wall
+                <Layers3 className="h-5 w-5 text-primary" />
+                Core logo wall
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
@@ -107,7 +122,7 @@ export function CoresPage() {
             <CardHeader className="pb-4 pt-6">
               <CardTitle className="inline-flex items-center gap-2 text-xl font-semibold text-foreground">
                 <Layers3 className="h-5 w-5 text-primary" />
-                System and ROM logo wall
+                System logo wall
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
@@ -118,12 +133,10 @@ export function CoresPage() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-12 md:px-10">
-        <div className="mb-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-            Emulator cores
-          </p>
-          <h2 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground">
-            Core cards with source repositories
+        <div className="mb-7">
+          <p className="editorial-kicker">Core cards</p>
+          <h2 className="brand-display mt-2 text-[2.9rem] leading-[0.96] tracking-[0.03em] text-foreground">
+            Every core, mapped and linked
           </h2>
         </div>
 
@@ -135,7 +148,7 @@ export function CoresPage() {
                   <img
                     src={core.logoPath}
                     alt={core.alt}
-                    className="h-14 w-24 rounded-lg border border-border/60 object-cover"
+                    className="h-14 w-24 rounded-lg border border-border/60 object-contain bg-background/45 p-1"
                     loading="lazy"
                     decoding="async"
                   />
@@ -154,12 +167,12 @@ export function CoresPage() {
                     ROM extensions
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {core.romExtensions.map((ext) => (
+                    {core.romExtensions.map((extension) => (
                       <span
-                        key={`${core.id}-${ext}`}
+                        key={`${core.id}-${extension}`}
                         className="rounded-full border border-border/70 bg-background/45 px-2.5 py-1 text-xs text-foreground/86"
                       >
-                        {ext}
+                        {extension}
                       </span>
                     ))}
                   </div>
@@ -182,31 +195,45 @@ export function CoresPage() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-24 pt-6 md:px-10 md:pb-28">
-        <div className="mb-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-            System matrix
-          </p>
-          <h2 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground">
-            Game systems to cores and ROM types
+        <div className="mb-7">
+          <p className="editorial-kicker">System matrix</p>
+          <h2 className="brand-display mt-2 text-[2.9rem] leading-[0.96] tracking-[0.03em] text-foreground">
+            Console families and ROM coverage
           </h2>
         </div>
 
         <div className="grid gap-6 xl:grid-cols-2">
           {systemSupportMatrix.map((system) => (
-            <Card key={system.id} className="border-border/70 bg-card/80 py-0">
-              <CardHeader className="space-y-3 pb-4 pt-6">
-                <div className="flex items-center gap-3">
+            <Card key={system.id} className="relative overflow-hidden border-border/70 bg-card/80 py-0">
+              {system.hardwarePhotoPath ? (
+                <img
+                  src={system.hardwarePhotoPath}
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none absolute bottom-[-180px] right-[-180px] z-0 w-[512px] max-w-none select-none opacity-45"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : null}
+              <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-br from-background/80 via-background/55 to-transparent" />
+
+              <CardHeader className="relative z-10 pb-4 pt-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <CardTitle className="text-[1.6rem] tracking-[0.02em] text-foreground">
+                      {system.label}
+                    </CardTitle>
+                  </div>
                   <img
                     src={system.logoPath}
                     alt={system.alt}
-                    className="h-14 w-24 rounded-lg border border-border/60 object-cover"
+                    className="h-20 w-36 shrink-0 rounded-xl border border-border/60 bg-background/45 object-contain p-2 md:h-24 md:w-44"
                     loading="lazy"
                     decoding="async"
                   />
-                  <CardTitle className="text-2xl tracking-[0.02em] text-foreground">{system.label}</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4 pb-6">
+              <CardContent className="relative z-10 space-y-4 pb-6">
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                     Available cores
@@ -220,12 +247,12 @@ export function CoresPage() {
                     ROM coverage
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {system.romExtensions.map((ext) => (
+                    {system.romExtensions.map((extension) => (
                       <span
-                        key={`${system.id}-${ext}`}
+                        key={`${system.id}-${extension}`}
                         className="rounded-full border border-border/70 bg-background/45 px-2.5 py-1 text-xs text-foreground/86"
                       >
-                        {ext}
+                        {extension}
                       </span>
                     ))}
                   </div>

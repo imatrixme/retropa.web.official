@@ -76,6 +76,78 @@
       "output": "logo-wall/systems/containers.png"
     }
   },
+  "systemPhotos": {
+    "game-boy": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Game-Boy-FL.png",
+      "output": "logo-wall/system-photos/game-boy.png"
+    },
+    "game-boy-color": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/35/Nintendo-Game-Boy-Color-FL.png",
+      "output": "logo-wall/system-photos/game-boy-color.png"
+    },
+    "game-boy-advance": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Nintendo-Game-Boy-Advance-Purple-FL.png",
+      "output": "logo-wall/system-photos/game-boy-advance.png"
+    },
+    "nintendo-ds": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/5/56/Nintendo-DS-Lite-Black-Open.png",
+      "output": "logo-wall/system-photos/nintendo-ds.png"
+    },
+    "nes": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/b/b2/NES-Console-Set.png",
+      "output": "logo-wall/system-photos/nes.png"
+    },
+    "snes": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/36/SNES-Mod1-Console-Set.png",
+      "output": "logo-wall/system-photos/snes.png"
+    },
+    "sega-master-system": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Sega-Master-System-Set.png",
+      "output": "logo-wall/system-photos/sega-master-system.png"
+    },
+    "game-gear": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Sega-Game-Gear-WB.png",
+      "output": "logo-wall/system-photos/game-gear.png"
+    },
+    "mega-drive": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/b/be/Sega-Mega-Drive-JP-Mk1-Console-Set.png",
+      "output": "logo-wall/system-photos/mega-drive.png"
+    },
+    "genesis": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/26/Sega-Genesis-Mod1-Set.png",
+      "output": "logo-wall/system-photos/genesis.png"
+    },
+    "wonderswan": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/27/WonderSwan-Black-Left.png",
+      "output": "logo-wall/system-photos/wonderswan.png"
+    },
+    "wonderswan-color": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/WonderSwan-Color-Blue-Left.png/1280px-WonderSwan-Color-Blue-Left.png",
+      "output": "logo-wall/system-photos/wonderswan-color.png"
+    },
+    "neo-geo-pocket": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Neo-Geo-Pocket-Anthra-Left.png/1280px-Neo-Geo-Pocket-Anthra-Left.png",
+      "output": "logo-wall/system-photos/neo-geo-pocket.png"
+    },
+    "neo-geo-pocket-color": {
+      "sourceType": "wikimedia-hardware-photo",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Neo-Geo-Pocket-Color-Blue-Left.png/1280px-Neo-Geo-Pocket-Color-Blue-Left.png",
+      "output": "logo-wall/system-photos/neo-geo-pocket-color.png"
+    }
+  },
   "cores": {
     "mgba": {
       "sourceType": "github-repo-logo",
