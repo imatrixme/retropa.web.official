@@ -217,21 +217,18 @@ export function CoresPage() {
               ) : null}
               <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-br from-background/80 via-background/55 to-transparent" />
 
-              <CardHeader className="relative z-10 pb-4 pt-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <CardTitle className="text-[1.6rem] tracking-[0.02em] text-foreground">
-                      {system.label}
-                    </CardTitle>
-                  </div>
-                  <img
-                    src={system.logoPath}
-                    alt={system.alt}
-                    className="h-20 w-36 shrink-0 rounded-xl border border-border/60 bg-background/45 object-contain p-2 md:h-24 md:w-44"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+              <img
+                src={system.logoPath}
+                alt={system.alt}
+                className="pointer-events-none absolute right-4 top-4 z-[11] h-16 w-28 rounded-xl border border-border/60 bg-background/45 object-contain p-2 md:h-20 md:w-36"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <CardHeader className="relative z-10 pb-3 pt-6 pr-32 md:pr-40">
+                <CardTitle className="text-[1.6rem] tracking-[0.02em] text-foreground">
+                  {system.label}
+                </CardTitle>
               </CardHeader>
               <CardContent className="relative z-10 space-y-4 pb-6">
                 <div>
