@@ -249,6 +249,81 @@
     display: none;
   }
 
+  .cta-prismatic {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 999px;
+    clip-path: inset(0 round 999px);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(circle, white 100%, black 100%);
+    border: 1px solid rgb(255 255 255 / 0.22);
+    background:
+      linear-gradient(120deg, rgb(113 104 255 / 0.92) 0%, rgb(54 176 255 / 0.92) 38%, rgb(40 217 168 / 0.88) 68%, rgb(168 120 255 / 0.9) 100%);
+    box-shadow:
+      0 18px 44px -26px rgb(76 117 255 / 0.82),
+      0 0 0 1px rgb(255 255 255 / 0.08) inset;
+    transform: translateZ(0);
+    transition: transform 260ms ease, box-shadow 260ms ease;
+  }
+
+  .cta-prismatic::before {
+    content: "";
+    position: absolute;
+    inset: -160% -45%;
+    z-index: 0;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      rgb(255 255 255 / 0%) 0%,
+      rgb(255 255 255 / 0.26) 18%,
+      rgb(255 255 255 / 0%) 40%,
+      rgb(255 255 255 / 0.24) 62%,
+      rgb(255 255 255 / 0%) 100%
+    );
+    animation: cta-prismatic-rotate 9s linear infinite;
+  }
+
+  .cta-prismatic::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    z-index: 1;
+    border-radius: inherit;
+    background: linear-gradient(122deg, rgb(12 18 45 / 0.16) 0%, rgb(255 255 255 / 0.08) 48%, rgb(0 0 0 / 0.16) 100%);
+    pointer-events: none;
+  }
+
+  .cta-prismatic-shimmer {
+    position: absolute;
+    top: -115%;
+    left: -28%;
+    z-index: 2;
+    width: 46%;
+    height: 330%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0.72) 52%, rgb(255 255 255 / 0%) 100%);
+    transform: rotate(16deg) translateX(-200%);
+    animation: cta-prismatic-shimmer 3.6s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .cta-prismatic:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 24px 56px -26px rgb(76 117 255 / 0.95),
+      0 0 0 1px rgb(255 255 255 / 0.12) inset;
+  }
+
+  .cta-prismatic:focus-visible {
+    outline: none;
+    box-shadow:
+      0 24px 56px -26px rgb(76 117 255 / 0.95),
+      0 0 0 2px rgb(255 255 255 / 0.84),
+      0 0 0 5px color-mix(in oklab, var(--color-primary) 76%, transparent);
+  }
+
   .site-background {
     background: var(--site-gradient);
   }
@@ -279,6 +354,33 @@
 
   .logo-marquee-right {
     animation: logo-marquee-right 40s linear infinite;
+  }
+}
+
+@keyframes cta-prismatic-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cta-prismatic-shimmer {
+  0% {
+    transform: rotate(16deg) translateX(-220%);
+    opacity: 0;
+  }
+  16% {
+    opacity: 0.85;
+  }
+  56% {
+    transform: rotate(16deg) translateX(260%);
+    opacity: 0.95;
+  }
+  100% {
+    transform: rotate(16deg) translateX(260%);
+    opacity: 0;
   }
 }
 

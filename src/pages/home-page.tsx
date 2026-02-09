@@ -2,7 +2,6 @@ import {
   ArrowUpRight,
   CheckCircle2,
   Cpu,
-  Download,
   Gamepad2,
   Globe2,
   Layers,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react"
 
 import { LogoWall } from "@/components/logo-wall"
+import { PrismaticDownloadButton } from "@/components/prismatic-download-button"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -24,7 +24,6 @@ import {
   romSupportGroups,
   systemSupportMatrix,
 } from "@/content/emulator-catalog"
-import { siteConfig } from "@/lib/site-config"
 
 const compatibilityPillars = [
   {
@@ -153,16 +152,7 @@ export function HomePage() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full bg-primary px-8 text-[15px] text-primary-foreground shadow-[0_16px_42px_-20px_rgba(88,113,255,0.9)] hover:bg-primary/90"
-            >
-              <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
-                <Download className="mr-2 h-4 w-4" />
-                Download for iOS
-              </a>
-            </Button>
+            <PrismaticDownloadButton size="lg" label="Download for iOS" />
 
             <Button
               asChild
@@ -419,15 +409,7 @@ export function HomePage() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full bg-primary px-7 text-primary-foreground hover:bg-primary/90"
-              >
-                <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
-                  Download now
-                </a>
-              </Button>
+              <PrismaticDownloadButton size="lg" label="Download now" />
               <Button
                 asChild
                 variant="outline"

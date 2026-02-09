@@ -1,9 +1,9 @@
-import { Download, ShieldCheck } from "lucide-react"
+import { ShieldCheck } from "lucide-react"
 import type { ReactNode } from "react"
 
 import { BrandLogo } from "@/components/brand-logo"
+import { PrismaticDownloadButton } from "@/components/prismatic-download-button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/lib/site-config"
 import { cn } from "@/lib/utils"
 
@@ -60,16 +60,7 @@ export function SiteLayout({ currentPage, children }: SiteLayoutProps) {
 
             <div className="flex items-center gap-1.5">
               <ThemeToggle />
-              <Button
-                asChild
-                className="group h-9 rounded-full bg-primary px-3 text-xs text-primary-foreground shadow-[0_10px_24px_-16px_rgba(95,116,255,0.9)] hover:bg-primary/90"
-                size="sm"
-              >
-                <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
-                  <Download className="mr-1.5 h-4 w-4 transition group-hover:-translate-y-0.5" />
-                  Download
-                </a>
-              </Button>
+              <PrismaticDownloadButton size="sm" label="Download" />
             </div>
           </div>
 

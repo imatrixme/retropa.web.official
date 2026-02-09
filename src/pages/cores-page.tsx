@@ -1,6 +1,7 @@
-import { ArrowUpRight, CheckCircle2, Download, Github, Layers3, ShieldCheck } from "lucide-react"
+import { ArrowUpRight, CheckCircle2, Github, Layers3, ShieldCheck } from "lucide-react"
 
 import { LogoWall } from "@/components/logo-wall"
+import { PrismaticDownloadButton } from "@/components/prismatic-download-button"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,7 +11,6 @@ import {
   homepageSystemLogoWall,
   systemSupportMatrix,
 } from "@/content/emulator-catalog"
-import { siteConfig } from "@/lib/site-config"
 
 const coreNameById = new Map(emulatorCores.map((core) => [core.id, core.label]))
 
@@ -42,15 +42,7 @@ export function CoresPage() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button
-                asChild
-                className="rounded-full bg-primary px-7 text-primary-foreground shadow-[0_16px_42px_-20px_rgba(88,113,255,0.9)] hover:bg-primary/90"
-              >
-                <a href={siteConfig.appStoreUrl} target="_blank" rel="noreferrer">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download for iOS
-                </a>
-              </Button>
+              <PrismaticDownloadButton size="lg" label="Download for iOS" />
               <Button
                 asChild
                 variant="outline"
