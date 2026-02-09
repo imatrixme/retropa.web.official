@@ -11,10 +11,17 @@ import {
 } from "lucide-react"
 
 import { BrandLogo } from "@/components/brand-logo"
+import { LogoWall } from "@/components/logo-wall"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import {
+  coreMatrixRows,
+  homepageCoreLogoWall,
+  homepageSystemLogoWall,
+  romSupportGroups,
+} from "@/content/emulator-catalog"
 import { siteConfig } from "@/lib/site-config"
 
 const spotlightFeatures = [
@@ -65,35 +72,6 @@ const spotlightFeatures = [
     description:
       "A unified import pipeline handles visual packs, localization packs, shader packs, audio assets, docs, and patches with strict validation and safety guards.",
     icon: ArrowUpRight,
-  },
-] as const
-
-const coreMatrix = [
-  { label: "Game Boy / Color / Advance", cores: "mGBA · SkyEmu · SameBoy · JGenesis · Ares" },
-  { label: "Nintendo DS", cores: "SkyEmu" },
-  { label: "NES", cores: "RusticoNES · TetaNES · JGenesis" },
-  { label: "SNES", cores: "LakeSnes · JGenesis" },
-  { label: "WonderSwan / Color", cores: "Ares" },
-  { label: "Neo Geo Pocket / Color", cores: "Ares" },
-  { label: "SMS / GG / MD / GEN", cores: "JGenesis" },
-] as const
-
-const romGroups = [
-  {
-    title: "Nintendo handheld",
-    extensions: [".gb", ".gbc", ".gba", ".nds"],
-  },
-  {
-    title: "Nintendo home console",
-    extensions: [".nes", ".fds", ".nsf", ".nsfe", ".unf", ".unif", ".sfc", ".smc", ".fig", ".swc", ".bs", ".st"],
-  },
-  {
-    title: "Sega and others",
-    extensions: [".sms", ".gg", ".md", ".smd", ".gen", ".ws", ".wsc", ".ngp", ".ngpc", ".ngc"],
-  },
-  {
-    title: "Containers",
-    extensions: [".zip", ".retropack"],
   },
 ] as const
 
@@ -148,7 +126,7 @@ export function HomePage() {
               size="lg"
               className="rounded-full border-border/70 bg-card/75 px-8 text-[15px] text-foreground hover:bg-card"
             >
-              <a href="/privacy/">Read privacy policy</a>
+              <a href="/cores/">Explore emulator cores</a>
             </Button>
           </div>
 
@@ -260,6 +238,46 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto w-full max-w-7xl px-6 pb-6 md:px-10">
+        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              Emulator support visualized
+            </p>
+            <h2 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground md:text-5xl">
+              Core and ROM logo wall
+            </h2>
+          </div>
+          <Button
+            asChild
+            variant="outline"
+            className="w-fit rounded-full border-border/70 bg-card/75 px-6 text-foreground hover:bg-card"
+          >
+            <a href="/cores/">Open complete core catalog</a>
+          </Button>
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-2">
+          <Card className="border-border/70 bg-card/80 py-0">
+            <CardHeader className="pb-4 pt-6">
+              <CardTitle className="text-xl font-semibold text-foreground">Emulator cores</CardTitle>
+            </CardHeader>
+            <CardContent className="pb-6">
+              <LogoWall items={homepageCoreLogoWall} direction="left" durationSeconds={34} />
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70 bg-card/80 py-0">
+            <CardHeader className="pb-4 pt-6">
+              <CardTitle className="text-xl font-semibold text-foreground">Systems and ROM groups</CardTitle>
+            </CardHeader>
+            <CardContent className="pb-6">
+              <LogoWall items={homepageSystemLogoWall} direction="right" durationSeconds={44} />
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       <section className="mx-auto w-full max-w-7xl px-6 pb-8 md:px-10">
         <div className="grid gap-6 xl:grid-cols-2">
           <Card className="border-border/70 bg-card/80 py-0">
@@ -272,7 +290,7 @@ export function HomePage() {
               </p>
             </CardHeader>
             <CardContent className="space-y-3 pb-6">
-              {coreMatrix.map((row) => (
+              {coreMatrixRows.map((row) => (
                 <div
                   key={row.label}
                   className="rounded-xl border border-border/60 bg-background/45 px-4 py-3"
@@ -297,10 +315,10 @@ export function HomePage() {
               </p>
             </CardHeader>
             <CardContent className="space-y-4 pb-6">
-              {romGroups.map((group) => (
-                <div key={group.title}>
+              {romSupportGroups.map((group) => (
+                <div key={group.id}>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    {group.title}
+                    {group.label}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {group.extensions.map((ext) => (

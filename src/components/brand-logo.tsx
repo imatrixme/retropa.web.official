@@ -26,8 +26,8 @@ export function BrandLogo({
         )}
       >
         <img
-          src="/brand/retropa-app-logo.png"
-          alt="Retropa app logo"
+          src="/brand/retropa-site-logo.png"
+          alt="Retropa website logo"
           className="h-full w-full object-cover"
           loading="eager"
           decoding="async"

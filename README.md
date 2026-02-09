@@ -7,7 +7,7 @@ Static marketing website for the Retropa iOS app.
 - Vite + React + TypeScript
 - Tailwind CSS v4
 - shadcn/ui
-- Static multi-page build (`/`, `/terms/`, `/privacy/`)
+- Static multi-page build (`/`, `/cores/`, `/terms/`, `/privacy/`)
 
 ## Scripts
 
@@ -22,6 +22,7 @@ npm run lint
 ## Routes
 
 - `/` → Product landing page with download CTA and feature highlights
+- `/cores/` → Emulator core catalog, system matrix, and ROM support wall
 - `/terms/` → Terms of Service
 - `/privacy/` → Privacy Policy
 
@@ -34,8 +35,10 @@ npm run lint
 
 ## Brand Assets
 
-- Website logo: `public/brand/retropa-app-logo.png`
-- Source asset: `retropa/resources/Assets.xcassets/AppIcon.appiconset/复古游戏手柄融合图.png`
+- Website logo (derived from app icon): `public/brand/retropa-site-logo.png`
+- PWA icons (derived from app icon): `public/brand/retropa-site-logo-192.png`, `public/brand/retropa-site-logo-512.png`
+- Source app icon: `public/brand/retropa-app-logo.png`
+- Logo-wall source trace: `public/logo-wall/sources.json`
 
 ## Notes
 

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/lib/site-config"
 import { cn } from "@/lib/utils"
 
-type NavKey = "home" | "terms" | "privacy"
+type NavKey = "home" | "cores" | "terms" | "privacy"
 
 type SiteLayoutProps = {
   currentPage: NavKey
@@ -16,6 +16,7 @@ type SiteLayoutProps = {
 
 const navItems: Array<{ key: NavKey; label: string; href: string }> = [
   { key: "home", label: "Home", href: "/" },
+  { key: "cores", label: "Cores", href: "/cores/" },
   { key: "terms", label: "Terms", href: "/terms/" },
   { key: "privacy", label: "Privacy", href: "/privacy/" },
 ]
@@ -80,6 +81,9 @@ export function SiteLayout({ currentPage, children }: SiteLayoutProps) {
               Legal and support
             </p>
             <div className="flex flex-wrap items-center gap-4">
+              <a href="/cores/" className="transition hover:text-foreground">
+                Emulator Cores
+              </a>
               <a href="/terms/" className="transition hover:text-foreground">
                 Terms of Service
               </a>

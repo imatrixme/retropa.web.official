@@ -9,8 +9,14 @@
   "description": "Retropa official iOS app website with product highlights, legal pages, and download guidance.",
   "icons": [
     {
-      "src": "/brand/retropa-app-logo.png",
-      "sizes": "1024x1024",
+      "src": "/brand/retropa-site-logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/retropa-site-logo-512.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }

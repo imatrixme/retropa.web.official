@@ -3,15 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Retropa Terms of Service · Official Legal Page</title>
+    <title>Retropa Emulator Cores · Systems and ROM Support Catalog</title>
     <meta
       name="description"
-      content="Read Retropa Terms of Service for iOS app usage, licensing, purchases, user responsibilities, and legal contact information."
+      content="Explore Retropa emulator cores, supported game systems, ROM extension matrix, and upstream GitHub repositories on the official iOS website."
+    />
+    <meta
+      name="keywords"
+      content="Retropa cores,mGBA,SkyEmu,SameBoy,RusticoNES,TetaNES,LakeSnes,JGenesis,Ares,ROM support,emulator systems"
     />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
-    <link rel="canonical" href="https://retropa.app/terms/" />
-    <link rel="alternate" hreflang="en" href="https://retropa.app/terms/" />
+    <link rel="canonical" href="https://retropa.app/cores/" />
+    <link rel="alternate" hreflang="en" href="https://retropa.app/cores/" />
 
     <link rel="icon" type="image/png" href="/brand/retropa-site-logo-192.png" />
     <link rel="apple-touch-icon" href="/brand/retropa-site-logo-192.png" />
@@ -20,16 +24,23 @@
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#edf2ff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090b16" />
 
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Retropa" />
-    <meta property="og:title" content="Retropa Terms of Service" />
-    <meta property="og:description" content="Official legal terms for Retropa iOS app and website." />
-    <meta property="og:url" content="https://retropa.app/terms/" />
+    <meta property="og:title" content="Retropa Emulator Cores Catalog" />
+    <meta
+      property="og:description"
+      content="See emulator cores, system compatibility matrix, ROM extension coverage, and upstream GitHub links used by Retropa."
+    />
+    <meta property="og:url" content="https://retropa.app/cores/" />
     <meta property="og:image" content="https://retropa.app/brand/retropa-site-logo-512.png" />
+    <meta property="og:image:alt" content="Retropa core catalog" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Retropa Terms of Service" />
-    <meta name="twitter:description" content="Official legal terms for Retropa iOS app and website." />
+    <meta name="twitter:title" content="Retropa Emulator Cores Catalog" />
+    <meta
+      name="twitter:description"
+      content="A dedicated official page for emulator cores, supported systems, ROM types, and source repositories."
+    />
     <meta name="twitter:image" content="https://retropa.app/brand/retropa-site-logo-512.png" />
 
     <script>
@@ -50,16 +61,20 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://retropa.app/" },
-          { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://retropa.app/terms/" }
-        ]
+        "@type": "CollectionPage",
+        "name": "Retropa Emulator Cores",
+        "url": "https://retropa.app/cores/",
+        "description": "Catalog of emulator cores, supported systems, ROM extensions, and source repositories used in Retropa.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Retropa",
+          "url": "https://retropa.app/"
+        }
       }
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/entries/terms.tsx"></script>
+    <script type="module" src="/src/entries/cores.tsx"></script>
   </body>
 </html>

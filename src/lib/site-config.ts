@@ -7,7 +7,7 @@ export const siteConfig = {
   appStoreUrl: "https://apps.apple.com/",
   supportEmail: "support@retropa.app",
   legalEffectiveDate: "February 8, 2026",
-  socialImage: "/brand/retropa-app-logo.png",
+  socialImage: "/brand/retropa-site-logo-512.png",
 } as const
 
 export type LegalSection = {

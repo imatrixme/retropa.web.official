@@ -1,0 +1,130 @@
+{
+  "systems": {
+    "game-boy": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Nintendo_Game_Boy_Logo.svg/1280px-Nintendo_Game_Boy_Logo.svg.png",
+      "output": "logo-wall/systems/game-boy.png"
+    },
+    "game-boy-color": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Game_Boy_Color_logo.svg/1280px-Game_Boy_Color_logo.svg.png",
+      "output": "logo-wall/systems/game-boy-color.png"
+    },
+    "game-boy-advance": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Game_Boy_Advance_logo.svg/1280px-Game_Boy_Advance_logo.svg.png",
+      "output": "logo-wall/systems/game-boy-advance.png"
+    },
+    "nintendo-ds": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Nintendo_DS_Logo.svg/1280px-Nintendo_DS_Logo.svg.png",
+      "output": "logo-wall/systems/nintendo-ds.png"
+    },
+    "nes": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/NES_logo.svg/1280px-NES_logo.svg.png",
+      "output": "logo-wall/systems/nes.png"
+    },
+    "snes": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Super_Nintendo_Entertainment_System_logo.svg/1280px-Super_Nintendo_Entertainment_System_logo.svg.png",
+      "output": "logo-wall/systems/snes.png"
+    },
+    "sega-master-system": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Master_System_Logo.svg/1280px-Master_System_Logo.svg.png",
+      "output": "logo-wall/systems/sega-master-system.png"
+    },
+    "game-gear": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Game_gear_us-jp_logo.svg/1280px-Game_gear_us-jp_logo.svg.png",
+      "output": "logo-wall/systems/game-gear.png"
+    },
+    "mega-drive": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/MegaDriveJPLogo.svg/1280px-MegaDriveJPLogo.svg.png",
+      "output": "logo-wall/systems/mega-drive.png"
+    },
+    "genesis": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sega_genesis_logo.svg/1280px-Sega_genesis_logo.svg.png",
+      "output": "logo-wall/systems/genesis.png"
+    },
+    "wonderswan": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/WonderSwan_logo.svg/1280px-WonderSwan_logo.svg.png",
+      "output": "logo-wall/systems/wonderswan.png"
+    },
+    "wonderswan-color": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Wonderswan-Color-Logo.svg/1280px-Wonderswan-Color-Logo.svg.png",
+      "output": "logo-wall/systems/wonderswan-color.png"
+    },
+    "neo-geo-pocket": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neo_Geo_Pocket_logo.svg/1280px-Neo_Geo_Pocket_logo.svg.png",
+      "output": "logo-wall/systems/neo-geo-pocket.png"
+    },
+    "neo-geo-pocket-color": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Neo_Geo_Pocket_Color_logo.svg/1280px-Neo_Geo_Pocket_Color_logo.svg.png",
+      "output": "logo-wall/systems/neo-geo-pocket-color.png"
+    },
+    "containers": {
+      "sourceType": "wikimedia",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Breezeicons-mimetypes-64-application-zip.svg/1280px-Breezeicons-mimetypes-64-application-zip.svg.png",
+      "output": "logo-wall/systems/containers.png"
+    }
+  },
+  "cores": {
+    "mgba": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/mgba-emu/mgba/master/res/scripts/demos/logo.png",
+      "output": "logo-wall/cores/mgba.png"
+    },
+    "skyemu": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/skylersaleh/SkyEmu/dev/src/resources/icons/Apple/iPhone/AppIcon.appiconset/ios-marketing-1024x1024.png",
+      "output": "logo-wall/cores/skyemu.png"
+    },
+    "sameboy": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/LIJI32/SameBoy/master/iOS/logo@3x.png",
+      "output": "logo-wall/cores/sameboy.png"
+    },
+    "rusticones": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/zeta0134/rustico/master/wasm/public/favicon.png",
+      "output": "logo-wall/cores/rusticones.png"
+    },
+    "tetanes": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/lukexor/tetanes/main/tetanes/assets/tetanes_icon.png",
+      "output": "logo-wall/cores/tetanes.png"
+    },
+    "lakesnes": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/dinkc64/LakeSnes/main/resources/winicon.ico",
+      "output": "logo-wall/cores/lakesnes.png"
+    },
+    "jgenesis": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/jsgroth/jgenesis/master/frontend/32x32.png",
+      "output": "logo-wall/cores/jgenesis.png"
+    },
+    "ares": {
+      "sourceType": "github-repo-logo",
+      "source": "https://raw.githubusercontent.com/ares-emulator/ares/master/ares/ares/resource/logo@2x.png",
+      "output": "logo-wall/cores/ares.png"
+    }
+  },
+  "brand": {
+    "sourceType": "derived-from-app-logo",
+    "source": "brand/retropa-app-logo.png",
+    "outputs": [
+      "brand/retropa-site-logo.png",
+      "brand/retropa-site-logo-192.png",
+      "brand/retropa-site-logo-512.png"
+    ]
+  }
+}
