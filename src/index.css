@@ -138,6 +138,7 @@
 
   html {
     scroll-behavior: smooth;
+    background: var(--site-gradient);
   }
 
   html,
@@ -147,9 +148,11 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
     margin: 0;
     min-width: 320px;
+    min-height: 100dvh;
+    background: var(--site-gradient);
     font-family: var(--font-body);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -184,25 +187,25 @@
   }
 
   .premium-nav-shell {
-    border: 1px solid color-mix(in oklab, var(--color-border) 78%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-border) 60%, transparent);
     background:
-      linear-gradient(145deg, rgb(255 255 255 / 62%) 0%, rgb(255 255 255 / 42%) 100%),
-      color-mix(in oklab, var(--color-background) 82%, transparent);
+      linear-gradient(145deg, rgb(255 255 255 / 28%) 0%, rgb(255 255 255 / 10%) 100%),
+      color-mix(in oklab, var(--color-background) 20%, transparent);
     border-radius: 999px;
     box-shadow:
-      0 28px 54px -46px rgb(24 35 88 / 0.5),
-      inset 0 1px 0 rgb(255 255 255 / 0.5);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+      0 22px 52px -44px rgb(24 35 88 / 0.45),
+      inset 0 1px 0 rgb(255 255 255 / 0.32);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
   }
 
   .dark .premium-nav-shell {
     background:
-      linear-gradient(145deg, rgb(24 30 58 / 86%) 0%, rgb(14 18 35 / 80%) 100%),
-      color-mix(in oklab, var(--color-background) 84%, transparent);
+      linear-gradient(145deg, rgb(26 32 62 / 44%) 0%, rgb(10 15 31 / 24%) 100%),
+      color-mix(in oklab, var(--color-background) 18%, transparent);
     box-shadow:
-      0 32px 64px -46px rgb(5 10 36 / 0.85),
-      inset 0 1px 0 rgb(255 255 255 / 0.1);
+      0 28px 58px -44px rgb(5 10 36 / 0.7),
+      inset 0 1px 0 rgb(255 255 255 / 0.08);
   }
 
   .premium-nav-pill {

@@ -110,7 +110,7 @@ export function CoresPage() {
             <CardHeader className="pb-4 pt-6">
               <CardTitle className="inline-flex items-center gap-2 text-xl font-semibold text-foreground">
                 <Layers3 className="h-5 w-5 text-primary" />
-                Core logo wall
+                Core logo showcase
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
@@ -122,7 +122,7 @@ export function CoresPage() {
             <CardHeader className="pb-4 pt-6">
               <CardTitle className="inline-flex items-center gap-2 text-xl font-semibold text-foreground">
                 <Layers3 className="h-5 w-5 text-primary" />
-                System logo wall
+                System logo showcase
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">

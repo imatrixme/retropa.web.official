@@ -280,7 +280,7 @@ export function HomePage() {
         <div className="grid gap-6 xl:grid-cols-2">
           <Card className="border-border/70 bg-card/80 py-0">
             <CardHeader className="pb-4 pt-6">
-              <CardTitle className="text-xl font-semibold text-foreground">Emulator core wall</CardTitle>
+              <CardTitle className="text-xl font-semibold text-foreground">Emulator core showcase</CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
               <LogoWall items={homepageCoreLogoWall} direction="left" durationSeconds={34} />
@@ -289,7 +289,7 @@ export function HomePage() {
 
           <Card className="border-border/70 bg-card/80 py-0">
             <CardHeader className="pb-4 pt-6">
-              <CardTitle className="text-xl font-semibold text-foreground">System wall</CardTitle>
+              <CardTitle className="text-xl font-semibold text-foreground">System showcase</CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
               <LogoWall items={homepageSystemLogoWall} direction="right" durationSeconds={44} />

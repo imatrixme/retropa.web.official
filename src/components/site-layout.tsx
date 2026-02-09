@@ -43,11 +43,11 @@ function NavLinks({ currentPage, compact = false }: { currentPage: NavKey; compa
 
 export function SiteLayout({ currentPage, children }: SiteLayoutProps) {
   return (
-    <div className="site-background relative isolate min-h-screen overflow-hidden text-foreground transition-colors">
+    <div className="site-background relative isolate min-h-screen overflow-x-clip text-foreground transition-colors">
       <div className="site-grid-overlay pointer-events-none absolute inset-0 -z-10" />
       <div className="site-vignette-overlay pointer-events-none absolute inset-0 -z-10" />
 
-      <header className="sticky top-3 z-50 px-3 pb-2 pt-3 md:px-6 md:pt-5">
+      <header className="fixed inset-x-0 top-0 z-50 px-3 pb-2 pt-3 md:px-6 md:pt-4">
         <div className="premium-nav-shell mx-auto max-w-5xl">
           <div className="flex items-center justify-between gap-2 px-3 py-2 md:px-4 md:py-2.5">
             <a href="/" className="transition hover:opacity-90" aria-label="Retropa homepage">
@@ -80,6 +80,8 @@ export function SiteLayout({ currentPage, children }: SiteLayoutProps) {
           </nav>
         </div>
       </header>
+
+      <div aria-hidden className="h-[96px] md:h-[72px]" />
 
       <main>{children}</main>
 
