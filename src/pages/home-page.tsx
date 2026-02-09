@@ -22,6 +22,7 @@ import {
   homepageCoreLogoWall,
   homepageSystemLogoWall,
   romSupportGroups,
+  systemSupportMatrix,
 } from "@/content/emulator-catalog"
 import { siteConfig } from "@/lib/site-config"
 
@@ -85,11 +86,50 @@ const highlights = [
   { value: "8 runtime cores", label: "system-aware switching" },
 ] as const
 
+const heroSystemPhotoWall = systemSupportMatrix
+  .filter((system) => system.id !== "containers" && Boolean(system.hardwarePhotoPath))
+  .map((system) => ({
+    id: system.id,
+    photoPath: system.hardwarePhotoPath as string,
+  }))
+
 export function HomePage() {
   return (
     <div>
-      <section className="mx-auto grid w-full max-w-7xl gap-12 px-6 pb-20 pt-10 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pt-14">
-        <div className="space-y-7">
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 z-0 select-none">
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-30">
+            <div
+              className="logo-marquee-track logo-marquee-left flex w-max items-center"
+              style={{ animationDuration: "120s" }}
+            >
+              {[0, 1].map((groupIndex) => (
+                <div
+                  key={`hero-system-group-${groupIndex}`}
+                  aria-hidden={groupIndex === 1}
+                  className="flex shrink-0 items-center gap-8 pr-8"
+                >
+                  {heroSystemPhotoWall.map((item) => (
+                    <img
+                      key={`hero-system-${groupIndex}-${item.id}`}
+                      src={item.photoPath}
+                      alt=""
+                      aria-hidden="true"
+                      width={512}
+                      height={512}
+                      className="h-[512px] w-[512px] shrink-0 max-w-none"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-6 pb-20 pt-10 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pt-14">
+          <div className="space-y-7">
           <Badge
             variant="outline"
             className="rounded-full border-border/70 bg-card/82 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
@@ -151,41 +191,42 @@ export function HomePage() {
           </div>
         </div>
 
-        <Card className="h-fit overflow-hidden border-border/70 bg-card/84 py-0 shadow-[0_26px_90px_-52px_rgba(74,105,255,0.76)] backdrop-blur-xl">
-          <CardHeader className="border-b border-border/60 pb-6 pt-7">
-            <p className="editorial-kicker">Compatibility Promise</p>
-            <CardTitle className="brand-display mt-2 text-[2.35rem] leading-[1.04] tracking-[0.02em] text-foreground">
-              Two commitments
-              <br />
-              we treat as non-negotiable.
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-5 py-6">
-            {compatibilityPillars.map((pillar) => (
-              <article
-                key={pillar.title}
-                className="rounded-2xl border border-border/65 bg-background/45 p-4 shadow-[0_12px_30px_-28px_rgba(88,113,255,0.8)]"
-              >
-                <p className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                  <pillar.icon className="h-4 w-4 text-primary" />
-                  {pillar.title}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
-              </article>
-            ))}
+          <Card className="h-fit overflow-hidden border-border/70 bg-card/84 py-0 shadow-[0_26px_90px_-52px_rgba(74,105,255,0.76)] backdrop-blur-xl">
+            <CardHeader className="border-b border-border/60 pb-6 pt-7">
+              <p className="editorial-kicker">Compatibility Promise</p>
+              <CardTitle className="brand-display mt-2 text-[2.35rem] leading-[1.04] tracking-[0.02em] text-foreground">
+                Two commitments
+                <br />
+                we treat as non-negotiable.
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-5 py-6">
+              {compatibilityPillars.map((pillar) => (
+                <article
+                  key={pillar.title}
+                  className="rounded-2xl border border-border/65 bg-background/45 p-4 shadow-[0_12px_30px_-28px_rgba(88,113,255,0.8)]"
+                >
+                  <p className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                    <pillar.icon className="h-4 w-4 text-primary" />
+                    {pillar.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
+                </article>
+              ))}
 
-            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3">
-              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-300 dark:text-emerald-200">
-                <ShieldCheck className="h-4 w-4" />
-                Built from real runtime behavior
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-foreground/88">
-                What we claim on this page is tied to the production code path, not marketing-only
-                mock behavior.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+              <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3">
+                <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-300 dark:text-emerald-200">
+                  <ShieldCheck className="h-4 w-4" />
+                  Built from real runtime behavior
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/88">
+                  What we claim on this page is tied to the production code path, not marketing-only
+                  mock behavior.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       <Separator className="mx-auto w-[calc(100%-3rem)] max-w-7xl bg-border/60 md:w-[calc(100%-5rem)]" />
