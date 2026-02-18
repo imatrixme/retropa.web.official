@@ -94,7 +94,7 @@ const heroSystemPhotoWall = systemSupportMatrix
 
 export function HomePage() {
   return (
-    <div>
+    <div className="home-page">
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 z-0 select-none">
           <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-30">
@@ -127,64 +127,64 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-6 pb-20 pt-10 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pt-14">
+        <div className="home-hero-grid relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-6 pb-20 pt-10 md:grid-cols-[1.08fr_0.92fr] md:px-10 md:pt-14">
           <div className="space-y-7">
-          <Badge
-            variant="outline"
-            className="rounded-full border-border/70 bg-card/82 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
-          >
-            Crafted for people who still care how games feel
-          </Badge>
-
-          <div className="space-y-5">
-            <h1 className="brand-display text-balance text-[3.15rem] leading-[0.98] tracking-[0.02em] text-foreground md:text-[5.2rem]">
-              A better home
-              <br />
-              for the games
-              <br />
-              that raised us.
-            </h1>
-            <p className="editorial-lede max-w-2xl">
-              Retropa is not nostalgia as decoration. It is careful engineering for players who know
-              timing, texture, and control memory by heart. Every frame, filter, and touch target is
-              designed to preserve what made these games matter in the first place.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            <PrismaticDownloadButton size="lg" label="Download for iOS" />
-
-            <Button
-              asChild
+            <Badge
               variant="outline"
-              size="lg"
-              className="rounded-full border-border/70 bg-card/76 px-8 text-[15px] text-foreground hover:bg-card"
+              className="home-hero-badge rounded-full border-border/70 bg-card/82 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
             >
-              <a href="#compatibility">Read compatibility promise</a>
-            </Button>
-          </div>
+              Crafted for people who still care how games feel
+            </Badge>
 
-          <div className="grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-            {highlights.map((metric) => (
-              <div
-                key={metric.label}
-                className="rounded-2xl border border-border/70 bg-card/80 px-4 py-4 shadow-[0_18px_40px_-28px_rgba(72,97,214,0.45)]"
+            <div className="space-y-5">
+              <h1 className="home-hero-title brand-display text-balance text-[3.15rem] leading-[0.98] tracking-[0.02em] text-foreground md:text-[5.2rem]">
+                A better home
+                <br />
+                for the games
+                <br />
+                that raised us.
+              </h1>
+              <p className="editorial-lede max-w-2xl">
+                Retropa is not nostalgia as decoration. It is careful engineering for players who know
+                timing, texture, and control memory by heart. Every frame, filter, and touch target is
+                designed to preserve what made these games matter in the first place.
+              </p>
+            </div>
+
+            <div className="home-cta-row flex flex-wrap gap-3">
+              <PrismaticDownloadButton size="lg" label="Download for iOS" />
+
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full border-border/70 bg-card/76 px-8 text-[15px] text-foreground hover:bg-card"
               >
-                <p className="brand-display text-[1.75rem] leading-none tracking-[0.02em] text-foreground">
-                  {metric.value}
-                </p>
-                <p className="mt-2 text-[11px] uppercase tracking-[0.13em] text-muted-foreground">
-                  {metric.label}
-                </p>
-              </div>
-            ))}
+                <a href="#compatibility">Read compatibility promise</a>
+              </Button>
+            </div>
+
+            <div className="grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+              {highlights.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="rounded-2xl border border-border/70 bg-card/80 px-4 py-4 shadow-[0_18px_40px_-28px_rgba(72,97,214,0.45)]"
+                >
+                  <p className="home-metric-value brand-display text-[1.75rem] leading-none tracking-[0.02em] text-foreground">
+                    {metric.value}
+                  </p>
+                  <p className="mt-2 text-[11px] uppercase tracking-[0.13em] text-muted-foreground">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
           <Card className="h-fit overflow-hidden border-border/70 bg-card/84 py-0 shadow-[0_26px_90px_-52px_rgba(74,105,255,0.76)] backdrop-blur-xl">
             <CardHeader className="border-b border-border/60 pb-6 pt-7">
               <p className="editorial-kicker">Compatibility Promise</p>
-              <CardTitle className="brand-display mt-2 text-[2.35rem] leading-[1.04] tracking-[0.02em] text-foreground">
+              <CardTitle className="home-hero-card-title brand-display mt-2 text-[2.35rem] leading-[1.04] tracking-[0.02em] text-foreground">
                 Two commitments
                 <br />
                 we treat as non-negotiable.
@@ -221,11 +221,14 @@ export function HomePage() {
 
       <Separator className="mx-auto w-[calc(100%-3rem)] max-w-7xl bg-border/60 md:w-[calc(100%-5rem)]" />
 
-      <section id="compatibility" className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
+      <section
+        id="compatibility"
+        className="home-section-tight mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20"
+      >
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="editorial-kicker">Compatibility before cosmetics</p>
-            <h2 className="brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
+            <h2 className="home-section-title brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
               Built for confidence,
               <br />
               not checkbox marketing.
@@ -288,11 +291,11 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
+      <section className="home-section-tight mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="editorial-kicker">Real capability highlights</p>
-            <h2 className="brand-display mt-3 text-4xl leading-tight tracking-[0.03em] text-foreground md:text-5xl">
+            <h2 className="home-section-title brand-display mt-3 text-4xl leading-tight tracking-[0.03em] text-foreground md:text-5xl">
               Premium feel starts with
               <br />
               reliable internals.
@@ -392,12 +395,12 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-6 pb-24 pt-14 md:px-10 md:pb-28">
+      <section className="home-bottom-cta mx-auto w-full max-w-7xl px-6 pb-24 pt-14 md:px-10 md:pb-28">
         <Card className="overflow-hidden border-border/70 bg-gradient-to-br from-primary/20 via-accent/10 to-emerald-500/8 py-0 backdrop-blur-xl">
           <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
               <p className="editorial-kicker">Download Retropa</p>
-              <h3 className="brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
+              <h3 className="home-section-title brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
                 Keep the classics,
                 <br />
                 keep the feeling.
@@ -408,7 +411,7 @@ export function HomePage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="home-cta-row flex flex-wrap gap-3">
               <PrismaticDownloadButton size="lg" label="Download now" />
               <Button
                 asChild
