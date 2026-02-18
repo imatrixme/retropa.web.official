@@ -44,4 +44,4 @@ npm run lint
 ## Notes
 
 - The project is static and deployable on CDN/object storage.
-- If your production domain is not `https://retropa.app`, update canonical URLs and sitemap locations.
+- If your production domain is not `https://retropa.com`, update canonical URLs and sitemap locations.

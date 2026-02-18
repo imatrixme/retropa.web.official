@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://retropa.app/sitemap.xml
+Sitemap: https://retropa.com/sitemap.xml

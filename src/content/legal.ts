@@ -53,7 +53,7 @@ export const termsSections: LegalSection[] = [
     id: "contact",
     title: "7. Contact",
     paragraphs: [
-      "Questions regarding these Terms can be sent to support@retropa.app. We may update these Terms from time to time and will publish the latest version on this page.",
+      "Questions regarding these Terms can be sent to support@retropa.com. We may update these Terms from time to time and will publish the latest version on this page.",
     ],
   },
 ]
@@ -104,7 +104,7 @@ export const privacySections: LegalSection[] = [
     title: "6. Your Rights",
     paragraphs: [
       "Depending on your region, you may have rights to access, delete, correct, or restrict processing of personal data. You may also object to certain processing activities.",
-      "To exercise your rights, contact support@retropa.app with your request details.",
+      "To exercise your rights, contact support@retropa.com with your request details.",
     ],
   },
   {

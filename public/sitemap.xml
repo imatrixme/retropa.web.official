@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://retropa.app/</loc>
+    <loc>https://retropa.com/</loc>
     <lastmod>2026-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://retropa.app/cores/</loc>
+    <loc>https://retropa.com/cores/</loc>
     <lastmod>2026-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://retropa.app/terms/</loc>
+    <loc>https://retropa.com/terms/</loc>
     <lastmod>2026-02-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://retropa.app/privacy/</loc>
+    <loc>https://retropa.com/privacy/</loc>
     <lastmod>2026-02-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
