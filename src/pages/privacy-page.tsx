@@ -1,14 +1,23 @@
 import { LegalDocument } from "@/components/legal-document"
-import { privacySections } from "@/content/legal"
+import { useI18n } from "@/i18n/context"
 import { siteConfig } from "@/lib/site-config"
 
 export function PrivacyPage() {
+  const { locale, messages } = useI18n()
+  const [year, month, day] = siteConfig.legalEffectiveDateISO.split("-").map(Number)
+  const effectiveDate = new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month - 1, day)))
+
   return (
     <LegalDocument
-      title="Privacy Policy"
-      subtitle="This policy explains what information Retropa processes, how we secure it, and the rights you can exercise regarding your data."
-      effectiveDate={siteConfig.legalEffectiveDate}
-      sections={privacySections}
+      title={messages.privacy.title}
+      subtitle={messages.privacy.subtitle}
+      effectiveDate={effectiveDate}
+      sections={messages.privacy.sections}
     />
   )
 }

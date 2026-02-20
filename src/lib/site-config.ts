@@ -6,7 +6,7 @@ export const siteConfig = {
     "Retropa blends multi-core emulation, advanced skin customization, haptic waveform tuning, filter packs, and localization packs into a polished iOS experience.",
   appStoreUrl: "https://apps.apple.com/",
   supportEmail: "support@retropa.com",
-  legalEffectiveDate: "February 8, 2026",
+  legalEffectiveDateISO: "2026-02-08",
   socialImage: "/brand/retropa-site-logo-512.png",
 } as const
 

@@ -17,82 +17,32 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import {
-  coreMatrixRows,
-  homepageCoreLogoWall,
-  homepageSystemLogoWall,
-  romSupportGroups,
-  systemSupportMatrix,
-} from "@/content/emulator-catalog"
-
-const compatibilityPillars = [
-  {
-    title: "RetroArch Filter Stack: Full Support",
-    description:
-      "Run full RetroArch shader chains with .slang / .slangp presets, multi-pass ordering, parameter controls, and stable runtime switching.",
-    icon: WandSparkles,
-  },
-  {
-    title: "Delta Skin Packages: Full Compatibility",
-    description:
-      "Import Delta .deltaskin packages directly, preserve layout intent, and keep controls responsive across portrait and landscape transitions.",
-    icon: Layers,
-  },
-] as const
-
-const spotlightFeatures = [
-  {
-    title: "Per-system memory that respects your habits",
-    description:
-      "Retropa remembers your preferred core, skin mode, and control layout for each console system so you can return exactly where comfort starts.",
-    icon: Sparkles,
-  },
-  {
-    title: "Controller mapping with studio-level depth",
-    description:
-      "Multiple physical controllers can run in parallel with independent slot mapping, profile save, and live remap behavior during gameplay.",
-    icon: Gamepad2,
-  },
-  {
-    title: "Haptics tuned by intent, not by chance",
-    description:
-      "Waveform packs support per-action press/release patterns and fallback behavior so tactile feedback feels deliberate on every device.",
-    icon: Zap,
-  },
-  {
-    title: "Core switching without breaking flow",
-    description:
-      "mGBA, SkyEmu, SameBoy, RusticoNES, TetaNES, LakeSnes, JGenesis, and Ares are wired into one runtime model with coherent behavior.",
-    icon: Cpu,
-  },
-  {
-    title: "Localization packs that ship with craft",
-    description:
-      "Language packs hot-load instantly with reliable namespace fallback, letting community or regional updates feel native instead of patched.",
-    icon: Globe2,
-  },
-  {
-    title: "Pack ecosystem with strict validation",
-    description:
-      "Visual, shader, localization, audio, and document packs follow one import pipeline with integrity checks before runtime activation.",
-    icon: ArrowUpRight,
-  },
-] as const
-
-const highlights = [
-  { value: "RetroArch .slangp", label: "full filter pipeline" },
-  { value: "Delta .deltaskin", label: "full compatibility" },
-  { value: "8 runtime cores", label: "system-aware switching" },
-] as const
-
-const heroSystemPhotoWall = systemSupportMatrix
-  .filter((system) => system.id !== "containers" && Boolean(system.hardwarePhotoPath))
-  .map((system) => ({
-    id: system.id,
-    photoPath: system.hardwarePhotoPath as string,
-  }))
+import { useI18n } from "@/i18n/context"
 
 export function HomePage() {
+  const { messages, catalog } = useI18n()
+
+  const compatibilityPillars = [
+    { ...messages.home.compatibilityPillars[0], icon: WandSparkles },
+    { ...messages.home.compatibilityPillars[1], icon: Layers },
+  ]
+
+  const spotlightFeatures = [
+    { ...messages.home.spotlightFeatures[0], icon: Sparkles },
+    { ...messages.home.spotlightFeatures[1], icon: Gamepad2 },
+    { ...messages.home.spotlightFeatures[2], icon: Zap },
+    { ...messages.home.spotlightFeatures[3], icon: Cpu },
+    { ...messages.home.spotlightFeatures[4], icon: Globe2 },
+    { ...messages.home.spotlightFeatures[5], icon: ArrowUpRight },
+  ]
+
+  const heroSystemPhotoWall = catalog.systemSupportMatrix
+    .filter((system) => system.id !== "containers" && Boolean(system.hardwarePhotoPath))
+    .map((system) => ({
+      id: system.id,
+      photoPath: system.hardwarePhotoPath as string,
+    }))
+
   return (
     <div className="home-page">
       <section className="relative overflow-hidden">
@@ -133,26 +83,22 @@ export function HomePage() {
               variant="outline"
               className="home-hero-badge rounded-full border-border/70 bg-card/82 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
             >
-              Crafted for people who still care how games feel
+              {messages.home.heroBadge}
             </Badge>
 
             <div className="space-y-5">
               <h1 className="home-hero-title brand-display text-balance text-[3.15rem] leading-[0.98] tracking-[0.02em] text-foreground md:text-[5.2rem]">
-                A better home
+                {messages.home.heroTitleLines[0]}
                 <br />
-                for the games
+                {messages.home.heroTitleLines[1]}
                 <br />
-                that raised us.
+                {messages.home.heroTitleLines[2]}
               </h1>
-              <p className="editorial-lede max-w-2xl">
-                Retropa is not nostalgia as decoration. It is careful engineering for players who know
-                timing, texture, and control memory by heart. Every frame, filter, and touch target is
-                designed to preserve what made these games matter in the first place.
-              </p>
+              <p className="editorial-lede max-w-2xl">{messages.home.heroDescription}</p>
             </div>
 
             <div className="home-cta-row flex flex-wrap gap-3">
-              <PrismaticDownloadButton size="lg" label="Download for iOS" />
+              <PrismaticDownloadButton size="lg" label={messages.home.downloadForIOSLabel} />
 
               <Button
                 asChild
@@ -160,12 +106,12 @@ export function HomePage() {
                 size="lg"
                 className="rounded-full border-border/70 bg-card/76 px-8 text-[15px] text-foreground hover:bg-card"
               >
-                <a href="#compatibility">Read compatibility promise</a>
+                <a href="#compatibility">{messages.home.readCompatibilityPromise}</a>
               </Button>
             </div>
 
             <div className="grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-              {highlights.map((metric) => (
+              {messages.home.highlights.map((metric) => (
                 <div
                   key={metric.label}
                   className="rounded-2xl border border-border/70 bg-card/80 px-4 py-4 shadow-[0_18px_40px_-28px_rgba(72,97,214,0.45)]"
@@ -183,11 +129,11 @@ export function HomePage() {
 
           <Card className="h-fit overflow-hidden border-border/70 bg-card/84 py-0 shadow-[0_26px_90px_-52px_rgba(74,105,255,0.76)] backdrop-blur-xl">
             <CardHeader className="border-b border-border/60 pb-6 pt-7">
-              <p className="editorial-kicker">Compatibility Promise</p>
+              <p className="editorial-kicker">{messages.home.compatibilityCardKicker}</p>
               <CardTitle className="home-hero-card-title brand-display mt-2 text-[2.35rem] leading-[1.04] tracking-[0.02em] text-foreground">
-                Two commitments
+                {messages.home.compatibilityCardTitleLines[0]}
                 <br />
-                we treat as non-negotiable.
+                {messages.home.compatibilityCardTitleLines[1]}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-5 py-6">
@@ -207,11 +153,10 @@ export function HomePage() {
               <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3">
                 <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-300 dark:text-emerald-200">
                   <ShieldCheck className="h-4 w-4" />
-                  Built from real runtime behavior
+                  {messages.home.runtimeIntegrityTitle}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-foreground/88">
-                  What we claim on this page is tied to the production code path, not marketing-only
-                  mock behavior.
+                  {messages.home.runtimeIntegrityDescription}
                 </p>
               </div>
             </CardContent>
@@ -227,11 +172,11 @@ export function HomePage() {
       >
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="editorial-kicker">Compatibility before cosmetics</p>
+            <p className="editorial-kicker">{messages.home.compatibilitySectionKicker}</p>
             <h2 className="home-section-title brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
-              Built for confidence,
+              {messages.home.compatibilitySectionTitleLines[0]}
               <br />
-              not checkbox marketing.
+              {messages.home.compatibilitySectionTitleLines[1]}
             </h2>
           </div>
         </div>
@@ -260,32 +205,35 @@ export function HomePage() {
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-10 md:px-10">
         <div className="mb-9">
-          <p className="editorial-kicker">Core and system logos</p>
+          <p className="editorial-kicker">{messages.home.logosSectionKicker}</p>
           <h2 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground md:text-5xl">
-            Official assets in motion
+            {messages.home.logosSectionTitle}
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-            Core and console logos are sourced from official project repositories and Wikimedia,
-            then normalized into performance-safe PNG assets for smooth page rendering.
+            {messages.home.logosSectionDescription}
           </p>
         </div>
 
         <div className="grid gap-6 xl:grid-cols-2">
           <Card className="border-border/70 bg-card/80 py-0">
             <CardHeader className="pb-4 pt-6">
-              <CardTitle className="text-xl font-semibold text-foreground">Emulator core showcase</CardTitle>
+              <CardTitle className="text-xl font-semibold text-foreground">
+                {messages.home.coreShowcaseTitle}
+              </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
-              <LogoWall items={homepageCoreLogoWall} direction="left" durationSeconds={34} />
+              <LogoWall items={catalog.homepageCoreLogoWall} direction="left" durationSeconds={34} />
             </CardContent>
           </Card>
 
           <Card className="border-border/70 bg-card/80 py-0">
             <CardHeader className="pb-4 pt-6">
-              <CardTitle className="text-xl font-semibold text-foreground">System showcase</CardTitle>
+              <CardTitle className="text-xl font-semibold text-foreground">
+                {messages.home.systemShowcaseTitle}
+              </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
-              <LogoWall items={homepageSystemLogoWall} direction="right" durationSeconds={44} />
+              <LogoWall items={catalog.homepageSystemLogoWall} direction="right" durationSeconds={44} />
             </CardContent>
           </Card>
         </div>
@@ -294,11 +242,11 @@ export function HomePage() {
       <section className="home-section-tight mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="editorial-kicker">Real capability highlights</p>
+            <p className="editorial-kicker">{messages.home.capabilitySectionKicker}</p>
             <h2 className="home-section-title brand-display mt-3 text-4xl leading-tight tracking-[0.03em] text-foreground md:text-5xl">
-              Premium feel starts with
+              {messages.home.capabilitySectionTitleLines[0]}
               <br />
-              reliable internals.
+              {messages.home.capabilitySectionTitleLines[1]}
             </h2>
           </div>
         </div>
@@ -329,15 +277,15 @@ export function HomePage() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_94%_0%,rgba(122,92,255,0.25),transparent_42%)]" />
             <CardHeader className="relative pb-4 pt-6">
               <CardTitle className="brand-display text-[1.75rem] leading-[1.06] tracking-[0.02em] text-foreground md:text-[2rem]">
-                System-to-core matrix
+                {messages.home.systemCoreMatrixTitle}
               </CardTitle>
               <p className="text-xs uppercase tracking-[0.13em] text-muted-foreground">
-                Dense routing map · per-system core preference memory
+                {messages.home.systemCoreMatrixSubtitle}
               </p>
             </CardHeader>
             <CardContent className="relative pb-6">
               <div className="grid gap-2 sm:grid-cols-2">
-                {coreMatrixRows.map((row) => (
+                {catalog.coreMatrixRows.map((row) => (
                   <div
                     key={row.label}
                     className="rounded-xl border border-border/60 bg-background/50 px-3 py-2.5 transition hover:border-primary/35 hover:bg-background/70"
@@ -347,7 +295,7 @@ export function HomePage() {
                         {row.label}
                       </p>
                       <span className="rounded-full border border-primary/35 bg-primary/12 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-primary">
-                        Auto
+                        {messages.home.autoBadge}
                       </span>
                     </div>
                     <p className="mt-1.5 text-xs leading-relaxed text-foreground/88">{row.cores}</p>
@@ -361,15 +309,15 @@ export function HomePage() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(39,194,225,0.22),transparent_44%)]" />
             <CardHeader className="relative pb-4 pt-6">
               <CardTitle className="brand-display text-[1.75rem] leading-[1.06] tracking-[0.02em] text-foreground md:text-[2rem]">
-                ROM format clarity
+                {messages.home.romClarityTitle}
               </CardTitle>
               <p className="text-xs uppercase tracking-[0.13em] text-muted-foreground">
-                Extension matrix · deterministic import behavior
+                {messages.home.romClaritySubtitle}
               </p>
             </CardHeader>
             <CardContent className="relative pb-6">
               <div className="grid gap-2 sm:grid-cols-2">
-                {romSupportGroups.map((group) => (
+                {catalog.romSupportGroups.map((group) => (
                   <div
                     key={group.id}
                     className="rounded-xl border border-border/60 bg-background/50 px-3 py-2.5 transition hover:border-accent/45 hover:bg-background/70"
@@ -399,20 +347,19 @@ export function HomePage() {
         <Card className="overflow-hidden border-border/70 bg-gradient-to-br from-primary/20 via-accent/10 to-emerald-500/8 py-0 backdrop-blur-xl">
           <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
-              <p className="editorial-kicker">Download Retropa</p>
+              <p className="editorial-kicker">{messages.home.bottomCtaKicker}</p>
               <h3 className="home-section-title brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
-                Keep the classics,
+                {messages.home.bottomCtaTitleLines[0]}
                 <br />
-                keep the feeling.
+                {messages.home.bottomCtaTitleLines[1]}
               </h3>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                If you care about authenticity as much as modern polish, Retropa is built for your
-                daily play—not just for screenshots.
+                {messages.home.bottomCtaDescription}
               </p>
             </div>
 
             <div className="home-cta-row flex flex-wrap gap-3">
-              <PrismaticDownloadButton size="lg" label="Download now" />
+              <PrismaticDownloadButton size="lg" label={messages.home.bottomCtaDownloadLabel} />
               <Button
                 asChild
                 variant="outline"
@@ -421,7 +368,7 @@ export function HomePage() {
               >
                 <a href="/cores/">
                   <CheckCircle2 className="h-4 w-4" />
-                  Inspect core catalog
+                  {messages.home.inspectCoreCatalogLabel}
                 </a>
               </Button>
             </div>

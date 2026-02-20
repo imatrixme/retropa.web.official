@@ -1,5 +1,6 @@
 import { Download } from "lucide-react"
 
+import { useI18n } from "@/i18n/context"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/site-config"
 
@@ -20,10 +21,13 @@ const iconClassByVariant: Record<NonNullable<PrismaticDownloadButtonProps["size"
 }
 
 export function PrismaticDownloadButton({
-  label = "Download for iOS",
+  label,
   size = "lg",
   className,
 }: PrismaticDownloadButtonProps) {
+  const { messages } = useI18n()
+  const resolvedLabel = label ?? messages.home.downloadForIOSLabel
+
   return (
     <a
       href={siteConfig.appStoreUrl}
@@ -37,7 +41,7 @@ export function PrismaticDownloadButton({
     >
       <span className="cta-prismatic-shimmer" aria-hidden="true" />
       <Download className={cn("relative z-[2] transition-transform duration-300 group-hover:-translate-y-0.5", iconClassByVariant[size])} />
-      <span className="relative z-[2] whitespace-nowrap">{label}</span>
+      <span className="relative z-[2] whitespace-nowrap">{resolvedLabel}</span>
     </a>
   )
 }

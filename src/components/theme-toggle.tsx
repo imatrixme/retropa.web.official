@@ -9,30 +9,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
+import { useI18n } from "@/i18n/context"
 import { applyTheme, resolveThemePreference, setTheme, type ThemePreference } from "@/lib/theme"
-
-const themeOptions: Array<{
-  value: ThemePreference
-  label: string
-  icon: typeof Laptop
-}> = [
-  { value: "system", label: "System", icon: Laptop },
-  { value: "light", label: "Light", icon: SunMedium },
-  { value: "dark", label: "Dark", icon: MoonStar },
-]
-
-const themeTitle: Record<ThemePreference, string> = {
-  system: "Theme: System",
-  light: "Theme: Light",
-  dark: "Theme: Dark",
-}
 
 function isThemePreference(value: string): value is ThemePreference {
   return value === "system" || value === "light" || value === "dark"
 }
 
 export function ThemeToggle() {
+  const { messages } = useI18n()
   const [themePreference, setThemePreference] = useState<ThemePreference>(() => resolveThemePreference())
+  const themeOptions: Array<{
+    value: ThemePreference
+    label: string
+    icon: typeof Laptop
+  }> = [
+    { value: "system", label: messages.shared.theme.options.system, icon: Laptop },
+    { value: "light", label: messages.shared.theme.options.light, icon: SunMedium },
+    { value: "dark", label: messages.shared.theme.options.dark, icon: MoonStar },
+  ]
+
+  const themeTitle: Record<ThemePreference, string> = {
+    system: `${messages.shared.theme.menuLabel}: ${messages.shared.theme.options.system}`,
+    light: `${messages.shared.theme.menuLabel}: ${messages.shared.theme.options.light}`,
+    dark: `${messages.shared.theme.menuLabel}: ${messages.shared.theme.options.dark}`,
+  }
 
   useEffect(() => {
     if (typeof window === "undefined" || themePreference !== "system") {
@@ -77,7 +78,7 @@ export function ThemeToggle() {
           variant="outline"
           size="sm"
           className="h-9 gap-1 rounded-full border-border/65 bg-card/46 px-2.5 text-foreground hover:bg-card/70"
-          aria-label={`${themeTitle[themePreference]}. Open theme menu.`}
+          aria-label={`${themeTitle[themePreference]}. ${messages.shared.theme.openMenuLabel}.`}
           title={themeTitle[themePreference]}
         >
           <CurrentIcon className="h-4 w-4" />

@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { useI18n } from "@/i18n/context"
 import type { LegalSection } from "@/lib/site-config"
 
 type LegalDocumentProps = {
@@ -16,6 +17,8 @@ export function LegalDocument({
   effectiveDate,
   sections,
 }: LegalDocumentProps) {
+  const { messages } = useI18n()
+
   return (
     <div className="mx-auto w-full max-w-6xl px-6 pb-28 pt-12 md:px-10">
       <Card className="border-border/70 bg-card/72 py-0 shadow-[0_24px_80px_-52px_rgba(72,103,255,0.45)] backdrop-blur-xl">
@@ -24,21 +27,21 @@ export function LegalDocument({
             variant="outline"
             className="w-fit border-border/70 bg-background/35 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
           >
-            Legal
+            {messages.shared.legalDocument.badge}
           </Badge>
           <CardTitle className="brand-display text-4xl tracking-[0.03em] text-foreground md:text-5xl">
             {title}
           </CardTitle>
           <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">{subtitle}</p>
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-            Effective Date · {effectiveDate}
+            {messages.shared.legalDocument.effectiveDateLabel} · {effectiveDate}
           </p>
         </CardHeader>
 
         <CardContent className="grid gap-10 py-10 md:grid-cols-[250px_1fr] md:items-start">
           <aside className="md:sticky md:top-28">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              On this page
+              {messages.shared.legalDocument.onThisPageLabel}
             </h2>
             <ul className="mt-4 space-y-3">
               {sections.map((section) => (

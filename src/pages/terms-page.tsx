@@ -1,14 +1,23 @@
 import { LegalDocument } from "@/components/legal-document"
-import { termsSections } from "@/content/legal"
+import { useI18n } from "@/i18n/context"
 import { siteConfig } from "@/lib/site-config"
 
 export function TermsPage() {
+  const { locale, messages } = useI18n()
+  const [year, month, day] = siteConfig.legalEffectiveDateISO.split("-").map(Number)
+  const effectiveDate = new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month - 1, day)))
+
   return (
     <LegalDocument
-      title="Terms of Service"
-      subtitle="These terms govern your use of Retropa, including app access, purchases, and user responsibilities for imported content."
-      effectiveDate={siteConfig.legalEffectiveDate}
-      sections={termsSections}
+      title={messages.terms.title}
+      subtitle={messages.terms.subtitle}
+      effectiveDate={effectiveDate}
+      sections={messages.terms.sections}
     />
   )
 }

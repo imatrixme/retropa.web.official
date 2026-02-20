@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { useI18n } from "@/i18n/context"
 
 type BrandLogoProps = {
   size?: "sm" | "md" | "lg"
@@ -17,6 +18,8 @@ export function BrandLogo({
   showWordmark = true,
   className,
 }: BrandLogoProps) {
+  const { messages } = useI18n()
+
   return (
     <div className={cn("inline-flex items-center gap-3", className)}>
       <div
@@ -27,7 +30,7 @@ export function BrandLogo({
       >
         <img
           src="/brand/retropa-site-logo.png"
-          alt="Retropa website logo"
+          alt={messages.shared.brand.logoAlt}
           className="h-full w-full object-cover"
           loading="eager"
           decoding="async"
@@ -35,9 +38,11 @@ export function BrandLogo({
       </div>
       {showWordmark ? (
         <div className="leading-tight">
-          <p className="brand-display text-xl tracking-[0.08em] text-foreground">Retropa</p>
+          <p className="brand-display text-xl tracking-[0.08em] text-foreground">
+            {messages.shared.brand.name}
+          </p>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-            iOS Retro Studio
+            {messages.shared.brand.tagline}
           </p>
         </div>
       ) : null}

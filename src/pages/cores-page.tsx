@@ -5,16 +5,12 @@ import { PrismaticDownloadButton } from "@/components/prismatic-download-button"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import {
-  emulatorCores,
-  homepageCoreLogoWall,
-  homepageSystemLogoWall,
-  systemSupportMatrix,
-} from "@/content/emulator-catalog"
-
-const coreNameById = new Map(emulatorCores.map((core) => [core.id, core.label]))
+import { useI18n } from "@/i18n/context"
 
 export function CoresPage() {
+  const { messages, catalog } = useI18n()
+  const coreNameById = new Map(catalog.emulatorCores.map((core) => [core.id, core.label]))
+
   return (
     <div>
       <section className="mx-auto w-full max-w-7xl px-6 pb-12 pt-10 md:px-10 md:pt-14">
@@ -24,31 +20,28 @@ export function CoresPage() {
               variant="outline"
               className="rounded-full border-border/70 bg-card/82 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
             >
-              Emulator Core Catalog
+              {messages.cores.heroBadge}
             </Badge>
 
             <div>
               <h1 className="brand-display text-balance text-[3.3rem] leading-[0.96] tracking-[0.02em] text-foreground md:text-[5rem]">
-                Core lineage,
+                {messages.cores.heroTitleLines[0]}
                 <br />
-                system matrix,
+                {messages.cores.heroTitleLines[1]}
                 <br />
-                and source truth.
+                {messages.cores.heroTitleLines[2]}
               </h1>
-              <p className="editorial-lede mt-4 max-w-2xl">
-                This page shows exactly which emulator cores power Retropa, which consoles each core
-                serves, and where each project lives on GitHub. No blurred claims, no hidden footnotes.
-              </p>
+              <p className="editorial-lede mt-4 max-w-2xl">{messages.cores.heroDescription}</p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <PrismaticDownloadButton size="lg" label="Download for iOS" />
+              <PrismaticDownloadButton size="lg" label={messages.cores.downloadForIOSLabel} />
               <Button
                 asChild
                 variant="outline"
                 className="rounded-full border-border/70 bg-card/75 px-7 text-foreground hover:bg-card"
               >
-                <a href="/">Back to homepage</a>
+                <a href="/">{messages.cores.backToHomepageLabel}</a>
               </Button>
             </div>
           </div>
@@ -56,40 +49,32 @@ export function CoresPage() {
           <Card className="border-border/70 bg-card/82 py-0 shadow-[0_24px_90px_-54px_rgba(82,106,236,0.68)] backdrop-blur-xl">
             <CardHeader className="border-b border-border/60 pb-6 pt-7">
               <CardTitle className="brand-display text-4xl leading-[1.04] tracking-[0.03em] text-foreground">
-                Compatibility standards
+                {messages.cores.standardsTitle}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 py-6 text-sm leading-relaxed text-muted-foreground">
               <article className="rounded-xl border border-border/60 bg-background/45 px-4 py-3">
                 <p className="inline-flex items-center gap-2 font-semibold text-foreground">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
-                  RetroArch filter chain support
+                  {messages.cores.standardsRetroArchTitle}
                 </p>
-                <p className="mt-2">
-                  Full .slang / .slangp pipeline support is expected in runtime behavior and reflected
-                  in product capability communication.
-                </p>
+                <p className="mt-2">{messages.cores.standardsRetroArchDescription}</p>
               </article>
 
               <article className="rounded-xl border border-border/60 bg-background/45 px-4 py-3">
                 <p className="inline-flex items-center gap-2 font-semibold text-foreground">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
-                  Delta skin compatibility
+                  {messages.cores.standardsDeltaTitle}
                 </p>
-                <p className="mt-2">
-                  Delta skin package compatibility is maintained as a first-class contract, including
-                  layout-safe fallback behavior.
-                </p>
+                <p className="mt-2">{messages.cores.standardsDeltaDescription}</p>
               </article>
 
               <article className="rounded-xl border border-emerald-500/35 bg-emerald-500/10 px-4 py-3">
                 <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-300 dark:text-emerald-200">
                   <ShieldCheck className="h-4 w-4" />
-                  Source traceability
+                  {messages.cores.standardsTraceabilityTitle}
                 </p>
-                <p className="mt-2 text-foreground/88">
-                  Core logos and system logos are sourced and versioned with explicit origin records.
-                </p>
+                <p className="mt-2 text-foreground/88">{messages.cores.standardsTraceabilityDescription}</p>
               </article>
             </CardContent>
           </Card>
@@ -102,11 +87,11 @@ export function CoresPage() {
             <CardHeader className="pb-4 pt-6">
               <CardTitle className="inline-flex items-center gap-2 text-xl font-semibold text-foreground">
                 <Layers3 className="h-5 w-5 text-primary" />
-                Core logo showcase
+                {messages.cores.coreLogoShowcaseTitle}
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
-              <LogoWall items={homepageCoreLogoWall} direction="left" durationSeconds={34} />
+              <LogoWall items={catalog.homepageCoreLogoWall} direction="left" durationSeconds={34} />
             </CardContent>
           </Card>
 
@@ -114,11 +99,11 @@ export function CoresPage() {
             <CardHeader className="pb-4 pt-6">
               <CardTitle className="inline-flex items-center gap-2 text-xl font-semibold text-foreground">
                 <Layers3 className="h-5 w-5 text-primary" />
-                System logo showcase
+                {messages.cores.systemLogoShowcaseTitle}
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-6">
-              <LogoWall items={homepageSystemLogoWall} direction="right" durationSeconds={44} />
+              <LogoWall items={catalog.homepageSystemLogoWall} direction="right" durationSeconds={44} />
             </CardContent>
           </Card>
         </div>
@@ -126,14 +111,14 @@ export function CoresPage() {
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-12 md:px-10">
         <div className="mb-7">
-          <p className="editorial-kicker">Core cards</p>
+          <p className="editorial-kicker">{messages.cores.coreCardsKicker}</p>
           <h2 className="brand-display mt-2 text-[2.9rem] leading-[0.96] tracking-[0.03em] text-foreground">
-            Every core, mapped and linked
+            {messages.cores.coreCardsTitle}
           </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {emulatorCores.map((core) => (
+          {catalog.emulatorCores.map((core) => (
             <Card key={core.id} className="border-border/70 bg-card/82 py-0">
               <CardHeader className="space-y-3 pb-4 pt-6">
                 <div className="flex items-center gap-3">
@@ -156,7 +141,7 @@ export function CoresPage() {
               <CardContent className="space-y-4 pb-6">
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    ROM extensions
+                    {messages.cores.romExtensionsLabel}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {core.romExtensions.map((extension) => (
@@ -188,14 +173,14 @@ export function CoresPage() {
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-24 pt-6 md:px-10 md:pb-28">
         <div className="mb-7">
-          <p className="editorial-kicker">System matrix</p>
+          <p className="editorial-kicker">{messages.cores.systemMatrixKicker}</p>
           <h2 className="brand-display mt-2 text-[2.9rem] leading-[0.96] tracking-[0.03em] text-foreground">
-            Console families and ROM coverage
+            {messages.cores.systemMatrixTitle}
           </h2>
         </div>
 
         <div className="grid gap-6 xl:grid-cols-2">
-          {systemSupportMatrix.map((system) => (
+          {catalog.systemSupportMatrix.map((system) => (
             <Card key={system.id} className="relative overflow-hidden border-border/70 bg-card/80 py-0">
               {system.hardwarePhotoPath ? (
                 <img
@@ -225,7 +210,7 @@ export function CoresPage() {
               <CardContent className="relative z-10 space-y-4 pb-6">
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    Available cores
+                    {messages.cores.availableCoresLabel}
                   </p>
                   <p className="text-sm text-foreground/88">
                     {system.coreIds.map((coreId) => coreNameById.get(coreId) ?? coreId).join(" · ")}
@@ -233,7 +218,7 @@ export function CoresPage() {
                 </div>
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    ROM coverage
+                    {messages.cores.romCoverageLabel}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {system.romExtensions.map((extension) => (
