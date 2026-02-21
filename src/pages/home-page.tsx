@@ -87,7 +87,7 @@ export function HomePage() {
             </Badge>
 
             <div className="space-y-5">
-              <h1 className="home-hero-title brand-display text-balance text-[3.15rem] leading-[0.98] tracking-[0.02em] text-foreground md:text-[5.2rem]">
+              <h1 className="home-hero-title brand-display text-balance text-[2.65rem] leading-[0.99] tracking-[0.02em] text-foreground md:text-[4.3rem]">
                 {messages.home.heroTitleLines[0]}
                 <br />
                 {messages.home.heroTitleLines[1]}
@@ -130,7 +130,7 @@ export function HomePage() {
           <Card className="h-fit overflow-hidden border-border/70 bg-card/84 py-0 shadow-[0_26px_90px_-52px_rgba(74,105,255,0.76)] backdrop-blur-xl">
             <CardHeader className="border-b border-border/60 pb-6 pt-7">
               <p className="editorial-kicker">{messages.home.compatibilityCardKicker}</p>
-              <CardTitle className="home-hero-card-title brand-display mt-2 text-[2.35rem] leading-[1.04] tracking-[0.02em] text-foreground">
+              <CardTitle className="home-hero-card-title brand-display mt-2 text-[2rem] leading-[1.05] tracking-[0.02em] text-foreground">
                 {messages.home.compatibilityCardTitleLines[0]}
                 <br />
                 {messages.home.compatibilityCardTitleLines[1]}
@@ -173,7 +173,7 @@ export function HomePage() {
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="editorial-kicker">{messages.home.compatibilitySectionKicker}</p>
-            <h2 className="home-section-title brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
+            <h2 className="home-section-title brand-display mt-2 text-[2.25rem] leading-[0.98] tracking-[0.03em] text-foreground md:text-[3.2rem]">
               {messages.home.compatibilitySectionTitleLines[0]}
               <br />
               {messages.home.compatibilitySectionTitleLines[1]}
@@ -206,7 +206,7 @@ export function HomePage() {
       <section className="mx-auto w-full max-w-7xl px-6 pb-10 md:px-10">
         <div className="mb-9">
           <p className="editorial-kicker">{messages.home.logosSectionKicker}</p>
-          <h2 className="brand-display mt-2 text-4xl tracking-[0.03em] text-foreground md:text-5xl">
+          <h2 className="brand-display mt-2 text-[2.15rem] tracking-[0.03em] text-foreground md:text-[3.05rem]">
             {messages.home.logosSectionTitle}
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
@@ -243,7 +243,7 @@ export function HomePage() {
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="editorial-kicker">{messages.home.capabilitySectionKicker}</p>
-            <h2 className="home-section-title brand-display mt-3 text-4xl leading-tight tracking-[0.03em] text-foreground md:text-5xl">
+            <h2 className="home-section-title brand-display mt-3 text-[2.15rem] leading-tight tracking-[0.03em] text-foreground md:text-[3.05rem]">
               {messages.home.capabilitySectionTitleLines[0]}
               <br />
               {messages.home.capabilitySectionTitleLines[1]}
@@ -276,7 +276,7 @@ export function HomePage() {
           <Card className="relative overflow-hidden border-primary/25 bg-gradient-to-br from-card/90 via-card/82 to-primary/12 py-0">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_94%_0%,rgba(122,92,255,0.25),transparent_42%)]" />
             <CardHeader className="relative pb-4 pt-6">
-              <CardTitle className="brand-display text-[1.75rem] leading-[1.06] tracking-[0.02em] text-foreground md:text-[2rem]">
+              <CardTitle className="brand-display text-[1.5rem] leading-[1.08] tracking-[0.02em] text-foreground md:text-[1.72rem]">
                 {messages.home.systemCoreMatrixTitle}
               </CardTitle>
               <p className="text-xs uppercase tracking-[0.13em] text-muted-foreground">
@@ -308,7 +308,7 @@ export function HomePage() {
           <Card className="relative overflow-hidden border-accent/35 bg-gradient-to-br from-card/90 via-card/82 to-accent/14 py-0">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(39,194,225,0.22),transparent_44%)]" />
             <CardHeader className="relative pb-4 pt-6">
-              <CardTitle className="brand-display text-[1.75rem] leading-[1.06] tracking-[0.02em] text-foreground md:text-[2rem]">
+              <CardTitle className="brand-display text-[1.5rem] leading-[1.08] tracking-[0.02em] text-foreground md:text-[1.72rem]">
                 {messages.home.romClarityTitle}
               </CardTitle>
               <p className="text-xs uppercase tracking-[0.13em] text-muted-foreground">
@@ -348,7 +348,7 @@ export function HomePage() {
           <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
               <p className="editorial-kicker">{messages.home.bottomCtaKicker}</p>
-              <h3 className="home-section-title brand-display mt-2 text-5xl leading-[0.95] tracking-[0.03em] text-foreground">
+              <h3 className="home-section-title brand-display mt-2 text-[2.25rem] leading-[0.98] tracking-[0.03em] text-foreground md:text-[3.05rem]">
                 {messages.home.bottomCtaTitleLines[0]}
                 <br />
                 {messages.home.bottomCtaTitleLines[1]}

@@ -24,7 +24,7 @@ export function CoresPage() {
             </Badge>
 
             <div>
-              <h1 className="brand-display text-balance text-[3.3rem] leading-[0.96] tracking-[0.02em] text-foreground md:text-[5rem]">
+              <h1 className="brand-display text-balance text-[2.35rem] leading-[0.99] tracking-[0.02em] text-foreground md:text-[4.2rem]">
                 {messages.cores.heroTitleLines[0]}
                 <br />
                 {messages.cores.heroTitleLines[1]}
@@ -48,7 +48,7 @@ export function CoresPage() {
 
           <Card className="border-border/70 bg-card/82 py-0 shadow-[0_24px_90px_-54px_rgba(82,106,236,0.68)] backdrop-blur-xl">
             <CardHeader className="border-b border-border/60 pb-6 pt-7">
-              <CardTitle className="brand-display text-4xl leading-[1.04] tracking-[0.03em] text-foreground">
+              <CardTitle className="brand-display text-[2.05rem] leading-[1.05] tracking-[0.03em] text-foreground md:text-[2.55rem]">
                 {messages.cores.standardsTitle}
               </CardTitle>
             </CardHeader>
@@ -112,7 +112,7 @@ export function CoresPage() {
       <section className="mx-auto w-full max-w-7xl px-6 pb-12 md:px-10">
         <div className="mb-7">
           <p className="editorial-kicker">{messages.cores.coreCardsKicker}</p>
-          <h2 className="brand-display mt-2 text-[2.9rem] leading-[0.96] tracking-[0.03em] text-foreground">
+          <h2 className="brand-display mt-2 text-[2.15rem] leading-[0.99] tracking-[0.03em] text-foreground md:text-[2.95rem]">
             {messages.cores.coreCardsTitle}
           </h2>
         </div>
@@ -174,7 +174,7 @@ export function CoresPage() {
       <section className="mx-auto w-full max-w-7xl px-6 pb-24 pt-6 md:px-10 md:pb-28">
         <div className="mb-7">
           <p className="editorial-kicker">{messages.cores.systemMatrixKicker}</p>
-          <h2 className="brand-display mt-2 text-[2.9rem] leading-[0.96] tracking-[0.03em] text-foreground">
+          <h2 className="brand-display mt-2 text-[2.15rem] leading-[0.99] tracking-[0.03em] text-foreground md:text-[2.95rem]">
             {messages.cores.systemMatrixTitle}
           </h2>
         </div>

@@ -29,10 +29,10 @@ export function LegalDocument({
           >
             {messages.shared.legalDocument.badge}
           </Badge>
-          <CardTitle className="brand-display text-4xl tracking-[0.03em] text-foreground md:text-5xl">
+          <CardTitle className="brand-display text-[2.1rem] tracking-[0.03em] text-foreground md:text-[2.85rem]">
             {title}
           </CardTitle>
-          <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">{subtitle}</p>
+          <p className="max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground">{subtitle}</p>
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
             {messages.shared.legalDocument.effectiveDateLabel} · {effectiveDate}
           </p>
@@ -60,7 +60,7 @@ export function LegalDocument({
           <div className="space-y-8">
             {sections.map((section, sectionIndex) => (
               <section key={section.id} id={section.id} className="scroll-mt-28 space-y-4">
-                <h3 className="brand-display text-2xl tracking-[0.03em] text-foreground">
+                <h3 className="brand-display text-[1.55rem] tracking-[0.03em] text-foreground md:text-[1.7rem]">
                   {section.title}
                 </h3>
                 <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">

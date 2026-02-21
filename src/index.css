@@ -181,8 +181,8 @@
   }
 
   .editorial-lede {
-    font-size: clamp(1.02rem, 1.35vw, 1.18rem);
-    line-height: 1.78;
+    font-size: clamp(0.95rem, 1.12vw, 1.08rem);
+    line-height: 1.74;
     color: color-mix(in oklab, var(--color-foreground) 72%, transparent);
   }
 
@@ -390,18 +390,18 @@
   }
 
   .home-page .home-hero-title {
-    font-size: clamp(2.2rem, 12vw, 2.85rem);
-    line-height: 0.98;
+    font-size: clamp(1.98rem, 10.4vw, 2.55rem);
+    line-height: 0.99;
   }
 
   .home-page .home-hero-card-title {
-    font-size: clamp(1.75rem, 8.5vw, 2.15rem);
+    font-size: clamp(1.58rem, 7.4vw, 1.95rem);
     line-height: 1.05;
   }
 
   .home-page .home-section-title {
-    font-size: clamp(2rem, 9.8vw, 2.75rem);
-    line-height: 1;
+    font-size: clamp(1.82rem, 8.7vw, 2.38rem);
+    line-height: 1.01;
   }
 
   .home-page .home-section-tight {
