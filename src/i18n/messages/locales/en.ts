@@ -187,7 +187,7 @@ export const enMessages: LocaleMessages = {
         applicationCategory: "GameApplication",
         operatingSystem: "iOS",
         url: "https://retropa.com/",
-        downloadUrl: "https://apps.apple.com/",
+        downloadUrl: "https://apps.apple.com/us/app/retropa/id6758859845",
         image: "https://retropa.com/brand/retropa-site-logo-512.png",
         description:
           "Premium iOS retro gaming app with multi-core compatibility, advanced skins, controller mapping, filter support, and localization packs.",
