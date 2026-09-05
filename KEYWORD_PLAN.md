@@ -1,0 +1,109 @@
+# Retropa 官网关键词与内容计划
+
+更新：2026-09-05。状态：本地实现，未部署。本文是 Agent 对只读证据的分析，不是采集脚本生成的评分，也不是搜索量预测。
+
+## 证据与口径
+
+原始快照保留在本机，包含请求、过滤条件、响应聚合类型、分页状态和失败原因：
+
+- `~/.retropa/official-website/reports/search-2026-09-05T02-07-37-413Z.json`，下文记作 **S1**。
+- `~/.retropa/official-website/reports/inspection-2026-09-05.json`，下文记作 **I1**。
+- 当前窗口：2026-08-06 至 2026-09-02；对照窗口：2026-07-09 至 2026-08-05。
+- GSC `type=web`、`dataState=final`。官网通过 page 正则仅保留 `https://retropa.com/`；不含 PackHub 或 www 历史路径。
+- `official*` 返回 `byPage`，`domainDaily` 返回 `byProperty`。两种展示与点击口径不能相减或混算。首次查询未过滤主域时，`retropa` 是 68 展示、8 点击；主域过滤后的页级查询是 150 展示、9 点击，两者不是数据前后矛盾。
+- 匿名查询不在关键词明细中；分页完毕也不保证拿到全部底层数据。GSC 展示不是市场搜索量，缺词不等于没有需求。这里不计算“AI 推荐率”。
+
+## 观察到的事实
+
+官网页级汇总；各路径合并已有 `?lang=` 参数，不去重为用户或独立搜索次数：
+
+| 路径 | 前 28 天展示 / 点击 | 近 28 天展示 / 点击 |
+| --- | ---: | ---: |
+| `/` | 164 / 5 | 195 / 12 |
+| `/cores/` | 102 / 0 | 92 / 1 |
+| `/terms/` | 54 / 0 | 53 / 1 |
+| `/privacy/` | 39 / 0 | 33 / 0 |
+| 官网合计 | 359 / 5 | 373 / 14 |
+
+证据：S1 `previous.officialPages`、`current.officialPages`，合计与 `officialDaily` 核对。
+
+近 28 天主域查询明细：
+
+| 已披露查询 | 展示 | 点击 | 平均位置 | 解释 |
+| --- | ---: | ---: | ---: | --- |
+| `retropa` | 150 | 9 | 3.79 | 明确品牌 |
+| `retropaff` | 20 | 2 | 4.55 | 意图未确认，不自动归为有效品牌需求 |
+| `retro pa` | 20 | 0 | 8.95 | 分词或其他意图，待确认 |
+| `lakesnes` | 7 | 0 | 19.00 | 上游核心名称 |
+| `retropaxff` | 5 | 0 | 8.40 | 意图未确认 |
+| `privacy policy retroplaygroundzone.com` | 4 | 0 | 30.50 | 其他网站的法律信息需求 |
+| `retro45` | 2 | 0 | 55.50 | 无明确产品匹配 |
+| `gba core` | 1 | 0 | 10.00 | 样本太小，且更像核心资料需求 |
+| `skyemu` | 1 | 0 | 6.00 | 上游核心名称 |
+| `redpah` | 1 | 0 | 65.00 | 意图未确认 |
+| `retro app datenschutz` | 1 | 0 | 60.00 | 法律信息需求 |
+| `retropaf` | 1 | 0 | 12.00 | 意图未确认 |
+| `retropass` | 1 | 0 | 56.00 | 意图未确认 |
+
+证据：S1 `current.officialQueries`；实际落地页见 `current.officialQueryPages`。例如 `gba core` 落到旧 `/cores/?lang=id`，`skyemu` 落到旧 `/cores/?lang=th`；这不足以支持优先投入印尼语或泰语内容。前一窗口出现过 `mgba shader` 1 次曝光、0 点击，也不能当成强需求。
+
+I1 证实：首页、核心页均为 `PASS / Submitted and indexed`，抓取成功、允许收录；首页最近抓取于 2026-09-04T15:54:58Z。旧 `www.retropa.com/platforms/psp?system=windows` 被归为指向首页的 canonical 替代页；实际线上请求旧路径仍返回 200 首页壳。不能宣传本站支持 PSP/Windows，也不应为这个历史地址新造产品页。
+
+## 判断
+
+当前证据支持“有品牌识别，但非品牌产品需求覆盖很弱”，不支持“官网完全没有被 Google 收录”。核心与法律页获得一定曝光，不代表这些访问会带来安装。新版内容针对产品差异和实际问题提供可读的落地页，不能把改版前后波动直接归因为美术或关键词。
+
+## 关键词到页面的分工
+
+每行只保留一个主要意图；同义词自然出现在正文，不复制多页争夺同一组词。中文页面承担已有中文使用者的理解需求，GSC 当前没有足够证据证明中文 Google 搜索规模。
+
+| 顺序 | 词组 | 证据等级 | 主要页面 | 内容任务 |
+| --- | --- | --- | --- | --- |
+| P0 | `retropa`、`Retropa emulator` | `retropa` 已观察；组合词待验证 | `/` | 明确 iPhone/iPad、GBA/DS/Arcade、资源与 Plus 边界，展示完整产品图 |
+| P1 | `Retropa Delta skins`、`import deltaskin iPhone` | 产品匹配假设；当前窗口未披露 | `/delta-skins/` | 格式、系统与方向适配、导入步骤、失败恢复、PackHub |
+| P1 | `CRT filter iPhone emulator`、`LCD filter retro games`、`Retropa shaders` | 产品匹配假设；历史 `mgba shader` 仅 1 次曝光 | `/crt-filters/` | 可操作的原生基础公式适配演示、.slangp 依赖、性能与权益 |
+| P1 | `arcade emulator iPhone`、`CPS emulator iOS`、`arcade ROM set not working` | 产品匹配假设；当前窗口未披露 | `/arcade/` | 受支持基板、ROM set/父集/BIOS 区别、启动失败检查 |
+| P1 | `import ROMs Retropa`、`GBA ROM import iPhone` | 激活工作流假设；当前窗口未披露 | `/start/` | 下载、文件导入、第一局、支持入口 |
+| P2 | `Retropa supported systems`、`Retropa GBA core` | `gba core`、`lakesnes`、`skyemu` 有极少曝光 | `/cores/` | 系统/格式/核心来源；不竞争上游项目的下载入口 |
+
+每项策略共用以下决策契约，证据差异见表中对应行：
+
+- Decision：发布对应页面的实质内容，不扩建批量 SEO 文章站。
+- Observed evidence：S1 的查询、查询/页、页面明细；新词明确保持假设状态。
+- Inference：文件兼容、显示效果和街机导入问题比单独核心名称更接近 Retropa 的实际价值，但尚未被搜索样本证实。
+- Confidence：品牌中等；非品牌低。不能依据这些数据分配大额投放预算。
+- Single variable：后续每次只修改一个意图页面的标题或一个内容段；本次整体改版作为新基线，不作为单变量实验。
+- Success metric：相应页面出现可复现的非品牌相关曝光与点击，同时保留同口径官网点击趋势。CTR 只作方向性指标，不用 1–2 次展示计算优劣。
+- Guardrail metric：原品牌入口正常、canonical 不偏离、下载链接可用、错误与页面性能无回退；不以无关词曝光上升当成功。
+- Minimum sample or time window：部署后先确认具体新 URL 已收录，再观察至少 28 个完整日期；样本仍稀少则标为未决，检查内容和分发，不无限等待统计显著性。
+- Stop condition：出现虚假能力、失效导入步骤、错误归因、索引错误或明显不匹配流量时暂停扩张；8 周仍无目标相关曝光时重新选择意图，不继续堆相似文章。
+- Evidence IDs：S1 `current.officialQueries`、`current.officialQueryPages`、`current.officialPages`、各自 `previous` 对照；I1 各 URL 的 `indexStatusResult`。
+
+暂不优先：`best emulator`、`free ROM download`、`PS2 emulator`、`Dolphin emulator`、`PSP Windows`、单独 `lakesnes` / `skyemu` 下载词，以及意图未确认的 `retropaff`。不支持的能力与 ROM 分发意图不能为了流量包装为卖点。
+
+## 搜索与 AI 抓取
+
+已实现：完整静态正文、确定语言路径、自指 canonical、互惠 hreflang、语义标题、原图及说明、真实内链、与可见事实一致的 SoftwareApplication/WebPage 数据。重要内容不依赖点击标签才出现，也不按 User-Agent 给爬虫不同正文。
+
+`robots.txt` 的现有通用放行保持不变，已覆盖搜索爬虫；不擅自改变训练爬虫授权。上线后还要验证 CDN/WAF 的实际放行与日志，模拟 User-Agent 的本地 200 不是实际机器人已经抓取的证据。
+
+不新增 llms.txt、隐藏“AI 版”、虚构评分或关键词 meta 堆砌。Google 明确说明 AI 搜索仍以可抓取、可索引、有用内容为基础，不需要特殊 AI 文件；结构化数据也必须符合页面事实。[Google AI features](https://developers.google.com/search/docs/appearance/ai-features/)
+
+OpenAI 的搜索爬虫与训练爬虫具有不同用途；放行并不保证被推荐或引用。[OpenAI crawler documentation](https://developers.openai.com/api/docs/bots)
+
+## 后续操作
+
+1. 先完成人工视觉与产品文案验收，再单独授权部署，保留发布时间与制品版本。
+2. 随静态制品部署真实 404 与域名跳转；检查新详情 URL 的 HTML 和 canonical，再在 GSC 检查收录。当前不向 Google 提交索引请求。
+3. 每周运行下方脚本，报告留在 `~/.retropa`，由 Agent 读取原始证据作出判断。
+4. GA4 配好后观察许可用户的 `web_filter_preview_changed`、详情页访问和下载意图；预览交互不能代替真实安装与付费。
+5. 新页面收录后的首个完整 28 天，按上述页面分工检查查询匹配，再决定只改标题、补充具体问题还是停止该方向。
+
+```bash
+bun run search-console --days 28
+bun run search-console --days 28 --end 2026-09-02
+bun run report --days 28
+bun run evidence
+```
+
+接口行为依据：[Search Analytics query](https://developers.google.com/webmaster-tools/v1/searchanalytics/query)。脚本没有关键词商业评分、自动发布、自动改价或自动生成文章功能。

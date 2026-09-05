@@ -1,132 +1,64 @@
-import { ShieldCheck } from "lucide-react"
-import type { ReactNode } from "react"
-
-import { BrandLogo } from "@/components/brand-logo"
-import { LanguageSwitcher } from "@/components/language-switcher"
-import { PrismaticDownloadButton } from "@/components/prismatic-download-button"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react"
+import { useEffect, useState, type ReactNode } from "react"
 import { useI18n } from "@/i18n/context"
-import { useRuntimeSeo } from "@/i18n/seo"
-import type { PageKey } from "@/i18n/pages"
+import { localeLabelByLocale, supportedLocales } from "@/i18n/locales"
+import { acquisitionCopy } from "@/content/acquisition"
+import { localizedPath, type SitePage } from "@/lib/routes"
+import { observeAcquisition, track } from "@/lib/analytics"
+import { setTheme } from "@/lib/theme"
 import { siteConfig } from "@/lib/site-config"
-import { cn } from "@/lib/utils"
+import { DownloadLink } from "@/components/download-link"
+import { AnalyticsConsent } from "@/components/analytics-consent"
 
-type SiteLayoutProps = {
-  currentPage: PageKey
-  children: ReactNode
-}
-function NavLinks({
-  currentPage,
-  compact = false,
-  navItems,
-}: {
-  currentPage: PageKey
-  compact?: boolean
-  navItems: Array<{ key: PageKey; label: string; href: string }>
-}) {
-  return (
-    <>
-      {navItems.map((item) => (
-        <a
-          key={item.key}
-          href={item.href}
-          className={cn(
-            "premium-nav-pill",
-            currentPage === item.key ? "premium-nav-active" : "premium-nav-idle",
-            compact ? "shrink-0" : undefined
-          )}
-        >
-          {item.label}
-        </a>
-      ))}
-    </>
-  )
-}
-
-export function SiteLayout({ currentPage, children }: SiteLayoutProps) {
-  const { messages } = useI18n()
-  useRuntimeSeo(currentPage)
-
-  const navItems: Array<{ key: PageKey; label: string; href: string }> = [
-    { key: "home", label: messages.shared.nav.home, href: "/" },
-    { key: "cores", label: messages.shared.nav.cores, href: "/cores/" },
-    { key: "terms", label: messages.shared.nav.terms, href: "/terms/" },
-    { key: "privacy", label: messages.shared.nav.privacy, href: "/privacy/" },
+export function SiteLayout({ currentPage, children }: { currentPage: SitePage; children: ReactNode }) {
+  const { locale, messages, setLocaleFromValue } = useI18n()
+  const copy = acquisitionCopy(locale)
+  const [menuOpen, setMenuOpen] = useState(false)
+  useEffect(() => observeAcquisition(), [])
+  const links = [
+    { href: localizedPath("home", locale), label: messages.shared.nav.home, key: "home" },
+    { href: localizedPath("cores", locale), label: messages.home.systemShowcaseTitle, key: "cores" },
+    { href: localizedPath("start", locale), label: copy.start, key: "start" },
   ]
-
-  return (
-    <div className="site-background relative isolate min-h-screen overflow-x-clip text-foreground transition-colors">
-      <div className="site-grid-overlay pointer-events-none absolute inset-0 -z-10" />
-      <div className="site-vignette-overlay pointer-events-none absolute inset-0 -z-10" />
-
-      <header className="fixed inset-x-0 top-0 z-50 px-3 pb-2 pt-3 md:px-6 md:pt-4">
-        <div className="premium-nav-shell mx-auto max-w-5xl">
-          <div className="flex items-center justify-between gap-2 px-3 py-2 md:px-4 md:py-2.5">
-            <a
-              href="/"
-              className="transition hover:opacity-90"
-              aria-label={messages.shared.brand.homepageAriaLabel}
-            >
-              <BrandLogo size="sm" showWordmark={false} />
-            </a>
-
-            <nav className="hidden items-center gap-1 md:flex">
-              <NavLinks currentPage={currentPage} navItems={navItems} />
-            </nav>
-
-            <div className="flex items-center gap-1.5">
-              <LanguageSwitcher />
-              <ThemeToggle />
-              <PrismaticDownloadButton size="sm" label={messages.shared.headerDownloadLabel} />
-            </div>
-          </div>
-
-          <nav className="premium-nav-mobile-scroll px-2 pb-2 md:hidden">
-            <div className="inline-flex min-w-full gap-1">
-              <NavLinks currentPage={currentPage} compact navItems={navItems} />
-            </div>
-          </nav>
+  return <div className="site-shell">
+    <a href="#main" className="skip-link">Skip to content</a>
+    <header className="site-header">
+      <a href={localizedPath("home", locale)} className="wordmark" aria-label={messages.shared.brand.homepageAriaLabel}>
+        <img src="/brand/retropa-site-logo.png" width="32" height="32" alt="" />Retropa<span className="brand-period">.</span>
+      </a>
+      <nav className={`main-nav${menuOpen ? " is-open" : ""}`} aria-label={messages.shared.nav.home}>
+        {links.map(link => <a key={link.key} href={link.href} aria-current={currentPage === link.key ? "page" : undefined}
+          onClick={() => { setMenuOpen(false); if (link.key === "start") track("web_guide_opened") }}>{link.label}</a>)}
+      </nav>
+      <div className="header-actions">
+        <DownloadLink placement="header" compact />
+        <button className="icon-button menu-button" type="button" aria-expanded={menuOpen} aria-label={menuOpen ? "Close navigation" : "Open navigation"} onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+    </header>
+    <main id="main">{children}</main>
+    <footer className="site-footer wrap">
+      <div className="footer-top"><a className="footer-brand" href={localizedPath("home", locale)}>Retropa<span>.</span></a><p>{copy.category}<br />iPhone & iPad</p></div>
+      <div className="footer-links">
+        <a href={localizedPath("cores", locale)}>{messages.shared.footer.emulatorCores}</a>
+        <a href={localizedPath("terms", locale)}>{messages.shared.footer.terms}</a>
+        <a href={localizedPath("privacy", locale)}>{messages.shared.footer.privacy}</a>
+        <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}<ArrowUpRight size={14} /></a>
+      </div>
+      <div className="footer-bottom">
+        <small>© 2026 Retropa. {messages.shared.footer.rightsReserved}</small>
+        <div className="preferences">
+          <select aria-label={messages.shared.language.menuLabel} value={locale} onChange={event => setLocaleFromValue(event.target.value)}>
+            {supportedLocales.map(value => <option key={value} value={value}>{localeLabelByLocale[value]}</option>)}
+          </select>
+          <button type="button" className="icon-button" title={messages.shared.theme.menuLabel} aria-label={messages.shared.theme.menuLabel}
+            onClick={() => setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark")}>
+            <Moon className="theme-moon" size={19} /><Sun className="theme-sun" size={19} />
+          </button>
+          <AnalyticsConsent />
         </div>
-      </header>
-
-      <div aria-hidden className="h-[96px] md:h-[72px]" />
-
-      <main>{children}</main>
-
-      <footer className="mt-10 border-t border-border/55 bg-background/72 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl flex-col gap-7 px-6 py-12 md:flex-row md:items-end md:justify-between md:px-10">
-          <div className="space-y-3">
-            <BrandLogo size="sm" />
-            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-              {messages.shared.footer.description}
-            </p>
-          </div>
-
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <p className="inline-flex items-center gap-2 font-semibold uppercase tracking-[0.12em] text-foreground/88">
-              <ShieldCheck className="h-4 w-4 text-emerald-500" />
-              {messages.shared.footer.legalSupportHeading}
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="/cores/" className="transition hover:text-foreground">
-                {messages.shared.footer.emulatorCores}
-              </a>
-              <a href="/terms/" className="transition hover:text-foreground">
-                {messages.shared.footer.terms}
-              </a>
-              <a href="/privacy/" className="transition hover:text-foreground">
-                {messages.shared.footer.privacy}
-              </a>
-              <a href={`mailto:${siteConfig.supportEmail}`} className="transition hover:text-foreground">
-                {siteConfig.supportEmail}
-              </a>
-            </div>
-            <p className="text-xs uppercase tracking-[0.11em] text-muted-foreground">
-              © {new Date().getFullYear()} {siteConfig.name}. {messages.shared.footer.rightsReserved}
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
+      </div>
+    </footer>
+  </div>
 }

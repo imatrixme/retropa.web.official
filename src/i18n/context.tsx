@@ -2,7 +2,8 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react"
 
 import { buildCatalog, type CatalogData } from "@/content/emulator-catalog"
-import { defaultLocale, detectInitialLocale, normalizeLocale, persistLocale, type Locale } from "@/i18n/locales"
+import { defaultLocale, normalizeLocale, type Locale } from "@/i18n/locales"
+import { localizedPath, routeFromPath } from "@/lib/routes"
 import { getMessages, type LocaleMessages } from "@/i18n/messages"
 
 type I18nContextValue = {
@@ -17,14 +18,17 @@ const I18nContext = createContext<I18nContextValue | null>(null)
 
 type I18nProviderProps = {
   children: ReactNode
+  initialLocale?: Locale
 }
 
-export function I18nProvider({ children }: I18nProviderProps) {
-  const [locale, setLocaleState] = useState<Locale>(() => detectInitialLocale())
+export function I18nProvider({ children, initialLocale = defaultLocale }: I18nProviderProps) {
+  const [locale] = useState<Locale>(initialLocale)
 
   const setLocale = useCallback((nextLocale: Locale) => {
-    setLocaleState(nextLocale)
-    persistLocale(nextLocale)
+    const url = new URL(window.location.href)
+    url.pathname = localizedPath(routeFromPath(url.pathname).page, nextLocale)
+    url.searchParams.delete("lang")
+    window.location.assign(url.href)
   }, [])
 
   const setLocaleFromValue = useCallback(

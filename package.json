@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "bun scripts/build.ts",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "bun scripts/serve.ts",
+    "evidence": "bun scripts/evidence.ts",
+    "report": "bun scripts/report.ts",
+    "search-console": "bun scripts/search-console.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
