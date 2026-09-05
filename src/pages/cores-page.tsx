@@ -18,7 +18,7 @@ export function CoresPage() {
   return <article className="reference-page wrap">
     <header className="page-heading"><p className="eyebrow">RETROPA</p><h1>{messages.home.systemShowcaseTitle}</h1><p>{messages.cores.heroDescription}</p><DownloadLink placement="guide" /></header>
     <p className="content-notice">{copy.noRoms}</p>
-    <section className="arcade-reference"><h2>Arcade</h2><p className="arcade-systems">CPS I / CPS II / CPS III / PGM / M92</p><p>{copy.plus}</p><a className="inline-link" href={localizedPath("arcade", locale)}>{detailLinkLabel("arcade", locale)}<ArrowUpRight size={18} /></a></section>
+    <section className="arcade-reference"><h2>Arcade</h2><p className="arcade-systems">CPS I / CPS II / CPS III / Neo Geo / PGM / M92</p><p>{copy.plus}</p><a className="inline-link" href={localizedPath("arcade", locale)}>{detailLinkLabel("arcade", locale)}<ArrowUpRight size={18} /></a></section>
     <section><h2>{messages.cores.systemMatrixTitle}</h2><div className="support-table" role="region" aria-label={messages.cores.systemMatrixTitle} tabIndex={0}>
       <table><thead><tr><th>{messages.home.systemShowcaseTitle}</th><th>{messages.cores.availableCoresLabel}</th><th>{messages.cores.romCoverageLabel}</th></tr></thead><tbody>
         {catalog.systemSupportMatrix.map(system => <tr key={system.id}><th scope="row">{systemLabels[system.id]}</th><td>{system.coreIds.map(id => names.get(id)).join(" / ")}</td><td className="mono">{system.romExtensions.join(" ")}</td></tr>)}

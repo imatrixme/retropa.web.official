@@ -11,7 +11,7 @@ export type ProductDetail = {
 
 const en: Record<ProductPage, ProductDetail> = {
   "delta-skins": {
-    title: "Delta skins in Retropa", label: "Skins", image: "material",
+    title: "Import Delta skins on iPhone and iPad", label: "Skins", image: "material",
     summary: "Change the controls around your game, not just the background. Retropa imports .deltaskin packages and offers its own skin collection for iPhone and iPad.",
     imageAlt: "Retropa product artwork showing portrait and landscape controller skins in different materials",
     sections: [
@@ -22,7 +22,7 @@ const en: Record<ProductPage, ProductDetail> = {
     ], link: "https://hub.retropa.com/skins", linkLabel: "Browse skins on PackHub",
   },
   "crt-filters": {
-    title: "CRT and LCD filters for retro games", label: "Filters", image: "filter",
+    title: "CRT filters for iPhone and iPad emulators", label: "Filters", image: "filter",
     summary: "Retropa advanced CRT and LCD filters adapt to your actual display area without requiring integer scaling. Keep the character of a retro screen across iPhone sizes, iPad layouts and orientations.",
     imageAlt: "Retropa product artwork showing display filter selection and CRT display treatments",
     sections: [
@@ -35,11 +35,12 @@ const en: Record<ProductPage, ProductDetail> = {
     ], link: "https://hub.retropa.com/shaders", linkLabel: "Browse filters on PackHub",
   },
   arcade: {
-    title: "Arcade emulation on iPhone and iPad", label: "Arcade", image: "library",
-    summary: "Bring supported arcade files into Retropa alongside your handheld library. Check the arcade board, ROM set and BIOS requirements before importing.",
+    title: "Arcade emulator for iPhone and iPad", label: "Arcade", image: "library",
+    summary: "Play supported CPS, Neo Geo, PGM and M92 arcade files in Retropa, with touch controls, external controllers and CRT filters. Arcade play requires Plus; games and BIOS files are not included.",
     imageAlt: "Retropa product artwork showing its game library and settings",
     sections: [
-      { title: "Start with the arcade board", body: "The arcade families presented by Retropa include CPS I, CPS II, CPS III, PGM and M92. A board family is not a guarantee that every archive found online will run. Game support also depends on the specific core and ROM set expected by the installed app.", points: ["Confirm the system in the app before choosing a file.", "Arcade execution requires Retropa Plus.", "Retropa does not include commercial ROMs or BIOS files."] },
+      { title: "CPS, Neo Geo and the arcade board", body: "Retropa supports arcade families including CPS I, CPS II, CPS III, Neo Geo, PGM and M92. Match your game to the arcade board and ROM set expected by the installed core. Support for a family does not guarantee that every archive will run.", points: ["Confirm the system in the app before choosing a file.", "Arcade execution requires Retropa Plus.", "Retropa does not include commercial ROMs or BIOS files."] },
+      { title: "Neo Geo arcade is not Neo Geo Pocket", body: "Neo Geo arcade games and Neo Geo Pocket handheld games use different systems and files. For an arcade game that reports a missing Neo Geo BIOS, open Arcade BIOS in Retropa and import the required neogeo.zip package, then try the game again. A Pocket ROM or a renamed ZIP is not a substitute.", points: ["Use BIOS files you have the right to use; Retropa does not supply downloads.", "A BIOS package does not replace missing game, parent or clone ROM data.", "Check the exact error and retain the original archive before making changes."] },
       { title: "Why an arcade ZIP is different", body: "A handheld ROM is often a single game image. An arcade set may contain multiple ROM chips and depend on a parent set or BIOS. Renaming an unrelated archive to .zip does not make it compatible. Keep the supplied archive intact unless the import workflow explicitly requests extraction." },
       { title: "When a game will not start", body: "First check the selected board and the error shown by Retropa. Next check whether your set is complete and whether its required BIOS or parent files are available. A clone archive alone may not include all the files a core needs. Changing filters or buying a different skin cannot fix missing ROM data.", points: ["Retain your original files while diagnosing an import.", "Record the app version, system and displayed error when contacting support.", "Do not send commercial ROM or BIOS files with a support request."] },
       { title: "Set up the first session", body: "Once the game starts, identify the coin, start and action controls. With an external controller, check the mapping as well as the on-screen labels. Begin with a simple display preset; choose a CRT treatment after confirming that the game and controls work correctly." },
@@ -49,7 +50,7 @@ const en: Record<ProductPage, ProductDetail> = {
 
 const zh: Record<ProductPage, ProductDetail> = {
   "delta-skins": {
-    title: "在 Retropa 使用 Delta 皮肤", label: "皮肤", image: "material",
+    title: "在 iPhone 与 iPad 上导入 Delta 皮肤", label: "皮肤", image: "material",
     summary: "不只是换一张背景。Retropa 支持导入 .deltaskin，也提供自己的皮肤资源，让游戏画面、方向键与操作按钮一起适应你的 iPhone 和 iPad。",
     imageAlt: "Retropa 产品展示图：不同材质的横屏与竖屏掌机控制布局",
     sections: [
@@ -60,7 +61,7 @@ const zh: Record<ProductPage, ProductDetail> = {
     ], link: "https://hub.retropa.com/skins", linkLabel: "在 PackHub 浏览皮肤",
   },
   "crt-filters": {
-    title: "复古游戏的 CRT 与 LCD 滤镜", label: "滤镜", image: "filter",
+    title: "iPhone 与 iPad 模拟器的 CRT 滤镜", label: "滤镜", image: "filter",
     summary: "Retropa 高级 CRT 与 LCD 滤镜适应实际显示区域，无需整数倍缩放。不同尺寸的 iPhone、iPad、横竖屏与皮肤布局，都可以保留复古屏幕的细腻观感。",
     imageAlt: "Retropa 产品展示图：滤镜选择界面与 CRT 显示效果",
     sections: [
@@ -73,11 +74,12 @@ const zh: Record<ProductPage, ProductDetail> = {
     ], link: "https://hub.retropa.com/shaders", linkLabel: "在 PackHub 浏览滤镜",
   },
   arcade: {
-    title: "在 iPhone 与 iPad 上玩街机", label: "街机", image: "library",
-    summary: "把受支持的街机文件加入 Retropa，与掌机游戏放在同一个游戏库。导入前，先确认基板、ROM set 和 BIOS 依赖。",
+    title: "iPhone 与 iPad 街机模拟器", label: "街机", image: "library",
+    summary: "在 Retropa 重玩受支持的 CPS、Neo Geo、PGM 与 M92 街机，搭配触控、实体手柄与 CRT 滤镜。运行街机需要 Plus；App 不附带游戏或 BIOS。",
     imageAlt: "Retropa 产品展示图：游戏库与设置界面",
     sections: [
-      { title: "先确认街机基板", body: "Retropa 展示的街机家族包括 CPS I、CPS II、CPS III、PGM 和 M92。支持一个基板家族，不代表任意来源的压缩包都能运行；还需匹配已安装 App 的具体核心与 ROM set 要求。", points: ["先在 App 内确认系统，再选择文件。", "运行街机需要 Retropa Plus。", "Retropa 不提供商业游戏 ROM 或 BIOS。"] },
+      { title: "CPS、Neo Geo 与街机基板", body: "Retropa 支持的街机家族包括 CPS I、CPS II、CPS III、Neo Geo、PGM 和 M92。请按游戏匹配已安装核心所需的基板与 ROM set；支持一个家族，不代表任意压缩包都能运行。", points: ["先在 App 内确认系统，再选择文件。", "运行街机需要 Retropa Plus。", "Retropa 不提供商业游戏 ROM 或 BIOS。"] },
+      { title: "Neo Geo 街机与 Neo Geo Pocket 不同", body: "Neo Geo 街机与 Neo Geo Pocket 掌机是不同系统，不能混用游戏文件。如果街机游戏提示缺少 Neo Geo BIOS，可在 Retropa 的街机 BIOS 管理中导入所需的 neogeo.zip，再尝试启动。Pocket ROM 或改名后的 ZIP 不能替代它。", points: ["仅使用你有权使用的 BIOS，Retropa 不提供下载。", "BIOS 不能补齐缺失的游戏、父集或克隆集数据。", "先核对具体错误，修改文件前保留原始压缩包。"] },
       { title: "街机 ZIP 与单个掌机 ROM 不同", body: "掌机 ROM 通常是一个游戏镜像，街机 set 可能由多个芯片文件组成，还可能依赖父集或 BIOS。把无关文件改成 .zip 后缀不会获得兼容性。除非导入流程明确要求解压，否则保留压缩包原样。" },
       { title: "无法启动时先查什么", body: "先查看选中的基板和 Retropa 给出的错误，再核对 set 是否完整、需要的 BIOS 或父集是否存在。单独的克隆集可能不含核心需要的全部文件。缺少 ROM 数据时，换滤镜或皮肤无法解决问题。", points: ["排查时保留原文件。", "联系支持时提供 App 版本、系统与错误内容。", "不要在支持请求中发送商业 ROM 或 BIOS。"] },
       { title: "把第一局的操作检查完整", body: "启动成功后，确认投币、开始和动作键的位置。使用外接手柄时，同时检查映射与屏幕提示。先用简单的显示预设确认游戏和输入正常，再选择喜欢的 CRT 观感。" },

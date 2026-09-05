@@ -21,7 +21,7 @@ export function getPageMetadata(page: SitePage, locale: Locale) {
     "@context": "https://schema.org", "@type": "SoftwareApplication", "@id": `${siteConfig.siteUrl}/#app`, name: "Retropa", applicationCategory: "GameApplication",
     operatingSystem: "iOS 18 or later", url: canonical, description, inLanguage: locale,
     downloadUrl: siteConfig.appStoreUrl, image: new URL(siteConfig.socialImage, siteConfig.siteUrl).href,
-    featureList: ["GBA and DS emulation", "CPS, PGM and M92 arcade families", "Delta .deltaskin import", "CRT and LCD display filters", "RetroArch .slang and .slangp workflows", "External controller mapping"],
+    featureList: ["GBA and DS emulation", "CPS, Neo Geo, PGM and M92 arcade families", "Delta .deltaskin import", "Advanced CRT and LCD filters without an integer-scaling requirement", "RetroArch .slang and .slangp workflows", "External controller mapping"],
     screenshot: ["material", "filter", "library"].map(image => new URL(`/product/${image}.webp`, siteConfig.siteUrl).href),
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: copy.free },
   } : { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: locale,

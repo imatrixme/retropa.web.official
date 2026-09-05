@@ -33,6 +33,11 @@ for (const path of build.paths as string[]) {
   if (found.mainText.trim().length < 120) issues.push(`${path}: insufficient prerendered body`)
   if (found.canonical !== `https://retropa.com${path}`) issues.push(`${path}: canonical mismatch`)
   if (!found.locale || found.alternates < 3) issues.push(`${path}: missing language metadata`)
+  if (["/arcade/", "/zh-Hans/arcade/"].includes(path)) {
+    for (const term of ["Neo Geo", "Neo Geo Pocket", "neogeo.zip", "CPS", "Plus"]) {
+      if (!found.mainText.includes(term)) issues.push(`${path}: missing arcade compatibility context ${term}`)
+    }
+  }
   if (path === "/start/" || path === "/zh-Hans/start/") {
     const questions = startFAQ(path.startsWith("/zh-Hans/"))
     if (questions.length < 15 || new Set(questions.map(item => item.id)).size !== questions.length) issues.push(`${path}: insufficient or duplicate FAQ entries`)

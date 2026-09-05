@@ -61,8 +61,8 @@ I1 证实：首页、核心页均为 `PASS / Submitted and indexed`，抓取成�
 | --- | --- | --- | --- | --- |
 | P0 | `retropa`、`Retropa emulator` | `retropa` 已观察；组合词待验证 | `/` | 明确 iPhone/iPad、GBA/DS/Arcade、资源与 Plus 边界，展示完整产品图 |
 | P1 | `Retropa Delta skins`、`import deltaskin iPhone` | 产品匹配假设；当前窗口未披露 | `/delta-skins/` | 格式、系统与方向适配、导入步骤、失败恢复、PackHub |
-| P1 | `CRT filter iPhone emulator`、`LCD filter retro games`、`Retropa shaders` | 产品匹配假设；历史 `mgba shader` 仅 1 次曝光 | `/crt-filters/` | 可操作的原生基础公式适配演示、.slangp 依赖、性能与权益 |
-| P1 | `arcade emulator iPhone`、`CPS emulator iOS`、`arcade ROM set not working` | 产品匹配假设；当前窗口未披露 | `/arcade/` | 受支持基板、ROM set/父集/BIOS 区别、启动失败检查 |
+| P1 | `CRT filter iPhone emulator`、`LCD filter retro games`、`Retropa shaders` | 产品匹配假设；历史 `mgba shader` 仅 1 次曝光 | `/crt-filters/` | 七模式近似演示、非整数缩放价值、.slangp 依赖、性能与权益 |
+| P1 | `arcade emulator iPhone`、`Neo Geo emulator iPhone`、`CPS emulator iOS` | ASO 有对应排名，Google 当前窗口未披露，不能当作 Google 搜索量 | `/arcade/` | 街机家族、Neo Geo 与 Pocket 的区别、neogeo.zip、ROM set/父集/BIOS、首次操作 |
 | P1 | `import ROMs Retropa`、`GBA ROM import iPhone` | 激活工作流假设；当前窗口未披露 | `/start/` | 下载、文件导入、第一局、支持入口 |
 | P2 | `Retropa supported systems`、`Retropa GBA core` | `gba core`、`lakesnes`、`skyemu` 有极少曝光 | `/cores/` | 系统/格式/核心来源；不竞争上游项目的下载入口 |
 
@@ -93,8 +93,23 @@ OpenAI 的搜索爬虫与训练爬虫具有不同用途；放行并不保证被�
 
 ## 后续操作
 
+### 2026-09-05 SEO 与 ASO 对齐修复
+
+官网街机页、首页、核心页和结构化数据补齐 Neo Geo 街机，不与 Neo Geo Pocket 混称；客户端证据为 `BIOSStore+CPS1QSound.swift`、`BIOSManagementView.swift` 和街机核心说明，发布商店 2.3.0 同样列出 Neo Geo。皮肤、滤镜与街机详情标题明确 iPhone/iPad 使用场景，去掉皮肤页标题的重复品牌。不扩建同义词页面，不改既有首页美术与价格。
+
+待审核的商店承接文案（尚未上传）：
+
+- 英文滤镜卖点：Advanced CRT filters adapt to your iPhone display without requiring integer scaling. Keep the original aspect ratio and choose the display area that fits your skin. Advanced filters require Plus.
+- 中文滤镜卖点：高级 CRT 滤镜适应 iPhone 实际显示区域，无需固定整数倍缩放；保留原始宽高比，让画面更合适地融入所选皮肤。高级滤镜需要 Plus。
+- 日文滤镜卖点：高度な CRT フィルタは整数倍拡大に制限されず、iPhone の表示領域に合わせて描画します。元の縦横比を保ち、スキンに合う表示サイズを選べます。高度なフィルタには Plus が必要です。
+- 终身商品名称候选：Retropa Plus Lifetime。必须先核对商品类型与现有权益，再在 ASC 中审核更名，不改变 SKU 或权益。
+
+商店截图应使用原生输出，在两个真实手机视窗尺寸下展示同一帧，解释留白、比例与滤镜结构；网页 WebGL 预览不是商店真机证据。不要为了同步卖点，把已占有排名的 Arcade/GBA 标题直接替换为低需求滤镜词。商店关键词、截图、价格分开观察，不把整体改版伪称单变量实验。
+
+### 发布与观察
+
 1. 先完成人工视觉与产品文案验收，再单独授权部署，保留发布时间与制品版本。
-2. 随静态制品部署真实 404 与域名跳转；检查新详情 URL 的 HTML 和 canonical，再在 GSC 检查收录。当前不向 Google 提交索引请求。
+2. 随静态制品部署真实 404 与域名跳转；检查新详情 URL 的 HTML 和 canonical，再在 GSC 检查收录。2026-09-05 已经用户授权提交包含 68 个页面的 sitemap，API 返回 204；这不是逐 URL 请求索引，也不证明收录。
 3. 每周运行下方脚本，报告留在 `~/.retropa`，由 Agent 读取原始证据作出判断。
 4. GA4 配好后观察许可用户的 `web_filter_preview_changed`、详情页访问和下载意图；预览交互不能代替真实安装与付费。
 5. 新页面收录后的首个完整 28 天，按上述页面分工检查查询匹配，再决定只改标题、补充具体问题还是停止该方向。

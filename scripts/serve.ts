@@ -1,5 +1,6 @@
 import { resolve, extname } from "node:path"
 import { stat } from "node:fs/promises"
+import { legacyLocaleTarget } from "../src/lib/legacy-locale"
 
 const root = resolve("dist")
 const port = Number(process.env.RETROPA_PREVIEW_PORT ?? 4178)
@@ -8,6 +9,8 @@ const server = Bun.serve({
   async fetch(request) {
     if (!["GET", "HEAD"].includes(request.method)) return new Response(null, { status: 405 })
     const url = new URL(request.url)
+    const legacy = legacyLocaleTarget(url)
+    if (legacy) return Response.redirect(legacy.href, 308)
     let pathname: string
     try { pathname = decodeURIComponent(url.pathname) } catch { return new Response(null, { status: 400 }) }
     const path = resolve(root, `.${pathname}`)

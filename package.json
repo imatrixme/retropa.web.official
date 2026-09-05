@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "bun scripts/serve.ts",
     "evidence": "bun scripts/evidence.ts",
+    "evidence:http": "bun scripts/evidence-http.ts",
     "report": "bun scripts/report.ts",
     "search-console": "bun scripts/search-console.ts"
   },

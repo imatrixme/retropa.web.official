@@ -14,6 +14,7 @@ export function renderPage(page: SitePage, locale: Locale, assets: { script: str
   return "<!doctype html>" + renderToStaticMarkup(<html lang={locale}><head>
     <meta charSet="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{meta.title}</title><meta name="description" content={meta.description} />
+    <meta name="retropa-revision" content={analyticsConfig.revision} />
     <meta name="robots" content={page === "not-found" ? "noindex,follow" : "index,follow,max-image-preview:large"} />
     <link rel="canonical" href={meta.canonical} />
     {meta.alternates.map(item => <link key={item.locale} rel="alternate" hrefLang={item.locale} href={item.href} />)}

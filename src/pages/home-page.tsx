@@ -15,7 +15,7 @@ export function HomePage() {
   return <>
     <ProductHero />
     <div className="system-strip" aria-label={messages.home.systemShowcaseTitle}>
-      <span>GBA</span><span>DS</span><span>GB / GBC</span><span>NES / SNES</span><span className="arcade-label">ARCADE <Gamepad2 size={17} /></span><span>CPS / PGM / M92</span>
+      <span>GBA</span><span>DS</span><span>GB / GBC</span><span>NES / SNES</span><span className="arcade-label">ARCADE <Gamepad2 size={17} /></span><span>CPS / Neo Geo / PGM / M92</span>
     </div>
     <section className="experience-section wrap" id="experience">
       <div className="section-heading"><h2>{copy.experience}</h2><p>{messages.home.runtimeIntegrityDescription}</p></div>
@@ -26,7 +26,7 @@ export function HomePage() {
       <div className="wrap systems-inner">
         <div><h2>{messages.home.systemShowcaseTitle}</h2><p>{copy.category}</p><a className="inline-link" href={localizedPath("cores", locale)}>{messages.home.inspectCoreCatalogLabel}<ArrowRight size={18} /></a><p className="arcade-intro" lang={locale.startsWith("zh") ? "zh-Hans" : "en"}>{productDetail("arcade", locale).summary}</p><a className="inline-link" href={localizedPath("arcade", locale)}>{detailLinkLabel("arcade", locale)}<ArrowRight size={18} /></a></div>
         <div className="system-list">
-          {["GBA / DS / GB / GBC", "NES / SNES / MD / GG / SMS", "WS / WSC / NGP / NGPC", "CPS I / II / III / PGM / M92"].map((system, index) => <div key={system}><span className="mono">0{index + 1}</span><h3>{system}</h3><Check size={20} /></div>)}
+          {["GBA / DS / GB / GBC", "NES / SNES / MD / GG / SMS", "WS / WSC / NGP / NGPC", "CPS I / II / III / Neo Geo / PGM / M92"].map((system, index) => <div key={system}><span className="mono">0{index + 1}</span><h3>{system}</h3><Check size={20} /></div>)}
         </div>
       </div>
     </section>

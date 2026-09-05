@@ -1,9 +1,14 @@
+# Include legacy-locales.conf inside http {} before these server blocks.
 # Merge into the existing TLS virtual host. Certificate paths are intentionally omitted.
 server {
     listen 443 ssl;
     server_name retropa.com;
     root /srv/retropa/current/dist;
     index index.html;
+
+    if ($retropa_legacy_target != "") {
+        return 308 https://retropa.com$retropa_legacy_target$retropa_query_suffix;
+    }
 
     # Avoid duplicate index document URLs.
     if ($request_uri ~ "^(.*/)index\.html(?:\?|$)") {

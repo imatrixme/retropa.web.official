@@ -15,6 +15,7 @@ bun run preview
 ```bash
 bun run lint
 bun run evidence
+bun run evidence:http --base http://127.0.0.1:4179
 bun run report --days 14
 ```
 
@@ -27,7 +28,7 @@ bun run report --days 14
 - `/start/`：导入、首次游玩与 18 条常见问题，覆盖设备、格式、BIOS、街机、存档、手柄、Plus 和高级滤镜。`src/content/start-faq.ts` 拥有英文和简体中文问答；完整答案在构建时写入 HTML，每题有稳定锚点，不依赖点击后请求数据。其他语言明确链接英文指南，不伪装成已翻译内容。不保证搜索排名或 FAQ 富结果。
 - `/delta-skins/`、`/crt-filters/`、`/arcade/`：英文与简体中文的完整产品说明，包含格式、操作步骤、恢复路径与能力限制。
 - `/terms/`、`/privacy/`：保留既有法律内容；隐私页面增加官网统计说明。
-- 原有四类页面保留 15 种语言，用 `/{locale}/...` 静态路径。英文为根路径。旧 `?lang=` 在浏览器中转向对应路径；新 sitemap 与导航只发布确定语言的路径。
+- 原有四类页面保留 15 种语言，用 `/{locale}/...` 静态路径。英文为根路径。首页、核心、条款、隐私的旧 `?lang=` 入口在 HTTP 层永久跳转，保留其他查询参数；新 sitemap 与导航只发布确定语言的路径。`src/lib/legacy-locale.ts` 拥有 Bun 预览迁移规则，Nginx 对应规则在 `deploy/legacy-locales.conf`。支持单个标准语言值，未知或重复 lang 不在 HTTP 层迁移；非标准语言别名仍由既有浏览器兼容逻辑处理。
 
 `src/styles/tokens.css` 管理颜色、字体和共享控件；`hero.css` 管理首屏；`product.css` 管理首页；`pages.css` 管理二级页面；`display-study.css` 管理画面对照与详情布局，`crt-television.css` 管理电视材质。`CRTTelevision` 拥有内框与屏幕共用的 SVG 裁切几何，`DisplayStudy` 拥有滤镜、尺寸、对照及播放状态；`src/content/display-study.ts` 拥有模式目录和说明。`SiteLayout` 拥有导航与页脚；`ProductHero` 呈现首屏，`ProductShowcase` 展开各个产品场景；`src/lib/analytics.ts` 是唯一网站采集边界。Hero 允许局部裁剪形成大尺幅构图，详细产品图保持完整比例，均可直接打开原图。
 
@@ -35,7 +36,7 @@ bun run report --days 14
 
 ## 重玩与首屏
 
-首屏围绕 iOS 重玩意愿，保留 Retropa、iPhone/iPad、下载与免费/内购边界；不创建游戏房间或首屏额外选择器。首页先展示 App 产品说明，再进入拟物 CRT 滤镜对照。15 种语言的重玩文案在 `src/content/replay.ts`，本版事件 revision 为 `product-2026-09-v5`；事件名称、许可、ASC campaign 与客户端契约不变，新增下载位置 `filters` 和三个高级滤镜枚举。
+首屏围绕 iOS 重玩意愿，保留 Retropa、iPhone/iPad、下载与免费/内购边界；不创建游戏房间或首屏额外选择器。首页先展示 App 产品说明，再进入拟物 CRT 滤镜对照。15 种语言的重玩文案在 `src/content/replay.ts`，当前事件 revision 为 `product-2026-09-v6`，静态 HTML 的 `retropa-revision` 与事件版本一致；事件名称、许可、ASC campaign 与客户端契约不变，保留 v5 增加的 `filters` 下载位置和高级滤镜枚举。
 
 Hero 始终使用静态 DOM 图片，保留大尺幅构图和直接打开原图的链接。已按本轮验收移除 Three.js、Hero Canvas、指针视差及其加载/回退状态；不添加替代动画。首屏图像和下载不依赖 JavaScript。下方功能性的滤镜对照独立保留。
 
@@ -124,7 +125,27 @@ bun run evidence --events /absolute/path/browser-events.json
 
 发布 `dist/` 整体目录，禁止所有未知路径回退 `index.html`。Nginx 参考 `deploy/nginx.conf.example`，合并现有 TLS 证书配置后执行 `nginx -t`；示例不是可直接覆盖的生产配置。保留 HTTP→HTTPS、www→主域重定向，哈希资源长期缓存，HTML 重新验证。构建目录有真实 404 页面，预览服务对未知地址返回 HTTP 404。
 
-本次不部署、不提交 Git，不改主仓库子模块指针。验收后应在网站子模块单独提交，再在父仓库更新指针。回滚使用之前完整部署制品，不恢复部分文件。
+先在 Nginx 的 `http {}` 层包含 `deploy/legacy-locales.conf`，再合并示例 server 块；不要把 map 放进 server 块。旧四入口的 15 种标准语言、无尾斜杠和 index.html 形式均迁移到规范静态路径。GET/HEAD 返回 308，删除 lang 并保留 utm_source、ct 等原有参数；未知路径保持 404。
+
+`evidence:http` 对正在运行的服务执行只读 HTTP 验收：68 个静态页面、版本标记、60 个语言迁移组合、查询参数、HEAD、未知路径及 sitemap/robots。目标可以是本地预览或单独授权发布后的主域；检查不会追踪重定向到 App Store，也不会提交索引。它允许重定向指向当前测试 origin 或固定的生产主域，不接受任意外域。上线前以本地制品检查为基准，上线后对生产 origin 重跑，避免将旧版 200 当成发布成功。
+
+v5 基线已按用户要求提交：官网 `b207ab1`，父仓库 `bff11483`。v6 于 2026-09-05 部署，源码与发布记录随本轮提交保存，不自动 push。回滚使用之前完整部署制品与对应配置，不恢复部分文件。
+
+### 当前生产发布记录
+
+新版 sitemap 于 2026-09-05 07:07 UTC 经用户授权提交至 `sc-domain:retropa.com`，包含 68 个页面。Google 返回 204，回读为 pending；当时仍显示的 12 个 URL 是历史统计，不能视为新版收录结果。回执为本机 `~/.retropa/official-website/reports/sitemap-submission-1788592025322.json`。常规报告脚本继续保持只读。
+
+2026-09-05：通过 `root@23.94.238.46` 发布到现有 `1Panel-openresty-uQjv`，未更换运行时、证书或其他站点。站点 host 路径为 `/root/panel/1panel/apps/openresty/openresty/www/sites/retropa.com/`，容器内为 `/www/sites/retropa.com/`。`index` 软链接从 `releases/20260324-000807` 原子切换至 `releases/20260905-v6`；旧目录完整保留，新目录也保留旧版哈希资源供已打开的页面加载。
+
+生产配置位于 `/root/panel/1panel/apps/openresty/openresty/conf/conf.d/retropa.com.conf`，新增同目录 `00_retropa_legacy_locales.conf`，复用现有 http 层 include。实际配置保留证书、日志、ACME 和 TLS 设置，加入真实 404、语言迁移、www 归一化与资源缓存，不是直接覆盖示例模板。配置备份和上传制品位于服务器 `/root/deploy/retropa-official/20260905-v6/`，旧配置名为 `retropa.com.conf.before`。回滚时恢复该配置，将 map 移出 conf.d，执行 `nginx -t`，再原子切回旧软链接并 reload；不可删除旧 release。1Panel 后续重写站点配置时须保留这些规则并重新验收。
+
+本机发布材料位于 `~/.retropa/official-website/releases/20260905-v6/`。上传包 SHA-256 为 `65023119d2bd144917ed0a7ca2da18f7eb912e0c7497835cfec4a7a1ef65aef7`，远端一致。包内携带的 204 个 macOS `._*` 元数据侧车文件已从发布目录清理，原上传包保留；今后打包使用 `COPYFILE_DISABLE=1 tar --no-xattrs`，避免附带平台元数据。
+
+本次构建、lint、68 页静态检查、生产 Nginx 语法检查和公网 139 项 HTTP 验收通过，版本为 `product-2026-09-v6`。公网 HTTP 由 Cloudflare 返回 HTTPS 301，www 返回主域 308。Playwright 线上桌面/手机截图前缀为 `deployed-`。未运行单测，也未修改原生代码。
+
+生产响应额外包含 Cloudflare 注入的 beacon、Microsoft Clarity 与 Rocket Loader；它们不是本仓库静态构建输出，本次未修改 Cloudflare 配置。当前浏览器环境拒绝连接两个统计域名，并有 Rocket Loader 相关 modulepreload credentials 警告。仓库内的许可控制不能代表这些外部注入脚本也受到相同控制，完整统计许可与加载优化需单独核对 Cloudflare 配置。GA4 Web Measurement ID 和 ASC provider token 仍缺失，发布不代表归因链路已打通。
+
+2026-09-05 采集复核：现有本地配置没有 Web Measurement ID 或 ASC provider token；Google Analytics Admin API 仍返回 403 SERVICE_DISABLED。需在项目 retropa 启用该 API、确认 property 523609540 的官网 Web stream，再配置公开 Measurement ID；ASC provider token 从官网 campaign link 获取，不能以 vendor number 替代。GA4 注册 `milestone` 等事件维度后需验证新数据，不能历史回补或用事件总数猜各阶段。网站仍按未配置状态运行，不加载无效 SDK，不影响下载。本轮未代为启用云 API、注册维度或更改 App Store 元数据。
 
 视觉截图在忽略目录 `output/playwright/`。运行时浏览器检查覆盖桌面/手机、语言切换、原图链接、指南、主题、404、授权与撤回；显示预览另验证模式像素差异、播放/暂停、减少动态与 WebGL 故障回退。模拟 SDK 仅证明本地事件契约，没有向生产 GA4 注入测试流量。
 
@@ -133,3 +154,5 @@ bun run evidence --events /absolute/path/browser-events.json
 上一版四模式验收截图以 `simple-` 开头，`replay-` 是更早历史记录。本版七模式与共形曲面截图以 `crt-` 开头，下载和滤镜调试事件使用 v5 revision。静态检查进一步逐条核对英文、中文各 18 个 FAQ 的问题、完整答案及锚点，而不只是数量。浏览器证据不等于 iOS Safari 真机、线上 SEO 或真实 GA4 到账验收；媒体仍待发布前版本/授权核对。
 
 2026-09-05 CRT 与 FAQ 增量验收：构建、lint、68 页正文检查、OpenSpec strict 和 simulator `xcodebuild` 通过，按仓库要求未运行单测。Chromium 在 1440 / 390 / 320px 宽度、72% / 100% 电视尺寸下确认画面与玻璃边界一致、四角正确裁切、无页面横向溢出；另检查手机 DPR 2。七模式均有不同且非空的像素结果，WebGL error 为 0，播放变化、暂停稳定，键盘尺寸与对照滑杆正常。无脚本、无 WebGL 和 context lost 时保持静态画面；减少动态时默认暂停。中英文各 18 个 FAQ 在无脚本时仍有完整正文且可用键盘展开。独立浏览器上下文没有运行时错误或警告，滤镜与下载事件为 `consent_blocked`，GA4 SDK 与 Three.js 请求为零；线上采集配置缺口仍未补齐。
+
+2026-09-05 v6 修复验收：Bun 构建、lint、68 页静态检查、simulator `xcodebuild` 通过，未运行单测。独立本地 Nginx 1.28.0 编译后加载本仓库 map 与对应重定向规则，语法检查成功；Bun 4179 与 Nginx 4180 各通过 139 项 HTTP 检查。Nginx 仅监听回环地址，验证后已停止，未修改系统或线上 Nginx；真实生产 TLS、CDN/WAF 仍需发布时验证。Chromium 覆盖 320/390/1440 宽度的首页、街机、滤镜、皮肤及中文街机页，标题与页面无横向溢出，旧中文入口在 HTTP 层跳转并保留归因参数。截图前缀为 `seo-arcade-`；本轮预览位于 `http://127.0.0.1:4179/`，日志在 `~/.retropa/official-website/preview-seo.log`。
