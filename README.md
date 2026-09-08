@@ -19,30 +19,41 @@ bun run evidence:http --base http://127.0.0.1:4179
 bun run report --days 14
 ```
 
-`build` 运行类型检查、客户端构建、构建期正文渲染，生成 68 个静态页面与 `404.html`。`evidence` 检查 HTML 中的 H1、正文、canonical、语言信息、结构化数据、图片和内部/下载链接，不执行单元测试。
+`build` 运行类型检查、客户端构建、构建期正文渲染，生成 72 个静态页面与 `404.html`。`evidence` 检查 H1、正文、canonical、语言信息、结构化数据、图片、目录锚点、完整指南章节、分享图与商店目的地，不执行单元测试。
 
 ## 页面与所有权
 
-- 首页：产品画面、皮肤/滤镜/游戏库、系统、开始路径、Plus 边界。
+- 首页：Retropa 产品画面、GBA/DS/街机入口、皮肤/游戏库、画面与参数并排的滤镜对照、系统、开始路径和 Plus 边界。
 - `/cores/`：系统格式矩阵与核心项目来源；不再重复图片墙。
 - `/start/`：导入、首次游玩与 18 条常见问题，覆盖设备、格式、BIOS、街机、存档、手柄、Plus 和高级滤镜。`src/content/start-faq.ts` 拥有英文和简体中文问答；完整答案在构建时写入 HTML，每题有稳定锚点，不依赖点击后请求数据。其他语言明确链接英文指南，不伪装成已翻译内容。不保证搜索排名或 FAQ 富结果。
 - `/delta-skins/`、`/crt-filters/`、`/arcade/`：英文与简体中文的完整产品说明，包含格式、操作步骤、恢复路径与能力限制。
+- `/gba-emulator/`、`/ds-emulator/`：英文与简体中文的独立指南，分别解释 .gba 与 .nds、单屏按键与双屏触控、文件准备和故障恢复，不是替换关键词的重复页面。`src/content/system-guides.ts` 拥有内容，复用既有产品页模板与静态路由。
 - `/terms/`、`/privacy/`：保留既有法律内容；隐私页面增加官网统计说明。
 - 原有四类页面保留 15 种语言，用 `/{locale}/...` 静态路径。英文为根路径。首页、核心、条款、隐私的旧 `?lang=` 入口在 HTTP 层永久跳转，保留其他查询参数；新 sitemap 与导航只发布确定语言的路径。`src/lib/legacy-locale.ts` 拥有 Bun 预览迁移规则，Nginx 对应规则在 `deploy/legacy-locales.conf`。支持单个标准语言值，未知或重复 lang 不在 HTTP 层迁移；非标准语言别名仍由既有浏览器兼容逻辑处理。
 
-`src/styles/tokens.css` 管理颜色、字体和共享控件；`hero.css` 管理首屏；`product.css` 管理首页；`pages.css` 管理二级页面；`display-study.css` 管理画面对照与详情布局，`crt-television.css` 管理电视材质。`CRTTelevision` 拥有内框与屏幕共用的 SVG 裁切几何，`DisplayStudy` 拥有滤镜、尺寸、对照及播放状态；`src/content/display-study.ts` 拥有模式目录和说明。`SiteLayout` 拥有导航与页脚；`ProductHero` 呈现首屏，`ProductShowcase` 展开各个产品场景；`src/lib/analytics.ts` 是唯一网站采集边界。Hero 允许局部裁剪形成大尺幅构图，详细产品图保持完整比例，均可直接打开原图。
+`src/styles/tokens.css` 管理颜色、字体和共享控件；`hero.css` 管理首屏；`product.css` 管理首页；`pages.css` 管理参考与法律页面；`articles.css` 管理指南目录、章节和相关推荐；`display-study.css` 管理画面对照，`crt-television.css` 管理电视材质。`CRTTelevision` 拥有内框与屏幕共用的 SVG 裁切几何；`DisplayStudy` 拥有滤镜、尺寸、对照及播放状态，`src/content/display-study.ts` 拥有模式目录和说明。`SiteLayout` 拥有桌面导航、原生 details 移动导航与页脚；`ProductHero` 呈现首屏，`DiscoveryIndex` 呈现系统入口，`ProductShowcase` 展开产品场景；`src/lib/analytics.ts` 是唯一网站采集边界。所有旧页面与首页 skins/filters/library 锚点保留，完整产品原图仍可直接打开。
 
 产品媒体来自本机既有官网工作树 `public/screenshots` 的素材集，未复制该工作树的改版代码。上线前仍须确认媒体符合当前 App 版本和素材授权；这些不是本次从真机重新截取的图片或游玩实录。
 
 ## 重玩与首屏
 
-首屏围绕 iOS 重玩意愿，保留 Retropa、iPhone/iPad、下载与免费/内购边界；不创建游戏房间或首屏额外选择器。首页先展示 App 产品说明，再进入拟物 CRT 滤镜对照。15 种语言的重玩文案在 `src/content/replay.ts`，当前事件 revision 为 `product-2026-09-v6`，静态 HTML 的 `retropa-revision` 与事件版本一致；事件名称、许可、ASC campaign 与客户端契约不变，保留 v5 增加的 `filters` 下载位置和高级滤镜枚举。
+首屏围绕 iOS 重玩意愿，保留 Retropa、iPhone/iPad、下载与免费/内购边界；不创建游戏房间或首屏额外选择器。产品首屏之后直接提供系统入口，再进入皮肤、游戏库与 CRT 滤镜对照。15 种语言的重玩文案在 `src/content/replay.ts`；当前本地事件 revision 为 `discovery-2026-09-v7`，静态 HTML 与事件版本一致。事件名称、许可、ASC campaign 与客户端契约不变，小流量仍汇总同一商店 campaign，页面与按钮差异由网站事件表达。
 
 Hero 始终使用静态 DOM 图片，保留大尺幅构图和直接打开原图的链接。已按本轮验收移除 Three.js、Hero Canvas、指针视差及其加载/回退状态；不添加替代动画。首屏图像和下载不依赖 JavaScript。下方功能性的滤镜对照独立保留。
 
-Retropa 字标单独使用本地 [Bricolage Grotesque](https://github.com/ateliertriay/bricolage)，统一为 700 字重与固定 24 光学尺寸。标题、正文和普通标签使用 Archivo 与系统字体栈，中文、日文等由系统按语言回退，不强套简体字形。标题采用端正的 600 字重，首页章节桌面 36px、手机 28px，正文 16px/1.7；IBM Plex Mono 仅用于技术标识、编号和数值。所有字距为 0，字号通过固定断点调整，不随视口宽度连续缩放。
+Retropa 字标与编辑式标题使用本地 [Bricolage Grotesque](https://github.com/ateliertriay/bricolage)，正文、普通标签用 Archivo 与系统字体栈；中文、日文等按语言回退，不强套简体字形。字标使用固定 24 光学尺寸，章节约 34–48px、手机 28–37px，正文 16px/1.7；IBM Plex Mono 仅用于技术标识、编号和数值。所有字距为 0，字号通过固定断点调整，不随视口宽度连续缩放。朱红主动作、近黑首屏、绿色皮肤与 Plus 区域组成多层级配色，不增加首屏动画。
 
 已移除倾斜中文展示字体及其子集脚本和处理依赖，新增文案不再需要维护中文字库。仍在使用的本地字体许可随 `public/fonts` 交付。
+
+## 本地 v7 素材与导入链路
+
+本轮派生素材不覆盖原图：material-detail 从 material 的 `(0,416,720,1140)` 裁出；material-controls 为 `(0,936,720,620)` 的材质局部；library-detail 为 `(0,496,720,1060)`；filter-detail 为 `(0,416,720,1140)`。使用 `cwebp -q 88 -crop` 产出 WebP。这些是既有营销图的派生，不是新的真机截图。内置 imagegen 在当前会话不可用，未转用付费 CLI 或生成虚构界面。
+
+六张 `public/product/social-*.jpg` 为 1200×630 产品分享图，构图源在 `scripts/social-artwork.html`。开发服务器访问该文件，以 `variant=home|gba-emulator|ds-emulator|arcade|delta-skins|crt-filters` 选择，等待 canvas 的 `data-ready=true` 后截图，JPEG 质量 85。制作文件不进入发布页面；社交图只在元数据引用，不作为可见页面首屏重复下载。
+
+产品指南提供与可见导航一致的 BreadcrumbList，分享元数据使用各自主题图。静态 HTML 增加 [Smart App Banner](https://developer.apple.com/documentation/webkit/promoting-apps-with-smart-app-banners)，仅声明真实 app-id，不虚构深链或归因参数。横幅需要真机 Safari 验证，模拟器不显示；本地检查不能证明它已带来安装。
+
+本地 v7 尚未部署。GA4 Web Measurement ID、ASC provider token 与仓库外注入脚本的同意策略仍是发布前需处理的边界。GBA、DS 等入口是产品匹配的搜索意图，不是已用实时趋势验证的低竞争词。视觉验收不能替代发布后的非品牌点击、到商店点击和安装归因观察。
 
 ## 原生画面预览
 
@@ -127,7 +138,7 @@ bun run evidence --events /absolute/path/browser-events.json
 
 先在 Nginx 的 `http {}` 层包含 `deploy/legacy-locales.conf`，再合并示例 server 块；不要把 map 放进 server 块。旧四入口的 15 种标准语言、无尾斜杠和 index.html 形式均迁移到规范静态路径。GET/HEAD 返回 308，删除 lang 并保留 utm_source、ct 等原有参数；未知路径保持 404。
 
-`evidence:http` 对正在运行的服务执行只读 HTTP 验收：68 个静态页面、版本标记、60 个语言迁移组合、查询参数、HEAD、未知路径及 sitemap/robots。目标可以是本地预览或单独授权发布后的主域；检查不会追踪重定向到 App Store，也不会提交索引。它允许重定向指向当前测试 origin 或固定的生产主域，不接受任意外域。上线前以本地制品检查为基准，上线后对生产 origin 重跑，避免将旧版 200 当成发布成功。
+`evidence:http` 对正在运行的服务执行只读 HTTP 验收：72 个静态页面、版本标记、60 个语言迁移组合、查询参数、HEAD、未知路径及 sitemap/robots。目标可以是本地预览或单独授权发布后的主域；检查不会追踪重定向到 App Store，也不会提交索引。它允许重定向指向当前测试 origin 或固定的生产主域，不接受任意外域。上线前以本地制品检查为基准，上线后对生产 origin 重跑，避免将旧版 200 当成发布成功。
 
 v5 基线已按用户要求提交：官网 `b207ab1`，父仓库 `bff11483`。v6 于 2026-09-05 部署，源码与发布记录随本轮提交保存，不自动 push。回滚使用之前完整部署制品与对应配置，不恢复部分文件。
 

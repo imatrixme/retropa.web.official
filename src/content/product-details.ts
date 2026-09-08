@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/locales"
+import { chineseSystemGuides, englishSystemGuides } from "@/content/system-guides"
 
-export const productPages = ["delta-skins", "crt-filters", "arcade"] as const
+export const productPages = ["gba-emulator", "ds-emulator", "arcade", "delta-skins", "crt-filters"] as const
 export type ProductPage = typeof productPages[number]
 export const isProductPage = (page: string): page is ProductPage => productPages.some(value => value === page)
 type Section = { title: string; body: string; points?: string[] }
@@ -10,6 +11,7 @@ export type ProductDetail = {
 }
 
 const en: Record<ProductPage, ProductDetail> = {
+  ...englishSystemGuides,
   "delta-skins": {
     title: "Import Delta skins on iPhone and iPad", label: "Skins", image: "material",
     summary: "Change the controls around your game, not just the background. Retropa imports .deltaskin packages and offers its own skin collection for iPhone and iPad.",
@@ -49,6 +51,7 @@ const en: Record<ProductPage, ProductDetail> = {
 }
 
 const zh: Record<ProductPage, ProductDetail> = {
+  ...chineseSystemGuides,
   "delta-skins": {
     title: "在 iPhone 与 iPad 上导入 Delta 皮肤", label: "皮肤", image: "material",
     summary: "不只是换一张背景。Retropa 支持导入 .deltaskin，也提供自己的皮肤资源，让游戏画面、方向键与操作按钮一起适应你的 iPhone 和 iPad。",

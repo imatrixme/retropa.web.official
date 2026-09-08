@@ -21,7 +21,7 @@ export function CoresPage() {
     <section className="arcade-reference"><h2>Arcade</h2><p className="arcade-systems">CPS I / CPS II / CPS III / Neo Geo / PGM / M92</p><p>{copy.plus}</p><a className="inline-link" href={localizedPath("arcade", locale)}>{detailLinkLabel("arcade", locale)}<ArrowUpRight size={18} /></a></section>
     <section><h2>{messages.cores.systemMatrixTitle}</h2><div className="support-table" role="region" aria-label={messages.cores.systemMatrixTitle} tabIndex={0}>
       <table><thead><tr><th>{messages.home.systemShowcaseTitle}</th><th>{messages.cores.availableCoresLabel}</th><th>{messages.cores.romCoverageLabel}</th></tr></thead><tbody>
-        {catalog.systemSupportMatrix.map(system => <tr key={system.id}><th scope="row">{systemLabels[system.id]}</th><td>{system.coreIds.map(id => names.get(id)).join(" / ")}</td><td className="mono">{system.romExtensions.join(" ")}</td></tr>)}
+        {catalog.systemSupportMatrix.map(system => <tr id={system.id} key={system.id}><th scope="row">{systemLabels[system.id]}</th><td>{system.coreIds.map(id => names.get(id)).join(" / ")}</td><td className="mono">{system.romExtensions.join(" ")}</td></tr>)}
       </tbody></table>
     </div></section>
     <section className="core-credits"><h2>{messages.cores.coreCardsTitle}</h2><div className="credit-list">{catalog.emulatorCores.map(core => <a href={core.githubUrl} key={core.id} rel="noopener" target="_blank"><img src={core.logoPath} width="64" height="40" alt="" loading="lazy" /><span>{core.label}</span><ArrowUpRight size={18} /></a>)}</div></section>

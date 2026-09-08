@@ -8,6 +8,7 @@ import { track } from "@/lib/analytics"
 import { detailLinkLabel, productDetail } from "@/content/product-details"
 import { DisplayStudy } from "@/components/display-study"
 import { ProductHero } from "@/components/product-hero"
+import { DiscoveryIndex } from "@/components/discovery-index"
 
 export function HomePage() {
   const { locale, messages } = useI18n()
@@ -15,13 +16,13 @@ export function HomePage() {
   return <>
     <ProductHero />
     <div className="system-strip" aria-label={messages.home.systemShowcaseTitle}>
-      <span>GBA</span><span>DS</span><span>GB / GBC</span><span>NES / SNES</span><span className="arcade-label">ARCADE <Gamepad2 size={17} /></span><span>CPS / Neo Geo / PGM / M92</span>
+      <a href={localizedPath("gba-emulator", locale)}>GBA</a><a href={localizedPath("ds-emulator", locale)}>DS</a><a href={`${localizedPath("cores", locale)}#game-boy`}>GB / GBC</a><a href={`${localizedPath("cores", locale)}#nes`}>NES / SNES</a><a href={localizedPath("arcade", locale)} className="arcade-label">ARCADE <Gamepad2 size={17} /></a><span>CPS / Neo Geo / PGM / M92</span>
     </div>
-    <section className="experience-section wrap" id="experience">
-      <div className="section-heading"><h2>{copy.experience}</h2><p>{messages.home.runtimeIntegrityDescription}</p></div>
+    <DiscoveryIndex />
+    <section className="experience-section" id="experience" aria-label={copy.experience}>
       <ProductShowcase />
     </section>
-    <div className="wrap"><DisplayStudy /></div>
+    <div className="display-section" id="filters"><div className="wrap"><DisplayStudy /></div></div>
     <section className="systems-section" id="systems">
       <div className="wrap systems-inner">
         <div><h2>{messages.home.systemShowcaseTitle}</h2><p>{copy.category}</p><a className="inline-link" href={localizedPath("cores", locale)}>{messages.home.inspectCoreCatalogLabel}<ArrowRight size={18} /></a><p className="arcade-intro" lang={locale.startsWith("zh") ? "zh-Hans" : "en"}>{productDetail("arcade", locale).summary}</p><a className="inline-link" href={localizedPath("arcade", locale)}>{detailLinkLabel("arcade", locale)}<ArrowRight size={18} /></a></div>

@@ -43,7 +43,7 @@ for (const query of ["lang=zh-Hans", "lang=zh-Hans&utm_source=a%26b", "utm_sourc
   const location = target ? new URL(target, base) : null
   if (![301, 308].includes(response.status) || location?.pathname !== "/zh-Hans/cores/" || location.searchParams.has("lang") || (query.includes("utm_source") && location.searchParams.get("utm_source") !== "a&b")) issues.push(`HEAD ${query}: query preservation mismatch`)
 }
-for (const path of ["/seo-evidence-missing", "/seo-evidence-missing?lang=zh-Hans", "/ja/arcade/"]) {
+for (const path of ["/seo-evidence-missing", "/seo-evidence-missing?lang=zh-Hans", "/ja/arcade/", "/ja/gba-emulator/", "/de/ds-emulator/", "/scripts/social-artwork.html"]) {
   const response = await request(path)
   if (response.status !== 404) issues.push(`${path}: expected 404`)
   await response.body?.cancel()

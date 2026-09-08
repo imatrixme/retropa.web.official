@@ -2,12 +2,16 @@ import { readFile } from "node:fs/promises"
 import { resolve } from "node:path"
 import { startFAQ } from "../src/content/start-faq"
 import { renderToStaticMarkup } from "react-dom/server"
+import { isProductPage, productDetail } from "../src/content/product-details"
+import { routeFromPath } from "../src/lib/routes"
 
 const build = JSON.parse(await readFile("dist/build-evidence.json", "utf8"))
 const issues: string[] = []
 for (const path of build.paths as string[]) {
   const html = await readFile(`dist${path}index.html`, "utf8")
-  const found = { h1: 0, mainText: "", canonical: "", locale: "", alternates: 0, jsonLd: "" }
+  const found = { h1: 0, mainText: "", canonical: "", locale: "", alternates: 0, jsonLd: "", socialImage: "", socialWidth: "", socialHeight: "", appBanner: "", downloadLinks: 0, mobileMenu: false }
+  const ids = new Set<string>()
+  const anchors: string[] = []
   const rewriter = new HTMLRewriter()
     .on("html", { element(element) { found.locale = element.getAttribute("lang") ?? "" } })
     .on("h1", { element() { found.h1++ } })
@@ -15,6 +19,12 @@ for (const path of build.paths as string[]) {
     .on('link[rel="canonical"]', { element(element) { found.canonical = element.getAttribute("href") ?? "" } })
     .on('link[hreflang]', { element() { found.alternates++ } })
     .on('script[type="application/ld+json"]', { text(chunk) { found.jsonLd += chunk.text } })
+    .on('[id]', { element(element) { const id = element.getAttribute("id")!; if (ids.has(id)) issues.push(`${path}: duplicate anchor ${id}`); ids.add(id) } })
+    .on('details.mobile-menu', { element() { found.mobileMenu = true } })
+    .on('meta[property="og:image"]', { element(element) { found.socialImage = element.getAttribute("content") ?? "" } })
+    .on('meta[property="og:image:width"]', { element(element) { found.socialWidth = element.getAttribute("content") ?? "" } })
+    .on('meta[property="og:image:height"]', { element(element) { found.socialHeight = element.getAttribute("content") ?? "" } })
+    .on('meta[name="apple-itunes-app"]', { element(element) { found.appBanner = element.getAttribute("content") ?? "" } })
     .on('img[src]', { element(element) {
       const source = element.getAttribute("src") ?? ""
       if (source.startsWith("/") && !Bun.file(`dist${source}`).size) issues.push(`${path}: missing image ${source}`)
@@ -22,7 +32,15 @@ for (const path of build.paths as string[]) {
     } })
     .on('a[href]', { element(element) {
       const href = element.getAttribute("href") ?? ""
-      if (href.startsWith("https://apps.apple.com/") && !new URL(href).searchParams.has("ct")) issues.push(`${path}: untagged download link`)
+      if (href.startsWith("#")) anchors.push(href.slice(1))
+      if (href.startsWith("https://apps.apple.com/")) {
+        found.downloadLinks++
+        // HTMLRewriter retains React's escaped query separators in attributes.
+        const destination = new URL(href.replaceAll("&amp;", "&"))
+        if (!destination.searchParams.has("ct")) issues.push(`${path}: untagged download link`)
+        if (!destination.pathname.endsWith("/id6758859845") || destination.searchParams.get("mt") !== "8") issues.push(`${path}: incorrect App Store destination`)
+        if ((destination.searchParams.get("ct")?.length ?? 0) > 30) issues.push(`${path}: campaign token exceeds Apple's limit`)
+      }
       if (href.startsWith("/") && !href.startsWith("//")) {
         const target = new URL(href, "https://retropa.com").pathname
         if (target.endsWith("/") && !build.paths.includes(target)) issues.push(`${path}: unpublished internal route ${target}`)
@@ -33,6 +51,19 @@ for (const path of build.paths as string[]) {
   if (found.mainText.trim().length < 120) issues.push(`${path}: insufficient prerendered body`)
   if (found.canonical !== `https://retropa.com${path}`) issues.push(`${path}: canonical mismatch`)
   if (!found.locale || found.alternates < 3) issues.push(`${path}: missing language metadata`)
+  if (!found.downloadLinks || !found.mobileMenu) issues.push(`${path}: missing progressive acquisition navigation`)
+  for (const anchor of anchors) if (!ids.has(anchor)) issues.push(`${path}: broken local anchor #${anchor}`)
+  if (found.appBanner !== "app-id=6758859845") issues.push(`${path}: missing Smart App Banner identity`)
+  try {
+    const social = new URL(found.socialImage)
+    if (social.origin !== "https://retropa.com" || !Bun.file(`dist${social.pathname}`).size || found.socialWidth !== "1200" || found.socialHeight !== "630") issues.push(`${path}: missing or invalid social artwork`)
+  } catch { issues.push(`${path}: invalid social image URL`) }
+  const route = routeFromPath(path)
+  if (isProductPage(route.page)) {
+    for (const [index, section] of productDetail(route.page, route.locale).sections.entries()) {
+      if (!found.mainText.includes(renderToStaticMarkup(section.body)) || !ids.has(`chapter-${index + 1}`)) issues.push(`${path}: missing static guide chapter ${index + 1}`)
+    }
+  }
   if (["/arcade/", "/zh-Hans/arcade/"].includes(path)) {
     for (const term of ["Neo Geo", "Neo Geo Pocket", "neogeo.zip", "CPS", "Plus"]) {
       if (!found.mainText.includes(term)) issues.push(`${path}: missing arcade compatibility context ${term}`)
@@ -50,6 +81,7 @@ for (const path of build.paths as string[]) {
   try {
     const data = JSON.parse(found.jsonLd)
     if (data.url !== found.canonical || data.inLanguage !== found.locale) issues.push(`${path}: structured data disagrees with page identity`)
+    if (isProductPage(route.page) && (data.breadcrumb?.itemListElement?.length !== 2 || data.breadcrumb.itemListElement[1].item !== found.canonical)) issues.push(`${path}: invalid structured breadcrumb`)
   } catch { issues.push(`${path}: invalid structured data`) }
 }
 

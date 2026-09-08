@@ -5,6 +5,7 @@
 @import "./styles/display-study.css";
 @import "./styles/crt-television.css";
 @import "./styles/pages.css";
+@import "./styles/articles.css";
 
 @custom-variant dark (&:is(.dark *));
 @theme inline {

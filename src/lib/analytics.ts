@@ -5,7 +5,7 @@ import type { DisplayModeName } from "@/content/display-study"
 export const analyticsConfig = {
   measurementId: import.meta.env.VITE_GA4_MEASUREMENT_ID ?? "",
   providerToken: import.meta.env.VITE_ASC_PROVIDER_TOKEN ?? "",
-  revision: "product-2026-09-v6",
+  revision: "discovery-2026-09-v7",
 } as const
 export type Consent = "unknown" | "granted" | "denied"
 type EventName = "web_page_view" | "web_download_clicked" | "web_feature_viewed" | "web_feature_selected" | "web_guide_opened" | "web_filter_preview_changed"

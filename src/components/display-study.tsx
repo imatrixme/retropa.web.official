@@ -101,6 +101,7 @@ export function DisplayStudy({ linked = true }: { linked?: boolean }) {
 
   return <section id="display-study" className="display-study" lang={zh ? "zh-Hans" : "en"} aria-labelledby={`${id}-title`} data-feature="filters">
     <header className="study-heading"><div><p className="eyebrow">{copy.eyebrow}</p><h2 id={`${id}-title`}>{copy.title}</h2></div><p>{copy.intro}</p></header>
+    <div className="study-workspace" data-preview-status={status}>
     <CRTTelevision width={displayWidth} playing={playing} controls={controls} label={status === "ready" ? selected.name : copy.source}>
     <div className="study-surface" data-comparing={status === "ready" && mode !== 0} onPointerDown={event => {
       if (status !== "ready" || mode === 0 || event.button !== 0) return
@@ -123,6 +124,7 @@ export function DisplayStudy({ linked = true }: { linked?: boolean }) {
       <label className="study-range" htmlFor={`${id}-compare`}><span>{copy.compare}</span><input id={`${id}-compare`} type="range" min="0" max="100" value={divider} disabled={status !== "ready" || mode === 0} onChange={event => setDivider(Number(event.target.value))} /><output>{divider}%</output></label>
     </div>
     <div className="study-caption"><p>{copy.note}</p><span className="study-resolution">{copy.output} {output.width ? `${output.width} × ${output.height} · ${(output.width / 320).toFixed(2)}x` : "—"}</span></div>
+    </div>
     <div className="study-benefit"><div><h3>{copy.benefitTitle}</h3><p>{copy.benefit}</p></div><dl>{copy.comparison.map(([title, description]) => <div key={title}><dt>{title}</dt><dd>{description}</dd></div>)}</dl></div>
     <p className="study-boundary">{copy.boundary}</p>
     <div className="study-footer"><div><DownloadLink placement="filters" /><p className="fine-print">{copy.plus}</p></div>{linked && <a className="inline-link" href={localizedPath("crt-filters", locale)}>{copy.link}<ArrowRight size={16} /></a>}</div>

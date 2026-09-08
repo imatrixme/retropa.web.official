@@ -40,20 +40,26 @@
 .study-boundary { margin-top: 18px; font-size: 13px; color: var(--muted); max-width: 820px; }
 .study-footer { display: flex; justify-content: space-between; align-items: center; gap: 28px; padding-top: 28px; }
 .study-footer .fine-print { margin-top: 12px; }
-.detail-page { padding-bottom: 40px; }
-.detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 100px; align-items: start; }
-.detail-layout aside { position: sticky; top: 32px; }
-.detail-layout aside > p { margin-top: 24px; }
-.detail-body section { margin-bottom: 42px; }
-.detail-body h2 { font-size: 28px; margin-bottom: 20px; }
-.detail-body p { color: var(--muted); line-height: 1.8; }
-.related-reading { border-top: 1px solid var(--line); margin-top: 64px; padding-top: 24px; display: flex; flex-direction: column; gap: 18px; }
-.related-reading a { display: flex; align-items: center; gap: 16px; color: var(--electric); }
+.study-workspace { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; gap: 12px 36px; align-items: start; }
+.study-workspace .tv-stage { grid-column: 1; grid-row: 1 / 5; margin: 0; align-self: center; }
+.study-workspace .study-selection { grid-column: 2; grid-row: 1; justify-content: flex-start; gap: 15px; }
+.study-workspace .study-mode-description { grid-column: 2; grid-row: 2; text-align: left; min-height: 142px; padding-block: 12px; }
+.study-workspace .study-toolbar { grid-column: 2; grid-row: 3; flex-direction: column; gap: 12px; padding-block: 16px; }
+.study-workspace .study-range { width: 100%; }
+.study-workspace .study-caption { grid-column: 2; grid-row: 4; flex-direction: column; gap: 10px; margin: 0; }
+.study-workspace .display-modes button { padding-inline: 12px; }
+.study-workspace .study-caption p { font-size: 11px; }
+.study-workspace + .study-benefit { margin-top: 42px; padding-top: 32px; border-top: 1px solid var(--line); }
 @media (max-width: 1000px) {
+  .study-workspace { display: block; }
+  .study-workspace .tv-stage { width: min(100%, 720px); margin: 0 auto 25px; }
+  .study-workspace .study-selection { justify-content: center; }
+  .study-workspace .study-mode-description { text-align: center; min-height: 126px; }
+  .study-workspace .study-toolbar { flex-direction: row; }
+  .study-workspace .study-caption { margin-top: 18px; }
   .study-heading { gap: 36px; }
   .study-toolbar { flex-wrap: wrap; }
   .study-benefit { gap: 36px; }
-  .detail-layout { gap: 50px; grid-template-columns: minmax(0,1fr) 250px; }
 }
 @media (max-width: 700px) {
   .display-study { padding-block: 52px; }
@@ -71,7 +77,4 @@
   .study-benefit { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
   .study-benefit h3 { font-size: 25px; }
   .study-footer { align-items: flex-start; flex-direction: column; }
-  .detail-layout { grid-template-columns: 1fr; gap: 40px; }
-  .detail-layout aside { position: static; } .detail-layout .product-figure { margin-inline: auto; }
-  .detail-body h2 { font-size: 25px; }
 }

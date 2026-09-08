@@ -21,13 +21,14 @@ export function renderPage(page: SitePage, locale: Locale, assets: { script: str
     {page !== "not-found" && <link rel="alternate" hrefLang="x-default" href={new URL(localizedPath(page, "en"), siteConfig.siteUrl).href} />}
     <link rel="icon" href="/brand/retropa-site-logo-192.png" type="image/png" />
     <link rel="apple-touch-icon" href="/brand/retropa-site-logo-192.png" /><link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#fafafa" />
+    <meta name="theme-color" content="#fcfcfc" />
+    <meta name="apple-itunes-app" content="app-id=6758859845" />
     <meta property="og:type" content="website" /><meta property="og:site_name" content="Retropa" />
     <meta property="og:title" content={meta.title} /><meta property="og:description" content={meta.description} />
-    <meta property="og:url" content={meta.canonical} /><meta property="og:image" content={new URL(siteConfig.socialImage, siteConfig.siteUrl).href} />
+    <meta property="og:url" content={meta.canonical} /><meta property="og:image" content={meta.socialImage} />
+    <meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content={meta.socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={meta.title} />
-    <meta name="twitter:description" content={meta.description} /><meta name="twitter:image" content={new URL(siteConfig.socialImage, siteConfig.siteUrl).href} />
-    <link rel="preload" as="font" href="/fonts/bricolage-latin.woff2" type="font/woff2" crossOrigin="anonymous" />
+    <meta name="twitter:description" content={meta.description} /><meta name="twitter:image" content={meta.socialImage} /><meta name="twitter:image:alt" content={meta.socialImageAlt} />
     {assets.styles.map(style => <link rel="stylesheet" key={style} href={`/${style}`} />)}
     <script src="/theme.js" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(meta.jsonLd).replace(/</g, "\\u003c") }} />
