@@ -53,7 +53,7 @@ Retropa 字标与编辑式标题使用本地 [Bricolage Grotesque](https://githu
 
 产品指南提供与可见导航一致的 BreadcrumbList，分享元数据使用各自主题图。静态 HTML 增加 [Smart App Banner](https://developer.apple.com/documentation/webkit/promoting-apps-with-smart-app-banners)，仅声明真实 app-id，不虚构深链或归因参数。横幅需要真机 Safari 验证，模拟器不显示；本地检查不能证明它已带来安装。
 
-本地 v7 尚未部署。GA4 Web Measurement ID、ASC provider token 与仓库外注入脚本的同意策略仍是发布前需处理的边界。GBA、DS 等入口是产品匹配的搜索意图，不是已用实时趋势验证的低竞争词。视觉验收不能替代发布后的非品牌点击、到商店点击和安装归因观察。
+v7 已于 2026-09-08 按用户授权部署，发布记录见下文。GA4 Web Measurement ID、ASC provider token 仍缺失，仓库外注入脚本的同意策略尚未调整；这些限制不能被解释为归因已经打通。GBA、DS 等入口是产品匹配的搜索意图，不是已用实时趋势验证的低竞争词。视觉验收不能替代发布后的非品牌点击、到商店点击和安装归因观察。
 
 ## 原生画面预览
 
@@ -143,6 +143,16 @@ bun run evidence --events /absolute/path/browser-events.json
 v5 基线已按用户要求提交：官网 `b207ab1`，父仓库 `bff11483`。v6 于 2026-09-05 部署，源码与发布记录随本轮提交保存，不自动 push。回滚使用之前完整部署制品与对应配置，不恢复部分文件。
 
 ### 当前生产发布记录
+
+2026-09-08 01:27:52 UTC：官网源码 `c3a7e4d18ce94fd6a7bf8662af9869ffa6c3f46e` 已发布，版本为 `discovery-2026-09-v7`。现有站点 `index` 从 `releases/20260905-v6` 原子切换至 `releases/20260908-v7-c3a7e4d`；保留旧 release 与旧版哈希资源，未修改 Nginx 配置、证书、Cloudflare 或其他站点。
+
+制品 SHA-256 为 `220a5b7a051aae36809315ada5b86d5e9c1f1ed5cd879dc9e6e333f4bf473e7d`，本机与服务器一致。发布包和带失败回滚的脚本分别保存在本机 `~/.retropa/official-website/releases/20260908-v7-c3a7e4d/` 与服务器 `/root/deploy/retropa-official/20260908-v7-c3a7e4d/`。生产配置的切换前备份也保留在远端制品目录；回退仅需将站点软链接原子切回 `releases/20260905-v6`，不删除新旧 release。
+
+发布前 lint、build、72 页静态检查、146 项本地 HTTP 检查、OpenSpec strict 通过；切换时 Nginx 语法与源站版本检查通过，发布后公网 146 项 HTTP 检查通过。线上五组页面/视口截图确认 v7、正确商店链接、无整页溢出或首屏破图，未捕获页面运行时异常；截图前缀为 `deployed-v7-`。Cloudflare 注入脚本的连接拒绝与 modulepreload credentials 警告仍存在，未扩大修改。更完整的滤镜交互/像素证据仍以前述本地验收为准；后续浏览器会话中断，没有把未完成的追加检查计为通过。未运行单测，本轮发布没有改动原生代码。
+
+2026-09-08 01:35:07 UTC：按用户授权，将与发布制品完全一致、含 72 个 URL 的 `https://retropa.com/sitemap.xml` 提交至 `sc-domain:retropa.com`。Google 返回 204，回读返回 200、`isPending=true`，`lastSubmitted` 已更新。回读中的 68 条 submitted 与 indexed 统计仍属于历史处理结果，不能代表新版抓取或收录。回执位于本机 `~/.retropa/official-website/reports/sitemap-submission-v7-1788831308772.json`；一次性提交脚本保存在本机发布材料目录，凭据与令牌未写入回执或仓库。常规 `search-console` 报告继续保持只读。接口依据为 [Google Sitemaps submit](https://developers.google.com/webmaster-tools/v1/sitemaps/submit)。
+
+### v6 历史发布记录
 
 新版 sitemap 于 2026-09-05 07:07 UTC 经用户授权提交至 `sc-domain:retropa.com`，包含 68 个页面。Google 返回 204，回读为 pending；当时仍显示的 12 个 URL 是历史统计，不能视为新版收录结果。回执为本机 `~/.retropa/official-website/reports/sitemap-submission-1788592025322.json`。常规报告脚本继续保持只读。
 
