@@ -526,6 +526,32 @@ for (const page of pages.values()) {
   if (marker && !marker.test(visibleText(page.html).text)) record(page, "content-quality", "SkyEmu page does not identify the Nintendo DS path as beta")
 }
 
+// A meta description and the page summary serve different search surfaces. A
+// high token-level Jaccard score usually means one was copied from the other,
+// wasting the second opportunity to describe the page. Keep this advisory so
+// a short, naturally overlapping description does not block a release.
+const tokenSet = (value: string) => new Set(value.toLowerCase().match(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu) ?? [])
+const jaccard = (left: string, right: string) => {
+  const a = tokenSet(left)
+  const b = tokenSet(right)
+  const union = new Set([...a, ...b]).size
+  return union ? [...a].filter((token) => b.has(token)).length / union : 0
+}
+for (const slug of searchPageSlugs) {
+  const content = searchPageContent(slug, "en")
+  const page = pages.get(`/${slug}/`)
+  if (!content?.description || !content.summary || !page?.indexable) continue
+  const overlap = jaccard(content.description, content.summary)
+  if (overlap >= 0.6) record(page, "content-quality", `English meta description and summary share ${Math.round(overlap * 100)}% of their tokens`, 0, "metadata/content", "warn")
+}
+for (const slug of productPages) {
+  const content = productDetail(slug, "en")
+  const page = pages.get(`/${slug}/`)
+  if (!content?.description || !content.summary || !page?.indexable) continue
+  const overlap = jaccard(content.description, content.summary)
+  if (overlap >= 0.6) record(page, "content-quality", `English meta description and summary share ${Math.round(overlap * 100)}% of their tokens`, 0, "metadata/content", "warn")
+}
+
 // Every page must send its own App Store campaign token, and the token must stay
 // within Apple's 30-character limit. A site-wide constant would make per-page
 // attribution impossible, which is the defect this check exists to prevent.
