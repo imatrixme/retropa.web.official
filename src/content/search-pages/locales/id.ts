@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Penggantian inti dan menjaga kemajuan",
         "body": "Mengganti inti emulator memerlukan Retropa Plus, meskipun sistem konsol genggamnya sendiri tersedia tanpa pembelian. Bandingkan hanya inti yang mencakup sistem dan format berkas sekaligus. Pilihan diingat per game; buat cadangan simpanan milik game dan status simpan dari inti asal sebelum menguji adegan yang sama untuk perbedaan suara, gambar dan masukan.",
         "points": [
-          "Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
-          "Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
-          "Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
+          "mGBA — Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
+          "mGBA — Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
+          "mGBA — Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Penggantian inti dan menjaga kemajuan",
         "body": "Mengganti inti emulator memerlukan Retropa Plus, meskipun sistem konsol genggamnya sendiri tersedia tanpa pembelian. Bandingkan hanya inti yang mencakup sistem dan format berkas sekaligus. Pilihan diingat per game; buat cadangan simpanan milik game dan status simpan dari inti asal sebelum menguji adegan yang sama untuk perbedaan suara, gambar dan masukan.",
         "points": [
-          "Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
-          "Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
-          "Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
+          "SkyEmu — Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
+          "SkyEmu — Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
+          "SkyEmu — Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Penggantian inti dan menjaga kemajuan",
         "body": "Mengganti inti emulator memerlukan Retropa Plus, meskipun sistem konsol genggamnya sendiri tersedia tanpa pembelian. Bandingkan hanya inti yang mencakup sistem dan format berkas sekaligus. Pilihan diingat per game; buat cadangan simpanan milik game dan status simpan dari inti asal sebelum menguji adegan yang sama untuk perbedaan suara, gambar dan masukan.",
         "points": [
-          "Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
-          "Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
-          "Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
+          "SameBoy — Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
+          "SameBoy — Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
+          "SameBoy — Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Penggantian inti dan menjaga kemajuan",
         "body": "Mengganti inti emulator memerlukan Retropa Plus, meskipun sistem konsol genggamnya sendiri tersedia tanpa pembelian. Bandingkan hanya inti yang mencakup sistem dan format berkas sekaligus. Pilihan diingat per game; buat cadangan simpanan milik game dan status simpan dari inti asal sebelum menguji adegan yang sama untuk perbedaan suara, gambar dan masukan.",
         "points": [
-          "Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
-          "Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
-          "Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
+          "RusticoNES — Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
+          "RusticoNES — Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
+          "RusticoNES — Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Penggantian inti dan menjaga kemajuan",
         "body": "Mengganti inti emulator memerlukan Retropa Plus, meskipun sistem konsol genggamnya sendiri tersedia tanpa pembelian. Bandingkan hanya inti yang mencakup sistem dan format berkas sekaligus. Pilihan diingat per game; buat cadangan simpanan milik game dan status simpan dari inti asal sebelum menguji adegan yang sama untuk perbedaan suara, gambar dan masukan.",
         "points": [
-          "Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
-          "Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
-          "Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
+          "TetaNES — Status simpan merekam keadaan internal inti tertentu; jangan berharap ada kompatibilitas antar inti.",
+          "TetaNES — Buat cadangan dan verifikasi juga simpanan di dalam game; migrasi otomatis tidak dijamin.",
+          "TetaNES — Mengganti inti tidak mengonversi berkas game atau menyediakan BIOS yang tidak ada."
         ]
       },
       {

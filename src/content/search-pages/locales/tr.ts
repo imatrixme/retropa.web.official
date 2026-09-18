@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Çekirdek değiştirme ve ilerlemeyi koruma",
         "body": "Emülasyon çekirdeğini değiştirmek, taşınabilir sistemin kendisi satın alma olmadan kullanılabiliyorken bile Retropa Plus gerektirir. Yalnızca hem sistemi hem de dosya biçimini kapsayan çekirdekleri karşılaştırın. Seçim her oyun için hatırlanır; aynı sahneyi ses, görüntü ve giriş farkları açısından test etmeden önce oyunun kendi kaydını ve özgün çekirdeğin kayıt durumlarını yedekleyin.",
         "points": [
-          "Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
-          "Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
-          "Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
+          "mGBA — Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
+          "mGBA — Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
+          "mGBA — Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Çekirdek değiştirme ve ilerlemeyi koruma",
         "body": "Emülasyon çekirdeğini değiştirmek, taşınabilir sistemin kendisi satın alma olmadan kullanılabiliyorken bile Retropa Plus gerektirir. Yalnızca hem sistemi hem de dosya biçimini kapsayan çekirdekleri karşılaştırın. Seçim her oyun için hatırlanır; aynı sahneyi ses, görüntü ve giriş farkları açısından test etmeden önce oyunun kendi kaydını ve özgün çekirdeğin kayıt durumlarını yedekleyin.",
         "points": [
-          "Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
-          "Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
-          "Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
+          "SkyEmu — Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
+          "SkyEmu — Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
+          "SkyEmu — Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Çekirdek değiştirme ve ilerlemeyi koruma",
         "body": "Emülasyon çekirdeğini değiştirmek, taşınabilir sistemin kendisi satın alma olmadan kullanılabiliyorken bile Retropa Plus gerektirir. Yalnızca hem sistemi hem de dosya biçimini kapsayan çekirdekleri karşılaştırın. Seçim her oyun için hatırlanır; aynı sahneyi ses, görüntü ve giriş farkları açısından test etmeden önce oyunun kendi kaydını ve özgün çekirdeğin kayıt durumlarını yedekleyin.",
         "points": [
-          "Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
-          "Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
-          "Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
+          "SameBoy — Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
+          "SameBoy — Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
+          "SameBoy — Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Çekirdek değiştirme ve ilerlemeyi koruma",
         "body": "Emülasyon çekirdeğini değiştirmek, taşınabilir sistemin kendisi satın alma olmadan kullanılabiliyorken bile Retropa Plus gerektirir. Yalnızca hem sistemi hem de dosya biçimini kapsayan çekirdekleri karşılaştırın. Seçim her oyun için hatırlanır; aynı sahneyi ses, görüntü ve giriş farkları açısından test etmeden önce oyunun kendi kaydını ve özgün çekirdeğin kayıt durumlarını yedekleyin.",
         "points": [
-          "Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
-          "Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
-          "Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
+          "RusticoNES — Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
+          "RusticoNES — Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
+          "RusticoNES — Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Çekirdek değiştirme ve ilerlemeyi koruma",
         "body": "Emülasyon çekirdeğini değiştirmek, taşınabilir sistemin kendisi satın alma olmadan kullanılabiliyorken bile Retropa Plus gerektirir. Yalnızca hem sistemi hem de dosya biçimini kapsayan çekirdekleri karşılaştırın. Seçim her oyun için hatırlanır; aynı sahneyi ses, görüntü ve giriş farkları açısından test etmeden önce oyunun kendi kaydını ve özgün çekirdeğin kayıt durumlarını yedekleyin.",
         "points": [
-          "Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
-          "Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
-          "Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
+          "TetaNES — Kayıt durumları belirli bir çekirdeğin iç durumunu kaydeder; çekirdekler arası uyumluluk beklemeyin.",
+          "TetaNES — Oyun içi kayıtları da yedekleyin ve doğrulayın; otomatik geçiş garanti edilmez.",
+          "TetaNES — Çekirdek değiştirmek oyun dosyasını dönüştürmez veya eksik bir BIOS sağlamaz."
         ]
       },
       {

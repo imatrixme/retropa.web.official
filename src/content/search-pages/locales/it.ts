@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio di core e conservazione dei progressi",
         "body": "Cambiare il core di emulazione richiede Retropa Plus, anche quando il sistema portatile in sé è disponibile senza acquisto. Confronta solo core che coprono sia il sistema sia il formato del file. La selezione viene ricordata per ogni gioco; fai un backup del salvataggio del gioco e degli stati di salvataggio del core originale prima di provare la stessa scena per differenze di audio, immagine e ingressi.",
         "points": [
-          "Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
-          "Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
-          "Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
+          "mGBA — Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
+          "mGBA — Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
+          "mGBA — Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio di core e conservazione dei progressi",
         "body": "Cambiare il core di emulazione richiede Retropa Plus, anche quando il sistema portatile in sé è disponibile senza acquisto. Confronta solo core che coprono sia il sistema sia il formato del file. La selezione viene ricordata per ogni gioco; fai un backup del salvataggio del gioco e degli stati di salvataggio del core originale prima di provare la stessa scena per differenze di audio, immagine e ingressi.",
         "points": [
-          "Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
-          "Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
-          "Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
+          "SkyEmu — Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
+          "SkyEmu — Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
+          "SkyEmu — Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio di core e conservazione dei progressi",
         "body": "Cambiare il core di emulazione richiede Retropa Plus, anche quando il sistema portatile in sé è disponibile senza acquisto. Confronta solo core che coprono sia il sistema sia il formato del file. La selezione viene ricordata per ogni gioco; fai un backup del salvataggio del gioco e degli stati di salvataggio del core originale prima di provare la stessa scena per differenze di audio, immagine e ingressi.",
         "points": [
-          "Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
-          "Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
-          "Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
+          "SameBoy — Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
+          "SameBoy — Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
+          "SameBoy — Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio di core e conservazione dei progressi",
         "body": "Cambiare il core di emulazione richiede Retropa Plus, anche quando il sistema portatile in sé è disponibile senza acquisto. Confronta solo core che coprono sia il sistema sia il formato del file. La selezione viene ricordata per ogni gioco; fai un backup del salvataggio del gioco e degli stati di salvataggio del core originale prima di provare la stessa scena per differenze di audio, immagine e ingressi.",
         "points": [
-          "Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
-          "Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
-          "Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
+          "RusticoNES — Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
+          "RusticoNES — Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
+          "RusticoNES — Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio di core e conservazione dei progressi",
         "body": "Cambiare il core di emulazione richiede Retropa Plus, anche quando il sistema portatile in sé è disponibile senza acquisto. Confronta solo core che coprono sia il sistema sia il formato del file. La selezione viene ricordata per ogni gioco; fai un backup del salvataggio del gioco e degli stati di salvataggio del core originale prima di provare la stessa scena per differenze di audio, immagine e ingressi.",
         "points": [
-          "Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
-          "Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
-          "Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
+          "TetaNES — Gli stati di salvataggio registrano lo stato interno di un core specifico; non aspettarti compatibilità tra core diversi.",
+          "TetaNES — Fai un backup e verifica anche i salvataggi di gioco; la migrazione automatica non è garantita.",
+          "TetaNES — Cambiare core non converte il file di gioco né fornisce un BIOS mancante."
         ]
       },
       {

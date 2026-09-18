@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio de núcleo y conservación del progreso",
         "body": "Cambiar el núcleo de emulación requiere Retropa Plus, incluso cuando el propio sistema portátil está disponible sin compra. Compara solo núcleos que cubran tanto el sistema como el formato del archivo. La selección se recuerda para cada juego; haz una copia de seguridad de la partida propia del juego y de las partidas guardadas del núcleo original antes de probar la misma escena para comparar sonido, imagen y entrada.",
         "points": [
-          "Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
-          "Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
-          "Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
+          "mGBA — Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
+          "mGBA — Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
+          "mGBA — Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio de núcleo y conservación del progreso",
         "body": "Cambiar el núcleo de emulación requiere Retropa Plus, incluso cuando el propio sistema portátil está disponible sin compra. Compara solo núcleos que cubran tanto el sistema como el formato del archivo. La selección se recuerda para cada juego; haz una copia de seguridad de la partida propia del juego y de las partidas guardadas del núcleo original antes de probar la misma escena para comparar sonido, imagen y entrada.",
         "points": [
-          "Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
-          "Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
-          "Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
+          "SkyEmu — Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
+          "SkyEmu — Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
+          "SkyEmu — Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio de núcleo y conservación del progreso",
         "body": "Cambiar el núcleo de emulación requiere Retropa Plus, incluso cuando el propio sistema portátil está disponible sin compra. Compara solo núcleos que cubran tanto el sistema como el formato del archivo. La selección se recuerda para cada juego; haz una copia de seguridad de la partida propia del juego y de las partidas guardadas del núcleo original antes de probar la misma escena para comparar sonido, imagen y entrada.",
         "points": [
-          "Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
-          "Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
-          "Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
+          "SameBoy — Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
+          "SameBoy — Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
+          "SameBoy — Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio de núcleo y conservación del progreso",
         "body": "Cambiar el núcleo de emulación requiere Retropa Plus, incluso cuando el propio sistema portátil está disponible sin compra. Compara solo núcleos que cubran tanto el sistema como el formato del archivo. La selección se recuerda para cada juego; haz una copia de seguridad de la partida propia del juego y de las partidas guardadas del núcleo original antes de probar la misma escena para comparar sonido, imagen y entrada.",
         "points": [
-          "Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
-          "Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
-          "Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
+          "RusticoNES — Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
+          "RusticoNES — Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
+          "RusticoNES — Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Cambio de núcleo y conservación del progreso",
         "body": "Cambiar el núcleo de emulación requiere Retropa Plus, incluso cuando el propio sistema portátil está disponible sin compra. Compara solo núcleos que cubran tanto el sistema como el formato del archivo. La selección se recuerda para cada juego; haz una copia de seguridad de la partida propia del juego y de las partidas guardadas del núcleo original antes de probar la misma escena para comparar sonido, imagen y entrada.",
         "points": [
-          "Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
-          "Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
-          "Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
+          "TetaNES — Las partidas guardadas registran el estado interno de un núcleo concreto; no esperes compatibilidad entre núcleos.",
+          "TetaNES — Haz copia de seguridad y verifica también las partidas del propio juego; no se garantiza la migración automática.",
+          "TetaNES — Cambiar de núcleo no convierte el archivo del juego ni aporta una BIOS que falte."
         ]
       },
       {

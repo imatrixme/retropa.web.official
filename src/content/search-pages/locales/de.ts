@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Core-Wechsel und Fortschritt erhalten",
         "body": "Den Emulations-Core zu wechseln erfordert Retropa Plus, auch wenn das Handheld-System selbst ohne Kauf verfügbar ist. Vergleiche nur Cores, die sowohl das System als auch das Dateiformat abdecken. Die Auswahl wird pro Spiel gespeichert; sichere die spieleigene Speicherung und die Speicherstände des ursprünglichen Cores, bevor du dieselbe Szene auf Unterschiede bei Ton, Bild und Eingabe testest.",
         "points": [
-          "Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
-          "Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
-          "Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
+          "mGBA — Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
+          "mGBA — Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
+          "mGBA — Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Core-Wechsel und Fortschritt erhalten",
         "body": "Den Emulations-Core zu wechseln erfordert Retropa Plus, auch wenn das Handheld-System selbst ohne Kauf verfügbar ist. Vergleiche nur Cores, die sowohl das System als auch das Dateiformat abdecken. Die Auswahl wird pro Spiel gespeichert; sichere die spieleigene Speicherung und die Speicherstände des ursprünglichen Cores, bevor du dieselbe Szene auf Unterschiede bei Ton, Bild und Eingabe testest.",
         "points": [
-          "Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
-          "Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
-          "Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
+          "SkyEmu — Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
+          "SkyEmu — Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
+          "SkyEmu — Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Core-Wechsel und Fortschritt erhalten",
         "body": "Den Emulations-Core zu wechseln erfordert Retropa Plus, auch wenn das Handheld-System selbst ohne Kauf verfügbar ist. Vergleiche nur Cores, die sowohl das System als auch das Dateiformat abdecken. Die Auswahl wird pro Spiel gespeichert; sichere die spieleigene Speicherung und die Speicherstände des ursprünglichen Cores, bevor du dieselbe Szene auf Unterschiede bei Ton, Bild und Eingabe testest.",
         "points": [
-          "Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
-          "Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
-          "Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
+          "SameBoy — Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
+          "SameBoy — Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
+          "SameBoy — Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Core-Wechsel und Fortschritt erhalten",
         "body": "Den Emulations-Core zu wechseln erfordert Retropa Plus, auch wenn das Handheld-System selbst ohne Kauf verfügbar ist. Vergleiche nur Cores, die sowohl das System als auch das Dateiformat abdecken. Die Auswahl wird pro Spiel gespeichert; sichere die spieleigene Speicherung und die Speicherstände des ursprünglichen Cores, bevor du dieselbe Szene auf Unterschiede bei Ton, Bild und Eingabe testest.",
         "points": [
-          "Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
-          "Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
-          "Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
+          "RusticoNES — Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
+          "RusticoNES — Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
+          "RusticoNES — Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Core-Wechsel und Fortschritt erhalten",
         "body": "Den Emulations-Core zu wechseln erfordert Retropa Plus, auch wenn das Handheld-System selbst ohne Kauf verfügbar ist. Vergleiche nur Cores, die sowohl das System als auch das Dateiformat abdecken. Die Auswahl wird pro Spiel gespeichert; sichere die spieleigene Speicherung und die Speicherstände des ursprünglichen Cores, bevor du dieselbe Szene auf Unterschiede bei Ton, Bild und Eingabe testest.",
         "points": [
-          "Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
-          "Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
-          "Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
+          "TetaNES — Speicherstände erfassen den internen Zustand eines bestimmten Cores; erwarte keine Kompatibilität über Cores hinweg.",
+          "TetaNES — Sichere und prüfe auch die Speicherungen im Spiel; eine automatische Migration ist nicht garantiert.",
+          "TetaNES — Der Wechsel des Cores konvertiert weder die Spieldatei noch liefert er ein fehlendes BIOS."
         ]
       },
       {

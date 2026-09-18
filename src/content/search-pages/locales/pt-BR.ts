@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Troca de núcleo e como manter o progresso",
         "body": "Trocar o núcleo de emulação exige o Retropa Plus, mesmo quando o próprio sistema portátil está disponível sem compra. Compare apenas núcleos que cubram tanto o sistema quanto o formato do arquivo. A seleção é lembrada por jogo; faça backup do Save do próprio jogo e dos save states do núcleo original antes de testar a mesma cena para comparar som, imagem e entrada.",
         "points": [
-          "Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
-          "Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
-          "Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
+          "mGBA — Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
+          "mGBA — Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
+          "mGBA — Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Troca de núcleo e como manter o progresso",
         "body": "Trocar o núcleo de emulação exige o Retropa Plus, mesmo quando o próprio sistema portátil está disponível sem compra. Compare apenas núcleos que cubram tanto o sistema quanto o formato do arquivo. A seleção é lembrada por jogo; faça backup do Save do próprio jogo e dos save states do núcleo original antes de testar a mesma cena para comparar som, imagem e entrada.",
         "points": [
-          "Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
-          "Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
-          "Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
+          "SkyEmu — Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
+          "SkyEmu — Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
+          "SkyEmu — Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Troca de núcleo e como manter o progresso",
         "body": "Trocar o núcleo de emulação exige o Retropa Plus, mesmo quando o próprio sistema portátil está disponível sem compra. Compare apenas núcleos que cubram tanto o sistema quanto o formato do arquivo. A seleção é lembrada por jogo; faça backup do Save do próprio jogo e dos save states do núcleo original antes de testar a mesma cena para comparar som, imagem e entrada.",
         "points": [
-          "Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
-          "Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
-          "Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
+          "SameBoy — Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
+          "SameBoy — Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
+          "SameBoy — Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Troca de núcleo e como manter o progresso",
         "body": "Trocar o núcleo de emulação exige o Retropa Plus, mesmo quando o próprio sistema portátil está disponível sem compra. Compare apenas núcleos que cubram tanto o sistema quanto o formato do arquivo. A seleção é lembrada por jogo; faça backup do Save do próprio jogo e dos save states do núcleo original antes de testar a mesma cena para comparar som, imagem e entrada.",
         "points": [
-          "Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
-          "Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
-          "Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
+          "RusticoNES — Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
+          "RusticoNES — Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
+          "RusticoNES — Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Troca de núcleo e como manter o progresso",
         "body": "Trocar o núcleo de emulação exige o Retropa Plus, mesmo quando o próprio sistema portátil está disponível sem compra. Compare apenas núcleos que cubram tanto o sistema quanto o formato do arquivo. A seleção é lembrada por jogo; faça backup do Save do próprio jogo e dos save states do núcleo original antes de testar a mesma cena para comparar som, imagem e entrada.",
         "points": [
-          "Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
-          "Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
-          "Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
+          "TetaNES — Os save states registram o estado interno de um núcleo específico; não espere compatibilidade entre núcleos.",
+          "TetaNES — Faça backup e verifique também os Saves dentro do jogo; a migração automática não é garantida.",
+          "TetaNES — Trocar de núcleo não converte o arquivo do jogo nem fornece uma BIOS que esteja faltando."
         ]
       },
       {

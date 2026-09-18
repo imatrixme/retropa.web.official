@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Changement de cœur et conservation de la progression",
         "body": "Changer le cœur d'émulation nécessite Retropa Plus, même lorsque le système portable lui-même est disponible sans achat. Ne comparez que des cœurs qui couvrent à la fois le système et le format de fichier. La sélection est mémorisée jeu par jeu ; sauvegardez la sauvegarde interne du jeu et les états de sauvegarde du cœur d'origine avant de tester la même scène pour comparer le son, l'image et les entrées.",
         "points": [
-          "Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
-          "Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
-          "Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
+          "mGBA — Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
+          "mGBA — Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
+          "mGBA — Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Changement de cœur et conservation de la progression",
         "body": "Changer le cœur d'émulation nécessite Retropa Plus, même lorsque le système portable lui-même est disponible sans achat. Ne comparez que des cœurs qui couvrent à la fois le système et le format de fichier. La sélection est mémorisée jeu par jeu ; sauvegardez la sauvegarde interne du jeu et les états de sauvegarde du cœur d'origine avant de tester la même scène pour comparer le son, l'image et les entrées.",
         "points": [
-          "Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
-          "Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
-          "Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
+          "SkyEmu — Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
+          "SkyEmu — Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
+          "SkyEmu — Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Changement de cœur et conservation de la progression",
         "body": "Changer le cœur d'émulation nécessite Retropa Plus, même lorsque le système portable lui-même est disponible sans achat. Ne comparez que des cœurs qui couvrent à la fois le système et le format de fichier. La sélection est mémorisée jeu par jeu ; sauvegardez la sauvegarde interne du jeu et les états de sauvegarde du cœur d'origine avant de tester la même scène pour comparer le son, l'image et les entrées.",
         "points": [
-          "Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
-          "Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
-          "Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
+          "SameBoy — Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
+          "SameBoy — Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
+          "SameBoy — Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Changement de cœur et conservation de la progression",
         "body": "Changer le cœur d'émulation nécessite Retropa Plus, même lorsque le système portable lui-même est disponible sans achat. Ne comparez que des cœurs qui couvrent à la fois le système et le format de fichier. La sélection est mémorisée jeu par jeu ; sauvegardez la sauvegarde interne du jeu et les états de sauvegarde du cœur d'origine avant de tester la même scène pour comparer le son, l'image et les entrées.",
         "points": [
-          "Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
-          "Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
-          "Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
+          "RusticoNES — Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
+          "RusticoNES — Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
+          "RusticoNES — Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Changement de cœur et conservation de la progression",
         "body": "Changer le cœur d'émulation nécessite Retropa Plus, même lorsque le système portable lui-même est disponible sans achat. Ne comparez que des cœurs qui couvrent à la fois le système et le format de fichier. La sélection est mémorisée jeu par jeu ; sauvegardez la sauvegarde interne du jeu et les états de sauvegarde du cœur d'origine avant de tester la même scène pour comparer le son, l'image et les entrées.",
         "points": [
-          "Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
-          "Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
-          "Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
+          "TetaNES — Les états de sauvegarde enregistrent l'état interne d'un cœur précis ; n'attendez pas de compatibilité entre cœurs.",
+          "TetaNES — Sauvegardez et vérifiez aussi les sauvegardes internes ; la migration automatique n'est pas garantie.",
+          "TetaNES — Changer de cœur ne convertit pas le fichier de jeu et ne fournit pas un BIOS manquant."
         ]
       },
       {

@@ -802,9 +802,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Đổi nhân giả lập và giữ tiến trình",
         "body": "Việc đổi nhân giả lập cần có Retropa Plus, ngay cả khi bản thân hệ máy cầm tay vẫn dùng được mà không cần mua. Chỉ so sánh những nhân giả lập hỗ trợ cả hệ máy lẫn định dạng tệp tin. Lựa chọn được ghi nhớ theo từng game; hãy sao lưu bản lưu của chính game và bản lưu trạng thái của nhân giả lập gốc trước khi thử cùng một cảnh để so sánh khác biệt về âm thanh, hình ảnh và phản hồi.",
         "points": [
-          "Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
-          "Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
-          "Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
+          "mGBA — Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
+          "mGBA — Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
+          "mGBA — Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
         ]
       },
       {
@@ -875,9 +875,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Đổi nhân giả lập và giữ tiến trình",
         "body": "Việc đổi nhân giả lập cần có Retropa Plus, ngay cả khi bản thân hệ máy cầm tay vẫn dùng được mà không cần mua. Chỉ so sánh những nhân giả lập hỗ trợ cả hệ máy lẫn định dạng tệp tin. Lựa chọn được ghi nhớ theo từng game; hãy sao lưu bản lưu của chính game và bản lưu trạng thái của nhân giả lập gốc trước khi thử cùng một cảnh để so sánh khác biệt về âm thanh, hình ảnh và phản hồi.",
         "points": [
-          "Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
-          "Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
-          "Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
+          "SkyEmu — Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
+          "SkyEmu — Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
+          "SkyEmu — Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
         ]
       }
     ],
@@ -928,9 +928,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Đổi nhân giả lập và giữ tiến trình",
         "body": "Việc đổi nhân giả lập cần có Retropa Plus, ngay cả khi bản thân hệ máy cầm tay vẫn dùng được mà không cần mua. Chỉ so sánh những nhân giả lập hỗ trợ cả hệ máy lẫn định dạng tệp tin. Lựa chọn được ghi nhớ theo từng game; hãy sao lưu bản lưu của chính game và bản lưu trạng thái của nhân giả lập gốc trước khi thử cùng một cảnh để so sánh khác biệt về âm thanh, hình ảnh và phản hồi.",
         "points": [
-          "Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
-          "Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
-          "Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
+          "SameBoy — Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
+          "SameBoy — Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
+          "SameBoy — Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
         ]
       },
       {
@@ -993,9 +993,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Đổi nhân giả lập và giữ tiến trình",
         "body": "Việc đổi nhân giả lập cần có Retropa Plus, ngay cả khi bản thân hệ máy cầm tay vẫn dùng được mà không cần mua. Chỉ so sánh những nhân giả lập hỗ trợ cả hệ máy lẫn định dạng tệp tin. Lựa chọn được ghi nhớ theo từng game; hãy sao lưu bản lưu của chính game và bản lưu trạng thái của nhân giả lập gốc trước khi thử cùng một cảnh để so sánh khác biệt về âm thanh, hình ảnh và phản hồi.",
         "points": [
-          "Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
-          "Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
-          "Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
+          "RusticoNES — Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
+          "RusticoNES — Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
+          "RusticoNES — Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
         ]
       },
       {
@@ -1058,9 +1058,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Đổi nhân giả lập và giữ tiến trình",
         "body": "Việc đổi nhân giả lập cần có Retropa Plus, ngay cả khi bản thân hệ máy cầm tay vẫn dùng được mà không cần mua. Chỉ so sánh những nhân giả lập hỗ trợ cả hệ máy lẫn định dạng tệp tin. Lựa chọn được ghi nhớ theo từng game; hãy sao lưu bản lưu của chính game và bản lưu trạng thái của nhân giả lập gốc trước khi thử cùng một cảnh để so sánh khác biệt về âm thanh, hình ảnh và phản hồi.",
         "points": [
-          "Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
-          "Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
-          "Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
+          "TetaNES — Bản lưu trạng thái ghi lại trạng thái nội bộ của một nhân giả lập cụ thể; đừng mong chúng tương thích giữa các nhân giả lập.",
+          "TetaNES — Hãy sao lưu và kiểm tra cả bản lưu trong game; không có gì bảo đảm việc tự động chuyển đổi.",
+          "TetaNES — Đổi nhân giả lập không chuyển đổi tệp tin game cũng không cung cấp BIOS còn thiếu."
         ]
       },
       {
