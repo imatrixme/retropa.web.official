@@ -27,9 +27,9 @@ bun run report --days 14
 
 - 首页：Retropa 产品画面、GBA/DS/街机入口、皮肤/游戏库、画面与参数并排的滤镜对照、系统、开始路径和 Plus 边界。
 - `/cores/`：系统格式矩阵与核心项目来源；不再重复图片墙。
-- `/start/`：导入、首次游玩与 18 条常见问题，覆盖设备、格式、BIOS、街机、存档、手柄、Plus 和高级滤镜。`src/content/start-faq.ts` 拥有英文和简体中文问答；完整答案在构建时写入 HTML，每题有稳定锚点，不依赖点击后请求数据。其他语言明确链接英文指南，不伪装成已翻译内容。不保证搜索排名或 FAQ 富结果。
-- `/delta-skins/`、`/crt-filters/`、`/arcade/`：英文与简体中文的完整产品说明，包含格式、操作步骤、恢复路径与能力限制。
-- `/gba-emulator/`、`/ds-emulator/`：英文与简体中文的独立指南，分别解释 .gba 与 .nds、单屏按键与双屏触控、文件准备和故障恢复，不是替换关键词的重复页面。`src/content/system-guides.ts` 拥有内容，复用既有产品页模板与静态路由。
+- `/start/`：导入、首次游玩与 18 条常见问题，覆盖设备、格式、BIOS、街机、存档、手柄、Plus 和高级滤镜。每个已发布语言都有独立问答目录，完整答案在构建时写入 HTML，每题有稳定锚点，不依赖点击后请求数据。不保证搜索排名或 FAQ 富结果。
+- `/delta-skins/`、`/crt-filters/`、`/arcade/`：每个已发布语言都有独立产品说明，包含格式、操作步骤、恢复路径与能力限制。
+- `/gba-emulator/`、`/ds-emulator/`：每个已发布语言都有独立指南，分别解释 .gba 与 .nds、单屏按键与双屏触控、文件准备和故障恢复，不是替换关键词的重复页面。内容按语言拆分在 `src/content/product-details/locales/`，复用既有产品页模板与静态路由。
 - `/terms/`、`/privacy/`：保留既有法律内容；隐私页面增加官网统计说明。
 - 原有四类页面保留 15 种语言，用 `/{locale}/...` 静态路径。英文为根路径。首页、核心、条款、隐私的旧 `?lang=` 入口在 HTTP 层永久跳转，保留其他查询参数；新 sitemap 与导航只发布确定语言的路径。`src/lib/legacy-locale.ts` 拥有 Bun 预览迁移规则，Nginx 对应规则在 `deploy/legacy-locales.conf`。支持单个标准语言值，未知或重复 lang 不在 HTTP 层迁移；非标准语言别名仍由既有浏览器兼容逻辑处理。
 
@@ -39,7 +39,7 @@ bun run report --days 14
 
 ## 重玩与首屏
 
-首屏围绕 iOS 重玩意愿，保留 Retropa、iPhone/iPad、下载与免费/内购边界；不创建游戏房间或首屏额外选择器。产品首屏之后直接提供系统入口，再进入皮肤、游戏库与 CRT 滤镜对照。15 种语言的重玩文案在 `src/content/replay.ts`；当前本地事件 revision 为 `discovery-2026-09-v7`，静态 HTML 与事件版本一致。事件名称、许可、ASC campaign 与客户端契约不变，小流量仍汇总同一商店 campaign，页面与按钮差异由网站事件表达。
+首屏围绕 iOS 重玩意愿，保留 Retropa、iPhone/iPad、下载与免费/内购边界；不创建游戏房间或首屏额外选择器。产品首屏之后直接提供系统入口，再进入皮肤、游戏库与 CRT 滤镜对照。15 种语言的重玩文案在 `src/content/replay.ts`；当前本地事件 revision 为 `discovery-2026-09-v8`，静态 HTML 与事件版本一致。事件名称、许可、ASC campaign 与客户端契约不变，小流量仍汇总同一商店 campaign，页面与按钮差异由网站事件表达。
 
 Hero 始终使用静态 DOM 图片，保留大尺幅构图和直接打开原图的链接。已按本轮验收移除 Three.js、Hero Canvas、指针视差及其加载/回退状态；不添加替代动画。首屏图像和下载不依赖 JavaScript。下方功能性的滤镜对照独立保留。
 
@@ -140,7 +140,7 @@ bun run evidence --events /absolute/path/browser-events.json
 
 先在 Nginx 的 `http {}` 层包含 `deploy/legacy-locales.conf`，再合并示例 server 块；不要把 map 放进 server 块。旧四入口的 15 种标准语言、无尾斜杠和 index.html 形式均迁移到规范静态路径。GET/HEAD 返回 308，删除 lang 并保留 utm_source、ct 等原有参数；未知路径保持 404。
 
-`evidence:http` 对正在运行的服务执行只读 HTTP 验收：72 个静态页面、版本标记、60 个语言迁移组合、查询参数、HEAD、未知路径及 sitemap/robots。目标可以是本地预览或单独授权发布后的主域；检查不会追踪重定向到 App Store，也不会提交索引。它允许重定向指向当前测试 origin 或固定的生产主域，不接受任意外域。上线前以本地制品检查为基准，上线后对生产 origin 重跑，避免将旧版 200 当成发布成功。
+`evidence:http` 对正在运行的服务执行只读 HTTP 验收：当前构建的全部静态页面、版本标记、60 个语言迁移组合、查询参数、HEAD、未知路径及 sitemap/robots。目标可以是本地预览或单独授权发布后的主域；检查不会追踪重定向到 App Store，也不会提交索引。它允许重定向指向当前测试 origin 或固定的生产主域，不接受任意外域。上线前以本地制品检查为基准，上线后对生产 origin 重跑，避免将旧版 200 当成发布成功。
 
 v5 基线已按用户要求提交：官网 `b207ab1`，父仓库 `bff11483`。v6 于 2026-09-05 部署，源码与发布记录随本轮提交保存，不自动 push。回滚使用之前完整部署制品与对应配置，不恢复部分文件。
 

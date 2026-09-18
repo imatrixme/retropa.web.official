@@ -18,12 +18,15 @@ for (const { page, locale } of [...publishedPages, { page: "not-found", locale: 
   await writeFile(`${directory}/${page === "not-found" ? "404.html" : "index.html"}`, renderPage(page, locale, assets))
 }
 const paths = publishedPages.map(({ page, locale }: { page: string; locale: string }) => localizedPath(page, locale))
+const guideLanguages = publishedPages
+  .filter(({ page }: { page: string }) => page === "guides")
+  .map(({ locale }: { locale: string }) => locale)
 await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path: string) => `<url><loc>https://retropa.com${path}</loc></url>`).join("")}</urlset>`)
 await writeFile("dist/build-evidence.json", JSON.stringify({
   schemaVersion: 1, revision: analyticsConfig.revision, generatedAt: new Date().toISOString(), paths,
   analyticsConfigured: /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId),
   campaignProviderConfigured: /^\d+$/.test(analyticsConfig.providerToken),
-  attribution: "aggregate_only", guideLanguages: ["en", "zh-Hans"],
+  attribution: "aggregate_only", guideLanguages,
 }, null, 2))
 console.log(`Prerendered ${paths.length} localized pages and 404.html.`)
 
