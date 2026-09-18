@@ -803,9 +803,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Swapping cores without losing progress",
         "body": "mGBA is the default for Game Boy, Game Boy Color and Game Boy Advance, and for most games that default is where you should stay. Switching to another core is a Retropa Plus feature, even though those systems themselves cost nothing to play. If you do switch, pick a core that handles both the system and the file format, since the choice is saved per game. Copy the in-game save and any save states from the core you are leaving before you compare the same scene for sound, picture and input.",
         "points": [
-          "Save states record a particular core's internal state; do not expect cross-core compatibility.",
-          "Back up and verify in-game saves too; automatic migration is not guaranteed.",
-          "Switching cores does not convert the game file or supply a missing BIOS."
+          "mGBA save states belong to mGBA's internal state; do not expect them to open under another core.",
+          "Keep a verified copy of the game's own save as well; mGBA cannot migrate it for you automatically.",
+          "Changing away from mGBA does not convert the game file or provide firmware the app does not ship."
         ]
       },
       {
@@ -878,9 +878,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Pointing one game at a different core",
         "body": "Retropa Plus is what unlocks core switching, and the handheld systems stay playable without it. On Nintendo DS the question is academic: SkyEmu is the only core in the catalog, so there is nothing else to pick. Where a choice does exist, limit yourself to cores that cover both the system and the format in front of you. The app remembers your pick per game, so back up the game's own save and the save states from the core you started on before you run the same scene twice.",
         "points": [
-          "Save states record a particular core's internal state; do not expect cross-core compatibility.",
-          "Back up and verify in-game saves too; automatic migration is not guaranteed.",
-          "Switching cores does not convert the game file or supply a missing BIOS."
+          "SkyEmu saves capture its own core state, so keep them separate from states made elsewhere.",
+          "Back up the game's own save before testing SkyEmu; a core switch does not promise automatic migration.",
+          "A SkyEmu switch leaves the original file and BIOS requirements untouched."
         ]
       }
     ],
@@ -933,9 +933,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "When it is worth changing cores",
         "body": "Changing cores is a Retropa Plus feature, even though Game Boy and Game Boy Color play for free. It is worth doing only when you can name the problem: a specific sound, a specific frame, a specific button. Choose a core that supports both the system and the format, because a mismatch gets you nowhere. Retropa remembers the pick per game, so keep a copy of the in-game save and of any save states from the core you started on before you test the same scene twice.",
         "points": [
-          "Save states record a particular core's internal state; do not expect cross-core compatibility.",
-          "Back up and verify in-game saves too; automatic migration is not guaranteed.",
-          "Switching cores does not convert the game file or supply a missing BIOS."
+          "SameBoy save states describe SameBoy's running state and are not a portable format for another core.",
+          "Verify the in-game save separately before comparing SameBoy with another core; migration is not automatic.",
+          "Changing cores from SameBoy cannot rewrite the file or fill a missing BIOS."
         ]
       },
       {
@@ -999,9 +999,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Core switching and keeping progress",
         "body": "Retropa Plus unlocks core switching. That applies to NES as well, even though NES plays for free. Before comparing RusticoNES with TetaNES or JGenesis, confirm that the other core lists your file's format at all. Retropa remembers your pick per game. Copy out both the game's own save and the save states made under the old core, then bring up the same moment in both cores and judge sound, picture and input.",
         "points": [
-          "Save states record a particular core's internal state; do not expect cross-core compatibility.",
-          "Back up and verify in-game saves too; automatic migration is not guaranteed.",
-          "Switching cores does not convert the game file or supply a missing BIOS."
+          "RusticoNES save states stay tied to its mapper and core state; do not treat them as cross-core files.",
+          "Copy and verify the NES save before changing cores; RusticoNES will not migrate it on your behalf.",
+          "A RusticoNES comparison does not repair the image or supply firmware that is absent."
         ]
       },
       {
@@ -1064,9 +1064,9 @@ export const pages: Record<string, SearchPageContent> = {
         "title": "Core switching and keeping progress",
         "body": "Reaching for TetaNES costs a Retropa Plus unlock, because changing cores sits behind it; playing NES itself does not. Ask first whether TetaNES even accepts the format you have, since a switch between cores is only meaningful where both lists overlap. Your choice sticks per game, and Retropa will not ask again next time. Before the test, archive the in-game save and any save states from the old core. One scene, two cores, then compare sound, picture and input.",
         "points": [
-          "Save states record a particular core's internal state; do not expect cross-core compatibility.",
-          "Back up and verify in-game saves too; automatic migration is not guaranteed.",
-          "Switching cores does not convert the game file or supply a missing BIOS."
+          "TetaNES save states belong to that implementation; keep them with TetaNES rather than moving them to another core.",
+          "Preserve a tested game save before trying TetaNES; switching cores does not perform an automatic migration.",
+          "Trying TetaNES does not convert the image or conjure a BIOS file."
         ]
       },
       {
