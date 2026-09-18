@@ -146,6 +146,12 @@ v5 基线已按用户要求提交：官网 `b207ab1`，父仓库 `bff11483`。v6
 
 ### 当前生产发布记录
 
+2026-09-18 16:53 UTC：官网候选制品 `discovery-2026-09-v8` 已按用户审阅结果发布。当前 release 为 `releases/20260919-v8-5a1db97d`，包含 540 个可索引页面和 541 个 HTML 文件；完整性报告为 0 failures、0 warnings。发布前本地 `bun run lint`、`bun run build`、`bun run evidence`、`bun run evidence:http --base http://127.0.0.1:4178` 与 OpenSpec strict 均通过。切换时未修改 Nginx 配置、证书、Cloudflare 或其他站点；`index` 使用相对 release 软链接，以便 OpenResty 容器正确解析。切换后公网 `bun run evidence:http --base https://retropa.com` 通过 614 项检查。
+
+本次制品关键文件哈希已在本机与服务器逐项核对：`build-evidence.json` 为 `2f1e1390515b70362b1fed41a92cd6ddbb5955898e7e0befb2315975e129abf4`，`integrity-report.json` 为 `e6c81ab19631a6ac47142b7d174f528744baf148a1472fb25a435fa12b68a137`，`sitemap.xml` 为 `d696c6a3a910dfd9349cf1c0d6fc6de5577f341c83ad4d5e92730acd98710365`。回滚只需把 `index` 原子切回 `releases/20260908-v7-c3a7e4d`，不删除新旧 release。
+
+2026-09-18 16:57 UTC：按用户授权，将与 v8 制品逐字节一致、包含 540 个 URL 的 `https://retropa.com/sitemap.xml` 提交至 `sc-domain:retropa.com`。Google 返回 204，回读返回 200、`isPending=true`，回读的 `submitted=72` 仍是处理中的历史统计，不能视为 540 个 URL 已抓取或收录。回执位于本机 `~/.retropa/official-website/reports/sitemap-submission-v8-1789750628623.json`；提交脚本与凭据均不进入仓库。常规 Search Console 报告仍保持只读。
+
 2026-09-08 01:27:52 UTC：官网源码 `c3a7e4d18ce94fd6a7bf8662af9869ffa6c3f46e` 已发布，版本为 `discovery-2026-09-v7`。现有站点 `index` 从 `releases/20260905-v6` 原子切换至 `releases/20260908-v7-c3a7e4d`；保留旧 release 与旧版哈希资源，未修改 Nginx 配置、证书、Cloudflare 或其他站点。
 
 制品 SHA-256 为 `220a5b7a051aae36809315ada5b86d5e9c1f1ed5cd879dc9e6e333f4bf473e7d`，本机与服务器一致。发布包和带失败回滚的脚本分别保存在本机 `~/.retropa/official-website/releases/20260908-v7-c3a7e4d/` 与服务器 `/root/deploy/retropa-official/20260908-v7-c3a7e4d/`。生产配置的切换前备份也保留在远端制品目录；回退仅需将站点软链接原子切回 `releases/20260905-v6`，不删除新旧 release。
