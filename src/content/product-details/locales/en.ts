@@ -202,7 +202,7 @@ export const pages: Record<string, ProductDetail> = {
       },
       {
         "title": "More than a scanline overlay",
-        "body": "CRT Lite, LCD Grid and Scanline are the light presets, and they are honest about it. Advanced presets go after the display hardware: beam width, phosphor transmission, the reflectivity of a liquid-crystal cell. A grid sampled straight from the source tends to look uneven at fractional scales, while integration that respects the output lets fine detail settle. None of this means every ordinary filter demands integer scaling, or that some device and preset combination will never show an artifact."
+        "body": "CRT Lite, LCD Grid and Scanline are the light presets, and they are honest about it. Advanced presets model parts of the display itself: how wide the beam looks, how light passes through phosphor, or how a liquid-crystal cell reflects light. A source-sized grid can look uneven when the picture is scaled between whole pixels; using the real output area lets fine detail settle more naturally. None of this means every ordinary filter demands integer scaling, or that some device and preset combination will never show an artifact."
       },
       {
         "title": "What the browser comparison shows",

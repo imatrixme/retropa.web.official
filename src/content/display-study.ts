@@ -22,8 +22,8 @@ const modeCopy: Record<Locale, ModeCatalog> = {
     ["CRT Lite", "A light dusting of scanlines and mask, cheap enough to leave on."],
     ["LCD Grid", "A sampled subpixel grid that gives the picture an LCD character."],
     ["Scanline", "A plain line pattern, with no attempt at modelling a real beam."],
-    ["CRT V4", "Beam coverage rebuilt from each output pixel's footprint, with the phosphor grille filtered analytically."],
-    ["Trinitron V1", "Scanline beams integrated together with band-limited RGB aperture-grille harmonics."],
+    ["CRT V4", "A beam-shaped CRT look rebuilt from the area each output pixel covers, with a filtered phosphor grille."],
+    ["Trinitron V1", "Scanlines, beam spread and an RGB aperture grille blended into a Trinitron-style display."],
     ["DMG", "Four-tone liquid crystal over a reflective substrate, with the pixel cells integrated rather than sampled."],
   ],
   "zh-Hans": [
@@ -31,8 +31,8 @@ const modeCopy: Record<Locale, ModeCatalog> = {
     ["CRT Lite", "轻轻扫一层扫描线和网罩，开销很小，可以一直开着。"],
     ["LCD Grid", "采样出子像素网格，让画面带上液晶屏的味道。"],
     ["Scanline", "只是简单的线条纹理，没有真去模拟电子束。"],
-    ["CRT V4", "按每个输出像素的覆盖范围重建电子束，荧光栅格用解析方式滤波。"],
-    ["Trinitron V1", "扫描束积分成像，配合带限的 RGB 阴栅谐波。"],
+    ["CRT V4", "按屏幕上每个输出像素实际覆盖的范围重建电子束，再把荧光栅格滤得更自然。"],
+    ["Trinitron V1", "把扫描线、电子束扩散和 RGB 阴栅混在一起，做出更像 Trinitron 的显示层次。"],
     ["DMG", "四色液晶加反射基底，像素单元是积分出来的而不是采样出来的。"],
   ],
   "zh-Hant": [

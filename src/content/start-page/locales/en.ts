@@ -101,7 +101,7 @@ export const content: StartPageContent = {
     {
       "id": "advanced-filters",
       "question": "How are Retropa advanced filters different from ordinary CRT filters?",
-      "answer": "Simple display filters often overlay sampled scanlines or pixel grids. Retropa advanced presets such as CRT V4 and Trinitron model beam and phosphor structure with output-pixel integration or band-limited filtering. DMG includes integrated liquid-crystal cells and a reflective substrate. These are display models, not just a color tint.",
+      "answer": "Simple display filters often overlay sampled scanlines or pixel grids. Retropa advanced presets such as CRT V4 and Trinitron model how a beam spreads and how phosphor or an RGB grille appears across the real output area. DMG includes integrated liquid-crystal cells and a reflective substrate. These are display models, not just a color tint.",
       "link": "crt-filters",
       "linkLabel": "Compare the advanced display filters"
     },
