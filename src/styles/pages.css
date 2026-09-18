@@ -1,0 +1,62 @@
+.reference-page, .legal-page, .guide-page { padding-bottom: 80px; }
+.page-heading { max-width: 780px; padding-block: 70px 45px; }
+.page-heading .eyebrow { color: var(--muted); margin-bottom: 22px; }
+.page-heading h1 { font-size: 48px; margin-bottom: 24px; }
+:lang(zh) .page-heading h1 { word-break: keep-all; }
+.page-heading p { font-size: 18px; color: var(--muted); margin-bottom: 24px; }
+.page-heading small { color: var(--muted); }
+.content-notice { padding: 20px 24px; border-left: 3px solid var(--electric); background: var(--wash); }
+.arcade-reference { padding-block: 40px; }
+.arcade-reference h2 { font-size: 32px; }
+.arcade-systems { margin-block: 16px; font: 18px Plex, monospace; }
+.arcade-reference > p:last-child { max-width: 800px; color: var(--muted); }
+.reference-page section > h2 { margin-bottom: 24px; font-size: 30px; }
+.support-table { overflow-x: auto; border-block: 1px solid var(--line); }
+table { border-collapse: collapse; text-align: left; width: 100%; min-width: 600px; font-size: 14px; }
+th, td { padding: 16px 20px 16px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead { color: var(--muted); }
+thead th { font-weight: 500; font-size: 12px; }
+.support-table tr:last-child > * { border-bottom: 0; }
+.core-credits { padding-block: 50px; }
+.credit-list { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 48px; }
+.credit-list a { display: flex; align-items: center; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.credit-list a:hover { color: var(--electric); }
+.credit-list a span { flex: 1; }
+.credit-list img { object-fit: contain; }
+.compatibility-notes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; }
+.compatibility-notes h3 { font-size: 24px; margin-bottom: 16px; }
+.compatibility-notes p { color: var(--muted); }
+.legal-layout { display: grid; grid-template-columns: 230px 1fr; gap: 65px; align-items: start; }
+.legal-layout aside { position: sticky; top: 30px; }
+.legal-layout aside h2 { font-size: 15px; margin-bottom: 20px; }
+.legal-layout nav { display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: var(--muted); }
+.legal-layout nav a:hover { color: var(--electric); }
+.legal-layout section { padding-block: 0 38px; margin-bottom: 35px; border-bottom: 1px solid var(--line); }
+.legal-layout section h2 { font-size: 26px; margin-bottom: 20px; }
+.legal-layout section p { color: var(--muted); margin-top: 16px; overflow-wrap: anywhere; }
+.website-privacy { max-width: 905px; margin: 0 auto 75px; padding: 0 24px; }
+.website-privacy h2 { font-size: 28px; margin-bottom: 16px; }
+.website-privacy p { margin-top: 12px; color: var(--muted); }
+.guide-page { max-width: 1000px; }
+.guide-steps { margin-bottom: 28px; }
+.guide-steps section { display: grid; grid-template-columns: 75px 1fr; gap: 25px; padding-block: 35px; border-top: 1px solid var(--line); }
+.step-number { font: 28px Plex, monospace; color: var(--electric); }
+.guide-steps h2 { font-size: 28px; margin-bottom: 18px; }
+.guide-steps p { color: var(--muted); max-width: 710px; }
+.faq-section { margin-block: 65px; }
+.faq-section h2 { font-size: 32px; margin-bottom: 26px; }
+.faq-section details { border-top: 1px solid var(--line); padding-block: 21px; }
+.faq-section details:last-child { border-bottom: 1px solid var(--line); }
+.faq-section summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; list-style: none; font-weight: 600; cursor: pointer; }
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section details[open] svg { transform: rotate(180deg); }
+.faq-section details p { max-width: 780px; color: var(--muted); margin-top: 18px; }
+.faq-related { margin-top: 14px; font-size: 14px; }
+.faq-section details { scroll-margin-top: 24px; }
+@media (max-width: 700px) {
+  .page-heading { padding-block: 45px 30px; } .page-heading h1 { font-size: 34px; } .page-heading p { font-size: 16px; }
+  .legal-layout { display: block; } .legal-layout aside { position: static; margin-bottom: 40px; }
+  .credit-list, .compatibility-notes { grid-template-columns: 1fr; gap: 20px; }
+  .guide-steps section { grid-template-columns: 40px 1fr; gap: 20px; } .guide-steps h2 { font-size: 25px; }
+  .step-number { font-size: 23px; } .arcade-systems { font-size: 15px; }
+}

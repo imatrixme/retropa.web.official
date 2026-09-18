@@ -16,8 +16,10 @@ export function readStoredThemePreference(): ThemePreference | null {
     return null
   }
 
-  const value = window.localStorage.getItem(storageKey)
-  return value === "light" || value === "dark" || value === "system" ? value : null
+  try {
+    const value = window.localStorage.getItem(storageKey)
+    return value === "light" || value === "dark" || value === "system" ? value : null
+  } catch { return null }
 }
 
 export function resolveThemePreference(): ThemePreference {
@@ -49,7 +51,7 @@ export function applyTheme(preference: ThemePreference): Theme {
 
 export function setTheme(preference: ThemePreference): void {
   if (typeof window !== "undefined") {
-    window.localStorage.setItem(storageKey, preference)
+    try { window.localStorage.setItem(storageKey, preference) } catch { /* Keep the theme usable without persistence. */ }
   }
   applyTheme(preference)
 }

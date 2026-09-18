@@ -1,132 +1,91 @@
-import { ShieldCheck } from "lucide-react"
-import type { ReactNode } from "react"
-
-import { BrandLogo } from "@/components/brand-logo"
-import { LanguageSwitcher } from "@/components/language-switcher"
-import { PrismaticDownloadButton } from "@/components/prismatic-download-button"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react"
+import { useEffect, useRef, type ReactNode } from "react"
 import { useI18n } from "@/i18n/context"
-import { useRuntimeSeo } from "@/i18n/seo"
-import type { PageKey } from "@/i18n/pages"
+import { localeLabelByLocale, supportedLocales } from "@/i18n/locales"
+import { acquisitionCopy } from "@/content/acquisition"
+import { discoveryCopy, navigationCopy } from "@/content/discovery"
+import { guideLocale, localizedPath, type SitePage } from "@/lib/routes"
+import { observeAcquisition, track } from "@/lib/analytics"
+import { setTheme } from "@/lib/theme"
 import { siteConfig } from "@/lib/site-config"
-import { cn } from "@/lib/utils"
+import { DownloadLink } from "@/components/download-link"
+import { AnalyticsConsent } from "@/components/analytics-consent"
 
-type SiteLayoutProps = {
-  currentPage: PageKey
-  children: ReactNode
-}
-function NavLinks({
-  currentPage,
-  compact = false,
-  navItems,
-}: {
-  currentPage: PageKey
-  compact?: boolean
-  navItems: Array<{ key: PageKey; label: string; href: string }>
-}) {
-  return (
-    <>
-      {navItems.map((item) => (
-        <a
-          key={item.key}
-          href={item.href}
-          className={cn(
-            "premium-nav-pill",
-            currentPage === item.key ? "premium-nav-active" : "premium-nav-idle",
-            compact ? "shrink-0" : undefined
-          )}
-        >
-          {item.label}
-        </a>
-      ))}
-    </>
-  )
-}
-
-export function SiteLayout({ currentPage, children }: SiteLayoutProps) {
-  const { messages } = useI18n()
-  useRuntimeSeo(currentPage)
-
-  const navItems: Array<{ key: PageKey; label: string; href: string }> = [
-    { key: "home", label: messages.shared.nav.home, href: "/" },
-    { key: "cores", label: messages.shared.nav.cores, href: "/cores/" },
-    { key: "terms", label: messages.shared.nav.terms, href: "/terms/" },
-    { key: "privacy", label: messages.shared.nav.privacy, href: "/privacy/" },
+export function SiteLayout({ currentPage, children }: { currentPage: SitePage; children: ReactNode }) {
+  const { locale, messages, setLocaleFromValue } = useI18n()
+  const copy = acquisitionCopy(locale)
+  const discovery = discoveryCopy(locale)
+  const labels = navigationCopy(locale)
+  const menu = useRef<HTMLDetailsElement>(null)
+  useEffect(() => observeAcquisition(), [])
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || !menu.current?.open) return
+      menu.current.open = false
+      menu.current.querySelector("summary")?.focus()
+    }
+    const outside = (event: PointerEvent) => {
+      if (menu.current?.open && event.target instanceof Node && !menu.current.contains(event.target)) menu.current.open = false
+    }
+    document.addEventListener("keydown", close)
+    document.addEventListener("pointerdown", outside)
+    return () => { document.removeEventListener("keydown", close); document.removeEventListener("pointerdown", outside) }
+  }, [])
+  const links: { page: SitePage; label: string }[] = [
+    { page: "cores", label: labels[0] }, { page: "delta-skins", label: labels[1] },
+    { page: "crt-filters", label: labels[2] }, { page: "start", label: labels[3] },
   ]
-
-  return (
-    <div className="site-background relative isolate min-h-screen overflow-x-clip text-foreground transition-colors">
-      <div className="site-grid-overlay pointer-events-none absolute inset-0 -z-10" />
-      <div className="site-vignette-overlay pointer-events-none absolute inset-0 -z-10" />
-
-      <header className="fixed inset-x-0 top-0 z-50 px-3 pb-2 pt-3 md:px-6 md:pt-4">
-        <div className="premium-nav-shell mx-auto max-w-5xl">
-          <div className="flex items-center justify-between gap-2 px-3 py-2 md:px-4 md:py-2.5">
-            <a
-              href="/"
-              className="transition hover:opacity-90"
-              aria-label={messages.shared.brand.homepageAriaLabel}
-            >
-              <BrandLogo size="sm" showWordmark={false} />
-            </a>
-
-            <nav className="hidden items-center gap-1 md:flex">
-              <NavLinks currentPage={currentPage} navItems={navItems} />
-            </nav>
-
-            <div className="flex items-center gap-1.5">
-              <LanguageSwitcher />
-              <ThemeToggle />
-              <PrismaticDownloadButton size="sm" label={messages.shared.headerDownloadLabel} />
-            </div>
-          </div>
-
-          <nav className="premium-nav-mobile-scroll px-2 pb-2 md:hidden">
-            <div className="inline-flex min-w-full gap-1">
-              <NavLinks currentPage={currentPage} compact navItems={navItems} />
-            </div>
-          </nav>
+  const guideLanguage = guideLocale(locale)
+  const guideLanguageLabel = guideLanguage === "en" && locale !== "en" ? <small className="link-language" lang="en">EN</small> : null
+  const navigation = (mobile = false) => <nav className={mobile ? "mobile-nav" : "main-nav"} aria-label={discovery.openMenu}>
+    {links.map(link => <a key={link.page} href={localizedPath(link.page, locale)} hrefLang={link.page === "cores" ? locale : guideLocale(locale)} aria-current={currentPage === link.page ? "page" : undefined}
+      onClick={() => { if (menu.current) menu.current.open = false; if (link.page === "start") track("web_guide_opened") }}><span>{link.label}{link.page !== "cores" && guideLanguageLabel}</span>{mobile && <ArrowUpRight size={18} />}</a>)}
+  </nav>
+  return <div className="site-shell">
+    <a href="#main" className="skip-link">{discovery.skip}</a>
+    <header className="site-header">
+      <a href={localizedPath("home", locale)} className="wordmark" aria-label={messages.shared.brand.homepageAriaLabel}>
+        <img src="/brand/retropa-site-logo.png" width="32" height="32" alt="" />Retropa<span className="brand-period">.</span>
+      </a>
+      {navigation()}
+      <div className="header-actions">
+        <DownloadLink placement="header" compact />
+        <details className="mobile-menu" ref={menu}>
+          <summary className="icon-button" aria-label={discovery.openMenu} title={discovery.openMenu}><Menu className="menu-open-icon" size={23} /><X className="menu-close-icon" size={23} /></summary>
+          {navigation(true)}
+        </details>
+      </div>
+    </header>
+    <main id="main">{children}</main>
+    <footer className="site-footer wrap">
+      <div className="footer-top">
+        <div><a className="footer-brand" href={localizedPath("home", locale)}>Retropa<span>.</span></a><p>{copy.category}<br />iPhone & iPad</p></div>
+        <div className="footer-directory">
+          <div><p>{labels[0]}</p>{[["gba-emulator", "GBA"], ["ds-emulator", "DS"], ["arcade", discovery.arcadeLabel]].map(([page, label]) => <a key={page} href={localizedPath(page as SitePage, locale)} hrefLang={guideLanguage}>{label}{guideLanguageLabel}<ArrowUpRight size={14} /></a>)}</div>
+          <div><p>Retropa</p>{links.slice(1).map(link => <a href={localizedPath(link.page, locale)} hrefLang={guideLanguage} key={link.page}>{link.label}{guideLanguageLabel}</a>)}</div>
         </div>
-      </header>
-
-      <div aria-hidden className="h-[96px] md:h-[72px]" />
-
-      <main>{children}</main>
-
-      <footer className="mt-10 border-t border-border/55 bg-background/72 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl flex-col gap-7 px-6 py-12 md:flex-row md:items-end md:justify-between md:px-10">
-          <div className="space-y-3">
-            <BrandLogo size="sm" />
-            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-              {messages.shared.footer.description}
-            </p>
-          </div>
-
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <p className="inline-flex items-center gap-2 font-semibold uppercase tracking-[0.12em] text-foreground/88">
-              <ShieldCheck className="h-4 w-4 text-emerald-500" />
-              {messages.shared.footer.legalSupportHeading}
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="/cores/" className="transition hover:text-foreground">
-                {messages.shared.footer.emulatorCores}
-              </a>
-              <a href="/terms/" className="transition hover:text-foreground">
-                {messages.shared.footer.terms}
-              </a>
-              <a href="/privacy/" className="transition hover:text-foreground">
-                {messages.shared.footer.privacy}
-              </a>
-              <a href={`mailto:${siteConfig.supportEmail}`} className="transition hover:text-foreground">
-                {siteConfig.supportEmail}
-              </a>
-            </div>
-            <p className="text-xs uppercase tracking-[0.11em] text-muted-foreground">
-              © {new Date().getFullYear()} {siteConfig.name}. {messages.shared.footer.rightsReserved}
-            </p>
-          </div>
+      </div>
+      <div className="footer-links">
+        <a href={localizedPath("cores", locale)}>{messages.shared.footer.emulatorCores}</a>
+        <a href={localizedPath("guides", locale)} hrefLang={guideLanguage}>{discovery.guides}{guideLanguageLabel}</a>
+        <a href={localizedPath("plus", locale)} hrefLang={guideLanguage}>{discovery.free}{guideLanguageLabel}</a>
+        <a href={localizedPath("terms", locale)}>{messages.shared.footer.terms}</a>
+        <a href={localizedPath("privacy", locale)}>{messages.shared.footer.privacy}</a>
+        <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}<ArrowUpRight size={14} /></a>
+      </div>
+      <div className="footer-bottom">
+        <small>© 2026 Retropa. {messages.shared.footer.rightsReserved}</small>
+        <div className="preferences">
+          <select aria-label={messages.shared.language.menuLabel} value={locale} onChange={event => setLocaleFromValue(event.target.value)}>
+            {supportedLocales.map(value => <option key={value} value={value}>{localeLabelByLocale[value]}</option>)}
+          </select>
+          <button type="button" className="icon-button" title={messages.shared.theme.menuLabel} aria-label={messages.shared.theme.menuLabel}
+            onClick={() => setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark")}>
+            <Moon className="theme-moon" size={19} /><Sun className="theme-sun" size={19} />
+          </button>
+          <AnalyticsConsent />
         </div>
-      </footer>
-    </div>
-  )
+      </div>
+    </footer>
+  </div>
 }

@@ -1,0 +1,134 @@
+import { localizedPath, routeFromPath, type SitePage } from "@/lib/routes"
+import { familyForPage } from "@/lib/page-families"
+import { siteConfig } from "@/lib/site-config"
+import type { DisplayModeName } from "@/content/display-study"
+
+export const analyticsConfig = {
+  measurementId: import.meta.env.VITE_GA4_MEASUREMENT_ID ?? "",
+  providerToken: import.meta.env.VITE_ASC_PROVIDER_TOKEN ?? "",
+  revision: "discovery-2026-09-v8",
+} as const
+export type Consent = "unknown" | "granted" | "denied"
+type EventName = "web_page_view" | "web_download_clicked" | "web_feature_viewed" | "web_feature_selected" | "web_guide_opened" | "web_filter_preview_changed"
+type Attributes = { placement?: "header" | "hero" | "footer" | "guide" | "filters"; feature_id?: "skins" | "filters" | "library" | "plus"; display_mode?: DisplayModeName }
+type Evidence = { name: EventName; parameters: Record<string, string | number>; delivery: "consent_blocked" | "unconfigured" | "queued"; timestamp: string }
+type AnalyticsWindow = Window & {
+  dataLayer?: unknown[]
+  gtag?: (...args: unknown[]) => void
+  __retropaEvidence?: Evidence[]
+}
+const storageKey = "retropa.analytics-consent.v1"
+const isConfigured = () => /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId)
+const storage = (): Consent => {
+  try {
+    const value = localStorage.getItem(storageKey)
+    return value === "granted" || value === "denied" ? value : "unknown"
+  } catch { return "unknown" }
+}
+let sessionConsent: Consent | undefined
+export const readConsent = (): Consent => typeof window === "undefined" ? "unknown" : sessionConsent ?? storage()
+
+export function appStoreLink(page: SitePage = "home"): string {
+  const family = familyForPage(page)
+  const pageId = family?.localesFor(page).length && /^[a-z0-9-]+$/.test(page) ? page : "not-found"
+  let campaign = pageId === "home" ? "retropa_web_v1" : `retropa_${pageId}`
+  if (campaign.length > 30) {
+    let hash = 2166136261
+    for (const character of pageId) hash = Math.imul(hash ^ character.charCodeAt(0), 16777619)
+    campaign = `retropa_${pageId.slice(0, 15)}_${(hash >>> 0).toString(36)}`
+  }
+  const url = new URL(siteConfig.appStoreUrl)
+  url.searchParams.set("ct", campaign)
+  url.searchParams.set("mt", "8")
+  if (/^\d+$/.test(analyticsConfig.providerToken)) url.searchParams.set("pt", analyticsConfig.providerToken)
+  return url.href
+}
+
+function startAnalytics(): void {
+  if (!isConfigured() || readConsent() !== "granted") return
+  const target = window as AnalyticsWindow
+  if (target.gtag) return
+  target.dataLayer = target.dataLayer ?? []
+  // The Google tag queue consumes Arguments objects, not event records.
+  // eslint-disable-next-line prefer-rest-params
+  target.gtag = function () { target.dataLayer!.push(arguments) }
+  const { page, locale } = routeFromPath(location.pathname)
+  target.gtag("js", new Date())
+  target.gtag("config", analyticsConfig.measurementId, {
+    send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false,
+    page_location: new URL(localizedPath(page, locale), siteConfig.siteUrl).href,
+    page_referrer: "", cookie_flags: "SameSite=Lax;Secure",
+  })
+  const script = document.createElement("script")
+  script.async = true
+  script.id = "retropa-analytics"
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.measurementId}`
+  document.head.appendChild(script)
+}
+
+function entrySource(): string {
+  try {
+    const stored = sessionStorage.getItem("retropa.entry-source.v1")
+    const allowed = ["direct_or_unknown", "google", "bing", "other_referral"]
+    if (stored && allowed.includes(stored)) return stored
+    const host = document.referrer ? new URL(document.referrer).hostname : ""
+    const source = ["www.google.com", "www.google.co.jp", "www.google.com.hk", "www.google.co.uk"].includes(host) ? "google" : ["www.bing.com", "cn.bing.com"].includes(host) ? "bing" : host && host !== location.hostname ? "other_referral" : "direct_or_unknown"
+    sessionStorage.setItem("retropa.entry-source.v1", source)
+    return source
+  } catch { return "direct_or_unknown" }
+}
+
+export function track(name: EventName, attributes: Attributes = {}): void {
+  if (typeof window === "undefined") return
+  const { page, locale } = routeFromPath(location.pathname)
+  const parameters: Record<string, string | number> = {
+    schema_version: 1, site_revision: analyticsConfig.revision, page_id: page, locale,
+    page_location: new URL(localizedPath(page, locale), siteConfig.siteUrl).href,
+    page_referrer: "", page_title: `${siteConfig.name} / ${page}`,
+    entry_source: readConsent() === "granted" ? entrySource() : "not_collected",
+  }
+  if (attributes.placement) parameters.placement = attributes.placement
+  if (attributes.feature_id) parameters.feature_id = attributes.feature_id
+  if (attributes.display_mode) parameters.display_mode = attributes.display_mode
+  const delivery = readConsent() !== "granted" ? "consent_blocked" : !isConfigured() ? "unconfigured" : "queued"
+  const target = window as AnalyticsWindow
+  if (import.meta.env.DEV || new URLSearchParams(location.search).get("analytics_debug") === "1") {
+    target.__retropaEvidence = [...(target.__retropaEvidence ?? []).slice(-49), { name, parameters, delivery, timestamp: new Date().toISOString() }]
+  }
+  if (delivery !== "queued") return
+  startAnalytics()
+  target.gtag?.("event", name, { ...parameters, transport_type: "beacon" })
+}
+
+export function setConsent(consent: Exclude<Consent, "unknown">): void {
+  const previous = readConsent()
+  sessionConsent = consent
+  try { localStorage.setItem(storageKey, consent) } catch { /* The current page still honors the choice. */ }
+  if (consent === "denied" && previous === "granted") {
+    Reflect.set(window, `ga-disable-${analyticsConfig.measurementId}`, true)
+    window.location.reload()
+    return
+  }
+  window.dispatchEvent(new Event("retropa-consent"))
+  if (consent === "granted" && previous !== "granted") track("web_page_view")
+}
+
+export function observeAcquisition(): () => void {
+  track("web_page_view")
+  const seen = new Set<string>()
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.25 || readConsent() !== "granted") continue
+      const feature = (entry.target as HTMLElement).dataset.feature as Attributes["feature_id"]
+      if (!feature || seen.has(feature)) continue
+      seen.add(feature)
+      track("web_feature_viewed", { feature_id: feature })
+    }
+  }, { threshold: 0.25 })
+  const observe = () => document.querySelectorAll("[data-feature]").forEach(element => { observer.unobserve(element); observer.observe(element) })
+  observe()
+  const mutations = new MutationObserver(observe)
+  mutations.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["data-feature"] })
+  window.addEventListener("retropa-consent", observe)
+  return () => { observer.disconnect(); mutations.disconnect(); window.removeEventListener("retropa-consent", observe) }
+}

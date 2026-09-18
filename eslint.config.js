@@ -6,7 +6,11 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', '.ssr', 'artifacts']),
+  {
+    files: ['scripts/**/*.ts'],
+    languageOptions: { globals: { ...globals.node, Bun: 'readonly', HTMLRewriter: 'readonly' } },
+  },
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

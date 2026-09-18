@@ -1,0 +1,55 @@
+.detail-page { padding-bottom: 65px; }
+.breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 30px; font-size: 12px; color: var(--muted); }
+.breadcrumbs a:hover { color: var(--electric); }
+.detail-heading { max-width: 850px; padding-block: 40px 52px; }
+.detail-heading h1 { font-family: var(--brand-font); font-size: 52px; font-weight: 600; max-width: 820px; line-height: 1.1; }
+.detail-heading > p:not(.eyebrow):not(.fine-print) { max-width: 750px; font-size: 17px; line-height: 1.7; }
+.detail-heading .fine-print { font-size: 11px; margin: 13px 0 0; }
+.detail-layout { display: grid; align-items: start; grid-template-columns: 245px minmax(0, 1fr); gap: 70px; padding-top: 35px; border-top: 1px solid var(--line); }
+.detail-layout .article-index { position: sticky; top: 30px; }
+.article-index nav { display: grid; gap: 0; }
+.article-index nav > p { margin-bottom: 15px; color: var(--muted); }
+.article-index a { display: flex; gap: 12px; align-items: baseline; padding-block: 12px; font-size: 13px; line-height: 1.6; border-bottom: 1px solid var(--line); }
+.article-index a:hover { color: var(--electric); }
+.article-index a > span { color: var(--muted); font-size: 10px; }
+.article-index > p { margin-top: 24px; line-height: 1.7; font-size: 11px; }
+.article-media { margin: 0 0 45px; }
+.article-media > a { display: block; position: relative; height: 335px; overflow: hidden; background: #17151d; }
+.article-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.article-media-library img { object-position: center 45%; }
+.article-media-filter img { object-position: center 38%; }
+.article-media figcaption { font-size: 11px; color: var(--muted); margin-top: 12px; }
+.detail-body section { border-top: 1px solid var(--line); padding-top: 26px; margin-bottom: 38px; scroll-margin-top: 28px; }
+.chapter-number { display: block; color: var(--electric); margin-bottom: 14px; font-size: 11px; }
+.detail-body h2 { font-family: var(--brand-font); font-size: 30px; line-height: 1.2; margin-bottom: 20px; }
+.detail-body p { font-size: 16px; color: var(--muted); line-height: 1.8; }
+.article-download { display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-top: 60px; padding-block: 36px; border-block: 1px solid var(--line); }
+.article-download h2 { font-size: 40px; }
+.article-download h2 > span { color: var(--coral); }
+.article-download p { font-size: 13px; margin-top: 12px; color: var(--muted); }
+.related-reading { display: flex; flex-direction: column; margin-top: 35px; padding: 0; border: 0; gap: 0; }
+.related-reading .eyebrow { margin-bottom: 14px; color: var(--muted); }
+.related-reading a { display: flex; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--line); justify-content: space-between; gap: 24px; color: var(--ink); font-size: 16px; }
+.related-reading a:hover { color: var(--electric); }
+.guide-page .page-heading { max-width: 790px; }
+.guide-page .page-heading h1 { font-family: var(--brand-font); }
+.guide-quick-links { display: flex; flex-wrap: wrap; gap: 12px 30px; margin-block: 0 36px; padding-block: 18px; border-block: 1px solid var(--line); font-size: 14px; }
+.guide-quick-links a { display: inline-flex; align-items: center; gap: 12px; }
+.guide-quick-links a:hover { color: var(--electric); }
+@media (max-width: 1000px) { .detail-layout { grid-template-columns: 210px minmax(0, 1fr); gap: 35px; } .detail-heading h1 { font-size: 45px; } }
+@media (max-width: 700px) {
+  .breadcrumbs { padding-top: 20px; }
+  .detail-heading { padding-block: 28px 35px; }
+  .detail-heading h1 { font-size: 36px; line-height: 1.15; }
+  .detail-heading > p:not(.eyebrow):not(.fine-print) { font-size: 16px; }
+  .detail-layout { grid-template-columns: 1fr; gap: 30px; padding-top: 25px; }
+  .detail-layout .article-index { position: static; }
+  .article-index nav { grid-template-columns: 1fr; }
+  .article-index a { font-size: 13px; padding-block: 10px; }
+  .article-index > p { display: none; }
+  .article-media > a { height: 310px; }
+  .detail-body h2 { font-size: 28px; }
+  .detail-body p { font-size: 15px; }
+  .article-download { align-items: flex-start; flex-direction: column; gap: 24px; }
+  .related-reading a { font-size: 15px; }
+}

@@ -18,7 +18,7 @@ export const enMessages: LocaleMessages = {
     headerDownloadLabel: "Download",
     footer: {
       description:
-        "Retropa brings classic handheld games to iPhone and iPad with thoughtful skins, responsive controls, and trusted multi-core compatibility.",
+        "Retropa runs handheld and arcade games from your own files on iPhone and iPad, with interchangeable cores, skins you can swap and display filters that suit the screen you have.",
       legalSupportHeading: "Legal and support",
       emulatorCores: "Emulator Cores",
       terms: "Terms of Service",
@@ -48,71 +48,71 @@ export const enMessages: LocaleMessages = {
     heroBadge: "Made for players who remember every frame",
     heroTitleLines: ["Play the classics", "with modern polish", "on iPhone and iPad."],
     heroDescription:
-      "Retropa gives timeless games a home that feels both familiar and refined. Launch faster, control with confidence, and keep the look and feel you love on modern iOS hardware.",
+      "Retropa gives your old games a home on the device you already carry. Import a file you own, pick the core and the skin that suit it, and play — no setup ceremony required.",
     readCompatibilityPromise: "Explore compatibility details",
     downloadForIOSLabel: "Download for iOS",
-    compatibilityCardKicker: "Why players trust Retropa",
+    compatibilityCardKicker: "Why players stay with Retropa",
     compatibilityCardTitleLines: ["Compatibility you can feel,", "quality you can keep."],
     compatibilityPillars: [
       {
         title: "RetroArch Filter Support",
         description:
-          "Use complete RetroArch shader chains, including .slang and .slangp presets, with stable switching during play.",
+          "Bring across RetroArch shader chains, including .slang and .slangp presets, and switch between them without stopping the game.",
       },
       {
         title: "Delta Skin Compatibility",
         description:
-          "Import Delta .deltaskin packages directly and keep layouts responsive across portrait and landscape play.",
+          "Import Delta .deltaskin packages directly, and keep the layout usable whether you hold the device upright or sideways.",
       },
     ],
     runtimeIntegrityTitle: "Designed for everyday play",
     runtimeIntegrityDescription:
-      "Retropa focuses on stable performance, responsive controls, and dependable compatibility across supported systems.",
+      "Retropa is built for long sessions rather than a good first minute: steady frame pacing, controls that answer, and cores that behave the same way on the tenth launch as the first.",
     highlights: [
       { value: "RetroArch .slangp", label: "shader preset support" },
       { value: "Delta .deltaskin", label: "skin package compatibility" },
-      { value: "8 emulator cores", label: "system-aware switching" },
+      { value: "8 emulator cores", label: "switch per system or per game" },
     ],
     compatibilitySectionKicker: "Trust comes first",
     compatibilitySectionTitleLines: ["Built for smooth sessions,", "from launch to long play."],
     logosSectionKicker: "Core and console heritage",
     logosSectionTitle: "Official logos, responsibly prepared",
     logosSectionDescription:
-      "Core and console logos come from official project sources and Wikimedia, then are normalized for smooth rendering across devices.",
+      "Core and console logos come from each project's own sources and from Wikimedia, then get cleaned up so they render sharply at every size.",
     coreShowcaseTitle: "Emulator core lineup",
     systemShowcaseTitle: "Supported systems",
     capabilitySectionKicker: "Product highlights",
     capabilitySectionTitleLines: ["Comfort in your hands,", "confidence in every session."],
     spotlightFeatures: [
       {
-        title: "Per-system preferences that remember your style",
+        title: "Preferences remembered per system",
         description:
-          "Retropa remembers your preferred core, skin mode, and control layout per system so every return session feels instantly familiar.",
+          "Your core, skin and control layout are stored per system, so coming back to a game does not mean setting it up again.",
       },
       {
         title: "Controller mapping that stays out of your way",
         description:
-          "Use multiple controllers with independent slot mapping, saved profiles, and live remap while you play.",
+          "Run several controllers at once, each with its own slot mapping, saved profiles, and remapping while the game is running.",
       },
       {
         title: "Haptics tuned for game feel",
         description:
-          "Customize press and release vibration patterns so touch feedback feels intentional on every supported iPhone and iPad.",
+          "Shape how press and release feel under your thumb, so touch feedback lands the way you expect instead of buzzing at random.",
       },
       {
         title: "Core switching without breaking momentum",
         description:
-          "Switch across mGBA, SkyEmu, SameBoy, RusticoNES, TetaNES, LakeSnes, JGenesis, and Ares in one consistent experience.",
+          "Move between mGBA, SkyEmu, SameBoy, RusticoNES, TetaNES, LakeSnes, JGenesis and Ares without learning a different workflow each time.",
       },
       {
         title: "Localization packs for global players",
         description:
-          "Language packs refresh at runtime with dependable fallback behavior, so updates feel native instead of patched in.",
+          "Language packs refresh while the app runs, with a predictable fallback, so a new language arrives as a normal update rather than a patch.",
       },
       {
         title: "A pack ecosystem with clear quality checks",
         description:
-          "Visual, shader, localization, audio, and document packs share one import flow with integrity checks before activation.",
+          "Visual, shader, localization, audio and document packs all import the same way, and each one is verified before it goes live.",
       },
     ],
     systemCoreMatrixTitle: "System-to-core guide",

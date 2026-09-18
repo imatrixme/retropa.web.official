@@ -6,19 +6,16 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  appType: "spa",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
+    manifest: true,
     rollupOptions: {
-      input: {
-        home: path.resolve(__dirname, "index.html"),
-        cores: path.resolve(__dirname, "cores/index.html"),
-        terms: path.resolve(__dirname, "terms/index.html"),
-        privacy: path.resolve(__dirname, "privacy/index.html"),
-      },
+      input: path.resolve(__dirname, "index.html"),
     },
   },
 })

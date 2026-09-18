@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Retropa social artwork source</title>
+  <link rel="icon" href="/brand/retropa-site-logo-192.png">
+  <style>
+    @font-face { font-family: Bricolage; src: url('/fonts/bricolage-latin.woff2'); font-weight: 400 800; }
+    @font-face { font-family: Archivo; src: url('/fonts/archivo-latin.woff2'); font-weight: 100 900; }
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+<canvas width="1200" height="630" aria-label="Retropa product artwork"></canvas>
+<script type="module">
+  const variants = {
+    home: { label: 'GBA / DS / ARCADE', image: 'material', line: 'iPhone & iPad' },
+    'gba-emulator': { label: 'GBA', image: 'material', line: '.gba / iPhone & iPad' },
+    'ds-emulator': { label: 'DS', image: 'library', line: '.nds / iPhone & iPad' },
+    arcade: { label: 'ARCADE', image: 'library', line: 'CPS / Neo Geo / PGM / M92' },
+    'delta-skins': { label: '.deltaskin', image: 'material', line: 'iPhone & iPad' },
+    'crt-filters': { label: 'CRT / LCD', image: 'filter', line: 'iPhone & iPad' },
+    'gb-emulator': { label: 'GAME BOY', image: 'material', line: '.gb / iPhone & iPad' },
+    'gbc-emulator': { label: 'GAME BOY COLOR', image: 'material', line: '.gbc / iPhone & iPad' },
+    'nes-emulator': { label: 'NES', image: 'library', line: '.nes / .fds / iPhone & iPad' },
+    'snes-emulator': { label: 'SUPER NES', image: 'library', line: '.sfc / .smc / iPhone & iPad' },
+    'sega-genesis-emulator': { label: 'GENESIS / MEGA DRIVE', image: 'library', line: '.md / .gen / iPhone & iPad' },
+    'game-gear-emulator': { label: 'GAME GEAR', image: 'material', line: '.gg / iPhone & iPad' },
+    'master-system-emulator': { label: 'MASTER SYSTEM', image: 'library', line: '.sms / iPhone & iPad' },
+    'wonderswan-emulator': { label: 'WONDERSWAN', image: 'material', line: '.ws / .wsc / iPhone & iPad' },
+    'neogeo-pocket-emulator': { label: 'NEO GEO POCKET', image: 'material', line: '.ngp / .ngpc / iPhone & iPad' },
+    'neogeo-emulator': { label: 'NEO GEO ARCADE', image: 'library', line: 'CPS / PGM / M92 / Plus' },
+    'delta-alternative': { label: 'DELTA ALTERNATIVE', image: 'material', line: 'Skins, arcade & filters' },
+    'retropa-vs-delta': { label: 'RETROPA VS DELTA', image: 'material', line: 'Compared honestly' },
+    'import-roms-iphone': { label: 'IMPORT GAMES', image: 'library', line: 'Step by step' },
+    'connect-controller-ios': { label: 'CONTROLLERS', image: 'material', line: 'Pair & map' },
+    'save-states-and-rewind': { label: 'SAVES & REWIND', image: 'library', line: 'States and backups' },
+    'game-wont-load': { label: 'TROUBLESHOOTING', image: 'library', line: 'A fixed check order' },
+    guides: { label: 'GUIDES', image: 'library', line: 'Imports, controllers, saves' },
+    plus: { label: 'FREE VS PLUS', image: 'material', line: 'No prices on the website' },
+    'mgba-core': { label: 'mGBA CORE', image: 'material', line: 'GB / GBC / GBA' },
+    'skyemu-core': { label: 'SkyEmu CORE', image: 'library', line: 'GB / GBC / GBA / DS' },
+    'sameboy-core': { label: 'SameBoy CORE', image: 'material', line: 'GB / GBC accuracy' },
+    'rusticones-core': { label: 'RusticoNES CORE', image: 'library', line: 'NES cartridge games' },
+    'tetanes-core': { label: 'TetaNES CORE', image: 'library', line: 'NES cartridge games' },
+    'lakesnes-core': { label: 'LakeSnes CORE', image: 'library', line: 'SNES titles' },
+    'jgenesis-core': { label: 'JGenesis CORE', image: 'library', line: 'MD / GEN / SMS / GG' },
+    'ares-core': { label: 'Ares CORE', image: 'material', line: 'WS / WSC / NGP / NGPC' },
+  }
+  const variant = variants[new URLSearchParams(location.search).get('variant')] ?? variants.home
+  const image = new Image()
+  image.src = `/product/${variant.image}-detail.webp`
+  await image.decode()
+  await document.fonts.load('700 100px Bricolage')
+  await document.fonts.load('500 30px Archivo')
+  const canvas = document.querySelector('canvas')
+  const context = canvas.getContext('2d')
+  context.fillStyle = '#17151d'
+  context.fillRect(0, 0, 1200, 630)
+  context.drawImage(image, 665, -70, 535, image.naturalHeight * 535 / image.naturalWidth)
+  context.fillStyle = '#ffffff'
+  context.font = '700 115px Bricolage'
+  context.fillText('Retropa', 65, 235)
+  const brandWidth = context.measureText('Retropa').width
+  context.fillStyle = '#ff755b'
+  context.fillText('.', 65 + brandWidth, 235)
+  context.fillStyle = '#deed9e'
+  context.font = `500 ${variant.label.length > 14 ? 27 : 48}px Archivo`
+  context.fillText(variant.label, 70, 340)
+  context.fillStyle = '#c1bec6'
+  context.font = '400 22px Archivo'
+  context.fillText(variant.line, 70, 390)
+  context.fillStyle = '#ffffff30'
+  context.fillRect(0, 568, 1200, 1)
+  context.fillStyle = '#c1bec6'
+  context.font = '400 17px Archivo'
+  context.fillText('retropa.com', 70, 606)
+  canvas.dataset.ready = 'true'
+</script>
+</body>
+</html>

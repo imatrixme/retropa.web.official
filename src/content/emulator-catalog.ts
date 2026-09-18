@@ -263,7 +263,7 @@ const defaultCoreTextById: Record<CoreID, CoreText> = {
     label: "SkyEmu",
     alt: "SkyEmu project logo",
     summary:
-      "Cross-system high-performance core currently used for Nintendo handheld coverage, including Nintendo DS beta path.",
+      "Cross-system high-performance core used for Nintendo handheld coverage, including Nintendo DS.",
     supportedSystems: ["Game Boy", "Game Boy Color", "Game Boy Advance", "Nintendo DS"],
   },
   sameboy: {
