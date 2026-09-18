@@ -19,7 +19,9 @@ bun run evidence:http --base http://127.0.0.1:4179
 bun run report --days 14
 ```
 
-`build` 运行类型检查、客户端构建、构建期正文渲染，生成 72 个静态页面与 `404.html`。`evidence` 检查 H1、正文、canonical、语言信息、结构化数据、图片、目录锚点、完整指南章节、分享图与商店目的地，不执行单元测试。
+`build` 运行类型检查、客户端构建、构建期正文渲染，生成 540 个静态页面与 `404.html`。`evidence` 检查 H1、正文、canonical、语言信息、结构化数据、图片、目录锚点、完整指南章节、分享图与商店目的地；`verify-integrity` 还检查 15 种语言的覆盖、注册、能力边界、价格残留和英文核心页内容重复，不执行单元测试。
+
+当前源码候选版本已经在本地通过 `bun run lint` 与 `bun run build`：540 个可索引页面、541 个 HTML 文件、0 failures、0 warnings。该结果只证明本地制品，不代表已发布到生产。
 
 ## 页面与所有权
 

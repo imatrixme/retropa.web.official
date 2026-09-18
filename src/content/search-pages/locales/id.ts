@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "Emulator Game Boy untuk iPhone & iPad | Retropa",
     "description": "Jalankan berkas .gb milik Anda sendiri di iPhone dan iPad dengan Retropa. Inti emulator mana yang menangani GB, cara mengimpor game, cara mengatur layar dan kontroler, serta apa yang perlu diperiksa saat berkas tidak dapat dibuka.",
-    "summary": "Retropa menjalankan game Game Boy dari berkas .gb milik Anda sendiri di iPhone dan iPad, dengan tiga inti emulator yang dapat ditukar, skin perangkat genggam, pemrosesan LCD dan CRT, serta pemetaan kontroler.",
+    "summary": "Retropa menjalankan game Game Boy dari berkas .gb milik Anda sendiri di iPhone dan iPad, dengan empat inti emulator yang dapat ditukar, skin perangkat genggam, pemrosesan LCD dan CRT, serta pemetaan kontroler.",
     "sections": [
       {
         "title": "Mulai dengan berkas .gb",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Inti emulator mana yang menjalankan game Game Boy",
-        "body": "Retropa menyertakan lebih dari satu inti emulator yang dapat menjalankan game Game Boy, dan Anda dapat berpindah di antara inti tersebut untuk setiap game. mGBA dan SkyEmu sama-sama mendukung GB, GBC dan GBA, sedangkan SameBoy secara khusus menangani GB dan GBC. Jika satu inti emulator menunjukkan masalah pada judul tertentu, coba inti lain sebelum menganggap berkasnya rusak.",
+        "body": "Retropa menyertakan lebih dari satu inti emulator yang dapat menjalankan game Game Boy, dan Anda dapat berpindah di antara inti tersebut untuk setiap game. mGBA dan SkyEmu sama-sama mendukung GB, GBC dan GBA, SameBoy secara khusus menangani GB dan GBC, dan JGenesis mencakup GB bersama sistem Sega-nya. Jika satu inti emulator menunjukkan masalah pada judul tertentu, coba inti lain sebelum menganggap berkasnya rusak.",
         "points": [
           "mGBA adalah pilihan pertama yang baik untuk bermain sehari-hari.",
           "SameBoy berfokus pada akurasi GB dan GBC.",
@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "Inti SkyEmu di iPhone & iPad | Retropa",
-    "description": "SkyEmu mencakup keluarga Game Boy dan jalur beta Nintendo DS di Retropa. Periksa format, kontrol sentuh dua layar, batasan cakupan dan penggantian inti dengan Retropa Plus.",
-    "summary": "SkyEmu menangani jalur beta Nintendo DS sekaligus konsol genggam Game Boy di Retropa. Cakupan DS masih beta, bukan janji bahwa setiap judul atau interaksi berbasis sentuh bekerja dengan benar.",
+    "description": "SkyEmu mencakup keluarga Game Boy dan Nintendo DS di Retropa. Periksa format, kontrol sentuh dua layar, batasan cakupan dan penggantian inti dengan Retropa Plus.",
+    "summary": "SkyEmu menangani Nintendo DS sekaligus konsol genggam Game Boy di Retropa. Kompatibilitas DS bergantung pada judul, bukan janji bahwa setiap game atau interaksi sentuh bekerja dengan benar.",
     "sections": [
       {
         "title": "Sistem dan format dalam katalog",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS adalah jalur beta",
+        "title": "Nintendo DS dengan SkyEmu",
         "body": "Perlakukan kompatibilitas DS sebagai hal yang khusus per judul. Impor berkas yang diunduh secara lokal, pastikan Nintendo DS terdeteksi, dan uji di luar layar pembuka. Periksa satu adegan dengan masukan sentuh dan satu adegan dengan suara sebelum mengandalkan sesi panjang. Catat versi aplikasi dan kegagalan yang tepat jika suatu judul macet; mengganti Skin tidak dapat memperbaiki masalah kompatibilitas inti.",
         "points": [
           "Katalog hanya mencantumkan SkyEmu untuk Nintendo DS.",
           "Penggantian inti dengan Plus tidak membuat inti DS alternatif.",
-          "Simpan cadangan secara terpisah selama mengevaluasi perilaku beta."
+          "Simpan cadangan terpisah saat menguji judul DS."
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "Inti mana yang menjalankan game Nintendo DS?",
-        "answer": "SkyEmu adalah jalur beta Nintendo DS yang tercantum di katalog Retropa. Kompatibilitasnya khusus per judul dan katalog tidak mencantumkan inti DS lain."
+        "answer": "SkyEmu adalah inti Nintendo DS yang tercantum di katalog Retropa. Kompatibilitasnya khusus per judul dan katalog tidak mencantumkan inti DS lain."
       },
       {
         "id": "touch",

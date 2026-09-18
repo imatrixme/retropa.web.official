@@ -6,7 +6,7 @@ export const content: GuidesIndexContent = {
   breadcrumb: "Guides",
   eyebrow: "GUIDES",
   title: "Guides for imports, controllers and troubleshooting",
-  intro: "From importing your own files, to pairing a controller, managing saves and working out why a game will not start.",
+  intro: "Four things trip people up: getting a file onto the device, pairing a controller, keeping saves safe, and working out why a game refuses to start. Each guide takes one of those.",
   allGuides: "All guides",
   freeLabel: "What is free",
 }

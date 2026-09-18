@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "iPhone 및 iPad용 게임보이 에뮬레이터 | Retropa",
     "description": "Retropa로 iPhone과 iPad에서 직접 보유한 .gb 파일을 실행합니다. GB를 담당하는 코어, 게임을 가져오는 방법, 화면과 컨트롤을 설정하는 방법, 파일이 열리지 않을 때 확인할 항목을 안내합니다.",
-    "summary": "Retropa는 iPhone과 iPad에서 직접 보유한 .gb 파일로 게임보이 게임을 실행하며, 서로 교체할 수 있는 세 가지 코어, 휴대용 기기 스킨, LCD와 CRT 화면 처리, 컨트롤러 매핑을 지원합니다.",
+    "summary": "Retropa는 iPhone과 iPad에서 직접 보유한 .gb 파일로 게임보이 게임을 실행하며, 서로 교체할 수 있는 네 가지 코어, 휴대용 기기 스킨, LCD와 CRT 화면 처리, 컨트롤러 매핑을 지원합니다.",
     "sections": [
       {
         "title": ".gb 파일로 시작하기",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "게임보이 게임을 실행하는 코어",
-        "body": "Retropa에는 게임보이 타이틀을 실행할 수 있는 코어가 둘 이상 포함되어 있으며, 게임마다 코어를 전환할 수 있습니다. mGBA와 SkyEmu는 모두 GB, GBC, GBA를 지원하고, SameBoy는 GB와 GBC에 특화되어 있습니다. 특정 타이틀에서 한 코어에 문제가 나타나면 파일이 손상되었다고 단정하기 전에 다른 코어로 시험해 봅니다.",
+        "body": "Retropa에는 게임보이 타이틀을 실행할 수 있는 코어가 둘 이상 포함되어 있으며, 게임마다 코어를 전환할 수 있습니다. mGBA와 SkyEmu는 모두 GB, GBC, GBA를 지원하고, SameBoy는 GB와 GBC에 특화되어 있으며, JGenesis는 Sega 계열 시스템과 함께 GB도 지원합니다. 특정 타이틀에서 한 코어에 문제가 나타나면 파일이 손상되었다고 단정하기 전에 다른 코어로 시험해 봅니다.",
         "points": [
           "일상적인 플레이에는 mGBA가 좋은 첫 선택입니다.",
           "SameBoy는 GB와 GBC의 정확도에 집중합니다.",

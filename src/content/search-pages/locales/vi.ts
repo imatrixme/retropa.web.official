@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "Trình giả lập Game Boy cho iPhone & iPad | Retropa",
     "description": "Chạy các tệp tin .gb của bạn trên iPhone và iPad với Retropa. Nhân giả lập nào xử lý GB, cách nhập một game, cách thiết lập màn hình và tay cầm, cùng những gì cần kiểm tra khi một tệp tin không mở được.",
-    "summary": "Retropa chạy các game Game Boy từ tệp tin .gb của bạn trên iPhone và iPad, với ba nhân giả lập có thể hoán đổi cho nhau, giao diện máy cầm tay, hiệu ứng LCD và CRT, cùng tính năng gán nút cho tay cầm.",
+    "summary": "Retropa chạy các game Game Boy từ tệp tin .gb của bạn trên iPhone và iPad, với bốn nhân giả lập có thể hoán đổi cho nhau, giao diện máy cầm tay, hiệu ứng LCD và CRT, cùng tính năng gán nút cho tay cầm.",
     "sections": [
       {
         "title": "Bắt đầu với tệp tin .gb",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Nhân giả lập nào chạy game Game Boy",
-        "body": "Retropa cung cấp nhiều hơn một nhân giả lập có thể chạy các tựa game Game Boy, và bạn có thể chuyển đổi giữa chúng theo từng game. mGBA và SkyEmu đều hỗ trợ GB, GBC và GBA, trong khi SameBoy tập trung cụ thể vào GB và GBC. Nếu một nhân giả lập gặp vấn đề với một tựa game cụ thể, hãy thử nhân giả lập khác trước khi cho rằng tệp tin bị hỏng.",
+        "body": "Retropa cung cấp nhiều hơn một nhân giả lập có thể chạy các tựa game Game Boy, và bạn có thể chuyển đổi giữa chúng theo từng game. mGBA và SkyEmu đều hỗ trợ GB, GBC và GBA, SameBoy tập trung cụ thể vào GB và GBC, còn JGenesis bao quát GB cùng với các hệ máy Sega của nó. Nếu một nhân giả lập gặp vấn đề với một tựa game cụ thể, hãy thử nhân giả lập khác trước khi cho rằng tệp tin bị hỏng.",
         "points": [
           "mGBA là lựa chọn đầu tiên phù hợp cho việc chơi hằng ngày.",
           "SameBoy tập trung vào độ chính xác của GB và GBC.",
@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "Nhân giả lập SkyEmu trên iPhone & iPad | Retropa",
-    "description": "SkyEmu bao quát họ Game Boy và đường xử lý Nintendo DS dạng beta trong Retropa. Kiểm tra định dạng, điều khiển cảm ứng hai màn hình, giới hạn và việc đổi nhân giả lập với Retropa Plus.",
-    "summary": "SkyEmu xử lý đường Nintendo DS dạng beta cũng như các máy cầm tay Game Boy trong Retropa. Phạm vi DS còn ở dạng beta, không phải lời hứa rằng mọi tựa game hay tương tác cảm ứng đều hoạt động đúng.",
+    "description": "SkyEmu bao quát họ Game Boy và Nintendo DS trong Retropa. Kiểm tra định dạng, điều khiển cảm ứng hai màn hình, giới hạn và việc đổi nhân giả lập với Retropa Plus.",
+    "summary": "SkyEmu xử lý Nintendo DS cùng với các máy cầm tay Game Boy trong Retropa. Khả năng tương thích DS tùy từng tựa game, không phải lời hứa rằng mọi game hay tương tác cảm ứng đều hoạt động đúng.",
     "sections": [
       {
         "title": "Hệ máy và định dạng trong danh mục",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS là đường xử lý dạng beta",
+        "title": "Nintendo DS trên SkyEmu",
         "body": "Hãy coi khả năng tương thích DS là tùy từng tựa game. Nhập một tệp tin đã tải về máy, xác nhận hệ máy được nhận diện là Nintendo DS và thử nghiệm vượt qua màn hình mở đầu. Kiểm tra một cảnh có điều khiển cảm ứng và một cảnh có âm thanh trước khi dựa vào một phiên chơi dài. Ghi lại phiên bản ứng dụng và lỗi chính xác nếu một tựa game bị đơ; đổi giao diện không thể sửa được vấn đề tương thích của nhân giả lập.",
         "points": [
           "Danh mục chỉ liệt kê SkyEmu cho Nintendo DS.",
           "Việc đổi nhân giả lập với Retropa Plus không tạo ra nhân giả lập DS thay thế.",
-          "Hãy giữ các bản sao lưu độc lập trong khi đánh giá hành vi beta."
+          "Hãy giữ bản sao lưu riêng trong khi thử các tựa game DS."
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "Nhân giả lập nào chạy game Nintendo DS?",
-        "answer": "SkyEmu là đường xử lý Nintendo DS dạng beta có trong danh mục của Retropa. Khả năng tương thích tùy từng tựa game và danh mục không liệt kê nhân giả lập DS nào khác."
+        "answer": "SkyEmu là nhân giả lập được ghi trong danh mục của Retropa cho Nintendo DS. Khả năng tương thích tùy từng tựa game và danh mục không liệt kê nhân giả lập DS nào khác."
       },
       {
         "id": "touch",

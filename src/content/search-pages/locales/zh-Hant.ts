@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "iPhone 與 iPad 的 Game Boy 模擬器 | Retropa",
     "description": "在 iPhone 與 iPad 上用 Retropa 執行你自己的 .gb 檔案。哪個核心負責 GB、如何匯入遊戲、如何設定螢幕與控制器，以及檔案無法開啟時該檢查什麼。",
-    "summary": "Retropa 可從你自己的 .gb 檔案在 iPhone 與 iPad 上執行 Game Boy 遊戲，具備三種可互換的核心、掌機面板、LCD 與 CRT 處理效果，以及控制器對應。",
+    "summary": "Retropa 可從你自己的 .gb 檔案在 iPhone 與 iPad 上執行 Game Boy 遊戲，具備四種可互換的核心、掌機面板、LCD 與 CRT 處理效果，以及控制器對應。",
     "sections": [
       {
         "title": "從 .gb 檔案開始",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "哪個核心負責執行 Game Boy 遊戲",
-        "body": "Retropa 內建多個可執行 Game Boy 遊戲的核心，你可以針對每款遊戲切換。mGBA 與 SkyEmu 都支援 GB、GBC 與 GBA，而 SameBoy 則專門對應 GB 與 GBC。如果某個核心在特定遊戲上出現問題，請先試試另一個核心，再判定檔案是否損毀。",
+        "body": "Retropa 內建多個可執行 Game Boy 遊戲的核心，你可以針對每款遊戲切換。mGBA 與 SkyEmu 都支援 GB、GBC 與 GBA，SameBoy 專門對應 GB 與 GBC，JGenesis 則在負責 Sega 系統之餘也涵蓋 GB。如果某個核心在特定遊戲上出現問題，請先試試另一個核心，再判定檔案是否損毀。",
         "points": [
           "mGBA 是日常遊玩的好選擇。",
           "SameBoy 專注於 GB 與 GBC 的準確度。",
@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "iPhone 與 iPad 上的 SkyEmu 核心 | Retropa",
-    "description": "SkyEmu 在 Retropa 中涵蓋 Game Boy 系列與 Nintendo DS 的 Beta 版路徑。了解格式、雙螢幕觸控操作、限制，以及 Plus 的核心切換。",
-    "summary": "SkyEmu 在 Retropa 中除了 Game Boy 掌機之外，也負責 Nintendo DS 的 Beta 版路徑。DS 支援仍屬 Beta 階段，並不保證每一款遊戲或每一項觸控操作都能正確運作。",
+    "description": "SkyEmu 在 Retropa 中涵蓋 Game Boy 系列與 Nintendo DS。了解格式、雙螢幕觸控操作、限制，以及 Plus 的核心切換。",
+    "summary": "SkyEmu 在 Retropa 中除了 Game Boy 掌機之外，也負責 Nintendo DS。DS 相容性依遊戲而異，並不保證每一款遊戲或每一項觸控操作都能正確運作。",
     "sections": [
       {
         "title": "型錄支援的系統與格式",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS 屬於 Beta 版路徑",
+        "title": "SkyEmu 上的 Nintendo DS",
         "body": "請把 DS 的相容性視為依遊戲而異。匯入已下載到本機的檔案，確認偵測到 Nintendo DS，並測試開頭畫面之後的內容。在依賴長時間遊玩之前，請先檢查有觸控輸入的場景與有音效的場景。若某款遊戲發生凍結，請記錄 App 版本與確切的失敗情形；更換面板無法修復核心的相容性問題。",
         "points": [
           "型錄中 Nintendo DS 只列出 SkyEmu。",
           "Plus 的核心切換並不會產生另一個 DS 核心。",
-          "評估 Beta 行為期間，請保留獨立的存檔備份。"
+          "測試 DS 遊戲時，請保留獨立的存檔備份。"
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "哪個核心可以執行 Nintendo DS 遊戲？",
-        "answer": "SkyEmu 是 Retropa 型錄中的 Nintendo DS Beta 版路徑。相容性依遊戲而異，而且型錄中沒有列出其他 DS 核心。"
+        "answer": "SkyEmu 是 Retropa 型錄中為 Nintendo DS 列出的核心。相容性依遊戲而異，而且型錄中沒有列出其他 DS 核心。"
       },
       {
         "id": "touch",

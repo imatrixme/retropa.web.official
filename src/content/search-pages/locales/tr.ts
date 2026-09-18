@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "iPhone ve iPad için Game Boy Emülatörü | Retropa",
     "description": "Kendi .gb dosyalarınızı iPhone ve iPad'de Retropa ile çalıştırın. GB için hangi çekirdeğin uygun olduğunu, oyunun nasıl içe aktarıldığını, ekran ile kolların nasıl ayarlandığını ve bir dosya açılmadığında nelere bakılacağını anlatıyoruz.",
-    "summary": "Retropa, Game Boy oyunlarını kendi .gb dosyalarınızdan iPhone ve iPad'de çalıştırır; üç değiştirilebilir çekirdek, el konsolu temaları, LCD ve CRT görünümleri ile kol eşleme sunar.",
+    "summary": "Retropa, Game Boy oyunlarını kendi .gb dosyalarınızdan iPhone ve iPad'de çalıştırır; dört değiştirilebilir çekirdek, el konsolu temaları, LCD ve CRT görünümleri ile kol eşleme sunar.",
     "sections": [
       {
         "title": "Bir .gb dosyasıyla başlayın",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Game Boy oyunlarını hangi çekirdek çalıştırır",
-        "body": "Retropa, Game Boy oyunlarını çalıştırabilen birden fazla çekirdek sunar ve her oyun için bunlar arasında geçiş yapabilirsiniz. mGBA ve SkyEmu GB, GBC ve GBA sistemlerinin tümünü kapsarken SameBoy özellikle GB ve GBC için hazırlanmıştır. Bir çekirdek belirli bir oyunda sorun çıkarırsa, dosyanın bozuk olduğunu düşünmeden önce başka bir çekirdeği deneyin.",
+        "body": "Retropa, Game Boy oyunlarını çalıştırabilen birden fazla çekirdek sunar ve her oyun için bunlar arasında geçiş yapabilirsiniz. mGBA ve SkyEmu GB, GBC ve GBA sistemlerinin tümünü kapsarken SameBoy özellikle GB ve GBC için hazırlanmıştır; JGenesis ise Sega sistemleriyle birlikte GB'yi de kapsar. Bir çekirdek belirli bir oyunda sorun çıkarırsa, dosyanın bozuk olduğunu düşünmeden önce başka bir çekirdeği deneyin.",
         "points": [
           "Günlük oyun için mGBA iyi bir ilk tercihtir.",
           "SameBoy, GB ve GBC doğruluğuna odaklanır.",
@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "iPhone ve iPad için SkyEmu Çekirdeği | Retropa",
-    "description": "SkyEmu, Retropa'da Game Boy ailesini ve Nintendo DS beta yolunu kapsar. Biçimleri, çift ekran dokunmatik kontrollerini, sınırlamaları ve Plus çekirdek değiştirmeyi inceleyin.",
-    "summary": "SkyEmu, Retropa'da Game Boy taşınabilirlerinin yanı sıra Nintendo DS beta yolunu da yönetir. DS kapsamı betadır; her oyunun veya dokunmatik etkileşimin doğru çalışacağına dair bir vaat değildir.",
+    "description": "SkyEmu, Retropa'da Game Boy ailesini ve Nintendo DS'i kapsar. Biçimleri, çift ekran dokunmatik kontrollerini, sınırlamaları ve Plus çekirdek değiştirmeyi inceleyin.",
+    "summary": "SkyEmu, Retropa'da Game Boy taşınabilirlerinin yanı sıra Nintendo DS'i de yönetir. DS uyumluluğu oyuna özeldir; her oyunun veya dokunmatik etkileşimin doğru çalışacağına dair bir vaat değildir.",
     "sections": [
       {
         "title": "Katalog sistemleri ve biçimleri",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS bir beta yolu",
+        "title": "SkyEmu ile Nintendo DS",
         "body": "DS uyumluluğunu oyuna özel bir konu olarak ele alın. Yerel olarak indirilen bir dosyayı içe aktarın, Nintendo DS'in algılandığını doğrulayın ve açılış ekranının ötesinde test edin. Uzun bir oturuma güvenmeden önce dokunmatik giriş içeren bir sahneyi ve ses içeren bir sahneyi kontrol edin. Bir oyun donarsa uygulama sürümünü ve tam hatayı kaydedin; tema değiştirmek bir çekirdek uyumluluk sorununu onaramaz.",
         "points": [
           "Katalog, Nintendo DS için yalnızca SkyEmu'yu listeler.",
           "Plus çekirdek değiştirme alternatif bir DS çekirdeği oluşturmaz.",
-          "Beta davranışını değerlendirirken bağımsız kayıt yedekleri tutun."
+          "DS oyunlarını denerken bağımsız kayıt yedekleri tutun."
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "Nintendo DS oyunlarını hangi çekirdek çalıştırır?",
-        "answer": "SkyEmu, Retropa'nın kataloğa kayıtlı Nintendo DS beta yoludur. Uyumluluk oyuna özeldir ve katalog başka bir DS çekirdeği listelemez."
+        "answer": "SkyEmu, Retropa'nın Nintendo DS için kataloğa kayıtlı çekirdeğidir. Uyumluluk oyuna özeldir ve katalog başka bir DS çekirdeği listelemez."
       },
       {
         "id": "touch",

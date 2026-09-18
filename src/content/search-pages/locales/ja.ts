@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "iPhone と iPad 用の Game Boy エミュレータ | Retropa",
     "description": "Retropa を使えば、手持ちの .gb ファイルを iPhone と iPad で動作させられます。GB を扱うコア、ゲームの読み込み方法、画面とコントローラーの設定、ファイルが開かないときに確認すべき点をまとめています。",
-    "summary": "Retropa は、手持ちの .gb ファイルから Game Boy のゲームを iPhone と iPad で動作させます。交換可能な 3 つのコア、携帯ゲーム機のスキン、LCD と CRT の表示処理、コントローラーの割り当てに対応しています。",
+    "summary": "Retropa は、手持ちの .gb ファイルから Game Boy のゲームを iPhone と iPad で動作させます。交換可能な 4 つのコア、携帯ゲーム機のスキン、LCD と CRT の表示処理、コントローラーの割り当てに対応しています。",
     "sections": [
       {
         "title": ".gb ファイルから始める",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Game Boy のゲームを動かすコア",
-        "body": "Retropa には Game Boy のタイトルを動作させられるコアが複数搭載されており、ゲームごとに切り替えられます。mGBA と SkyEmu はいずれも GB、GBC、GBA に対応し、SameBoy は特に GB と GBC を対象としています。特定のタイトルであるコアに問題が起きたら、ファイルが壊れていると判断する前に別のコアを試してください。",
+        "body": "Retropa には Game Boy のタイトルを動作させられるコアが複数搭載されており、ゲームごとに切り替えられます。mGBA と SkyEmu はいずれも GB、GBC、GBA に対応し、SameBoy は特に GB と GBC を対象とし、JGenesis は Sega 系システムとあわせて GB にも対応しています。特定のタイトルであるコアに問題が起きたら、ファイルが壊れていると判断する前に別のコアを試してください。",
         "points": [
           "普段遊ぶときは、まず mGBA を選ぶのがおすすめです。",
           "SameBoy は GB と GBC の精度を重視しています。",

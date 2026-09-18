@@ -1,7 +1,7 @@
 import { readFile, readdir, writeFile } from "node:fs/promises"
 import { supportedLocales } from "../src/i18n/locales.ts"
 
-type Check = "metadata" | "crawl-assets" | "image-alt" | "structured-data" | "language-coverage" | "english-residue" | "capability-claims" | "pricing"
+type Check = "metadata" | "crawl-assets" | "image-alt" | "structured-data" | "language-coverage" | "english-residue" | "capability-claims" | "pricing" | "content-quality"
 type Position = { file: string; offset: number; line: number; column: number; context: string; jsonPointer?: string }
 type Finding = { path: string; check: Check; severity: "fail" | "warn"; detail: string; position: Position }
 type Source = { file: string; route: string; html: string }
@@ -13,7 +13,7 @@ type Page = Source & { locale: string; canonical: string; indexable: boolean; al
 const brand = "https://retropa.com"
 const reportOnly = process.argv.includes("--report")
 const findings: Finding[] = []
-const checks: Check[] = ["metadata", "crawl-assets", "image-alt", "structured-data", "language-coverage", "english-residue", "capability-claims", "pricing"]
+const checks: Check[] = ["metadata", "crawl-assets", "image-alt", "structured-data", "language-coverage", "english-residue", "capability-claims", "pricing", "content-quality"]
 
 function record(source: Source, check: Check, detail: string, offset = 0, context = "document", severity: "fail" | "warn" = "fail", jsonPointer?: string) {
   const before = source.html.slice(0, offset)
@@ -454,6 +454,50 @@ for (const page of pages.values()) {
 }
 
 const published = new Set([...pages.values()].filter((page) => page.indexable).map((page) => page.route))
+
+// Search pages need distinct explanations even when they share the same import,
+// save and Plus constraints. Compare the rendered English core pages so this
+// check measures what a visitor reads, rather than source formatting. The check
+// is intentionally a warning: shared product facts are allowed, while a high
+// overlap score is a review signal that a new page may have been generated from
+// an unchanged template.
+const CORE_ROUTES = ["ares-core", "jgenesis-core", "lakesnes-core", "mgba-core", "rusticones-core", "sameboy-core", "skyemu-core", "tetanes-core"]
+const sentenceSet = (html: string) => new Set(
+  visibleText(html).text
+    .split(/[.!?。！？]+/)
+    .map((sentence) => sentence.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim())
+    .filter((sentence) => sentence.split(/\s+/).length >= 5),
+)
+const coreSentences = new Map<string, Set<string>>()
+for (const route of CORE_ROUTES) {
+  const page = pages.get(`/${route}/`)
+  if (page?.indexable) coreSentences.set(route, sentenceSet(page.html))
+}
+for (let left = 0; left < CORE_ROUTES.length; left++) {
+  for (let right = left + 1; right < CORE_ROUTES.length; right++) {
+    const leftSet = coreSentences.get(CORE_ROUTES[left])
+    const rightSet = coreSentences.get(CORE_ROUTES[right])
+    if (!leftSet || !rightSet || !leftSet.size || !rightSet.size) continue
+    const shared = [...leftSet].filter((sentence) => rightSet.has(sentence)).length
+    const overlap = shared / Math.min(leftSet.size, rightSet.size)
+    if (overlap >= 0.35) {
+      const page = pages.get(`/${CORE_ROUTES[left]}/`)!
+      record(page, "content-quality", `English core pages ${CORE_ROUTES[left]} and ${CORE_ROUTES[right]} share ${Math.round(overlap * 100)}% of their sentences`, 0, "rendered content", "warn")
+    }
+  }
+}
+
+const openingCounts = new Map<string, string[]>()
+for (const [route, sentences] of coreSentences) {
+  const opening = [...sentences][0]
+  if (opening) openingCounts.set(opening, [...(openingCounts.get(opening) ?? []), route])
+}
+for (const [opening, routes] of openingCounts) {
+  if (routes.length >= 3) {
+    const page = pages.get(`/${routes[0]}/`)!
+    record(page, "content-quality", `the same opening sentence appears on ${routes.length} English core pages: ${opening}`, 0, "rendered content", "warn")
+  }
+}
 
 // Every page must send its own App Store campaign token, and the token must stay
 // within Apple's 30-character limit. A site-wide constant would make per-page

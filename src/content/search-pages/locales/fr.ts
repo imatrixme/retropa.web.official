@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "Émulateur Game Boy pour iPhone et iPad | Retropa",
     "description": "Lancez vos propres fichiers .gb sur iPhone et iPad avec Retropa. Quel cœur prend en charge la GB, comment importer un jeu, comment régler l'écran et les commandes, et que vérifier lorsqu'un fichier refuse de s'ouvrir.",
-    "summary": "Retropa fait tourner les jeux Game Boy à partir de vos propres fichiers .gb sur iPhone et iPad, avec trois cœurs interchangeables, des skins de console portable, des traitements LCD et CRT, et la configuration des manettes.",
+    "summary": "Retropa fait tourner les jeux Game Boy à partir de vos propres fichiers .gb sur iPhone et iPad, avec quatre cœurs interchangeables, des skins de console portable, des traitements LCD et CRT, et la configuration des manettes.",
     "sections": [
       {
         "title": "Commencez par un fichier .gb",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Quel cœur fait tourner les jeux Game Boy",
-        "body": "Retropa embarque plusieurs cœurs capables de faire tourner des jeux Game Boy, et vous pouvez passer de l'un à l'autre jeu par jeu. mGBA et SkyEmu couvrent tous deux la GB, la GBC et la GBA, tandis que SameBoy vise spécifiquement la GB et la GBC. Si un cœur montre un problème sur un titre précis, essayez-en un autre avant de conclure que le fichier est corrompu.",
+        "body": "Retropa embarque plusieurs cœurs capables de faire tourner des jeux Game Boy, et vous pouvez passer de l'un à l'autre jeu par jeu. mGBA et SkyEmu couvrent tous deux la GB, la GBC et la GBA, SameBoy vise spécifiquement la GB et la GBC, et JGenesis couvre la GB aux côtés de ses systèmes Sega. Si un cœur montre un problème sur un titre précis, essayez-en un autre avant de conclure que le fichier est corrompu.",
         "points": [
           "mGBA est un bon premier choix pour jouer au quotidien.",
           "SameBoy met l'accent sur la précision GB et GBC.",

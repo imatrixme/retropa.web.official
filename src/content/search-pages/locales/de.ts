@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "Game Boy-Emulator für iPhone und iPad | Retropa",
     "description": "Spiele deine eigenen .gb-Dateien mit Retropa auf iPhone und iPad. Welcher Core GB übernimmt, wie du ein Spiel importierst, wie du Bildschirm und Steuerung einrichtest und was du prüfst, wenn sich eine Datei nicht öffnen lässt.",
-    "summary": "Retropa spielt Game-Boy-Spiele aus deinen eigenen .gb-Dateien auf iPhone und iPad, mit drei austauschbaren Cores, Handheld-Skins, LCD- und CRT-Behandlungen sowie Controller-Mapping.",
+    "summary": "Retropa spielt Game-Boy-Spiele aus deinen eigenen .gb-Dateien auf iPhone und iPad, mit vier austauschbaren Cores, Handheld-Skins, LCD- und CRT-Behandlungen sowie Controller-Mapping.",
     "sections": [
       {
         "title": "Beginne mit einer .gb-Datei",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Welcher Core Game-Boy-Spiele ausführt",
-        "body": "Retropa bringt mehr als einen Core mit, der Game-Boy-Titel ausführen kann, und du kannst pro Spiel zwischen ihnen wechseln. mGBA und SkyEmu decken sowohl GB, GBC als auch GBA ab, während SameBoy gezielt auf GB und GBC ausgerichtet ist. Wenn ein Core bei einem bestimmten Titel Probleme zeigt, probiere einen anderen aus, bevor du annimmst, die Datei sei defekt.",
+        "body": "Retropa bringt mehr als einen Core mit, der Game-Boy-Titel ausführen kann, und du kannst pro Spiel zwischen ihnen wechseln. mGBA und SkyEmu decken sowohl GB, GBC als auch GBA ab, SameBoy ist gezielt auf GB und GBC ausgerichtet, und JGenesis deckt GB zusammen mit seinen Sega-Systemen ab. Wenn ein Core bei einem bestimmten Titel Probleme zeigt, probiere einen anderen aus, bevor du annimmst, die Datei sei defekt.",
         "points": [
           "mGBA ist für den Alltag eine gute erste Wahl.",
           "SameBoy legt den Schwerpunkt auf die Genauigkeit von GB und GBC.",
@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "SkyEmu-Core auf iPhone und iPad | Retropa",
-    "description": "SkyEmu deckt in Retropa die Game-Boy-Familie und den Beta-Pfad für Nintendo DS ab. Prüfe Formate, Touch-Steuerung für zwei Bildschirme, Einschränkungen und Core-Wechsel mit Plus.",
-    "summary": "SkyEmu übernimmt in Retropa den Beta-Pfad für Nintendo DS ebenso wie die Game-Boy-Handhelds. Die DS-Abdeckung ist Beta und kein Versprechen, dass jeder Titel oder jede touchgesteuerte Interaktion korrekt funktioniert.",
+    "description": "SkyEmu deckt in Retropa die Game-Boy-Familie und Nintendo DS ab. Prüfe Formate, Touch-Steuerung für zwei Bildschirme, Einschränkungen und Core-Wechsel mit Plus.",
+    "summary": "SkyEmu übernimmt in Retropa Nintendo DS ebenso wie die Game-Boy-Handhelds. Die DS-Kompatibilität hängt vom einzelnen Titel ab und ist kein Versprechen, dass jedes Spiel oder jede Touch-Interaktion korrekt funktioniert.",
     "sections": [
       {
         "title": "Systeme und Formate im Katalog",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS ist ein Beta-Pfad",
+        "title": "Nintendo DS mit SkyEmu",
         "body": "Behandle die DS-Kompatibilität als titelabhängig. Importiere eine lokal heruntergeladene Datei, bestätige, dass Nintendo DS erkannt wurde, und teste über den Startbildschirm hinaus. Prüfe eine Szene mit Touch-Eingabe und eine Szene mit Ton, bevor du dich auf eine lange Session verlässt. Notiere App-Version und den genauen Fehler, wenn ein Titel einfriert; ein Skin-Wechsel kann ein Kompatibilitätsproblem des Cores nicht beheben.",
         "points": [
           "Der Katalog listet für Nintendo DS nur SkyEmu.",
           "Der Core-Wechsel mit Plus schafft keinen alternativen DS-Core.",
-          "Halte während der Bewertung des Beta-Verhaltens unabhängige Sicherungen der Speicherstände vor."
+          "Halte beim Testen von DS-Titeln unabhängige Sicherungen der Speicherstände vor."
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "Welcher Core führt Nintendo DS-Spiele aus?",
-        "answer": "SkyEmu ist der im Katalog geführte Beta-Pfad von Retropa für Nintendo DS. Die Kompatibilität ist titelabhängig, und der Katalog listet keinen weiteren DS-Core."
+        "answer": "SkyEmu ist der im Katalog geführte Core von Retropa für Nintendo DS. Die Kompatibilität ist titelabhängig, und der Katalog listet keinen weiteren DS-Core."
       },
       {
         "id": "touch",

@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "Emulatore Game Boy per iPhone e iPad | Retropa",
     "description": "Avvia i tuoi file .gb su iPhone e iPad con Retropa. Quale core gestisce il GB, come importare un gioco, come impostare schermo e controlli e cosa verificare quando un file non si apre.",
-    "summary": "Retropa avvia i giochi Game Boy dai tuoi file .gb su iPhone e iPad, con tre core intercambiabili, skin da console portatile, trattamenti LCD e CRT e mappatura dei controller.",
+    "summary": "Retropa avvia i giochi Game Boy dai tuoi file .gb su iPhone e iPad, con quattro core intercambiabili, skin da console portatile, trattamenti LCD e CRT e mappatura dei controller.",
     "sections": [
       {
         "title": "Parti da un file .gb",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Quale core avvia i giochi Game Boy",
-        "body": "Retropa include più di un core in grado di avviare titoli Game Boy e puoi passare dall'uno all'altro singolarmente per ogni gioco. mGBA e SkyEmu coprono GB, GBC e GBA, mentre SameBoy è dedicato a GB e GBC. Se un core mostra un problema con un titolo specifico, provane un altro prima di dare per scontato che il file sia danneggiato.",
+        "body": "Retropa include più di un core in grado di avviare titoli Game Boy e puoi passare dall'uno all'altro singolarmente per ogni gioco. mGBA e SkyEmu coprono GB, GBC e GBA, SameBoy è dedicato a GB e GBC, e JGenesis copre GB insieme ai suoi sistemi Sega. Se un core mostra un problema con un titolo specifico, provane un altro prima di dare per scontato che il file sia danneggiato.",
         "points": [
           "mGBA è una buona prima scelta per il gioco quotidiano.",
           "SameBoy punta sull'accuratezza di GB e GBC.",
@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "Core SkyEmu su iPhone e iPad | Retropa",
-    "description": "SkyEmu copre la famiglia Game Boy e il percorso beta Nintendo DS in Retropa. Controlla formati, controlli touch a doppio schermo, limiti e cambio core con Plus.",
-    "summary": "SkyEmu gestisce il percorso beta Nintendo DS oltre alle console portatili Game Boy in Retropa. La copertura DS è in beta, non una promessa che ogni titolo o interazione touch funzioni correttamente.",
+    "description": "SkyEmu copre la famiglia Game Boy e Nintendo DS in Retropa. Controlla formati, controlli touch a doppio schermo, limiti e cambio core con Plus.",
+    "summary": "SkyEmu gestisce Nintendo DS oltre alle console portatili Game Boy in Retropa. La compatibilità con DS dipende dal singolo titolo e non promette che ogni gioco o interazione touch funzioni correttamente.",
     "sections": [
       {
         "title": "Sistemi e formati del catalogo",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS è un percorso beta",
+        "title": "Nintendo DS con SkyEmu",
         "body": "Considera la compatibilità DS specifica per ogni titolo. Importa un file scaricato in locale, conferma che sia stato rilevato il Nintendo DS e prova oltre la schermata di apertura. Controlla una scena con input touch e una scena con audio prima di affidarti a una sessione lunga. Annota la versione dell'app e il guasto esatto se un titolo si blocca; cambiare skin non può riparare un problema di compatibilità del core.",
         "points": [
           "Il catalogo elenca solo SkyEmu per il Nintendo DS.",
           "Il cambio core con Plus non crea un core DS alternativo.",
-          "Conserva backup dei salvataggi indipendenti mentre valuti il comportamento in beta."
+          "Conserva backup indipendenti dei salvataggi mentre provi i titoli DS."
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "Quale core avvia i giochi Nintendo DS?",
-        "answer": "SkyEmu è il percorso beta Nintendo DS catalogato in Retropa. La compatibilità è specifica per ogni titolo e il catalogo non elenca un altro core DS."
+        "answer": "SkyEmu è il core catalogato di Retropa per Nintendo DS. La compatibilità è specifica per ogni titolo e il catalogo non elenca un altro core DS."
       },
       {
         "id": "touch",

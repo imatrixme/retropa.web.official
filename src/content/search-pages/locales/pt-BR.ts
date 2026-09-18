@@ -12,7 +12,7 @@ export const pages: Record<string, SearchPageContent> = {
     "label": "GB",
     "title": "Emulador de Game Boy para iPhone e iPad | Retropa",
     "description": "Rode seus próprios arquivos .gb no iPhone e no iPad com o Retropa. Qual núcleo roda GB, como importar um jogo, como ajustar tela e Controle e o que verificar quando um arquivo não abre.",
-    "summary": "O Retropa roda jogos de Game Boy a partir dos seus próprios arquivos .gb no iPhone e no iPad, com três núcleos intercambiáveis, Skins de portátil, tratamentos LCD e CRT e mapeamento de Controle.",
+    "summary": "O Retropa roda jogos de Game Boy a partir dos seus próprios arquivos .gb no iPhone e no iPad, com quatro núcleos intercambiáveis, Skins de portátil, tratamentos LCD e CRT e mapeamento de Controle.",
     "sections": [
       {
         "title": "Comece com um arquivo .gb",
@@ -25,7 +25,7 @@ export const pages: Record<string, SearchPageContent> = {
       },
       {
         "title": "Qual núcleo roda jogos de Game Boy",
-        "body": "O Retropa traz mais de um núcleo capaz de rodar títulos de Game Boy, e você pode alternar entre eles jogo a jogo. mGBA e SkyEmu cobrem GB, GBC e GBA, enquanto o SameBoy é focado especificamente em GB e GBC. Se um núcleo apresentar problema com um título específico, experimente outro antes de concluir que o arquivo está corrompido.",
+        "body": "O Retropa traz mais de um núcleo capaz de rodar títulos de Game Boy, e você pode alternar entre eles jogo a jogo. mGBA e SkyEmu cobrem GB, GBC e GBA, o SameBoy é focado especificamente em GB e GBC, e o JGenesis cobre GB junto com seus sistemas Sega. Se um núcleo apresentar problema com um título específico, experimente outro antes de concluir que o arquivo está corrompido.",
         "points": [
           "O mGBA é uma boa primeira escolha para o dia a dia.",
           "O SameBoy prioriza a precisão em GB e GBC.",
@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "Núcleo SkyEmu no iPhone e iPad | Retropa",
-    "description": "O SkyEmu cobre a família Game Boy e o caminho beta de Nintendo DS no Retropa. Verifique formatos, Controles de toque em duas telas, limites e troca de núcleo no Plus.",
-    "summary": "O SkyEmu cuida do caminho beta de Nintendo DS, além dos portáteis Game Boy, no Retropa. A cobertura de DS é beta, e não a promessa de que todos os títulos ou interações por toque funcionem corretamente.",
+    "description": "O SkyEmu cobre a família Game Boy e o Nintendo DS no Retropa. Verifique formatos, Controles de toque em duas telas, limites e troca de núcleo no Plus.",
+    "summary": "O SkyEmu cuida do Nintendo DS, além dos portáteis Game Boy, no Retropa. A compatibilidade com DS depende de cada título e não promete que todo jogo ou interação por toque funcione corretamente.",
     "sections": [
       {
         "title": "Sistemas e formatos do catálogo",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "O Nintendo DS é um caminho beta",
+        "title": "Nintendo DS com o SkyEmu",
         "body": "Trate a compatibilidade com DS como algo específico de cada título. Importe um arquivo baixado localmente, confirme que o Nintendo DS foi detectado e teste além da tela de abertura. Verifique uma cena com entrada por toque e uma cena com som antes de contar com uma sessão longa. Anote a versão do app e a falha exata se um título travar; mudar a Skin não consegue consertar um problema de compatibilidade do núcleo.",
         "points": [
           "O catálogo lista apenas o SkyEmu para Nintendo DS.",
           "A troca de núcleo do Plus não cria um núcleo alternativo de DS.",
-          "Mantenha backups de Save independentes enquanto avalia o comportamento beta."
+          "Mantenha backups independentes enquanto testa títulos de DS."
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "Qual núcleo roda jogos de Nintendo DS?",
-        "answer": "O SkyEmu é o caminho beta de Nintendo DS catalogado no Retropa. A compatibilidade é específica de cada título e o catálogo não lista outro núcleo de DS."
+        "answer": "O SkyEmu é o núcleo catalogado do Retropa para Nintendo DS. A compatibilidade é específica de cada título e o catálogo não lista outro núcleo de DS."
       },
       {
         "id": "touch",

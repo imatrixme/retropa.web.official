@@ -8,19 +8,19 @@ export const content: StartPageContent = {
   metaTitle: "How to Import ROMs in Retropa | iPhone & iPad Guide",
   description: "Import GBA, DS and arcade games on iPhone and iPad. Answers about ROMs, BIOS, Delta skins, controllers, saves, Plus and advanced filters without integer scaling.",
   "title": "Your first game in Retropa.",
-  "intro": "From a file you own to a game you can play. Start with a supported handheld system, then make the controls and picture your own.",
+  "intro": "You bring the game file; Retropa brings the handheld. Three steps from a file sitting in your Downloads folder to something you can actually play, then as much tweaking as you feel like.",
   "steps": [
     [
       "Get Retropa",
-      "Install Retropa from the App Store on an iPhone or iPad running iOS 18 or later. The app is free to download; some features require Plus."
+      "Install Retropa from the App Store on an iPhone or iPad running iOS 18 or later. Downloading the app is free; Plus covers the extras like core switching, arcade and advanced filters."
     ],
     [
       "Import your game",
-      "Open the import entry in your library and choose a supported ROM from Files. For GBA, use a .gba file; for DS, a .nds file. Keep the original file as a backup. ROMs and BIOS files are not supplied."
+      "Open the import entry in your library and pick a supported ROM from Files. GBA takes .gba, DS takes .nds. Keep your original somewhere safe, because Retropa ships no games and no BIOS files."
     ],
     [
       "Open it from your library",
-      "Select the imported game and start playing. Check the on-screen controls before changing skins or filters. If a game cannot start, check its system, file format and any required BIOS."
+      "Tap the imported game and play. Leave the default controls and picture alone until you have seen the game run once — that baseline is what you compare against when something later looks off. A game that will not start usually has a system, format or BIOS mismatch."
     ]
   ],
   "faqTitle": "Before you start",
