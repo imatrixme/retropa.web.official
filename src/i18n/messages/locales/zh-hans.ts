@@ -14,7 +14,7 @@ export const zhHansMessages = {
       headerDownloadLabel: "下载",
       footer: {
         description:
-          "Retropa 将多核心模拟、高级皮肤自定义、触感波形调校、滤镜包与本地化语言包融合为一套打磨过的 iOS 体验。",
+          "Retropa 在 iPhone 和 iPad 上运行你自己的掌机与街机游戏文件，核心可以换，皮肤可以挑，画面能按手上的屏幕来调。",
         legalSupportHeading: "法务与支持",
         emulatorCores: "模拟器核心",
         terms: "服务条款",
@@ -54,37 +54,37 @@ export const zhHansMessages = {
       heroBadge: "为仍在意手感的玩家而做",
       heroTitleLines: ["经典，不止复刻，", "更要玩得顺手，", "也玩得有质感。"],
       heroDescription:
-        "Retropa 给经典游戏一个既熟悉又精致的新家：启动更快、操控更准，在 iPhone 和 iPad 上把原本的味道完整保留下来。",
+        "Retropa 让老游戏在你本来就随身带的设备上安个家。导入一个你有权使用的文件，挑好核心和皮肤，就能开玩——不需要先研究一堆设置。",
       readCompatibilityPromise: "查看兼容性详情",
       downloadForIOSLabel: "下载 iOS 版",
-      compatibilityCardKicker: "为什么玩家信任 Retropa",
+      compatibilityCardKicker: "玩家为什么留下来",
       compatibilityCardTitleLines: ["看得见的兼容性，", "用得久的品质感。"],
       compatibilityPillars: [
         {
           title: "RetroArch 滤镜栈：完整支持",
           description:
-            "完整运行 RetroArch shader 链与 .slang / .slangp 预设：多通道顺序、参数控制，以及稳定的运行时切换。",
+            "把 RetroArch 的 shader 链整套搬过来，.slang 和 .slangp 预设都能用，游戏运行中也能换，不用先退出。",
         },
         {
           title: "Delta 皮肤包：完全兼容",
           description:
-            "直接导入 Delta .deltaskin 包，保留布局意图，并确保竖屏/横屏切换时依然响应迅速。",
+            "直接导入 Delta 的 .deltaskin 包，布局按原样保留，竖屏横屏切换时也不会卡住。",
         },
       ],
       runtimeIntegrityTitle: "为日常游玩而设计",
       runtimeIntegrityDescription:
-        "Retropa 专注于稳定性能、灵敏操控，以及在已支持系统上的可靠兼容。",
+        "Retropa 看重的是长时间玩下去的表现，而不是头一分钟的惊艳：帧率稳、按键跟手，第十次打开游戏和第一次一样。",
       highlights: [
         { value: "RetroArch .slangp", label: "完整滤镜管线" },
         { value: "Delta .deltaskin", label: "完全兼容" },
-        { value: "8 个运行时核心", label: "按系统智能切换" },
+        { value: "8 个运行时核心", label: "按系统或按游戏切换" },
       ],
       compatibilitySectionKicker: "兼容优先于外观",
       compatibilitySectionTitleLines: ["从打开应用到长时间游玩，", "都保持顺滑稳定。"],
       logosSectionKicker: "核心与系统 Logo",
       logosSectionTitle: "官方资产，稳定呈现",
       logosSectionDescription:
-        "核心与主机 Logo 来自官方项目仓库与 Wikimedia，随后统一规范为性能安全的 PNG 资源，保证页面渲染流畅、观感干净。",
+        "核心与主机 Logo 取自各项目自己的仓库和 Wikimedia，再统一清理过，所以在任何尺寸下都清晰。",
       coreShowcaseTitle: "模拟器核心展示",
       systemShowcaseTitle: "系统展示",
       capabilitySectionKicker: "真实能力亮点",
@@ -93,43 +93,43 @@ export const zhHansMessages = {
         {
           title: "按系统记住你的习惯",
           description:
-            "Retropa 会为每个主机系统记住你偏好的核心、皮肤模式与控制布局，让你每次回来都从最舒服的位置开始。",
+            "每个系统都用哪个核心、哪套皮肤、哪种按键布局，Retropa 都记着。下次回来直接开玩，不用重设一遍。",
         },
         {
-          title: "控制器映射，深到像录音棚",
+          title: "手柄映射，想改随时改",
           description:
-            "多手柄可并行运行，支持独立槽位映射、配置保存，并可在游戏过程中实时重映射。",
+            "可以同时接多个手柄，各自分配槽位、各自保存配置，游戏跑着的时候也能重新映射。",
         },
         {
-          title: "触觉反馈按意图调教",
+          title: "触感按你的习惯调",
           description:
-            "Waveform 包支持按动作定义按下/抬起节奏与回退策略，让每台设备上的触感都像是专门调过的。",
+            "按下和抬起怎么震，你自己定，让触摸反馈该来的时候来，而不是乱响一通。",
         },
         {
           title: "切核不打断节奏",
           description:
-            "mGBA、SkyEmu、SameBoy、RusticoNES、TetaNES、LakeSnes、JGenesis 与 Ares 被接入同一运行时模型，行为一致、切换顺滑。",
+            "mGBA、SkyEmu、SameBoy、RusticoNES、TetaNES、LakeSnes、JGenesis 和 Ares 走同一套操作方式，换核心不用重新学一遍。",
         },
         {
           title: "本地化包也讲究",
           description:
-            "语言包可即时热加载，命名空间回退可靠，让社区或地区更新像系统自带，而不是后期打补丁。",
+            "语言包在 App 运行时就能刷新，回退规则明确，所以新语言是正常更新进来的，不是打补丁补上去的。",
         },
         {
           title: "统一导入管线，严格校验",
           description:
-            "视觉、滤镜、本地化、音频与文档包共用一条导入管线，运行时启用前先做完整性校验。",
+            "视觉、滤镜、本地化、音频和文档包走同一条导入流程，启用之前都会先校验完整性。",
         },
       ],
-      systemCoreMatrixTitle: "系统-核心矩阵",
-      systemCoreMatrixSubtitle: "密集路由图 · 按系统记住首选核心",
+      systemCoreMatrixTitle: "系统-核心对照表",
+      systemCoreMatrixSubtitle: "一眼看清覆盖范围，核心选择会被记住",
       autoBadge: "自动",
       romClarityTitle: "ROM 格式一目了然",
-      romClaritySubtitle: "扩展名矩阵 · 可预期的导入行为",
+      romClaritySubtitle: "扩展名清清楚楚，导入结果可预期",
       bottomCtaKicker: "下载 Retropa",
       bottomCtaTitleLines: ["经典仍在，", "手感更上一层。"],
       bottomCtaDescription:
-        "如果你在意真实性，也在意现代的打磨质感，Retropa 是为日常游玩而生，不是为截图而生。",
+        "如果你在意这些游戏本来的样子，Retropa 是为每天都能玩下去而做的，不是为截图而做的。",
       bottomCtaDownloadLabel: "立即下载",
       inspectCoreCatalogLabel: "查看核心目录",
     },
