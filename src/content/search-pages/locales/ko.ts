@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "iPhone 및 iPad용 SkyEmu 코어 | Retropa",
-    "description": "SkyEmu는 Retropa에서 Game Boy 계열과 Nintendo DS를 지원합니다. 형식, 두 화면 터치 조작, 타이틀별 호환성, Plus 코어 전환을 확인하세요.",
-    "summary": "SkyEmu는 Retropa에서 Game Boy 휴대용 기기와 Nintendo DS를 함께 담당합니다. 호환성과 터치 동작은 타이틀마다 다르므로 사용하려는 게임에서 확인하세요.",
+    "description": "SkyEmu는 Retropa에서 Game Boy 계열과 Nintendo DS 베타 경로를 지원합니다. 형식, 두 화면 터치 조작, 타이틀별 호환성, Plus 코어 전환을 확인하세요.",
+    "summary": "SkyEmu는 Retropa에서 Game Boy 휴대용 기기와 Nintendo DS 베타 경로를 함께 담당합니다. 호환성과 터치 동작은 타이틀마다 다르므로 사용하려는 게임에서 확인하세요.",
     "sections": [
       {
         "title": "카탈로그의 시스템과 형식",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS 호환성 확인하기",
+        "title": "Nintendo DS는 베타 경로입니다",
         "body": "DS 호환성은 타이틀별로 판단하세요. 직접 내려받은 파일을 가져온 뒤 Nintendo DS가 인식되었는지 확인하고, 시작 화면을 넘어서까지 테스트하세요. 긴 플레이에 의존하기 전에 터치 입력이 필요한 장면과 소리가 나오는 장면을 확인하세요. 타이틀이 멈추면 앱 버전과 정확한 증상을 기록하세요. 스킨을 바꾸어도 코어 호환성 문제는 해결되지 않습니다.",
         "points": [
           "카탈로그에는 Nintendo DS용으로 SkyEmu만 등록되어 있습니다.",
           "Plus 코어 전환으로 대체 DS 코어가 생기지는 않습니다.",
-          "타이틀별 동작을 확인하는 동안에는 별도의 세이브 백업을 유지하세요."
+          "베타 동작을 확인하는 동안에는 별도의 세이브 백업을 유지하세요."
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "Nintendo DS 게임은 어느 코어로 실행하나요?",
-        "answer": "SkyEmu는 Retropa 카탈로그에 등록된 Nintendo DS 지원 코어입니다. 호환성은 타이틀별로 다르며, 카탈로그에는 다른 DS 코어가 등록되어 있지 않습니다."
+        "answer": "SkyEmu는 Retropa 카탈로그에 등록된 Nintendo DS 베타 경로입니다. 호환성은 타이틀별로 다르며, 카탈로그에는 다른 DS 코어가 등록되어 있지 않습니다."
       },
       {
         "id": "touch",

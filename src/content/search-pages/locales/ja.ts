@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "iPhone と iPad 用 SkyEmu コア | Retropa",
-    "description": "SkyEmu は Retropa でゲームボーイファミリーと Nintendo DS に対応します。対応形式、2画面のタッチ操作、タイトルごとの互換性、Plus によるコアの切り替えを確認してください。",
-    "summary": "SkyEmu は Retropa でゲームボーイ系の携帯機と Nintendo DS を扱います。互換性やタッチ操作の挙動はタイトルごとに異なるため、手元のゲームで確認してください。",
+    "description": "SkyEmu は Retropa でゲームボーイファミリーと Nintendo DS のベータ経路に対応します。対応形式、2画面のタッチ操作、タイトルごとの互換性、Plus によるコアの切り替えを確認してください。",
+    "summary": "SkyEmu は Retropa でゲームボーイ系の携帯機と Nintendo DS のベータ経路を扱います。互換性やタッチ操作の挙動はタイトルごとに異なるため、手元のゲームで確認してください。",
     "sections": [
       {
         "title": "カタログの対応システムと形式",
@@ -850,12 +850,12 @@ export const pages: Record<string, SearchPageContent> = {
         ]
       },
       {
-        "title": "Nintendo DS の互換性を確認する",
+        "title": "Nintendo DS はベータ経路です",
         "body": "DS の互換性はタイトルごとに異なると考えてください。ローカルにダウンロードしたファイルを読み込み、DS として認識されたことを確認し、起動画面より先までテストしてください。長時間のプレイに頼る前に、タッチ入力を使う場面と音が出る場面を確認します。タイトルがフリーズする場合は、アプリのバージョンと正確な症状を記録してください。スキンを変更しても、コアの互換性の問題は解決できません。",
         "points": [
           "カタログで DS に対応するコアとして記載されているのは SkyEmu だけです。",
           "Plus によるコアの切り替えでも、代わりの DS コアは作成されません。",
-          "タイトルごとの挙動を確認する間は、独立したセーブのバックアップを保管してください。"
+          "ベータ版の挙動を確認する間は、独立したセーブのバックアップを保管してください。"
         ]
       },
       {
@@ -885,7 +885,7 @@ export const pages: Record<string, SearchPageContent> = {
       {
         "id": "ds",
         "question": "DS のゲームを動かすコアはどれですか。",
-        "answer": "SkyEmu は Retropa のカタログに記載された Nintendo DS 対応コアです。互換性はタイトルごとに異なり、カタログに別の DS コアは記載されていません。"
+        "answer": "SkyEmu は Retropa のカタログに記載された Nintendo DS のベータ経路です。互換性はタイトルごとに異なり、カタログに別の DS コアは記載されていません。"
       },
       {
         "id": "touch",
