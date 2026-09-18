@@ -499,6 +499,33 @@ for (const [opening, routes] of openingCounts) {
   }
 }
 
+// Nintendo DS is currently a SkyEmu-only beta path in the app and its
+// emulation-settings specification. Every localized SkyEmu page must say so;
+// silently downgrading this to an ordinary support claim would overstate the
+// tested surface and recreate the drift this change corrected.
+const DS_BETA_MARKERS: Record<string, RegExp> = {
+  en: /\bbeta\b/i,
+  de: /beta/i,
+  es: /beta/i,
+  fr: /b[êe]ta/i,
+  id: /beta/i,
+  it: /beta/i,
+  ja: /ベータ/i,
+  ko: /베타/i,
+  "pt-br": /beta/i,
+  ru: /бета/i,
+  th: /เบต้า/i,
+  tr: /beta/i,
+  vi: /beta/i,
+  "zh-hans": /Beta|测试版/i,
+  "zh-hant": /Beta|測試版/i,
+}
+for (const page of pages.values()) {
+  if (!page.indexable || !page.route.endsWith("/skyemu-core/") && page.route !== "/skyemu-core/") continue
+  const marker = DS_BETA_MARKERS[page.locale.toLowerCase()]
+  if (marker && !marker.test(visibleText(page.html).text)) record(page, "content-quality", "SkyEmu page does not identify the Nintendo DS path as beta")
+}
+
 // Every page must send its own App Store campaign token, and the token must stay
 // within Apple's 30-character limit. A site-wide constant would make per-page
 // attribution impossible, which is the defect this check exists to prevent.
