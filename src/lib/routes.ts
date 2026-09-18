@@ -1,25 +1,38 @@
 import { normalizeLocale, supportedLocales, type Locale } from "@/i18n/locales"
-import { pagePathByKey, type PageKey } from "@/i18n/pages"
-import { isProductPage, type ProductPage } from "@/content/product-details"
+import type { PageKey } from "@/i18n/pages"
+import type { ProductPage } from "@/content/product-details"
+import { familyForPage, guideLocale, pageFamilies } from "@/lib/page-families"
 
-export type SitePage = PageKey | ProductPage | "start" | "not-found"
-export const guideLocale = (locale: Locale): Locale => locale.startsWith("zh") ? "zh-Hans" : "en"
+/**
+ * Every addressable page. Core pages and product pages are literal unions;
+ * search landing pages and the guides index are open strings, because they are
+ * registered from content modules. Their validity is enforced by the route
+ * registry and the build integrity gate rather than by the type system.
+ */
+export type SitePage = PageKey | ProductPage | "start" | "guides" | "not-found" | (string & {})
+
+export { guideLocale }
 
 export function localizedPath(page: SitePage, locale: Locale): string {
   if (page === "not-found") return "/404.html"
-  const language = page === "start" || isProductPage(page) ? guideLocale(locale) : locale
-  const path = page === "start" || isProductPage(page) ? `/${page}/` : pagePathByKey[page]
+  const family = familyForPage(page)
+  if (!family || family.localesFor(page).length === 0) return "/404.html"
+  const language = family.resolveLocale(locale, page)
+  const path = family.path(page)
   return `${language === "en" ? "" : `/${language}`}${path}`
 }
 
 export function routeFromPath(pathname: string): { page: SitePage; locale: Locale } {
   const parts = pathname.split("/").filter(Boolean)
-  const locale = supportedLocales.find((value) => value === parts[0]) ?? "en"
-  const path = locale === "en" ? parts : parts.slice(1)
-  const leaf = path.join("/")
-  const page = leaf === "" ? "home" : ["cores", "terms", "privacy", "start"].includes(leaf) || isProductPage(leaf) ? leaf as SitePage : "not-found"
-  if ((page === "start" || isProductPage(page)) && guideLocale(locale) !== locale) return { page: "not-found", locale }
-  return { page, locale }
+  const prefix = supportedLocales.find((value) => value === parts[0])
+  const locale = prefix ?? "en"
+  const segments = prefix ? parts.slice(1) : parts
+  const path = segments.length ? `/${segments.join("/")}/` : "/"
+  for (const family of pageFamilies) {
+    const page = family.pages.find((candidate) => family.path(candidate) === path)
+    if (page && family.localesFor(page).includes(locale)) return { page, locale }
+  }
+  return { page: "not-found", locale }
 }
 
 export function legacyLocaleRedirect(): void {

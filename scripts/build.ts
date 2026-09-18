@@ -26,3 +26,7 @@ await writeFile("dist/build-evidence.json", JSON.stringify({
   attribution: "aggregate_only", guideLanguages: ["en", "zh-Hans"],
 }, null, 2))
 console.log(`Prerendered ${paths.length} localized pages and 404.html.`)
+
+// Integrity gates run after prerendering so they see exactly what will be deployed.
+const gate = spawnSync("bun", ["scripts/verify-integrity.ts"], { stdio: "inherit" })
+if (gate.status !== 0) process.exit(gate.status ?? 1)

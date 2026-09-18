@@ -1,9 +1,9 @@
 import { Pause, Play, ArrowRight, MoveHorizontal, ChevronLeft, ChevronRight } from "lucide-react"
 import { useEffect, useId, useRef, useState, type PointerEvent } from "react"
 import { useI18n } from "@/i18n/context"
-import { localizedPath } from "@/lib/routes"
+import { guideLocale, localizedPath } from "@/lib/routes"
 import { track } from "@/lib/analytics"
-import { displayCopy, displayModes, initialDisplayMode } from "@/content/display-study"
+import { displayCopy, localizedDisplayModes, initialDisplayMode } from "@/content/display-study"
 import { CRTTelevision } from "@/components/crt-television"
 import { DownloadLink } from "@/components/download-link"
 
@@ -11,8 +11,8 @@ type Settings = { mode: number; divider: number; playing: boolean }
 
 export function DisplayStudy({ linked = true }: { linked?: boolean }) {
   const { locale } = useI18n()
-  const zh = locale.startsWith("zh")
-  const copy = displayCopy(zh)
+  const displayModes = localizedDisplayModes(locale)
+  const copy = displayCopy(locale)
   const canvas = useRef<HTMLCanvasElement>(null)
   const runtime = useRef<{ update: (settings: Settings) => void } | null>(null)
   const [mode, setMode] = useState<number>(initialDisplayMode)
@@ -99,26 +99,26 @@ export function DisplayStudy({ linked = true }: { linked?: boolean }) {
     <div className="tv-channel-controls"><button type="button" disabled={status !== "ready"} aria-label={copy.previous} title={copy.previous} onClick={() => selectMode((mode + displayModes.length - 1) % displayModes.length)}><ChevronLeft size={17} /></button><button type="button" disabled={status !== "ready"} aria-label={copy.next} title={copy.next} onClick={() => selectMode((mode + 1) % displayModes.length)}><ChevronRight size={17} /></button></div>
   </>
 
-  return <section id="display-study" className="display-study" lang={zh ? "zh-Hans" : "en"} aria-labelledby={`${id}-title`} data-feature="filters">
+  return <section id="display-study" className="display-study" lang={locale} aria-labelledby={`${id}-title`} data-feature="filters">
     <header className="study-heading"><div><p className="eyebrow">{copy.eyebrow}</p><h2 id={`${id}-title`}>{copy.title}</h2></div><p>{copy.intro}</p></header>
     <div className="study-workspace" data-preview-status={status}>
-    <CRTTelevision width={displayWidth} playing={playing} controls={controls} label={status === "ready" ? selected.name : copy.source}>
+    <CRTTelevision width={displayWidth} playing={playing} controls={controls} label={status === "ready" ? selected.label : copy.source}>
     <div className="study-surface" data-comparing={status === "ready" && mode !== 0} onPointerDown={event => {
       if (status !== "ready" || mode === 0 || event.button !== 0) return
       event.currentTarget.setPointerCapture(event.pointerId); compareAtPointer(event)
     }} onPointerMove={event => {
       if (event.currentTarget.hasPointerCapture(event.pointerId)) compareAtPointer(event)
     }}>
-      <img className="study-fallback" src="/product/homebrew-preview.png" alt={zh ? "Retropa 自有动态预览场景：像素人物与夜景" : "Retropa-owned pixel scene with a character and night landscape"} width="960" height="720" hidden={status === "ready"} loading="lazy" />
-      <canvas ref={canvas} className="study-canvas" width="960" height="720" aria-label={zh ? "原始画面与滤镜效果对照" : "Original and filtered picture comparison"} style={{ opacity: status === "ready" ? 1 : 0 }} />
+      <img className="study-fallback" src="/product/homebrew-preview.png" alt={copy.fallbackAlt} width="960" height="720" hidden={status === "ready"} loading="lazy" />
+      <canvas ref={canvas} className="study-canvas" width="960" height="720" aria-label={copy.canvasLabel} style={{ opacity: status === "ready" ? 1 : 0 }} />
       <div className="tv-glass" aria-hidden="true" />
       {status === "ready" && mode !== 0 && divider > 0 && divider < 100 && <div className="study-divider" style={{ left: `${divider}%` }} aria-hidden="true"><span><MoveHorizontal size={18} /></span></div>}
     </div>
     </CRTTelevision>
     <div className="study-selection">
-      {[{ label: copy.premium, items: displayModes.slice(4) }, { label: copy.basic, items: displayModes.slice(0, 4) }].map(group => <div className="study-mode-group" key={group.label}><span>{group.label}</span><div className="display-modes" role="group" aria-label={group.label}>{group.items.map(item => <button key={item.name} type="button" aria-pressed={mode === item.id} disabled={status !== "ready"} onClick={() => selectMode(item.id)}>{item.title[zh ? 1 : 0]}</button>)}</div></div>)}
+      {[{ label: copy.premium, items: displayModes.slice(4) }, { label: copy.basic, items: displayModes.slice(0, 4) }].map(group => <div className="study-mode-group" key={group.label}><span>{group.label}</span><div className="display-modes" role="group" aria-label={group.label}>{group.items.map(item => <button key={item.name} type="button" aria-pressed={mode === item.id} disabled={status !== "ready"} onClick={() => selectMode(item.id)}>{item.title}</button>)}</div></div>)}
     </div>
-    <div className="study-mode-description" aria-live="polite"><strong>{status === "ready" ? selected.name : copy.source}</strong><p>{status === "fallback" ? copy.fallback : status === "loading" ? copy.loading : selected.detail[zh ? 1 : 0]}</p><span>{copy.preview}</span></div>
+    <div className="study-mode-description" aria-live="polite"><strong>{status === "ready" ? selected.label : copy.source}</strong><p>{status === "fallback" ? copy.fallback : status === "loading" ? copy.loading : selected.detail}</p><span>{copy.preview}</span></div>
     <div className="study-toolbar">
       <label className="study-range" htmlFor={`${id}-size`}><span>{copy.size}</span><input id={`${id}-size`} type="range" min="72" max="100" value={displayWidth} onChange={event => setDisplayWidth(Number(event.target.value))} /><output>{displayWidth}%</output></label>
       <label className="study-range" htmlFor={`${id}-compare`}><span>{copy.compare}</span><input id={`${id}-compare`} type="range" min="0" max="100" value={divider} disabled={status !== "ready" || mode === 0} onChange={event => setDivider(Number(event.target.value))} /><output>{divider}%</output></label>
@@ -127,6 +127,6 @@ export function DisplayStudy({ linked = true }: { linked?: boolean }) {
     </div>
     <div className="study-benefit"><div><h3>{copy.benefitTitle}</h3><p>{copy.benefit}</p></div><dl>{copy.comparison.map(([title, description]) => <div key={title}><dt>{title}</dt><dd>{description}</dd></div>)}</dl></div>
     <p className="study-boundary">{copy.boundary}</p>
-    <div className="study-footer"><div><DownloadLink placement="filters" /><p className="fine-print">{copy.plus}</p></div>{linked && <a className="inline-link" href={localizedPath("crt-filters", locale)}>{copy.link}<ArrowRight size={16} /></a>}</div>
+    <div className="study-footer"><div><DownloadLink placement="filters" /><p className="fine-print">{copy.plus}</p></div>{linked && <a className="inline-link" href={localizedPath("crt-filters", locale)} hrefLang={guideLocale(locale)}>{copy.link}{guideLocale(locale) === "en" && locale !== "en" && <small className="link-language" lang="en">EN</small>}<ArrowRight size={16} /></a>}</div>
   </section>
 }

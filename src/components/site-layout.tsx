@@ -35,9 +35,11 @@ export function SiteLayout({ currentPage, children }: { currentPage: SitePage; c
     { page: "cores", label: labels[0] }, { page: "delta-skins", label: labels[1] },
     { page: "crt-filters", label: labels[2] }, { page: "start", label: labels[3] },
   ]
+  const guideLanguage = guideLocale(locale)
+  const guideLanguageLabel = guideLanguage === "en" && locale !== "en" ? <small className="link-language" lang="en">EN</small> : null
   const navigation = (mobile = false) => <nav className={mobile ? "mobile-nav" : "main-nav"} aria-label={discovery.openMenu}>
     {links.map(link => <a key={link.page} href={localizedPath(link.page, locale)} hrefLang={link.page === "cores" ? locale : guideLocale(locale)} aria-current={currentPage === link.page ? "page" : undefined}
-      onClick={() => { if (menu.current) menu.current.open = false; if (link.page === "start") track("web_guide_opened") }}><span>{link.label}{link.page !== "cores" && locale !== "en" && !locale.startsWith("zh") && <small className="link-language" lang="en">EN</small>}</span>{mobile && <ArrowUpRight size={18} />}</a>)}
+      onClick={() => { if (menu.current) menu.current.open = false; if (link.page === "start") track("web_guide_opened") }}><span>{link.label}{link.page !== "cores" && guideLanguageLabel}</span>{mobile && <ArrowUpRight size={18} />}</a>)}
   </nav>
   return <div className="site-shell">
     <a href="#main" className="skip-link">{discovery.skip}</a>
@@ -59,12 +61,14 @@ export function SiteLayout({ currentPage, children }: { currentPage: SitePage; c
       <div className="footer-top">
         <div><a className="footer-brand" href={localizedPath("home", locale)}>Retropa<span>.</span></a><p>{copy.category}<br />iPhone & iPad</p></div>
         <div className="footer-directory">
-          <div><p>{labels[0]}</p>{[["gba-emulator", "GBA"], ["ds-emulator", "DS"], ["arcade", "Arcade"]].map(([page, label]) => <a key={page} href={localizedPath(page as SitePage, locale)}>{label}<ArrowUpRight size={14} /></a>)}</div>
-          <div><p>Retropa</p>{links.slice(1).map(link => <a href={localizedPath(link.page, locale)} key={link.page}>{link.label}</a>)}</div>
+          <div><p>{labels[0]}</p>{[["gba-emulator", "GBA"], ["ds-emulator", "DS"], ["arcade", discovery.arcadeLabel]].map(([page, label]) => <a key={page} href={localizedPath(page as SitePage, locale)} hrefLang={guideLanguage}>{label}{guideLanguageLabel}<ArrowUpRight size={14} /></a>)}</div>
+          <div><p>Retropa</p>{links.slice(1).map(link => <a href={localizedPath(link.page, locale)} hrefLang={guideLanguage} key={link.page}>{link.label}{guideLanguageLabel}</a>)}</div>
         </div>
       </div>
       <div className="footer-links">
         <a href={localizedPath("cores", locale)}>{messages.shared.footer.emulatorCores}</a>
+        <a href={localizedPath("guides", locale)} hrefLang={guideLanguage}>{discovery.guides}{guideLanguageLabel}</a>
+        <a href={localizedPath("plus", locale)} hrefLang={guideLanguage}>{discovery.free}{guideLanguageLabel}</a>
         <a href={localizedPath("terms", locale)}>{messages.shared.footer.terms}</a>
         <a href={localizedPath("privacy", locale)}>{messages.shared.footer.privacy}</a>
         <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}<ArrowUpRight size={14} /></a>

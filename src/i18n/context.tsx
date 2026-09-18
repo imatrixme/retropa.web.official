@@ -4,10 +4,19 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 import { buildCatalog, type CatalogData } from "@/content/emulator-catalog"
 import { defaultLocale, normalizeLocale, type Locale } from "@/i18n/locales"
 import { localizedPath, routeFromPath } from "@/lib/routes"
+import { familyForPage } from "@/lib/page-families"
+import type { SitePage } from "@/lib/routes"
 import { getMessages, type LocaleMessages } from "@/i18n/messages"
 
 type I18nContextValue = {
   locale: Locale
+  /**
+   * The page currently being rendered. Components that need to identify their
+   * own route, such as the App Store download link, read it from here rather
+   * than guessing, so per-page behaviour cannot silently fall back to the
+   * homepage.
+   */
+  page: SitePage
   setLocale: (locale: Locale) => void
   setLocaleFromValue: (value: string) => void
   messages: LocaleMessages
@@ -19,14 +28,23 @@ const I18nContext = createContext<I18nContextValue | null>(null)
 type I18nProviderProps = {
   children: ReactNode
   initialLocale?: Locale
+  page?: SitePage
 }
 
-export function I18nProvider({ children, initialLocale = defaultLocale }: I18nProviderProps) {
+export function I18nProvider({ children, initialLocale = defaultLocale, page = "home" }: I18nProviderProps) {
   const [locale] = useState<Locale>(initialLocale)
 
   const setLocale = useCallback((nextLocale: Locale) => {
+    const current = routeFromPath(window.location.pathname).page
+    const family = familyForPage(current)
+    // A page is only really available in the requested language when the family
+    // resolves that locale to itself. `localizedPath` otherwise falls back to a
+    // language that does have content, which would leave the visitor on the page
+    // they are already reading. In that case go to the requested language's
+    // homepage, so choosing a language always changes the language.
+    const available = family !== undefined && family.resolveLocale(nextLocale, current) === nextLocale
     const url = new URL(window.location.href)
-    url.pathname = localizedPath(routeFromPath(url.pathname).page, nextLocale)
+    url.pathname = available ? localizedPath(current, nextLocale) : localizedPath("home", nextLocale)
     url.searchParams.delete("lang")
     window.location.assign(url.href)
   }, [])
@@ -50,12 +68,13 @@ export function I18nProvider({ children, initialLocale = defaultLocale }: I18nPr
   const value = useMemo<I18nContextValue>(
     () => ({
       locale,
+      page,
       setLocale,
       setLocaleFromValue,
       messages,
       catalog,
     }),
-    [catalog, locale, messages, setLocale, setLocaleFromValue]
+    [catalog, locale, page, messages, setLocale, setLocaleFromValue]
   )
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
