@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "Núcleo SkyEmu en iPhone y iPad | Retropa",
-    "description": "SkyEmu cubre la familia Game Boy y Nintendo DS en Retropa. Consulta los formatos, los controles táctiles de doble pantalla, las limitaciones y el cambio de núcleo con Plus.",
-    "summary": "SkyEmu gestiona Nintendo DS además de las portátiles Game Boy en Retropa. La compatibilidad con DS depende de cada título y no promete que todos los juegos o interacciones táctiles funcionen correctamente.",
+    "description": "SkyEmu cubre la familia Game Boy y la ruta beta de Nintendo DS en Retropa. Consulta los formatos, los controles táctiles de doble pantalla, las limitaciones y el cambio de núcleo con Plus.",
+    "summary": "SkyEmu gestiona la ruta beta de Nintendo DS además de las portátiles Game Boy en Retropa. La compatibilidad con DS depende de cada título y no promete que todos los juegos o interacciones táctiles funcionen correctamente.",
     "sections": [
       {
         "title": "Sistemas y formatos del catálogo",

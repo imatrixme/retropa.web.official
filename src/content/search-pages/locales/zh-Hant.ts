@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "iPhone 與 iPad 上的 SkyEmu 核心 | Retropa",
-    "description": "SkyEmu 在 Retropa 中涵蓋 Game Boy 系列與 Nintendo DS。了解格式、雙螢幕觸控操作、限制，以及 Plus 的核心切換。",
-    "summary": "SkyEmu 在 Retropa 中除了 Game Boy 掌機之外，也負責 Nintendo DS。DS 相容性依遊戲而異，並不保證每一款遊戲或每一項觸控操作都能正確運作。",
+    "description": "SkyEmu 在 Retropa 中涵蓋 Game Boy 系列與 Nintendo DS 的 Beta 路徑。了解格式、雙螢幕觸控操作、限制，以及 Plus 的核心切換。",
+    "summary": "SkyEmu 在 Retropa 中除了 Game Boy 掌機之外，也負責 Nintendo DS 的 Beta 路徑。DS 相容性依遊戲而異，並不保證每一款遊戲或每一項觸控操作都能正確運作。",
     "sections": [
       {
         "title": "型錄支援的系統與格式",

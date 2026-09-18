@@ -838,8 +838,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "SkyEmu Core on iPhone & iPad | Retropa",
-    "description": "SkyEmu plays the Game Boy family and Nintendo DS in Retropa. Formats, the touch layer and two-screen layouts, plus what Retropa Plus changes about cores.",
-    "summary": "SkyEmu is the one core behind Nintendo DS in Retropa, and it covers the Game Boy handhelds too. DS results depend on the title, so nobody can promise that every game or every touch interaction behaves.",
+    "description": "SkyEmu plays the Game Boy family and the Nintendo DS beta path in Retropa. Formats, the touch layer and two-screen layouts, plus what Retropa Plus changes about cores.",
+    "summary": "SkyEmu is the one core behind the Nintendo DS beta path in Retropa, and it covers the Game Boy handhelds too. DS results depend on the title, so nobody can promise that every game or every touch interaction behaves.",
     "sections": [
       {
         "title": "Systems and formats Retropa can hand to SkyEmu",

@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "Nhân giả lập SkyEmu trên iPhone & iPad | Retropa",
-    "description": "SkyEmu bao quát họ Game Boy và Nintendo DS trong Retropa. Kiểm tra định dạng, điều khiển cảm ứng hai màn hình, giới hạn và việc đổi nhân giả lập với Retropa Plus.",
-    "summary": "SkyEmu xử lý Nintendo DS cùng với các máy cầm tay Game Boy trong Retropa. Khả năng tương thích DS tùy từng tựa game, không phải lời hứa rằng mọi game hay tương tác cảm ứng đều hoạt động đúng.",
+    "description": "SkyEmu bao quát họ Game Boy và nhánh beta Nintendo DS trong Retropa. Kiểm tra định dạng, điều khiển cảm ứng hai màn hình, giới hạn và việc đổi nhân giả lập với Retropa Plus.",
+    "summary": "SkyEmu xử lý nhánh beta Nintendo DS cùng với các máy cầm tay Game Boy trong Retropa. Khả năng tương thích DS tùy từng tựa game, không phải lời hứa rằng mọi game hay tương tác cảm ứng đều hoạt động đúng.",
     "sections": [
       {
         "title": "Hệ máy và định dạng trong danh mục",

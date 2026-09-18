@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "Inti SkyEmu di iPhone & iPad | Retropa",
-    "description": "SkyEmu mencakup keluarga Game Boy dan Nintendo DS di Retropa. Periksa format, kontrol sentuh dua layar, batasan cakupan dan penggantian inti dengan Retropa Plus.",
-    "summary": "SkyEmu menangani Nintendo DS sekaligus konsol genggam Game Boy di Retropa. Kompatibilitas DS bergantung pada judul, bukan janji bahwa setiap game atau interaksi sentuh bekerja dengan benar.",
+    "description": "SkyEmu mencakup keluarga Game Boy dan jalur beta Nintendo DS di Retropa. Periksa format, kontrol sentuh dua layar, batasan cakupan dan penggantian inti dengan Retropa Plus.",
+    "summary": "SkyEmu menangani jalur beta Nintendo DS sekaligus konsol genggam Game Boy di Retropa. Kompatibilitas DS bergantung pada judul, bukan janji bahwa setiap game atau interaksi sentuh bekerja dengan benar.",
     "sections": [
       {
         "title": "Sistem dan format dalam katalog",

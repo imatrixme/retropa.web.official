@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "iPhone ve iPad için SkyEmu Çekirdeği | Retropa",
-    "description": "SkyEmu, Retropa'da Game Boy ailesini ve Nintendo DS'i kapsar. Biçimleri, çift ekran dokunmatik kontrollerini, sınırlamaları ve Plus çekirdek değiştirmeyi inceleyin.",
-    "summary": "SkyEmu, Retropa'da Game Boy taşınabilirlerinin yanı sıra Nintendo DS'i de yönetir. DS uyumluluğu oyuna özeldir; her oyunun veya dokunmatik etkileşimin doğru çalışacağına dair bir vaat değildir.",
+    "description": "SkyEmu, Retropa'da Game Boy ailesini ve Nintendo DS beta yolunu kapsar. Biçimleri, çift ekran dokunmatik kontrollerini, sınırlamaları ve Plus çekirdek değiştirmeyi inceleyin.",
+    "summary": "SkyEmu, Retropa'da Game Boy taşınabilirlerinin yanı sıra Nintendo DS beta yolunu da yönetir. DS uyumluluğu oyuna özeldir; her oyunun veya dokunmatik etkileşimin doğru çalışacağına dair bir vaat değildir.",
     "sections": [
       {
         "title": "Katalog sistemleri ve biçimleri",

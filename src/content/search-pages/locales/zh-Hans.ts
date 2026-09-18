@@ -836,8 +836,8 @@ export const pages: Record<string, SearchPageContent> = {
     "slug": "skyemu-core",
     "label": "SkyEmu",
     "title": "iPhone 与 iPad 上的 SkyEmu 核心 | Retropa",
-    "description": "SkyEmu 在 Retropa 里既管 Nintendo DS，也管 Game Boy 系列。这一页说清它认的后缀、双屏触控怎么摆、兼容性为什么只能一个个试，以及 Plus 换核心在这里为什么用不上。",
-    "summary": "Nintendo DS 在 Retropa 里只有 SkyEmu 一个核心，所以 DS 游戏没有换核心这回事。它顺带也跑 Game Boy 系列。DS 能不能跑，得一个游戏一个游戏试，触控交互更是如此。",
+    "description": "SkyEmu 在 Retropa 里既管 Nintendo DS 的 Beta 路径，也管 Game Boy 系列。这一页说清它认的后缀、双屏触控怎么摆、兼容性为什么只能一个个试，以及 Plus 换核心在这里为什么用不上。",
+    "summary": "Nintendo DS 在 Retropa 里是 Beta 路径，而且只有 SkyEmu 一个核心，所以 DS 游戏没有换核心这回事。它顺带也跑 Game Boy 系列。DS 能不能跑，得一个游戏一个游戏试，触控交互更是如此。",
     "sections": [
       {
         "title": "收哪些系统，认哪些后缀",
