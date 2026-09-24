@@ -1,6 +1,7 @@
 import { publishedLocales as supportedLocales, isPublishedLocale, retiredLocaleFallback, type Locale } from "@/i18n/locales"
 import { pagePathByKey, type PageKey } from "@/i18n/pages"
 import { hasProductBody, productPages } from "@/content/product-details"
+import { featurePages, hasFeatureBody } from "@/content/feature-pages"
 import { hasStartPageContent } from "@/content/start-page"
 import { hasGuidesIndexContent } from "@/content/guides-index"
 import { searchPageLocales, searchPagePath, searchPageSlugs } from "@/content/search-pages"
@@ -65,6 +66,17 @@ const productFamily: PageFamily = {
   enumerate: "page-major",
 }
 
+/** Controls and import reference pages publish per locale once that locale has its own body. */
+const featureFamily: PageFamily = {
+  id: "feature",
+  pages: featurePages,
+  localesFor: (page) => supportedLocales.filter((locale) => hasFeatureBody(page as (typeof featurePages)[number], locale)),
+  resolveLocale: (locale, page) =>
+    hasFeatureBody(page as (typeof featurePages)[number], locale) && isPublishedLocale(locale) ? locale : identity(locale),
+  path: (page) => `/${page}/`,
+  enumerate: "page-major",
+}
+
 /**
  * Search landing pages are published in exactly the locales that have authored
  * content, so the registry stays honest as content is added language by language.
@@ -92,7 +104,7 @@ const guidesIndexFamily: PageFamily = {
   enumerate: "page-major",
 }
 
-export const pageFamilies: readonly PageFamily[] = [coreFamily, guideFamily, productFamily, searchFamily, guidesIndexFamily]
+export const pageFamilies: readonly PageFamily[] = [coreFamily, guideFamily, productFamily, featureFamily, searchFamily, guidesIndexFamily]
 
 export function familyForPage(page: string): PageFamily | undefined {
   return pageFamilies.find((family) => family.pages.includes(page))

@@ -17,7 +17,7 @@ export const analyticsConfig = {
 } as const
 export type Consent = "unknown" | "granted" | "denied"
 type EventName = "web_page_view" | "web_download_clicked" | "web_feature_viewed" | "web_feature_selected" | "web_guide_opened" | "web_filter_preview_changed"
-type Attributes = { placement?: "header" | "hero" | "footer" | "guide" | "filters"; feature_id?: "skins" | "filters" | "library" | "plus" | "channel" | "skin_rack" | "console_mode" | "collection" | "arcade" | "qr"; display_mode?: DisplayModeName }
+type Attributes = { placement?: "header" | "hero" | "footer" | "guide" | "filters"; feature_id?: "skins" | "filters" | "library" | "plus" | "channel" | "skin_rack" | "console_mode" | "collection" | "arcade" | "qr" | "touch_lab" | "haptics" | "import_routes" | "portal"; display_mode?: DisplayModeName }
 type Evidence = { name: EventName; parameters: Record<string, string | number>; delivery: "consent_blocked" | "unconfigured" | "queued"; timestamp: string }
 type AnalyticsWindow = Window & {
   dataLayer?: unknown[]

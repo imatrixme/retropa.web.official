@@ -1,0 +1,108 @@
+---
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import { bringCopy, importFormats } from "@/content/feel-import"
+import { acquisitionCopy } from "@/content/acquisition"
+import { channelMedia } from "@/content/media"
+import { uiShot } from "@/content/media"
+import { siteLink } from "@/lib/links"
+import { phrases } from "@/lib/phrases"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const t = bringCopy(locale)
+const copy = acquisitionCopy(locale)
+const guide = siteLink("import", locale)
+const shots = { portal: uiShot("portal-library"), importer: uiShot("import-center"), bios: uiShot("bios") }
+const icons = { files: "folder", portal: "wifi", browser: "globe", homebrew: "sparkle" } as const
+const posters = (["gba", "gb", "nes", "snes"] as const).map(id => channelMedia(id)?.poster).filter(Boolean) as string[]
+---
+<section id="bring" class="bring ground-tube" data-feature="import_routes" aria-labelledby="bring-title">
+  <div class="shell">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="bring-title" class="display">{phrases(t.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <p class="sec-body">{t.body}</p>
+    </header>
+
+    <div class="stage reveal" data-feature="portal">
+      {shots.portal && <div class="browser">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span class="hud">192.168.0.12:9876</span></div>
+        <img src={shots.portal.src} width={shots.portal.width} height={shots.portal.height} alt={t.portalAlt} loading="lazy" decoding="async" />
+      </div>}
+      {shots.importer && <img class="phone" src={shots.importer.src} width={shots.importer.width} height={shots.importer.height} alt={t.importAlt} loading="lazy" decoding="async" />}
+    </div>
+
+    <ol class="routes" role="list">
+      {t.routes.map((route, i) => <li class:list={["route reveal", `route-${route.id}`]}>
+        <span class="route-n hud">{String(i + 1).padStart(2, "0")}</span>
+        <span class="route-icon"><Icon name={icons[route.id]} size={26} /></span>
+        <h3>{route.title}</h3>
+        <p>{route.body}</p>
+        {route.id === "homebrew" && posters.length > 0 && <span class="posters" aria-hidden="true">{posters.map(src => <img src={src} alt="" aria-hidden="true" width="120" height="80" loading="lazy" />)}</span>}
+      </li>)}
+    </ol>
+
+    <div class="formats reveal" aria-label={t.formats}>
+      <span class="hud">{t.formats}</span>
+      <ul role="list">{importFormats.map(format => <li>{format}</li>)}</ul>
+    </div>
+
+    <div class="missing">
+      {shots.bios && <img class="phone reveal" src={shots.bios.src} width={shots.bios.width} height={shots.bios.height} alt={t.biosAlt} loading="lazy" decoding="async" />}
+      <div class="missing-copy reveal">
+        <span class="missing-icon"><Icon name="chip" size={28} /></span>
+        <h3>{t.missing.title}</h3>
+        <p>{t.missing.body}</p>
+        <p>{t.missing.arcade}</p>
+        <p>{t.missing.covers}</p>
+        <p class="fine">{copy.noRoms}</p>
+        <a class="link-arrow" href={guide.href} hreflang={guide.hreflang}>{t.link}<Icon name="arrow-right" size={18} /></a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .bring { padding: clamp(96px, 12vw, 168px) 0; overflow: hidden; }
+  .sec-head { display: grid; gap: 18px; max-width: 880px; margin-bottom: clamp(40px, 6vw, 72px); }
+  .sec-head h2 { font-size: clamp(34px, 6vw, 92px); line-height: .96; color: #fff; }
+  .sec-body { max-width: 58ch; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.6; opacity: .74; }
+  @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
+  :lang(ja) .sec-head h2 { font-size: clamp(32px, 4.8vw, 76px); line-height: 1.06; }
+
+  .stage { position: relative; padding-bottom: clamp(40px, 8vw, 120px); }
+  .browser { width: min(100%, 1040px); overflow: hidden; border-radius: 16px; background: #1a1922; box-shadow: 0 0 0 1px rgb(255 255 255 / .12), 0 60px 120px -40px rgb(0 0 0 / .9), 0 0 120px -40px color-mix(in oklab, var(--signal) 60%, transparent); }
+  .browser-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #24232d; }
+  .browser-bar i { width: 11px; height: 11px; border-radius: 50%; background: #45434f; }
+  .browser-bar .hud { margin-left: 14px; padding: 4px 12px; border-radius: 8px; background: rgb(255 255 255 / .06); color: rgb(244 242 251 / .6); font-size: 11px; }
+  .browser img { display: block; width: 100%; height: auto; }
+  .stage .phone { position: absolute; right: 0; bottom: 0; width: clamp(150px, 22vw, 280px); height: auto; border-radius: clamp(22px, 3vw, 34px); box-shadow: 0 0 0 6px #111018, 0 0 0 7px rgb(255 255 255 / .14), 0 40px 80px -30px rgb(0 0 0 / .9); }
+  @media (max-width: 699px) { .stage .phone { position: relative; display: block; width: 58%; margin: -18% 0 0 auto; } .stage { padding-bottom: 0; } }
+
+  .routes { display: grid; gap: 14px; margin-top: clamp(40px, 5vw, 64px); list-style: none; }
+  @media (min-width: 700px) { .routes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1100px) { .routes { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .route { position: relative; display: grid; align-content: start; gap: 12px; padding: 26px; border-radius: 26px; background: rgb(255 255 255 / .04); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .1); }
+  .route-n { position: absolute; top: 22px; right: 24px; color: rgb(244 242 251 / .35); font-size: 11px; }
+  .route-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: var(--signal); color: #07070c; }
+  .route-portal .route-icon { background: var(--signal-2); }
+  .route h3 { font-size: 21px; line-height: 1.2; color: #fff; }
+  .route p { font-size: 15px; line-height: 1.6; color: rgb(244 242 251 / .66); }
+  .posters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
+  .posters img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 8px; image-rendering: pixelated; }
+
+  .formats { display: grid; gap: 12px; margin-top: 28px; padding: 18px 22px; border-radius: 20px; background: rgb(255 255 255 / .03); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); }
+  .formats .hud { color: var(--signal-2); font-size: 11px; }
+  .formats ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+  .formats li { padding: 5px 10px; border-radius: 8px; background: rgb(255 255 255 / .06); color: rgb(244 242 251 / .78); font-family: var(--font-hud); font-size: 13px; }
+
+  .missing { display: grid; gap: 40px; align-items: center; margin-top: clamp(72px, 9vw, 120px); }
+  @media (min-width: 900px) { .missing { grid-template-columns: minmax(0, .42fr) minmax(0, .58fr); gap: 72px; } }
+  .missing .phone { justify-self: center; width: min(100%, 320px); height: auto; border-radius: 36px; box-shadow: 0 0 0 6px #111018, 0 0 0 7px rgb(255 255 255 / .14), 0 40px 80px -30px rgb(0 0 0 / .9); transform: rotate(-2deg); }
+  .missing-copy { display: grid; gap: 16px; }
+  .missing-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 18px; background: rgb(255 255 255 / .06); color: var(--signal-2); }
+  .missing h3 { font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 6%); font-size: clamp(28px, 3.2vw, 44px); line-height: 1.05; color: #fff; }
+  .missing p { max-width: 54ch; color: rgb(244 242 251 / .72); font-size: 17px; line-height: 1.6; }
+  .missing .fine { font-size: 13px; color: rgb(244 242 251 / .5); }
+  .missing .link-arrow { color: var(--signal-2); }
+</style>

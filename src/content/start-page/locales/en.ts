@@ -47,7 +47,9 @@ export const content: StartPageContent = {
     {
       "id": "import",
       "question": "How do I import a GBA or DS ROM on iPhone?",
-      "answer": "Keep the game file in a location accessible through the iOS Files app. Open the import entry in Retropa's library, select the supported file and open the imported game from the library. GBA uses .gba and DS uses .nds. Renaming a different file extension does not convert a game to the correct format."
+      "answer": "Keep the game file in a location accessible through the iOS Files app. Open the import entry in Retropa's library, select the supported file and open the imported game from the library. GBA uses .gba and DS uses .nds. Renaming a different file extension does not convert a game to the correct format.",
+      "link": "import",
+      "linkLabel": "See every way to import"
     },
     {
       "id": "bios",
@@ -81,7 +83,9 @@ export const content: StartPageContent = {
     {
       "id": "controllers",
       "question": "Does Retropa support Bluetooth or external game controllers?",
-      "answer": "Retropa supports compatible external controllers and configurable button mapping. Connect the controller through iOS first, then check its mapping in Retropa. For arcade games, verify coin and start assignments as well as action buttons. Compatibility depends on the controller and iOS support."
+      "answer": "Retropa supports compatible external controllers and configurable button mapping. Connect the controller through iOS first, then check its mapping in Retropa. For arcade games, verify coin and start assignments as well as action buttons. Compatibility depends on the controller and iOS support.",
+      "link": "controls",
+      "linkLabel": "How controls and controllers work"
     },
     {
       "id": "saves",

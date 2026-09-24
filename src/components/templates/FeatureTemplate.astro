@@ -1,0 +1,43 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Reading from "@/components/Reading.astro"
+import TouchLabBlock from "@/components/TouchLabBlock.astro"
+import type { Locale } from "@/i18n/locales"
+import { featureContent, featurePages, type FeaturePage } from "@/content/feature-pages"
+import { feelCopy } from "@/content/feel-import"
+import { discoveryCopy } from "@/content/discovery"
+import { acquisitionCopy } from "@/content/acquisition"
+import { uiShot } from "@/content/media"
+import { siteLink } from "@/lib/links"
+import { productDetail } from "@/content/product-details"
+import { searchPageContent } from "@/content/search-pages"
+
+interface Props { locale: Locale; page: FeaturePage }
+const { locale, page } = Astro.props
+const content = featureContent(page, locale)
+const discovery = discoveryCopy(locale)
+const copy = acquisitionCopy(locale)
+const zh = locale.startsWith("zh")
+const sections = content.sections.map(section => {
+  const shot = section.shot ? uiShot(section.shot.name) : null
+  return {
+    id: section.id, title: section.title, body: section.body, points: section.points, table: section.table,
+    badge: section.plus ? "Plus" : undefined, embed: section.lab,
+    shot: shot && section.shot ? { src: shot.src, width: shot.width, height: shot.height, alt: section.shot.alt, wide: shot.width > shot.height } : undefined,
+  }
+})
+const other = featurePages.find(key => key !== page)!
+const titleFor = (key: string) => key === "start" ? copy.start : key === "cores" ? discovery.more : key === "delta-skins" || key === "arcade" ? productDetail(key, locale).title : searchPageContent(key, locale)?.title ?? key
+const relatedPages = page === "controls" ? ["connect-controller-ios", "start", "plus"] : ["import-roms-iphone", "cores", "arcade"]
+const related = [
+  { ...siteLink(other, locale), text: featureContent(other, locale).title },
+  ...relatedPages.map(key => ({ ...siteLink(key, locale), text: titleFor(key) })),
+]
+---
+<PageHero locale={locale} page={page} eyebrow={`Retropa / ${content.eyebrow}`} title={content.title} summary={content.intro} mark={page === "controls" ? "A · B" : "IN"}
+  crumbs={{ label: zh ? "当前位置" : "Breadcrumb", items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: content.label }] }} />
+<Reading tocLabel={discovery.onThisPage} asideNote={copy.noRoms} sections={sections}
+  faqs={content.faqs} faqTitle={content.faqTitle} faqId="questions"
+  relatedLabel={content.related} related={related}>
+  {page === "controls" && <TouchLabBlock slot="embed" copy={feelCopy(locale).lab} />}
+</Reading>

@@ -4,6 +4,7 @@ import AppStoreCTA from "@/components/AppStoreCTA.astro"
 import type { Locale } from "@/i18n/locales"
 import type { SitePage } from "@/lib/routes"
 import { siteLink, languageTag } from "@/lib/links"
+import { featureContent, isFeaturePage } from "@/content/feature-pages"
 import { chromeCopy } from "@/content/chrome"
 import { channels, channelName } from "@/content/channels"
 import { acquisitionCopy } from "@/content/acquisition"
@@ -29,12 +30,13 @@ const label = (target: string) => {
   if (target === "start") return startPageContent(link.hreflang).title
   if (target === "guides") return guidesIndexContent(link.hreflang).breadcrumb
   if (isProductPage(target)) return productDetail(target, link.hreflang).label
+  if (isFeaturePage(target)) return featureContent(target, link.hreflang).label
   return searchPageContent(target, link.hreflang)?.label ?? target
 }
 const item = (target: string, text?: string) => ({ ...siteLink(target, locale), text: text ?? label(target) })
 const systems = channels.map(channel => item(channel.page, channelName(channel, locale)))
-const features = [item("delta-skins", labels[1]), item("crt-filters", labels[2]), item("save-states-and-rewind"), item("connect-controller-ios"), item("plus")]
-const learn = [item("start"), item("guides"), item("import-roms-iphone"), item("game-wont-load"), item("retropa-vs-delta"), item("cores", messages.shared.footer.emulatorCores)]
+const features = [item("controls"), item("delta-skins", labels[1]), item("crt-filters", labels[2]), item("save-states-and-rewind"), item("connect-controller-ios"), item("plus")]
+const learn = [item("start"), item("import"), item("guides"), item("import-roms-iphone"), item("game-wont-load"), item("retropa-vs-delta"), item("cores", messages.shared.footer.emulatorCores)]
 const company = [item("terms", messages.shared.footer.terms), item("privacy", messages.shared.footer.privacy)]
 const consentEnabled = /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId)
 ---

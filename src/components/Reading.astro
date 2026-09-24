@@ -3,7 +3,15 @@ import Icon from "@/components/Icon.astro"
 import { languageTag } from "@/lib/links"
 import type { Locale } from "@/i18n/locales"
 
-export type ReadingSection = { id: string; title: string; body: string | string[]; points?: string[] }
+export type ReadingSection = {
+  id: string; title: string; body: string | string[]; points?: string[]
+  /** Optional extras used by reference pages; other templates leave them out. */
+  badge?: string
+  table?: { head: string[]; rows: string[][] }
+  shot?: { src: string; width: number; height: number; alt: string; wide?: boolean }
+  /** Renders the template's `embed` slot inside this section. */
+  embed?: boolean
+}
 export type ReadingFaq = { id: string; question: string; answer: string; open?: boolean; link?: { href: string; label: string } }
 export type RelatedLink = { href: string; text: string; hreflang?: Locale; foreign?: boolean }
 
@@ -37,9 +45,15 @@ const pad = (index: number) => String(index + 1).padStart(2, "0")
       <slot name="before" />
       {sections.map((section, index) => <section id={section.id} class="chapter">
         <span class="hud num">{pad(index)}</span>
-        <h2>{section.title}</h2>
+        <h2>{section.title}{section.badge && <span class="plus-tag">{section.badge}</span>}</h2>
         {(Array.isArray(section.body) ? section.body : [section.body]).map(paragraph => <p>{paragraph}</p>)}
+        {section.embed && <div class="embed"><slot name="embed" /></div>}
+        {section.table && <div class="table-wrap"><table class="matrix-table">
+          <thead><tr>{section.table.head.map(cell => <th scope="col">{cell}</th>)}</tr></thead>
+          <tbody>{section.table.rows.map(row => <tr>{row.map((cell, i) => i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody>
+        </table></div>}
         {section.points && <ul class="points">{section.points.map(point => <li>{point}</li>)}</ul>}
+        {section.shot && <figure class:list={["shot", { wide: section.shot.wide }]}><img src={section.shot.src} width={section.shot.width} height={section.shot.height} alt={section.shot.alt} loading="lazy" decoding="async" /></figure>}
       </section>)}
       {faqs.length > 0 && <section class="faqs" id={faqId}>
         {faqTitle && <h2>{faqTitle}</h2>}
@@ -71,7 +85,7 @@ const pad = (index: number) => String(index + 1).padStart(2, "0")
   .toc a:hover { color: var(--color-ink); }
   .toc a .hud { margin: 0; font-size: 11px; color: color-mix(in oklab, var(--signal) 70%, var(--color-ink)); }
   .aside-note { margin-top: 24px; font-size: 13px; line-height: 1.55; color: var(--color-ink-soft); }
-  .body { max-width: 72ch; }
+  .body { min-width: 0; max-width: 72ch; }
   .chapter { padding: 40px 0; border-top: 1px solid var(--color-cartridge-line); }
   .chapter:first-of-type { border-top: 0; padding-top: 0; }
   .num { display: inline-block; margin-bottom: 14px; color: color-mix(in oklab, var(--signal) 70%, var(--color-ink)); }
@@ -81,6 +95,18 @@ const pad = (index: number) => String(index + 1).padStart(2, "0")
   .points { display: grid; gap: 10px; margin-top: 20px; list-style: none; }
   .points li { position: relative; padding-left: 26px; font-size: 16px; line-height: 1.6; color: #3b3945; }
   .points li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--signal); }
+  h2 .plus-tag { margin-left: 12px; vertical-align: .3em; font-size: 12px; }
+  .embed { margin-top: 28px; }
+  .table-wrap { margin-top: 24px; overflow-x: auto; border-radius: 18px; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); background: #fbf8f1; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+  .matrix-table th, .matrix-table td { padding: 12px 16px; text-align: left; vertical-align: top; border-top: 1px solid var(--color-cartridge-line); }
+  .matrix-table thead th { border-top: 0; font-family: var(--font-hud); font-size: 11px; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink-soft); }
+  .matrix-table tbody th { font-weight: 600; color: var(--color-ink); white-space: nowrap; }
+  .matrix-table td { color: #3b3945; font-family: var(--font-hud); font-size: 13px; }
+  .shot { margin-top: 28px; width: min(100%, 300px); }
+  .shot.wide { width: 100%; }
+  .shot img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 0 0 1px rgb(14 14 20 / .1), 0 30px 50px -28px rgb(14 14 20 / .45); }
+  .shot.wide img { border-radius: 14px; }
   .faqs { padding-top: 40px; border-top: 1px solid var(--color-cartridge-line); }
   details { border-bottom: 1px solid var(--color-cartridge-line); }
   summary { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; list-style: none; cursor: pointer; font-size: 18px; font-weight: 600; line-height: 1.4; }

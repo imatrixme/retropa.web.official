@@ -6,6 +6,7 @@ import { appStoreLink } from "@/lib/app-store-link"
 import { languageTargets, languageTag, siteLink } from "@/lib/links"
 import { navigationCopy, discoveryCopy } from "@/content/discovery"
 import { chromeCopy } from "@/content/chrome"
+import { featureContent } from "@/content/feature-pages"
 import { getMessages } from "@/i18n/messages"
 
 interface Props { locale: Locale; page: SitePage }
@@ -14,7 +15,7 @@ const labels = navigationCopy(locale)
 const discovery = discoveryCopy(locale)
 const chrome = chromeCopy(locale)
 const messages = getMessages(locale)
-const nav = ([["cores", labels[0]], ["delta-skins", labels[1]], ["crt-filters", labels[2]], ["start", labels[3]]] as const).map(([target, label]) => ({ target, label, ...siteLink(target, locale) }))
+const nav = ([["cores", labels[0]], ["controls", featureContent("controls", locale).label], ["delta-skins", labels[1]], ["crt-filters", labels[2]], ["start", labels[3]]] as const).map(([target, label]) => ({ target, label, ...siteLink(target, locale) }))
 const languages = languageTargets(page)
 ---
 <header class="site-header" data-header>

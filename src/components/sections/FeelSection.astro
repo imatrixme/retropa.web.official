@@ -1,0 +1,149 @@
+---
+import Icon from "@/components/Icon.astro"
+import TouchLabBlock from "@/components/TouchLabBlock.astro"
+import type { Locale } from "@/i18n/locales"
+import { feelCopy } from "@/content/feel-import"
+import { uiShot } from "@/content/media"
+import { siteLink } from "@/lib/links"
+import { phrases } from "@/lib/phrases"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const t = feelCopy(locale)
+const controls = siteLink("controls", locale)
+const shots = { hotzone: uiShot("hotzone-adaptive"), curve: uiShot("haptics-curve"), turbo: uiShot("turbo"), audio: uiShot("audio") }
+
+// Waveform sketches for the four haptic packs: time on x, intensity on y.
+const packs: { name: string; points: [number, number][] }[] = [
+  { name: "Classic", points: [[0, 0], [4, 92], [12, 30], [22, 8], [40, 0], [100, 0]] },
+  { name: "Best", points: [[0, 0], [3, 100], [9, 55], [18, 70], [30, 22], [48, 6], [100, 0]] },
+  { name: "Soft", points: [[0, 0], [14, 34], [30, 46], [48, 30], [70, 10], [100, 0]] },
+  { name: "Retropa", points: [[0, 0], [4, 96], [11, 12], [20, 0], [26, 78], [33, 14], [46, 4], [100, 0]] },
+]
+const path = (points: [number, number][]) => points.map(([x, y], i) => `${i ? "L" : "M"}${x} ${40 - y * 0.36}`).join(" ")
+const pads: { name: string; d: string; sticks: number[][]; dpad: number[] }[] = [
+  { name: "Xbox", d: "M22 14h56c10 0 16 8 18 20l3 16c1 8-8 12-13 6l-9-10H23l-9 10c-5 6-14 2-13-6l3-16C6 22 12 14 22 14Z", sticks: [[24, 28], [62, 42]], dpad: [36, 42] },
+  { name: "DualSense", d: "M24 15h52c9 0 15 6 17 16l4 20c1 7-7 11-12 5l-10-12H25L15 56c-5 6-13 2-12-5l4-20c2-10 8-16 17-16Z", sticks: [[38, 44], [62, 44]], dpad: [24, 30] },
+  { name: "Nintendo", d: "M20 16h60c10 0 16 7 17 18l2 15c1 8-8 11-13 5l-9-11H23l-9 11c-5 6-14 3-13-5l2-15c1-11 7-18 17-18Z", sticks: [[24, 28], [62, 42]], dpad: [36, 42] },
+  { name: "8BitDo", d: "M26 18h48c14 0 22 8 22 18s-8 18-22 18H26C12 54 4 46 4 36s8-18 22-18Z", sticks: [], dpad: [27, 36] },
+]
+---
+<section id="feel" class="feel ground-cartridge" data-feature="touch_lab" aria-labelledby="feel-title">
+  <div class="shell">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="feel-title" class="display">{phrases(t.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <p class="sec-body">{t.body}</p>
+    </header>
+
+    <div class="lab-row">
+      <div class="reveal"><TouchLabBlock copy={t.lab} /></div>
+      {shots.hotzone && <figure class="lab-shot reveal">
+        <img src={shots.hotzone.src} width={shots.hotzone.width} height={shots.hotzone.height} alt={t.shotAlt.hotzone} loading="lazy" decoding="async" />
+        <figcaption><span class="plus-tag">Plus</span>Adaptive Touch Hotzone</figcaption>
+      </figure>}
+    </div>
+
+    <div class="styles reveal">
+      <div class="styles-head">
+        <h3>{t.styles.title}<span class="plus-tag">Plus</span></h3>
+        <p>{t.styles.body}</p>
+      </div>
+      <ol class="style-list" role="list">
+        {t.styles.items.map((item, i) => <li><span class="hud">{String(i + 1).padStart(2, "0")}</span><strong>{item.name}</strong><span>{item.fit}</span></li>)}
+      </ol>
+    </div>
+
+    <ul class="feel-cards" role="list">
+      <li class="card card-haptics reveal" data-feature="haptics">
+        <h3>{t.haptics.title}<span class="plus-tag">Plus</span></h3>
+        <p>{t.haptics.body}</p>
+        <ul class="packs" role="list" aria-label={t.haptics.packs}>
+          {packs.map(pack => <li><svg viewBox="0 0 100 42" aria-hidden="true"><path d={`${path(pack.points)}`} /></svg><span class="hud">{pack.name}</span></li>)}
+        </ul>
+        <p class="note">{t.haptics.note}</p>
+        {shots.curve && <span class="crop crop-curve"><img src={shots.curve.src} width={shots.curve.width} height={shots.curve.height} alt={t.shotAlt.curve} loading="lazy" decoding="async" /></span>}
+      </li>
+      <li class="card card-pads reveal">
+        <h3>{t.controllers.title}</h3>
+        <p>{t.controllers.body}</p>
+        <ul class="pads" role="list">
+          {pads.map(pad => <li><svg viewBox="0 0 100 64" aria-hidden="true"><path d={pad.d} />{pad.sticks.map(([x, y]) => <circle cx={x} cy={y} r="6" />)}<circle class="face" cx="74" cy="28" r="3" /><circle class="face" cx="80" cy="34" r="3" /><circle class="face" cx="68" cy="34" r="3" /><circle class="face" cx="74" cy="40" r="3" /><path class="dpad" d={`M${pad.dpad[0] - 5} ${pad.dpad[1]}h10M${pad.dpad[0]} ${pad.dpad[1] - 5}v10`} /></svg><span class="hud">{pad.name}</span></li>)}
+        </ul>
+        <p class="turbo"><Icon name="bolt" size={18} />{t.controllers.turbo}<span class="plus-tag">Plus</span></p>
+      </li>
+      <li class="card card-sound reveal">
+        <h3>{t.sound.title}</h3>
+        <p>{t.sound.body}</p>
+        <span class="eq" aria-hidden="true">{Array.from({ length: 17 }, (_, i) => <i style={`--i:${i};height:${18 + (i * 41) % 80}%`} />)}</span>
+        <p class="sound-tags"><span class="free-tag">▶▶</span><span class="plus-tag">Plus</span><span class="hud">GBA SP · HRTF · Tape</span></p>
+        {shots.audio && <span class="crop crop-audio"><img src={shots.audio.src} width={shots.audio.width} height={shots.audio.height} alt={t.shotAlt.audio} loading="lazy" decoding="async" /></span>}
+      </li>
+    </ul>
+
+    <a class="link-arrow more" href={controls.href} hreflang={controls.hreflang}>{t.link}<Icon name="arrow-right" size={18} /></a>
+  </div>
+</section>
+<style>
+  .feel { padding: clamp(96px, 12vw, 168px) 0; }
+  .sec-head { display: grid; gap: 18px; max-width: 880px; margin-bottom: clamp(40px, 6vw, 72px); }
+  .sec-head h2 { font-size: clamp(34px, 6vw, 92px); line-height: .96; }
+  .sec-body { max-width: 58ch; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.6; opacity: .74; }
+  @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
+  :lang(ja) .sec-head h2 { font-size: clamp(32px, 4.8vw, 76px); line-height: 1.06; }
+
+  .lab-row { display: grid; gap: 24px; align-items: center; }
+  @media (min-width: 1000px) { .lab-row { grid-template-columns: minmax(0, 1.5fr) minmax(0, .5fr); gap: 40px; } }
+  .lab-shot { display: grid; gap: 12px; justify-items: center; }
+  .lab-shot img { width: min(100%, 300px); height: auto; border-radius: 34px; box-shadow: 0 0 0 1px rgb(14 14 20 / .12), 0 40px 60px -30px rgb(14 14 20 / .5); transform: rotate(2deg); }
+  .lab-shot figcaption { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+  @media (max-width: 999px) { .lab-shot img { width: min(70%, 280px); } }
+
+  .styles { display: grid; gap: 24px; margin-top: clamp(48px, 6vw, 80px); padding: clamp(24px, 3vw, 40px); border-radius: 32px; background: var(--color-ink); color: #f4f2fb; }
+  @media (min-width: 1000px) { .styles { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; } }
+  .styles h3, .card h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 6%); font-size: clamp(26px, 2.6vw, 36px); line-height: 1.05; }
+  .styles-head { display: grid; gap: 14px; }
+  .styles-head p { color: rgb(244 242 251 / .7); }
+  .styles .plus-tag { background: rgb(246 196 83 / .18); color: var(--color-gold); box-shadow: inset 0 0 0 1px rgb(246 196 83 / .5); }
+  .style-list { display: grid; gap: 2px; list-style: none; }
+  .style-list li { display: grid; grid-template-columns: 34px minmax(0, 9em) minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid rgb(255 255 255 / .1); }
+  .style-list .hud { color: var(--signal-2); font-size: 11px; }
+  .style-list strong { font-family: var(--font-display); font-stretch: 115%; font-size: 18px; }
+  .style-list span:last-child { color: rgb(244 242 251 / .7); font-size: 15px; }
+  @media (max-width: 599px) { .style-list li { grid-template-columns: 30px minmax(0, 1fr); } .style-list span:last-child { grid-column: 2; } }
+
+  .feel-cards { display: grid; gap: 14px; margin-top: 14px; list-style: none; }
+  @media (min-width: 1000px) { .feel-cards { grid-template-columns: 1.25fr 1fr 1fr; } }
+  .card { position: relative; display: grid; align-content: start; gap: 14px; overflow: hidden; padding: 30px; border-radius: 30px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); }
+  .card p { max-width: 46ch; color: #45424f; }
+
+  .packs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; list-style: none; }
+  .packs li { display: grid; gap: 6px; padding: 10px; border-radius: 14px; background: var(--color-ink); }
+  .packs svg { width: 100%; height: 38px; }
+  .packs path { fill: none; stroke: var(--signal-2); stroke-width: 2.4; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+  .packs .hud { font-size: 10px; color: rgb(244 242 251 / .7); }
+  .note { font-size: 13px; color: var(--color-ink-soft) !important; }
+  /* Screenshot crops: show the informative middle of a tall app screen. */
+  .crop { display: block; overflow: hidden; margin-top: 6px; border-radius: 20px; aspect-ratio: 4 / 3; background: #f3f0f8; box-shadow: 0 0 0 1px rgb(14 14 20 / .1), 0 24px 40px -26px rgb(14 14 20 / .45); }
+  .crop img { display: block; width: 100%; height: auto; transition: transform .6s var(--ease-snap); }
+  .crop-curve img { transform: translateY(-30%); }
+  .crop-audio img { transform: translateY(-24%); }
+  .card:hover .crop-curve img { transform: translateY(-34%); }
+  .card:hover .crop-audio img { transform: translateY(-40%); }
+  .pads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; list-style: none; }
+  .pads li { display: grid; gap: 4px; justify-items: center; padding: 12px 8px; border-radius: 16px; background: rgb(14 14 20 / .04); }
+  .pads svg { width: 100%; max-width: 120px; height: auto; }
+  .pads path { fill: var(--color-ink); }
+  .pads circle { fill: #3a3845; }
+  .pads .face { fill: var(--signal-2); }
+  .pads .dpad { fill: none; stroke: #f4f2fb; stroke-width: 3; stroke-linecap: round; }
+  .pads .hud { font-size: 10px; color: var(--color-ink-soft); }
+  .turbo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-weight: 600; color: var(--color-ink) !important; }
+  .eq { display: flex; align-items: flex-end; gap: 4px; height: 90px; margin-top: 8px; }
+  .eq i { flex: 1; border-radius: 4px 4px 2px 2px; background: linear-gradient(to top, var(--color-ink), color-mix(in oklab, var(--signal) 70%, var(--color-ink))); animation: eq 1.6s ease-in-out infinite; animation-delay: calc(var(--i) * -90ms); transform-origin: bottom; }
+  @keyframes eq { 50% { transform: scaleY(.45); } }
+  .sound-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .sound-tags .hud { font-size: 11px; color: var(--color-ink-soft); }
+  .more { display: inline-flex; margin-top: 40px; color: var(--color-ink); }
+  @media (prefers-reduced-motion: reduce) { .eq i { animation: none; } }
+</style>

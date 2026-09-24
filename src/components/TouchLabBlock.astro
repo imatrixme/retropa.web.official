@@ -1,0 +1,30 @@
+---
+import TouchLab from "@/islands/TouchLab.tsx"
+import type { FeelCopy } from "@/content/feel-import"
+
+interface Props { copy: FeelCopy["lab"]; tone?: "light" | "dark" }
+const { copy, tone = "light" } = Astro.props
+---
+<div class:list={["touch-lab", `tone-${tone}`]} data-feature="touch_lab">
+  <TouchLab client:visible={{ rootMargin: "300px" }} copy={copy} />
+</div>
+<style>
+  .touch-lab { --tl-card: #fbf8f1; --tl-line: var(--color-cartridge-line); --tl-ink: var(--color-ink); --tl-soft: #45424f; }
+  .touch-lab :global(.tl) { display: grid; gap: 14px; padding: clamp(16px, 2.4vw, 26px); border-radius: 30px; background: var(--tl-card); box-shadow: inset 0 0 0 1px var(--tl-line); }
+  .touch-lab :global(.tl-bar) { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+  .touch-lab :global(.tl-modes) { display: inline-flex; padding: 4px; border-radius: 999px; background: rgb(14 14 20 / .06); }
+  .touch-lab :global(.tl-modes button), .touch-lab :global(.tl-actions button) { min-height: 36px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent; color: var(--tl-ink); font-weight: 600; font-size: 14px; cursor: pointer; }
+  .touch-lab :global(.tl-modes button[aria-pressed="true"]) { background: var(--tl-ink); color: #f4f2fb; box-shadow: 0 6px 16px -8px var(--signal, #8b5cff); }
+  .touch-lab :global(.tl-actions) { display: flex; gap: 6px; }
+  .touch-lab :global(.tl-actions button) { box-shadow: inset 0 0 0 1px var(--tl-line); }
+  .touch-lab :global(.tl-actions button:hover) { background: rgb(14 14 20 / .05); }
+  .touch-lab :global(.tl-pad) { position: relative; overflow: hidden; border-radius: 22px; background: radial-gradient(120% 120% at 30% 20%, #f7f2e7, #ece5d6); box-shadow: inset 0 0 0 1px var(--tl-line), inset 0 -18px 40px -30px rgb(14 14 20 / .4); }
+  .touch-lab :global(.tl-pad canvas), .touch-lab :global(.tl-static) { display: block; width: 100%; height: auto; aspect-ratio: 1 / .6; touch-action: none; cursor: crosshair; }
+  .touch-lab :global(.tl-pad canvas:focus-visible) { outline: 3px solid var(--signal, #8b5cff); outline-offset: -3px; border-radius: 22px; }
+  .touch-lab :global(.tl-status) { min-height: 1.5em; font-size: 15px; color: var(--tl-ink); }
+  .touch-lab :global(.tl-status strong) { font-family: var(--font-display); font-size: 20px; margin-left: 4px; }
+  .touch-lab :global(.tl-status .hud) { color: var(--color-ink-soft); }
+  .touch-lab :global(.tl-miss) { color: #c0322b; font-weight: 600; }
+  .touch-lab :global(.tl-caption) { font-size: 15px; line-height: 1.55; color: var(--tl-soft); }
+  .touch-lab :global(.tl-note) { font-size: 12px; color: var(--color-ink-soft); }
+</style>

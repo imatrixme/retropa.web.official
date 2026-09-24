@@ -7,6 +7,7 @@ import { isProductPage, productDetail } from "@/content/product-details"
 import { isSearchPage, searchPageContent } from "@/content/search-pages"
 import { startPageContent } from "@/content/start-page"
 import { guidesIndexContent } from "@/content/guides-index"
+import { featureContent, isFeaturePage } from "@/content/feature-pages"
 import { publishedEntries } from "@/lib/page-families"
 
 export const publishedPages: { page: SitePage; locale: Locale }[] = publishedEntries().map((entry) => ({
@@ -33,8 +34,9 @@ export function getPageMetadata(page: SitePage, locale: Locale) {
   const socialImageAlt = `${locale.startsWith("zh") ? "Retropa 产品展示" : "Retropa product artwork"} / ${detail?.label ?? search?.label ?? "GBA, DS & Arcade"}`
   const start = page === "start" ? startPageContent(locale) : null
   const guides = page === "guides" ? guidesIndexContent(locale) : null
-  const title = page === "home" ? locale === "en" ? "Retropa | GBA, DS & Arcade Emulator for iPhone and iPad" : `Retropa | ${copy.category} | iPhone & iPad` : start ? (start.metaTitle ?? start.title) : guides ? (guides.metaTitle ?? guides.title) : page === "not-found" ? "Page not found | Retropa" : detail ? `${detail.title} | Retropa` : search ? search.title : messages.seo[page as "cores" | "terms" | "privacy"].title
-  const description = page === "home" ? `${copy.intro} ${copy.free}` : start ? (start.description ?? start.intro) : guides ? (guides.description ?? guides.intro) : page === "not-found" ? "Return to Retropa." : detail ? detail.summary : search ? search.description : messages.seo[page as "cores" | "terms" | "privacy"].description
+  const feature = page !== "not-found" && isFeaturePage(page) ? featureContent(page, locale) : null
+  const title = page === "home" ? locale === "en" ? "Retropa | GBA, DS & Arcade Emulator for iPhone and iPad" : `Retropa | ${copy.category} | iPhone & iPad` : start ? (start.metaTitle ?? start.title) : guides ? (guides.metaTitle ?? guides.title) : feature ? feature.metaTitle : page === "not-found" ? "Page not found | Retropa" : detail ? `${detail.title} | Retropa` : search ? search.title : messages.seo[page as "cores" | "terms" | "privacy"].title
+  const description = page === "home" ? `${copy.intro} ${copy.free}` : start ? (start.description ?? start.intro) : guides ? (guides.description ?? guides.intro) : feature ? feature.description : page === "not-found" ? "Return to Retropa." : detail ? detail.summary : search ? search.description : messages.seo[page as "cores" | "terms" | "privacy"].description
   const alternates = publishedPages.filter(route => route.page === page).map(route => ({ locale: route.locale, href: new URL(localizedPath(page, route.locale), siteConfig.siteUrl).href }))
 
   // FAQ structured data mirrors the questions rendered on the page, so the two
@@ -51,12 +53,14 @@ export function getPageMetadata(page: SitePage, locale: Locale) {
     "@context": "https://schema.org", "@type": "SoftwareApplication", "@id": `${siteConfig.siteUrl}/#app`, name: "Retropa", applicationCategory: "GameApplication",
     operatingSystem: "iOS 18 or later", url: canonical, description, inLanguage: locale,
     downloadUrl: siteConfig.appStoreUrl, image: socialImage,
-    featureList: ["GBA and DS emulation", "CPS, Neo Geo, PGM and M92 arcade families", "Delta .deltaskin import", "Advanced CRT and LCD filters without an integer-scaling requirement", "RetroArch .slang and .slangp workflows", "External controller mapping"],
+    featureList: ["GBA and DS emulation", "CPS, Neo Geo, PGM and M92 arcade families", "Delta .deltaskin import", "Advanced CRT and LCD filters without an integer-scaling requirement", "RetroArch .slang and .slangp workflows", "External controller mapping with vendor templates", "Adaptive touch hot zones with genre touch styles", "Waveform haptics with per-button curves", "Wi-Fi Portal import from a computer browser"],
   } : { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: locale,
     about: { "@type": "SoftwareApplication", "@id": `${siteConfig.siteUrl}/#app`, name: "Retropa" },
     isPartOf: { "@type": "WebSite", name: "Retropa", url: siteConfig.siteUrl },
     ...(detail ? { breadcrumb: crumbs(locale, canonical, null, detail.label) } : {}),
     ...(search ? { breadcrumb: crumbs(locale, canonical, { name: locale.startsWith("zh") ? "模拟器核心" : "Emulator cores", href: new URL(localizedPath("cores", locale), siteConfig.siteUrl).href }, search.label) } : {}),
+    ...(feature ? { breadcrumb: crumbs(locale, canonical, null, feature.label) } : {}),
+    ...(feature ? { mainEntity: { "@type": "FAQPage", mainEntity: feature.faqs.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } } : {}),
     ...faqLd,
   }
   return { title, description, canonical, alternates, jsonLd, socialImage, socialImageAlt }

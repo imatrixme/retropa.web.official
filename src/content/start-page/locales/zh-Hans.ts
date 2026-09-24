@@ -47,7 +47,9 @@ export const content: StartPageContent = {
     {
       "id": "import",
       "question": "如何在 iPhone 上导入 GBA 或 DS 游戏？",
-      "answer": "先把游戏文件保存在 iOS“文件”App 可访问的位置，再从 Retropa 游戏库打开导入入口，选择受支持的文件。导入完成后从游戏库启动。GBA 使用 .gba，DS 使用 .nds；修改其他文件的后缀并不能转换游戏格式。"
+      "answer": "先把游戏文件保存在 iOS“文件”App 可访问的位置，再从 Retropa 游戏库打开导入入口，选择受支持的文件。导入完成后从游戏库启动。GBA 使用 .gba，DS 使用 .nds；修改其他文件的后缀并不能转换游戏格式。",
+      "link": "import",
+      "linkLabel": "查看全部导入方式"
     },
     {
       "id": "bios",
@@ -81,7 +83,9 @@ export const content: StartPageContent = {
     {
       "id": "controllers",
       "question": "Retropa 支持蓝牙或外接游戏手柄吗？",
-      "answer": "支持兼容的外接手柄与自定义按键映射。先通过 iOS 连接，再到 Retropa 中检查按键；街机游戏还需确认投币和开始键。具体兼容性取决于手柄及 iOS 的支持情况。"
+      "answer": "支持兼容的外接手柄与自定义按键映射。先通过 iOS 连接，再到 Retropa 中检查按键；街机游戏还需确认投币和开始键。具体兼容性取决于手柄及 iOS 的支持情况。",
+      "link": "controls",
+      "linkLabel": "了解操控与手柄"
     },
     {
       "id": "saves",

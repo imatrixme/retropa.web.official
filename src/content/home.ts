@@ -72,9 +72,9 @@ const en: HomeCopy = {
     homebrew: "No games of your own yet? The built-in Homebrew catalog has free, independently made games to start with.",
   },
   plus: {
-    eyebrow: "Free & Plus", title: "Free to play. Plus to go further.",
-    freeTitle: "Free", free: ["All fourteen handheld and console systems", "Your own games, imported your way", "Delta skin import", "Save states and rewind", "Game controllers"],
-    plusTitle: "Retropa Plus", plus: ["Arcade boards", "Premium skins and advanced CRT filters", "Console Mode on your TV", "Custom haptics and turbo", "More save slots and longer highlight clips"],
+    eyebrow: "Free & Plus", title: "Free to play. Plus for the feel.",
+    freeTitle: "Free", free: ["All fourteen handheld and console systems", "Import from Files, the Wi‑Fi Portal, the browser or the Homebrew catalog", "BIOS management that names what is missing", "Game controllers with ready-made templates", "Delta skin import", "Save states and rewind"],
+    plusTitle: "Retropa Plus", plus: ["Adaptive touch with five touch styles", "Custom haptics and Curve Studio", "Turbo and multiple controller setups", "Arcade boards", "Console Mode on your TV", "Premium skins and advanced CRT filters", "Seventeen audio effects", "More save slots and longer highlight clips"],
     note: "Plans and local prices are shown in the app.",
   },
   credits: {
@@ -138,9 +138,9 @@ const zhHans: HomeCopy = {
     homebrew: "手头还没有游戏？内置的 Homebrew 目录里有独立开发者制作的免费游戏，可以先玩起来。",
   },
   plus: {
-    eyebrow: "免费与 Plus", title: "免费就能玩，Plus 玩得更远。",
-    freeTitle: "免费", free: ["全部十四个掌机与主机系统", "导入你自己的游戏", "导入 Delta 皮肤", "即时存档与倒带", "游戏手柄"],
-    plusTitle: "Retropa Plus", plus: ["街机基板", "高级皮肤与高级 CRT 滤镜", "在电视上用 Console Mode", "自定义触感与连发", "更多存档位与更长的高光片段"],
+    eyebrow: "免费与 Plus", title: "免费就能玩，Plus 买的是手感。",
+    freeTitle: "免费", free: ["全部十四个掌机与主机系统", "从「文件」、Wi‑Fi Portal、浏览器或 Homebrew 目录导入", "BIOS 管理，缺什么直接告诉你", "游戏手柄与现成的键位模板", "导入 Delta 皮肤", "即时存档与倒带"],
+    plusTitle: "Retropa Plus", plus: ["自适应触控与五种手感风格", "自定义触感与 Curve Studio", "连发与多手柄配置", "街机基板", "在电视上用 Console Mode", "高级皮肤与高级 CRT 滤镜", "十七种音频效果", "更多存档位与更长的高光片段"],
     note: "具体方案与当地价格以 App 内显示为准。",
   },
   credits: {
@@ -270,9 +270,9 @@ const ja: HomeCopy = {
     homebrew: "まだ手元にゲームがない？内蔵の Homebrew カタログには、インディー開発者による無料ゲームがあります。",
   },
   plus: {
-    eyebrow: "無料と Plus", title: "無料で遊べる。Plus でもっと遠くへ。",
-    freeTitle: "無料", free: ["14 の携帯機・家庭用システムすべて", "自分のゲームを読み込み", "Delta スキンの読み込み", "ステートセーブと巻き戻し", "ゲームコントローラー"],
-    plusTitle: "Retropa Plus", plus: ["アーケード基板", "プレミアムスキンと高度な CRT フィルター", "テレビで Console Mode", "カスタム触覚と連射", "セーブ枠の追加と長いハイライトクリップ"],
+    eyebrow: "無料と Plus", title: "無料で遊べる。Plus は手ざわりのために。",
+    freeTitle: "無料", free: ["14 の携帯機・家庭用システムすべて", "ファイル、Wi‑Fi Portal、ブラウザ、Homebrew カタログから取り込み", "足りないものを教えてくれる BIOS 管理", "テンプレートが用意されたゲームコントローラー", "Delta スキンの読み込み", "ステートセーブと巻き戻し"],
+    plusTitle: "Retropa Plus", plus: ["アダプティブタッチと5つのタッチスタイル", "カスタムハプティクスと Curve Studio", "連射と複数コントローラーの設定", "アーケード基板", "テレビで Console Mode", "プレミアムスキンと高度な CRT フィルター", "17種類のオーディオエフェクト", "セーブ枠の追加と長いハイライトクリップ"],
     note: "プランと現地価格はアプリ内で表示されます。",
   },
   credits: {

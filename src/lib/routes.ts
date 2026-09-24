@@ -1,6 +1,7 @@
 import { normalizeLocale, publishedLocales as supportedLocales, type Locale } from "@/i18n/locales"
 import type { PageKey } from "@/i18n/pages"
 import type { ProductPage } from "@/content/product-details"
+import type { FeaturePage } from "@/content/feature-pages"
 import { familyForPage, guideLocale, pageFamilies } from "@/lib/page-families"
 
 /**
@@ -9,7 +10,7 @@ import { familyForPage, guideLocale, pageFamilies } from "@/lib/page-families"
  * registered from content modules. Their validity is enforced by the route
  * registry and the build integrity gate rather than by the type system.
  */
-export type SitePage = PageKey | ProductPage | "start" | "guides" | "not-found" | (string & {})
+export type SitePage = PageKey | ProductPage | FeaturePage | "start" | "guides" | "not-found" | (string & {})
 
 export { guideLocale }
 
