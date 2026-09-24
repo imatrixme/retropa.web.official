@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises"
 import { resolve } from "node:path"
 import { startFAQ } from "../src/content/start-faq"
-import { renderToStaticMarkup } from "react-dom/server"
 import { isProductPage, productDetail } from "../src/content/product-details"
 import { routeFromPath } from "../src/lib/routes"
+
+// HTMLRewriter keeps character references in text chunks; compare decoded text.
+const decode = (text: string) => text.replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16))).replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec))).replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&")
 
 const build = JSON.parse(await readFile("dist/build-evidence.json", "utf8"))
 const issues: string[] = []
@@ -20,7 +22,7 @@ for (const path of build.paths as string[]) {
     .on('link[hreflang]', { element() { found.alternates++ } })
     .on('script[type="application/ld+json"]', { text(chunk) { found.jsonLd += chunk.text } })
     .on('[id]', { element(element) { const id = element.getAttribute("id")!; if (ids.has(id)) issues.push(`${path}: duplicate anchor ${id}`); ids.add(id) } })
-    .on('details.mobile-menu', { element() { found.mobileMenu = true } })
+    .on('details.menu', { element() { found.mobileMenu = true } })
     .on('meta[property="og:image"]', { element(element) { found.socialImage = element.getAttribute("content") ?? "" } })
     .on('meta[property="og:image:width"]', { element(element) { found.socialWidth = element.getAttribute("content") ?? "" } })
     .on('meta[property="og:image:height"]', { element(element) { found.socialHeight = element.getAttribute("content") ?? "" } })
@@ -47,6 +49,7 @@ for (const path of build.paths as string[]) {
       }
     } })
   await rewriter.transform(new Response(html)).text()
+  found.mainText = decode(found.mainText)
   if (found.h1 !== 1) issues.push(`${path}: expected one H1, found ${found.h1}`)
   if (found.mainText.trim().length < 120) issues.push(`${path}: insufficient prerendered body`)
   if (found.canonical !== `https://retropa.com${path}`) issues.push(`${path}: canonical mismatch`)
@@ -61,7 +64,7 @@ for (const path of build.paths as string[]) {
   const route = routeFromPath(path)
   if (isProductPage(route.page)) {
     for (const [index, section] of productDetail(route.page, route.locale).sections.entries()) {
-      if (!found.mainText.includes(renderToStaticMarkup(section.body)) || !ids.has(`chapter-${index + 1}`)) issues.push(`${path}: missing static guide chapter ${index + 1}`)
+      if (!found.mainText.includes(section.body) || !ids.has(`chapter-${index + 1}`)) issues.push(`${path}: missing static guide chapter ${index + 1}`)
     }
   }
   if (["/arcade/", "/zh-Hans/arcade/"].includes(path)) {
@@ -74,7 +77,7 @@ for (const path of build.paths as string[]) {
     if (questions.length < 15 || new Set(questions.map(item => item.id)).size !== questions.length) issues.push(`${path}: insufficient or duplicate FAQ entries`)
     for (const item of questions) {
       // HTMLRewriter preserves character references in text chunks.
-      if (!found.mainText.includes(renderToStaticMarkup(item.question)) || !found.mainText.includes(renderToStaticMarkup(item.answer))) issues.push(`${path}: missing static FAQ ${item.id}`)
+      if (!found.mainText.includes(item.question) || !found.mainText.includes(item.answer)) issues.push(`${path}: missing static FAQ ${item.id}`)
       if (!html.includes(`id="faq-${item.id}"`)) issues.push(`${path}: missing FAQ anchor ${item.id}`)
     }
   }

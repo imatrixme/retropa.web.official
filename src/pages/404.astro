@@ -1,0 +1,10 @@
+---
+import Base from "@/layouts/Base.astro"
+import PageHero from "@/components/PageHero.astro"
+---
+<Base locale="en" page="not-found">
+  <PageHero locale="en" page="not-found" eyebrow="404 · No signal" title="This channel is off the air." summary="The address may have changed. Head back to Retropa and pick another channel." cta={false}>
+    <a class="btn btn-signal home" href="/">Return to Retropa</a>
+  </PageHero>
+</Base>
+<style>.home { width: fit-content; }</style>

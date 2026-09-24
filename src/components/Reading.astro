@@ -1,0 +1,102 @@
+---
+import Icon from "@/components/Icon.astro"
+import { languageTag } from "@/lib/links"
+import type { Locale } from "@/i18n/locales"
+
+export type ReadingSection = { id: string; title: string; body: string | string[]; points?: string[] }
+export type ReadingFaq = { id: string; question: string; answer: string; open?: boolean; link?: { href: string; label: string } }
+export type RelatedLink = { href: string; text: string; hreflang?: Locale; foreign?: boolean }
+
+interface Props {
+  tocLabel: string
+  sections: ReadingSection[]
+  faqs?: ReadingFaq[]
+  faqTitle?: string
+  faqId?: string
+  asideNote?: string
+  attribution?: string
+  relatedLabel?: string
+  related?: RelatedLink[]
+  extraToc?: { href: string; text: string }[]
+}
+const { tocLabel, sections, faqs = [], faqTitle, faqId = "page-questions", asideNote, attribution, relatedLabel, related = [], extraToc = [] } = Astro.props
+const pad = (index: number) => String(index + 1).padStart(2, "0")
+---
+<section class="reading ground-cartridge">
+  <div class="shell grid">
+    <aside class="toc">
+      <nav aria-label={tocLabel}>
+        <p class="hud">{tocLabel}</p>
+        {sections.map((section, index) => <a href={`#${section.id}`}><span class="hud">{pad(index)}</span>{section.title}</a>)}
+        {faqs.length > 0 && faqTitle && <a href={`#${faqId}`}><span class="hud">?</span>{faqTitle}</a>}
+        {extraToc.map(item => <a href={item.href}><span class="hud">+</span>{item.text}</a>)}
+      </nav>
+      {asideNote && <p class="aside-note">{asideNote}</p>}
+    </aside>
+    <div class="body">
+      <slot name="before" />
+      {sections.map((section, index) => <section id={section.id} class="chapter">
+        <span class="hud num">{pad(index)}</span>
+        <h2>{section.title}</h2>
+        {(Array.isArray(section.body) ? section.body : [section.body]).map(paragraph => <p>{paragraph}</p>)}
+        {section.points && <ul class="points">{section.points.map(point => <li>{point}</li>)}</ul>}
+      </section>)}
+      {faqs.length > 0 && <section class="faqs" id={faqId}>
+        {faqTitle && <h2>{faqTitle}</h2>}
+        {faqs.map(item => <details id={`faq-${item.id}`} open={item.open}>
+          <summary>{item.question}<Icon name="plus" size={18} /></summary>
+          <div class="answer"><p>{item.answer}</p>{item.link && <a class="link-arrow" href={item.link.href}>{item.link.label}<Icon name="arrow-right" size={16} /></a>}</div>
+        </details>)}
+      </section>}
+      <slot />
+      {attribution && <p class="attribution page-attribution">{attribution}</p>}
+    </div>
+  </div>
+  {related.length > 0 && <nav class="shell related" aria-label={relatedLabel}>
+    <p class="hud">{relatedLabel}</p>
+    <div class="related-grid">
+      {related.map(link => <a href={link.href} hreflang={link.hreflang}><span>{link.text}{link.foreign && link.hreflang && <small lang={link.hreflang}>{languageTag(link.hreflang)}</small>}</span><Icon name="arrow-right" size={18} /></a>)}
+    </div>
+  </nav>}
+</section>
+<style>
+  .reading { padding: 88px 0 120px; }
+  .grid { display: grid; gap: 48px; }
+  @media (min-width: 1024px) { .grid { grid-template-columns: 260px minmax(0, 1fr); gap: 72px; } }
+  .toc { align-self: start; }
+  @media (min-width: 1024px) { .toc { position: sticky; top: 104px; } }
+  .toc nav { display: grid; gap: 2px; }
+  .toc .hud { color: var(--color-ink-soft); margin-bottom: 12px; }
+  .toc a { display: grid; grid-template-columns: 32px 1fr; gap: 4px; padding: 9px 0; border-top: 1px solid var(--color-cartridge-line); font-size: 14px; line-height: 1.4; color: #34323c; transition: color .2s; }
+  .toc a:hover { color: var(--color-ink); }
+  .toc a .hud { margin: 0; font-size: 11px; color: color-mix(in oklab, var(--signal) 70%, var(--color-ink)); }
+  .aside-note { margin-top: 24px; font-size: 13px; line-height: 1.55; color: var(--color-ink-soft); }
+  .body { max-width: 72ch; }
+  .chapter { padding: 40px 0; border-top: 1px solid var(--color-cartridge-line); }
+  .chapter:first-of-type { border-top: 0; padding-top: 0; }
+  .num { display: inline-block; margin-bottom: 14px; color: color-mix(in oklab, var(--signal) 70%, var(--color-ink)); }
+  h2 { font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 8%); letter-spacing: calc(var(--display-tracking) * .6); font-size: clamp(28px, 3vw, 40px); line-height: 1.08; margin-bottom: 18px; }
+  .chapter p + p { margin-top: 14px; }
+  .body p { font-size: 18px; line-height: 1.72; color: #2a2832; }
+  .points { display: grid; gap: 10px; margin-top: 20px; list-style: none; }
+  .points li { position: relative; padding-left: 26px; font-size: 16px; line-height: 1.6; color: #3b3945; }
+  .points li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--signal); }
+  .faqs { padding-top: 40px; border-top: 1px solid var(--color-cartridge-line); }
+  details { border-bottom: 1px solid var(--color-cartridge-line); }
+  summary { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; list-style: none; cursor: pointer; font-size: 18px; font-weight: 600; line-height: 1.4; }
+  summary::-webkit-details-marker { display: none; }
+  summary :global(svg) { flex: none; margin-top: 3px; transition: transform .25s var(--ease-snap); }
+  details[open] summary :global(svg) { transform: rotate(45deg); }
+  .answer { display: grid; gap: 14px; padding-bottom: 24px; }
+  .answer p { font-size: 17px; }
+  .link-arrow { color: color-mix(in oklab, var(--signal) 55%, var(--color-ink)); }
+  .attribution { margin-top: 40px; font-size: 13px !important; color: var(--color-ink-soft) !important; }
+  .related { margin-top: 96px; }
+  .related > .hud { color: var(--color-ink-soft); margin-bottom: 16px; }
+  .related-grid { display: grid; gap: 12px; }
+  @media (min-width: 720px) { .related-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
+  .related-grid a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 76px; padding: 18px 22px; border-radius: 18px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line), 0 1px 0 rgb(255 255 255 / .6); font-weight: 600; transition: transform .22s var(--ease-snap), box-shadow .22s; }
+  .related-grid a:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--signal) 60%, var(--color-cartridge-line)), 0 14px 30px -18px rgb(14 14 20 / .4); }
+  small { margin-left: 6px; font-family: var(--font-hud); font-size: 10px; opacity: .55; }
+</style>

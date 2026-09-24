@@ -1,5 +1,5 @@
 import { readFile, readdir, writeFile } from "node:fs/promises"
-import { supportedLocales } from "../src/i18n/locales.ts"
+import { publishedLocales as supportedLocales } from "../src/i18n/locales.ts"
 
 type Check = "metadata" | "crawl-assets" | "image-alt" | "structured-data" | "language-coverage" | "english-residue" | "capability-claims" | "pricing" | "content-quality"
 type Position = { file: string; offset: number; line: number; column: number; context: string; jsonPointer?: string }
@@ -313,7 +313,9 @@ for (const file of inventory) {
   scanText(source, title, locale)
   for (const image of allTags.filter((tag) => tag.name === "img")) {
     const src = attribute(image, "src")
-    const decorative = src.startsWith("/brand/") || src.startsWith("/logo-wall/")
+    // Images hidden from assistive technology are decorative by declaration; their
+    // content is carried by adjacent text (for example a channel name or card title).
+    const decorative = src.startsWith("/brand/") || src.startsWith("/logo-wall/") || attribute(image, "aria-hidden") === "true"
     if (!image.attrs.has("alt") || (!attribute(image, "alt").trim() && !decorative)) record(source, "image-alt", `content image without alternative text: ${src}`, image.offset, "img@alt")
   }
   const scripts = allTags.filter((tag) => tag.name === "script" && attribute(tag, "type").toLowerCase().split(";")[0].trim() === "application/ld+json")
@@ -375,7 +377,9 @@ for (const page of pages.values()) {
 // strand a visitor on the language they were trying to leave.
 for (const page of pages.values()) {
   if (!page.indexable) continue
-  if (!/<select[^>]*aria-label/.test(page.html)) record(page, "language-coverage", "page does not expose the language selector")
+  // Either a labelled <select> or a labelled disclosure marked as the language
+  // selector (links work without JavaScript) satisfies this check.
+  if (!/<select[^>]*aria-label/.test(page.html) && !/<details[^>]*data-language-selector[^>]*>\s*<summary[^>]*aria-label/.test(page.html)) record(page, "language-coverage", "page does not expose the language selector")
 }
 for (const locale of supportedLocales) {
   const route = locale.toLowerCase() === "en" ? "/" : `/${locale}/`
@@ -545,7 +549,9 @@ for (const slug of searchPageSlugs) {
   if (overlap >= 0.6) record(page, "content-quality", `English meta description and summary share ${Math.round(overlap * 100)}% of their tokens`, 0, "metadata/content", "warn")
 }
 for (const slug of productPages) {
-  const content = productDetail(slug, "en")
+  // Product details carry no separate description today, so this check is inert
+  // until one is authored; the type keeps that field optional.
+  const content = productDetail(slug, "en") as ReturnType<typeof productDetail> & { description?: string }
   const page = pages.get(`/${slug}/`)
   if (!content?.description || !content.summary || !page?.indexable) continue
   const overlap = jaccard(content.description, content.summary)

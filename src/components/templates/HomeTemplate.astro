@@ -1,0 +1,463 @@
+---
+import AppStoreCTA from "@/components/AppStoreCTA.astro"
+import Icon from "@/components/Icon.astro"
+import DisplayCompareSection from "@/components/sections/DisplayCompareSection.astro"
+import ConsoleModeSection from "@/components/sections/ConsoleModeSection.astro"
+import ChannelPlayer from "@/islands/ChannelPlayer.tsx"
+import SkinRack from "@/islands/SkinRack.tsx"
+import type { Locale } from "@/i18n/locales"
+import { homeCopy, homeFaqIds } from "@/content/home"
+import { channels, channelName } from "@/content/channels"
+import { channelMedia, skinFor, skins, uiShot, footageCredits } from "@/content/media"
+import { acquisitionCopy } from "@/content/acquisition"
+import { startPageContent } from "@/content/start-page"
+import { siteLink, languageTag } from "@/lib/links"
+import { phrases } from "@/lib/phrases"
+import { searchPageContent } from "@/content/search-pages"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const t = homeCopy(locale)
+const copy = acquisitionCopy(locale)
+const start = startPageContent(locale)
+const faqs = homeFaqIds.map(id => start.faqs.find(item => item.id === id)).filter((item): item is NonNullable<typeof item> => Boolean(item))
+
+// Hero pairing: each channel wears a different Pro skin so the surf shows range.
+const heroSkin: Partial<Record<string, string>> = { gba: "yao-lian-hu-gba-portrait", gb: "yao-lian-hu-gbc-portrait", nes: "purple-smoke-titanium-nes-portrait", snes: "prototype-01-snes-portrait", genesis: "prototype-01-md-portrait" }
+// Only channels with licensed footage appear in the hero; every channel stays in the systems grid.
+const playerChannels = channels.filter(channel => channelMedia(channel.id)?.mp4).map(channel => {
+  const link = siteLink(channel.page, locale)
+  const video = channelMedia(channel.id) ?? undefined
+  const skin = skins.find(item => item.id === heroSkin[channel.id]) ?? skinFor(channel.id)
+  return { id: channel.id, native: channel.native, number: channel.number, name: channelName(channel, locale), short: channel.short, href: link.href, hreflang: link.hreflang, video, skin: skin && { src: skin.src, width: skin.width, height: skin.height, rect: skin.rect } }
+})
+const rackSkins = skins.filter(skin => skin.orientation === "portrait").slice(0, 10).map(skin => ({ ...skin, video: channelMedia(skin.channel) ?? undefined }))
+const collectionShots = { library: uiShot("library-grid"), honor: uiShot("honor-medal-3d"), highlights: uiShot("settings-hub"), cloud: uiShot("save-state-timeline") }
+const feelShots = { controllers: uiShot("controls-settings"), haptics: uiShot("haptics-settings"), time: uiShot("save-state-timeline-expanded"), speed: null }
+const feelIcons = { controllers: "gamepad", haptics: "wave", time: "rewind", speed: "bolt" } as const
+const collectionIcons = { library: "folder", honor: "medal", highlights: "film", cloud: "cloud" } as const
+const cores = ["mGBA", "SkyEmu", "SameBoy", "ares", "jgenesis", "LakeSnes", "Rustico", "TetaNES"]
+const credits = footageCredits()
+// "GPL-3.0-or-later (code) / CC BY-SA 4.0 (art); license text: …" → "GPL-3.0-or-later / CC BY-SA 4.0"
+const shortLicense = (license: string) => license.replace(/\s*\([^)]*\)/g, "").split(";")[0].trim()
+const link = (page: string) => siteLink(page, locale)
+const skinsLink = link("delta-skins")
+const arcadeLink = link("arcade")
+const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
+---
+<section class="hero" data-hero data-channel="gba" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"><div class="hero-glow"></div><div class="scanlines"></div></div>
+  <div class="hero-grid shell">
+    <div class="h-title">
+      <p class="eyebrow">Retropa · iPhone & iPad</p>
+      <h1 id="hero-title" class="display">{phrases(t.hero.title).map(part => <span class="phrase">{part}</span>)}</h1>
+    </div>
+    <div class="h-device">
+      <ChannelPlayer client:load channels={playerChannels} copy={{ channels: t.hero.channels, pause: t.hero.pause, play: t.hero.play, live: t.hero.live }} />
+    </div>
+    <div class="h-cta">
+      <AppStoreCTA locale={locale} page="home" placement="hero" qr tone="black" />
+      <ul class="trust hud" role="list">{t.hero.trust.map(item => <li>{item}</li>)}</ul>
+    </div>
+    <p class="h-lead">{t.hero.lead}</p>
+  </div>
+</section>
+
+<section id="systems" class="systems ground-tube" data-feature="channel" aria-labelledby="systems-title">
+  <div class="shell">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.systems.eyebrow}</p>
+      <h2 id="systems-title" class="display">{phrases(t.systems.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <p class="sec-body">{t.systems.body}</p>
+    </header>
+    <ul class="channel-grid" role="list">
+      {channels.map(channel => {
+        const target = link(channel.page)
+        const media = channelMedia(channel.id)
+        return <li class="reveal" data-channel={channel.id}>
+          <a href={target.href} hreflang={target.hreflang}>
+            <span class="ch-screen">
+              {media?.poster ? <img src={media.poster} alt="" aria-hidden="true" loading="lazy" width="480" height="320" /> : <span class="ch-bars" />}
+              <span class="ch-num hud">CH {channel.number}</span>
+            </span>
+            <span class="ch-name">{channelName(channel, locale)}{target.foreign && <small lang={target.hreflang}>{languageTag(target.hreflang)}</small>}</span>
+            <span class="ch-meta hud">{channel.formats}</span>
+            <Icon name="arrow-up-right" size={18} class="ch-go" />
+          </a>
+        </li>
+      })}
+    </ul>
+    <a class="link-arrow more" href={link("cores").href}>{t.systems.all}<Icon name="arrow-right" size={18} /></a>
+  </div>
+</section>
+
+<section id="skins" class="skins ground-cartridge" data-feature="skins" aria-labelledby="skins-title">
+  <div class="shell skins-grid">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.skins.eyebrow}</p>
+      <h2 id="skins-title" class="display">{phrases(t.skins.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <p class="sec-body">{t.skins.body}</p>
+      <ul class="skin-tags" role="list">
+        <li><span class="free-tag">.deltaskin</span>{t.skins.free}</li>
+        <li><span class="plus-tag">Plus</span>{t.skins.plus}</li>
+      </ul>
+      <a class="link-arrow" href={skinsLink.href} hreflang={skinsLink.hreflang}>{t.skins.link}{skinsLink.foreign && <small lang={skinsLink.hreflang}>{languageTag(skinsLink.hreflang)}</small>}<Icon name="arrow-right" size={18} /></a>
+    </header>
+    <div class="skins-stage">
+      {rackSkins.length > 0
+        ? <SkinRack client:visible={{ rootMargin: "400px" }} skins={rackSkins} copy={{ pick: t.skins.pick, plus: t.skins.plus, free: t.plus.freeTitle }} />
+        : <div class="rack-placeholder" aria-hidden="true"><Icon name="gamepad" size={120} strokeWidth={1} /></div>}
+    </div>
+  </div>
+</section>
+
+<DisplayCompareSection locale={locale} />
+
+<ConsoleModeSection locale={locale} copy={t.console} video={channelMedia("nes") ?? channelMedia("gba") ?? undefined} />
+
+<section id="feel" class="feel ground-cartridge" aria-labelledby="feel-title">
+  <div class="shell">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.feel.eyebrow}</p>
+      <h2 id="feel-title" class="display">{phrases(t.feel.title).map(part => <span class="phrase">{part}</span>)}</h2>
+    </header>
+    <ul class="bento" role="list">
+      {t.feel.cards.map(card => <li class:list={["reveal", `b-${card.id}`]}>
+        <span class="b-icon"><Icon name={feelIcons[card.id]} size={28} /></span>
+        <h3>{card.title}{card.plus && <span class="plus-tag">Plus</span>}</h3>
+        <p>{card.body}</p>
+        {feelShots[card.id] && <img class="b-shot" src={feelShots[card.id]!.src} width={feelShots[card.id]!.width} height={feelShots[card.id]!.height} alt="" aria-hidden="true" loading="lazy" />}
+        {card.id === "haptics" && <span class="wave" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i style={`--i:${i}`} />)}</span>}
+        {card.id === "speed" && <span class="speed hud" aria-hidden="true">▶▶</span>}
+      </li>)}
+    </ul>
+  </div>
+</section>
+
+<section id="collection" class="collection ground-tube" data-feature="collection" aria-labelledby="collection-title">
+  <div class="shell">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.collection.eyebrow}</p>
+      <h2 id="collection-title" class="display">{phrases(t.collection.title).map(part => <span class="phrase">{part}</span>)}</h2>
+    </header>
+    <ul class="shots" role="list">
+      {t.collection.cards.map(card => {
+        const shot = collectionShots[card.id]
+        return <li class="reveal">
+          <div class="shot-frame">
+            {shot ? <img src={shot.src} width={shot.width} height={shot.height} alt={card.title} loading="lazy" /> : <span class="shot-icon"><Icon name={collectionIcons[card.id]} size={56} strokeWidth={1.2} /></span>}
+          </div>
+          <h3>{card.title}</h3>
+          <p>{card.body}</p>
+        </li>
+      })}
+    </ul>
+  </div>
+</section>
+
+<section id="arcade" class="arcade" data-channel="arcade" data-feature="arcade" aria-labelledby="arcade-title">
+  <div class="arcade-bg" aria-hidden="true"><div class="scanlines"></div></div>
+  <div class="shell arcade-grid">
+    <div class="reveal">
+      <p class="eyebrow">{t.arcade.eyebrow}</p>
+      <h2 id="arcade-title" class="display">{phrases(t.arcade.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <p class="sec-body">{t.arcade.body}</p>
+      <p class="arcade-plus"><span class="plus-tag">Plus</span></p>
+      <a class="btn btn-signal" href={arcadeLink.href} hreflang={arcadeLink.hreflang}>{t.arcade.link}<Icon name="arrow-right" size={18} /></a>
+    </div>
+    <ul class="boards" role="list">
+      {["CPS I", "CPS II", "CPS III", "Neo Geo", "PGM", "Irem M92", "Midway T/W"].map((board, i) => <li class="reveal" style={`--i:${i}`}><span class="hud">{String(i + 1).padStart(2, "0")}</span>{board}</li>)}
+    </ul>
+  </div>
+</section>
+
+<section id="start" class="start ground-cartridge" aria-labelledby="start-title">
+  <div class="shell">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.start.eyebrow}</p>
+      <h2 id="start-title" class="display">{phrases(t.start.title).map(part => <span class="phrase">{part}</span>)}</h2>
+    </header>
+    <ol class="steps" role="list">
+      {t.start.steps.map(([title, body], i) => <li class="reveal"><span class="step-n display">{i + 1}</span><h3>{title}</h3><p>{body}</p></li>)}
+    </ol>
+    <div class="homebrew reveal"><Icon name="sparkle" size={22} /><p>{t.start.homebrew}</p></div>
+    <p class="fine">{copy.noRoms}</p>
+  </div>
+</section>
+
+<section id="plus" class="plus ground-cartridge" data-feature="plus" aria-labelledby="plus-title">
+  <div class="shell">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.plus.eyebrow}</p>
+      <h2 id="plus-title" class="display">{phrases(t.plus.title).map(part => <span class="phrase">{part}</span>)}</h2>
+    </header>
+    <div class="tiers">
+      <div class="tier tier-free reveal">
+        <h3>{t.plus.freeTitle}</h3>
+        <ul role="list">{t.plus.free.map(item => <li><Icon name="check" size={18} />{item}</li>)}</ul>
+      </div>
+      <div class="tier tier-plus reveal">
+        <h3><span class="plus-tag">Plus</span>{t.plus.plusTitle}</h3>
+        <ul role="list">{t.plus.plus.map(item => <li><Icon name="plus" size={18} />{item}</li>)}</ul>
+        <p class="tier-note">{t.plus.note}</p>
+      </div>
+    </div>
+    <div class="plus-cta"><AppStoreCTA locale={locale} page="home" placement="guide" note={copy.free} /><a class="link-arrow" href={link("plus").href}>{plusLabel}<Icon name="arrow-right" size={18} /></a></div>
+  </div>
+</section>
+
+<section id="credits" class="credits ground-tube" aria-labelledby="credits-title">
+  <div class="shell">
+    <div class="credits-grid">
+      <div class="reveal">
+        <p class="eyebrow">{t.credits.eyebrow}</p>
+        <h2 id="credits-title" class="display">{phrases(t.credits.title).map(part => <span class="phrase">{part}</span>)}</h2>
+        <p class="sec-body">{t.credits.body}</p>
+      </div>
+      <div class="privacy reveal">
+        <Icon name="lock" size={28} />
+        <h3>{t.credits.privacyTitle}</h3>
+        <p>{t.credits.privacy}</p>
+      </div>
+    </div>
+    <ul class="core-marquee" role="list" aria-label={t.credits.eyebrow}>{cores.map(core => <li class="display">{core}</li>)}</ul>
+    {credits.length > 0 && <p class="footage"><span class="hud">{t.credits.footage}</span> {credits.map((entry, i) => <>{i > 0 && " · "}<a href={entry.sourceURL ?? entry.licenseURL} rel="noopener" target="_blank">{entry.title}</a>{entry.author && ` — ${entry.author}`}{entry.license && <> (<a href={entry.licenseURL ?? entry.sourceURL} rel="noopener" target="_blank">{shortLicense(entry.license)}</a>)</>}</>)}</p>}
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="faq-title display">{phrases(t.faq.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <div class="faq-list">
+        {faqs.map(item => <details id={`faq-${item.id}`}>
+          <summary>{item.question}<Icon name="plus" size={18} /></summary>
+          <p>{item.answer}</p>
+        </details>)}
+      </div>
+      <a class="link-arrow" href={`${link("start").href}#before-you-start`}>{t.faq.more}<Icon name="arrow-right" size={18} /></a>
+    </section>
+  </div>
+</section>
+
+<style>
+  /* CJK headlines: keep phrases whole where there is room; small screens wrap freely. */
+  @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
+  :lang(ja) .skins h2, :lang(zh-Hans) .skins h2 { font-size: clamp(48px, 5.4vw, 96px); }
+  :lang(ja) h1, :lang(zh-Hans) h1 { font-size: clamp(52px, 7.6vw, 128px); line-height: 1.02; }
+  :lang(ja) .sec-head h2 { font-size: clamp(32px, 4.8vw, 76px); line-height: 1.06; }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 100svh; padding: 88px 0 56px; background: var(--color-tube); transition: --signal .6s; }
+  .hero-bg { position: absolute; inset: 0; z-index: -1; }
+  .hero-glow { position: absolute; inset: -10% -10% -10% 30%; background: radial-gradient(closest-side at 60% 45%, color-mix(in oklab, var(--signal) 45%, transparent), transparent 72%); filter: blur(10px); transition: background .6s; }
+  .hero-grid { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "device" "cta" "lead"; align-content: start; }
+  .h-title, .h-device, .h-cta, .h-lead { min-width: 0; }
+  .h-title { grid-area: title; display: grid; gap: 14px; }
+  .h-device { grid-area: device; }
+  .h-cta { grid-area: cta; display: grid; gap: 18px; }
+  .h-lead { grid-area: lead; max-width: 38ch; font-size: clamp(17px, 1.45vw, 21px); line-height: 1.55; color: rgb(244 242 251 / .78); }
+  h1 { font-size: clamp(52px, 10vw, 168px); color: #fff; text-shadow: 0 0 60px color-mix(in oklab, var(--signal) 40%, transparent); }
+  :lang(zh-Hans) h1, :lang(zh-Hant) h1, :lang(ja) h1, :lang(ko) h1 { font-size: clamp(56px, 9vw, 150px); line-height: 1; }
+  .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; color: rgb(244 242 251 / .55); }
+  .trust li + li::before { content: "·"; margin-right: 18px; color: var(--signal); }
+  @media (min-width: 1024px) {
+    .hero { display: grid; align-items: center; padding: 96px 0 64px; }
+    .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); grid-template-areas: "title device" "lead device" "cta device"; grid-template-rows: auto auto 1fr; column-gap: clamp(32px, 5vw, 80px); row-gap: 28px; align-items: start; }
+    .h-cta { align-self: start; margin-top: 8px; }
+  }
+
+  /* Channel player island */
+  .hero :global(.cp) { display: grid; justify-items: center; gap: 18px; }
+  .hero :global(.cp-marquee) { position: absolute; left: 0; right: 0; bottom: -0.12em; z-index: -1; overflow: hidden; white-space: nowrap; text-align: center; font-size: clamp(90px, 17vw, 300px); font-stretch: 150%; line-height: .8; color: transparent; -webkit-text-stroke: 1.5px color-mix(in oklab, var(--signal) 55%, transparent); opacity: .5; pointer-events: none; }
+  .hero :global(.cp-marquee span) { display: inline-block; animation: marquee-in .7s var(--ease-snap) both; }
+  @keyframes marquee-in { from { opacity: 0; transform: scaleX(.6); filter: blur(6px); } }
+  .hero :global(.cp-stage) { position: relative; display: grid; justify-items: center; gap: 14px; }
+  .hero :global(.cp-glow) { position: absolute; inset: 8% -30% 12%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in oklab, var(--signal) 70%, transparent), transparent); filter: blur(40px); opacity: .7; transition: background .6s; }
+  .hero :global(.cp-device) { position: relative; height: clamp(300px, 42svh, 780px); aspect-ratio: 9 / 19.5; padding: 2.2%; border-radius: 15% / 7%; background: linear-gradient(145deg, #5b5a66, #1b1b22 22%, #0c0c11 60%, #3a3945); box-shadow: 0 0 0 1px rgb(255 255 255 / .16), inset 0 0 0 1px rgb(255 255 255 / .06), 0 50px 100px -30px rgb(0 0 0 / .9), 0 0 120px -20px color-mix(in oklab, var(--signal) 60%, transparent); }
+  @media (min-width: 1024px) { .hero :global(.cp-device) { height: clamp(520px, 74svh, 780px); } }
+  .hero :global(.cp-screen) { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 13.4% / 6.2%; background: var(--shell); }
+  .hero :global(.cp-skin) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero :global(.cp-game) { position: absolute; overflow: hidden; background: #000; }
+  .hero :global(.cp-game.is-full) { left: 4%; right: 4%; top: 12%; height: 34%; border-radius: 10px; box-shadow: 0 0 0 1px rgb(255 255 255 / .1), 0 0 40px color-mix(in oklab, var(--signal) 45%, transparent); }
+  .hero :global(.cp-video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; transition: opacity .2s; }
+  .hero :global(.cp-scan) { position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .18) 0 1px, transparent 1px 3px); mix-blend-mode: multiply; pointer-events: none; }
+  .hero :global(.cp-nosignal) { display: grid; place-items: center; width: 100%; height: 100%; color: var(--signal); background: repeating-linear-gradient(90deg, #fff 0 12.5%, #ff0 0 25%, #0ff 0 37.5%, #0f0 0 50%, #f0f 0 62.5%, #f00 0 75%, #00f 0 87.5%, #000 0); }
+  .hero :global(.cp-static) { position: absolute; inset: 0; opacity: 0; pointer-events: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='1' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); mix-blend-mode: screen; }
+  .hero :global(.cp-static.is-on) { animation: static-burst .26s steps(4) both; }
+  @keyframes static-burst { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: .95; transform: translateY(-3%); } 70% { opacity: .8; transform: translateY(4%) scaleY(1.04); } 100% { opacity: 0; transform: none; } }
+  .hero :global(.cp-island) { position: absolute; top: 1.6%; left: 50%; width: 30%; height: 3.2%; transform: translateX(-50%); border-radius: 999px; background: #000; }
+  .hero :global(.cp-caption) { display: flex; align-items: center; gap: 8px; color: rgb(244 242 251 / .6); font-size: 11px; }
+  .hero :global(.cp-caption a) { color: #fff; text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--signal) 70%, transparent); text-underline-offset: 3px; }
+  .hero :global(.cp-dot) { width: 8px; height: 8px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 10px #ff3b3b; animation: blink 1.6s ease-in-out infinite; }
+  @keyframes blink { 50% { opacity: .35; } }
+  .hero :global(.cp-dial) { position: relative; display: flex; align-items: center; gap: 10px; width: 100%; max-width: 640px; min-width: 0; }
+  .hero :global(.cp-dial ul) { min-width: 0; flex: 1; }
+  .hero :global(.cp) { width: 100%; min-width: 0; }
+  .hero :global(.cp-dial-label) { display: none; }
+  .hero :global(.cp-dial ul) { display: flex; gap: 6px; overflow-x: auto; padding: 4px; list-style: none; scrollbar-width: none; border-radius: 999px; background: rgb(255 255 255 / .05); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .1); }
+  .hero :global(.cp-dial ul::-webkit-scrollbar) { display: none; }
+  .hero :global(.cp-dial a) { display: grid; justify-items: center; gap: 1px; min-width: 52px; padding: 7px 10px; border-radius: 999px; color: rgb(244 242 251 / .6); transition: color .2s, background-color .2s; white-space: nowrap; }
+  .hero :global(.cp-dial a .hud) { font-size: 10px; color: var(--signal); }
+  .hero :global(.cp-dial-name) { font-size: 12px; font-weight: 600; }
+  .hero :global(.cp-dial a:hover) { color: #fff; background: rgb(255 255 255 / .06); }
+  .hero :global(.cp-dial a[aria-current]) { color: #07070c; background: #f4f2fb; box-shadow: 0 0 22px -2px var(--signal); }
+  .hero :global(.cp-dial a[aria-current] .hud) { color: #07070c; }
+  .hero :global(.cp-toggle) { position: relative; display: grid; place-items: center; flex: none; width: 40px; height: 40px; border: 0; border-radius: 50%; overflow: hidden; background: rgb(255 255 255 / .08); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .14); }
+  .hero :global(.cp-progress) { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--signal); transform-origin: left; animation: progress 7s linear both; }
+  @keyframes progress { from { transform: scaleX(0); } }
+
+  /* ---------- Section heads ---------- */
+  .sec-head { display: grid; gap: 18px; max-width: 880px; margin-bottom: clamp(40px, 6vw, 72px); }
+  .sec-head h2 { font-size: clamp(34px, 6vw, 92px); line-height: .96; }
+  .ground-tube .sec-head h2 { color: #fff; }
+  .sec-body { max-width: 58ch; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.6; opacity: .74; }
+  small { font-family: var(--font-hud); font-size: 10px; opacity: .6; margin-left: 6px; }
+
+  /* ---------- Systems ---------- */
+  .systems { padding: clamp(96px, 12vw, 168px) 0; }
+  .channel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; list-style: none; }
+  @media (min-width: 900px) { .channel-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; } }
+  .channel-grid a { position: relative; display: grid; gap: 8px; padding: 10px 10px 18px; border-radius: 24px; background: linear-gradient(180deg, color-mix(in oklab, var(--shell) 70%, #0e0e17), #0e0e17); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); transition: transform .3s var(--ease-snap), box-shadow .3s; }
+  .channel-grid a:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--signal) 60%, transparent), 0 30px 60px -30px var(--signal); }
+  .ch-screen { position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 16px; background: #000; box-shadow: inset 0 0 30px rgb(0 0 0 / .8); }
+  .ch-screen img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; filter: saturate(1.1); transition: transform .5s var(--ease-snap); }
+  .channel-grid a:hover .ch-screen img { transform: scale(1.04); }
+  .ch-screen::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .22) 0 1px, transparent 1px 3px), radial-gradient(120% 90% at 50% 50%, transparent 55%, rgb(0 0 0 / .55)); pointer-events: none; }
+  .ch-bars { display: block; width: 100%; height: 100%; background: linear-gradient(135deg, var(--signal), var(--shell)); }
+  .ch-num { position: absolute; top: 10px; left: 10px; z-index: 1; padding: 4px 7px; border-radius: 6px; background: rgb(7 7 12 / .7); color: var(--signal); font-size: 10px; }
+  .ch-name { padding: 6px 8px 0; font-family: var(--display-face); font-weight: 750; font-stretch: 105%; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.1; color: #fff; }
+  .ch-meta { padding: 0 8px; color: rgb(244 242 251 / .45); font-size: 11px; text-transform: none; }
+  .channel-grid :global(.ch-go) { position: absolute; right: 16px; bottom: 18px; color: var(--signal); opacity: 0; transition: opacity .2s; }
+  .channel-grid a:hover :global(.ch-go) { opacity: 1; }
+  .more { margin-top: 40px; color: var(--signal-2); }
+
+  /* ---------- Skins ---------- */
+  .skins { padding: clamp(96px, 12vw, 168px) 0; overflow: hidden; }
+  .skins-grid { display: grid; gap: 48px; align-items: center; }
+  @media (min-width: 1024px) { .skins-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
+  .skins .sec-head { margin-bottom: 0; }
+  .skins h2 { font-size: clamp(64px, 11vw, 176px); }
+  .skin-tags { display: grid; gap: 10px; list-style: none; }
+  .skin-tags li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; }
+  .skins .link-arrow { color: var(--color-ink); }
+  .rack-placeholder { display: grid; place-items: center; aspect-ratio: 1; color: var(--color-cartridge-line); }
+  .skins :global(.rack) { display: grid; gap: 28px; justify-items: center; }
+  .skins :global(.rack-stage) { position: relative; display: grid; justify-items: center; gap: 16px; }
+  .skins :global(.rack-halo) { position: absolute; inset: 10% -20% 16%; z-index: 0; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in oklab, var(--signal) 50%, transparent), transparent); filter: blur(30px); opacity: .7; transition: background .5s; }
+  .skins :global(.rack-device) { position: relative; z-index: 1; padding: 10px; border-radius: 48px; background: linear-gradient(145deg, #3e3d48, #111118 30%, #0a0a0f 70%, #33323d); box-shadow: 0 0 0 1px rgb(0 0 0 / .4), 0 50px 80px -30px rgb(40 30 10 / .55); }
+  .skins :global(.rack-inner) { position: relative; height: clamp(420px, 62svh, 680px); overflow: hidden; border-radius: 38px; background: #000; }
+  .skins :global(.rack-skin) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: skin-in .45s var(--ease-snap) both; }
+  @keyframes skin-in { from { opacity: 0; transform: scale(.985); filter: blur(4px); } }
+  .skins :global(.rack-screen) { position: absolute; overflow: hidden; background: #000; }
+  .skins :global(.rack-screen video), .skins :global(.rack-screen img) { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+  .skins :global(.rack-name) { position: relative; z-index: 1; display: flex; align-items: center; gap: 10px; font-size: 15px; }
+  .skins :global(.rack-shelf) { display: flex; gap: 10px; max-width: 100%; overflow-x: auto; padding: 8px; scrollbar-width: none; }
+  .skins :global(.rack-shelf button) { position: relative; flex: none; width: 58px; height: 104px; padding: 3px; border: 0; border-radius: 14px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); transition: transform .2s var(--ease-snap), box-shadow .2s; }
+  .skins :global(.rack-shelf button img) { width: 100%; height: 100%; object-fit: cover; border-radius: 11px; }
+  .skins :global(.rack-shelf button:hover) { transform: translateY(-3px); }
+  .skins :global(.rack-shelf button[aria-pressed="true"]) { box-shadow: 0 0 0 2px var(--color-ink), 0 10px 20px -8px var(--signal); transform: translateY(-4px); }
+  .skins :global(.rack-gold) { position: absolute; top: -4px; right: -4px; width: 14px; height: 14px; border-radius: 50%; background: var(--color-gold); box-shadow: 0 0 0 2px var(--color-cartridge); }
+
+  /* ---------- Feel ---------- */
+  .feel { padding: clamp(96px, 12vw, 168px) 0; }
+  .bento { display: grid; gap: 14px; list-style: none; }
+  @media (min-width: 900px) { .bento { grid-template-columns: repeat(6, 1fr); } .b-controllers { grid-column: span 4; } .b-haptics { grid-column: span 2; } .b-time { grid-column: span 3; } .b-speed { grid-column: span 3; } }
+  .bento li { position: relative; display: grid; align-content: start; gap: 12px; min-height: 300px; padding: 30px 30px 110px; overflow: hidden; border-radius: 30px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); }
+  .b-controllers { padding-bottom: 30px !important; background: var(--color-ink) !important; color: #f4f2fb; }
+  .b-controllers p { color: rgb(244 242 251 / .7) !important; }
+  .b-icon { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 18px; background: var(--color-ink); color: var(--signal-2); }
+  .b-controllers .b-icon { background: var(--signal); color: #07070c; }
+  .bento h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 6%); font-size: clamp(26px, 2.6vw, 36px); line-height: 1.05; }
+  .bento p { max-width: 42ch; color: #45424f; }
+  .wave { position: absolute; left: 30px; right: 30px; bottom: 26px; display: flex; align-items: center; gap: 4px; height: 44px; }
+  .wave i { flex: 1; height: calc(10% + (var(--i) * 37 % 90) * 1%); border-radius: 4px; background: var(--color-ink); opacity: .85; animation: wave 1.4s ease-in-out infinite; animation-delay: calc(var(--i) * -70ms); }
+  @keyframes wave { 50% { transform: scaleY(.35); } }
+  .timeline { position: absolute; left: 30px; right: 30px; bottom: 28px; display: flex; gap: 8px; }
+  .timeline i { flex: 1; aspect-ratio: 4 / 3; border-radius: 8px; background: linear-gradient(135deg, var(--signal), var(--shell)); opacity: calc(.35 + var(--i) * .13); box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1); }
+  .b-shot { position: absolute; right: 28px; bottom: -40%; width: min(38%, 240px); height: auto; border-radius: 26px; box-shadow: 0 0 0 1px rgb(14 14 20 / .12), 0 30px 50px -20px rgb(14 14 20 / .45); transform: rotate(-4deg); transition: transform .5s var(--ease-snap); }
+  .bento li:hover .b-shot { transform: rotate(-2deg) translateY(-12px); }
+  .b-controllers .b-shot { width: min(30%, 260px); bottom: -55%; box-shadow: 0 0 0 1px rgb(255 255 255 / .12), 0 30px 60px -20px rgb(0 0 0 / .8); }
+  .b-haptics .b-shot { display: none; }
+  .b-time h3, .b-time p, .b-controllers h3, .b-controllers p { max-width: 56%; position: relative; z-index: 1; }
+  .b-time .b-shot { bottom: -62%; }
+  @media (max-width: 899px) { .b-shot { width: 44%; bottom: -75% !important; } }
+  .speed { position: absolute; right: 30px; bottom: 26px; font-size: clamp(40px, 5vw, 72px); color: var(--color-ink); letter-spacing: -.04em; }
+  @media (max-width: 899px) { .bento li { min-height: 240px; } }
+  @media (prefers-reduced-motion: reduce) { .wave i { animation: none; } }
+
+  /* ---------- Collection ---------- */
+  .collection { padding: clamp(96px, 12vw, 168px) 0; }
+  .shots { display: grid; gap: 20px; list-style: none; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 1000px) { .shots { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .shots li { display: grid; gap: 10px; align-content: start; }
+  .shot-frame { display: grid; place-items: center; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 28px; background: radial-gradient(120% 80% at 50% 0%, color-mix(in oklab, var(--signal) 30%, #12121c), #0e0e17); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .09); margin-bottom: 8px; }
+  .shot-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .shot-icon { color: var(--signal-2); opacity: .8; }
+  .shots h3 { font-size: 20px; line-height: 1.2; color: #fff; }
+  .shots p { font-size: 15px; color: rgb(244 242 251 / .62); }
+
+  /* ---------- Arcade ---------- */
+  .arcade { position: relative; isolation: isolate; overflow: hidden; padding: clamp(110px, 14vw, 200px) 0; background: #0b0710; color: #fff; }
+  .arcade-bg { position: absolute; inset: 0; z-index: -1; background: radial-gradient(80% 90% at 90% 10%, color-mix(in oklab, var(--signal) 55%, transparent), transparent 60%), radial-gradient(70% 80% at 0% 100%, color-mix(in oklab, var(--signal-2) 30%, transparent), transparent 60%); }
+  .arcade-grid { display: grid; gap: 56px; align-items: center; }
+  @media (min-width: 1000px) { .arcade-grid { grid-template-columns: 1.1fr .9fr; } }
+  .arcade h2 { font-size: clamp(72px, 13vw, 220px); margin: 18px 0 24px; color: var(--signal-2); text-shadow: 0 0 40px color-mix(in oklab, var(--signal-2) 50%, transparent), 4px 4px 0 var(--signal); }
+  .arcade .eyebrow { color: var(--signal-2); }
+  .arcade .sec-body { opacity: .82; margin-bottom: 20px; }
+  .arcade-plus { margin-bottom: 28px; }
+  .boards { display: grid; gap: 8px; list-style: none; }
+  .boards li { display: flex; align-items: baseline; gap: 18px; padding: 16px 22px; border-radius: 16px; background: rgb(255 255 255 / .05); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .1); font-family: var(--font-display); font-weight: 750; font-stretch: 125%; font-size: clamp(22px, 2.4vw, 32px); }
+  .boards .hud { color: var(--signal); font-size: 11px; }
+  .boards li:nth-child(odd) { margin-left: 24px; }
+
+  /* ---------- Start ---------- */
+  .start { padding: clamp(96px, 12vw, 168px) 0 clamp(48px, 6vw, 80px); }
+  .steps { display: grid; gap: 16px; list-style: none; }
+  @media (min-width: 900px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .steps li { display: grid; gap: 12px; align-content: start; padding: 30px; border-radius: 30px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); }
+  .step-n { font-size: 120px; line-height: .8; color: transparent; -webkit-text-stroke: 2px var(--color-ink); }
+  .steps h3 { font-size: 24px; }
+  .steps p { color: #45424f; }
+  .homebrew { display: flex; gap: 16px; align-items: flex-start; margin-top: 24px; padding: 22px 26px; border-radius: 22px; background: var(--color-ink); color: #f4f2fb; }
+  .homebrew :global(svg) { color: var(--signal-2); margin-top: 3px; }
+  .fine { margin-top: 18px; font-size: 13px; color: var(--color-ink-soft); }
+
+  /* ---------- Plus ---------- */
+  .plus { padding: clamp(48px, 6vw, 80px) 0 clamp(96px, 12vw, 168px); }
+  .tiers { display: grid; gap: 16px; }
+  @media (min-width: 900px) { .tiers { grid-template-columns: 1fr 1.15fr; } }
+  .tier { padding: clamp(28px, 3.4vw, 44px); border-radius: 32px; }
+  .tier h3 { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; font-family: var(--display-face); font-weight: 800; font-stretch: var(--display-stretch); font-size: clamp(32px, 3.4vw, 48px); line-height: 1; }
+  .tier ul { display: grid; gap: 14px; list-style: none; }
+  .tier li { display: flex; gap: 12px; align-items: flex-start; font-size: 17px; }
+  .tier li :global(svg) { flex: none; margin-top: 3px; }
+  .tier-free { background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); }
+  .tier-plus { position: relative; overflow: hidden; background: radial-gradient(90% 90% at 100% 0%, rgb(246 196 83 / .35), transparent 60%), var(--color-ink); color: #f4f2fb; box-shadow: 0 30px 60px -30px rgb(122 90 14 / .6); }
+  .tier-plus li :global(svg) { color: var(--color-gold); }
+  .tier-plus .plus-tag { background: rgb(246 196 83 / .18); color: var(--color-gold); box-shadow: inset 0 0 0 1px rgb(246 196 83 / .5); }
+  .tier-note { margin-top: 24px; font-size: 13px; color: rgb(244 242 251 / .55); }
+  .plus-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: 40px; }
+  .plus-cta .link-arrow { color: var(--color-ink); }
+
+  /* ---------- Credits & FAQ ---------- */
+  .credits { padding: clamp(96px, 12vw, 168px) 0 40px; }
+  .credits-grid { display: grid; gap: 40px; }
+  @media (min-width: 1000px) { .credits-grid { grid-template-columns: 1.3fr .7fr; align-items: end; } }
+  .credits h2 { font-size: clamp(36px, 4.6vw, 72px); color: #fff; margin: 18px 0 20px; }
+  .privacy { display: grid; gap: 10px; padding: 30px; border-radius: 28px; background: rgb(255 255 255 / .04); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .09); }
+  .privacy :global(svg) { color: var(--signal-2); }
+  .privacy h3 { font-size: 22px; color: #fff; }
+  .privacy p { color: rgb(244 242 251 / .66); }
+  .core-marquee { display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 72px 0 24px; list-style: none; }
+  .core-marquee li { font-size: clamp(28px, 4.4vw, 64px); color: rgb(244 242 251 / .62); transition: color .3s; }
+  .core-marquee li:hover { color: var(--signal-2); }
+  .footage { font-size: 13px; color: rgb(244 242 251 / .5); }
+  .footage .hud { margin-right: 8px; color: rgb(244 242 251 / .4); }
+  .footage a { text-decoration: underline; text-underline-offset: 3px; }
+  .faq { margin-top: clamp(96px, 10vw, 140px); display: grid; gap: 28px; }
+  @media (min-width: 1000px) { .faq { grid-template-columns: .8fr 1.2fr; column-gap: 64px; } .faq > .link-arrow { grid-column: 2; } }
+  .faq-title { font-size: clamp(40px, 5vw, 72px); color: #fff; }
+  .faq-list details { border-bottom: 1px solid rgb(255 255 255 / .1); }
+  .faq-list summary { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0; list-style: none; cursor: pointer; font-size: 18px; font-weight: 600; color: #fff; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary :global(svg) { flex: none; margin-top: 4px; color: var(--signal); transition: transform .25s var(--ease-snap); }
+  .faq-list details[open] summary :global(svg) { transform: rotate(45deg); }
+  .faq-list p { padding-bottom: 24px; color: rgb(244 242 251 / .7); }
+  .faq > .link-arrow { color: var(--signal-2); }
+</style>

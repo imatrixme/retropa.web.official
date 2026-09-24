@@ -1,0 +1,41 @@
+---
+import QRCode from "qrcode"
+import type { Locale } from "@/i18n/locales"
+import type { SitePage } from "@/lib/routes"
+import { appStoreLink } from "@/lib/app-store-link"
+import { chromeCopy } from "@/content/chrome"
+
+type Placement = "header" | "hero" | "footer" | "guide" | "filters"
+interface Props { locale: Locale; page: SitePage; placement: Placement; qr?: boolean; tone?: "black" | "white"; note?: string }
+const { locale, page, placement, qr = false, tone = "black", note } = Astro.props
+const chrome = chromeCopy(locale)
+const href = appStoreLink(page)
+const code = qr ? await QRCode.toString(href, { type: "svg", margin: 0, errorCorrectionLevel: "M", color: { dark: "#07070cff", light: "#00000000" } }) : ""
+---
+<div class:list={["appstore-cta", { "has-qr": qr }]}>
+  <div class="appstore-main">
+    <a class="appstore-badge" href={href} data-download={placement} aria-label={chrome.appStoreAlt}>
+      <img src={`/badges/app-store-${tone}-${locale}.svg`} alt={chrome.appStoreAlt} height="54" width="162" loading={placement === "hero" ? "eager" : "lazy"} decoding="async" />
+    </a>
+    {note && <p class="appstore-note">{note}</p>}
+  </div>
+  {qr && <a class="appstore-qr" href={href} data-download={placement} tabindex="-1" aria-hidden="true">
+    <span class="qr-code" set:html={code} />
+    <span class="qr-copy"><strong>{chrome.scanTitle}</strong><span>{chrome.scanNote}</span></span>
+  </a>}
+</div>
+<style>
+  .appstore-cta { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .appstore-main { display: grid; gap: 12px; }
+  .appstore-badge { display: inline-block; width: fit-content; border-radius: 12px; transition: transform .22s var(--ease-snap), filter .22s; }
+  .appstore-badge img { height: 54px; width: auto; }
+  .appstore-badge:hover { transform: translateY(-2px); filter: drop-shadow(0 10px 24px color-mix(in oklab, var(--signal) 55%, transparent)); }
+  .appstore-note { font-size: 13px; line-height: 1.5; opacity: .66; max-width: 34ch; }
+  .appstore-qr { display: none; align-items: center; gap: 14px; padding: 10px 16px 10px 10px; border-radius: 16px; background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .12); }
+  .qr-code { display: block; width: 72px; height: 72px; padding: 7px; border-radius: 10px; background: #f4f2fb; }
+  .qr-code :global(svg) { width: 100%; height: 100%; }
+  .qr-copy { display: grid; gap: 2px; max-width: 22ch; line-break: strict; word-break: keep-all; overflow-wrap: anywhere; font-size: 12px; line-height: 1.35; opacity: .82; }
+  .qr-copy strong { font-size: 14px; font-weight: 600; opacity: 1; }
+  @media (min-width: 1024px) { .appstore-qr { display: flex; } }
+  :global(.ground-cartridge) .appstore-qr { background: rgb(14 14 20 / .05); box-shadow: inset 0 0 0 1px rgb(14 14 20 / .12); }
+</style>

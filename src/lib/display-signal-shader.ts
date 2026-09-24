@@ -6,12 +6,13 @@ precision highp float;
 uniform sampler2D nearestSource;
 uniform sampler2D linearSource;
 uniform int mode;
+uniform vec2 sourceSize;
 in vec2 uv;
 out vec4 outputColor;
 ${nativeColorFunctions}
 vec3 readLinear(vec2 p) { return toLinear(texture(linearSource,clamp(p,0.0,1.0)).rgb); }
 void main() {
-  vec2 dx=vec2(1.0/320.0,0); vec2 dy=vec2(0,1.0/240.0);
+  vec2 dx=vec2(1.0/sourceSize.x,0); vec2 dy=vec2(0,1.0/sourceSize.y);
   vec3 c=readLinear(uv);
   vec3 horizontal=(readLinear(uv-dx)+readLinear(uv+dx))*.5;
   vec3 vertical=(readLinear(uv-dy)+readLinear(uv+dy))*.5;

@@ -1,0 +1,37 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Reading from "@/components/Reading.astro"
+import type { Locale } from "@/i18n/locales"
+import { productDetail, productPages, type ProductPage } from "@/content/product-details"
+import { discoveryCopy } from "@/content/discovery"
+import { acquisitionCopy } from "@/content/acquisition"
+import { displayCopy } from "@/content/display-study"
+import { siteLink } from "@/lib/links"
+import { channels, channelForPage } from "@/content/channels"
+import DisplayCompareSection from "@/components/sections/DisplayCompareSection.astro"
+
+interface Props { locale: Locale; page: ProductPage }
+const { locale, page } = Astro.props
+const detail = productDetail(page, locale)
+const discovery = discoveryCopy(locale)
+const copy = acquisitionCopy(locale)
+const zh = locale.startsWith("zh")
+const channel = channels.find(item => item.id === channelForPage(page))
+const related = [
+  ...productPages.filter(key => key !== page).map(key => ({ ...siteLink(key, locale), text: productDetail(key, locale).title })),
+  { ...siteLink("start", locale), text: copy.start },
+]
+const mark = channel ? channel.short.split(" ")[0] : page === "delta-skins" ? "SKINS" : "CRT"
+---
+<PageHero locale={locale} page={page} eyebrow={`Retropa / ${detail.label}`} title={detail.title} summary={detail.summary} mark={mark}
+  crumbs={{ label: zh ? "当前位置" : "Breadcrumb", items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: detail.label }] }} />
+<Reading tocLabel={discovery.onThisPage} asideNote={copy.noRoms}
+  sections={detail.sections.map((section, index) => ({ id: `chapter-${index + 1}`, ...section }))}
+  extraToc={page === "crt-filters" ? [{ href: "#display-study", text: displayCopy(locale).eyebrow }] : []}
+  relatedLabel={discovery.related} related={related}>
+  <a slot="default" class="link-arrow detail-link" href={detail.link.startsWith("/") ? siteLink("cores", locale).href : detail.link}>{detail.linkLabel} →</a>
+</Reading>
+{page === "crt-filters" && <DisplayCompareSection locale={locale} linked={false} />}
+<style>
+  .detail-link { display: inline-block; margin-top: 32px; font-weight: 600; color: color-mix(in oklab, var(--signal) 55%, var(--color-ink)); }
+</style>

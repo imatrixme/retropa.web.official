@@ -1,0 +1,57 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import { guidePageSlugs, searchPageContent, searchPagePath } from "@/content/search-pages"
+import { guidesIndexContent } from "@/content/guides-index"
+import { discoveryCopy } from "@/content/discovery"
+import { acquisitionCopy } from "@/content/acquisition"
+import { siteLink } from "@/lib/links"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const text = guidesIndexContent(locale)
+const discovery = discoveryCopy(locale)
+const copy = acquisitionCopy(locale)
+const guides = guidePageSlugs.map(slug => searchPageContent(slug, locale)).filter((page): page is NonNullable<typeof page> => Boolean(page))
+const icons = { "import-roms-iphone": "folder", "connect-controller-ios": "gamepad", "save-states-and-rewind": "rewind", "game-wont-load": "bolt" } as const
+---
+<PageHero locale={locale} page="guides" eyebrow={`Retropa / ${text.eyebrow}`} title={text.title} summary={text.intro} mark="HOW"
+  crumbs={{ label: text.breadcrumb, items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: text.breadcrumb }] }} />
+<section class="guides ground-cartridge">
+  <div class="shell">
+    <h2 class="hud">{text.allGuides}</h2>
+    <ul class="cards" role="list">
+      {guides.map((guide, index) => <li class="reveal"><a href={`${locale === "en" ? "" : `/${locale}`}${searchPagePath(guide.slug)}`}>
+        <span class="icon"><Icon name={icons[guide.slug as keyof typeof icons] ?? "sparkle"} size={26} /></span>
+        <span class="hud">{String(index + 1).padStart(2, "0")}</span>
+        <strong>{guide.title}</strong>
+        <span class="sum">{guide.summary}</span>
+        <Icon name="arrow-right" size={20} class="go" />
+      </a></li>)}
+    </ul>
+    <p class="fine">{copy.noRoms}</p>
+    <nav class="also" aria-label={discovery.related}>
+      <p class="hud">{discovery.related}</p>
+      <a href={siteLink("cores", locale).href}>{discovery.more}<Icon name="arrow-right" size={16} /></a>
+      <a href={siteLink("plus", locale).href}>{text.freeLabel}<Icon name="arrow-right" size={16} /></a>
+    </nav>
+  </div>
+</section>
+<style>
+  .guides { padding: 88px 0 120px; }
+  h2.hud { color: var(--color-ink-soft); margin-bottom: 20px; }
+  .cards { display: grid; gap: 16px; list-style: none; }
+  @media (min-width: 800px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  .cards a { position: relative; display: grid; gap: 10px; height: 100%; padding: 28px; border-radius: 26px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); transition: transform .25s var(--ease-snap), box-shadow .25s; }
+  .cards a:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--signal) 60%, var(--color-cartridge-line)), 0 24px 40px -24px rgb(14 14 20 / .45); }
+  .icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: var(--color-ink); color: var(--signal-2); margin-bottom: 10px; }
+  .cards .hud { color: var(--color-ink-soft); }
+  strong { font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 8%); font-size: 26px; line-height: 1.1; }
+  .sum { color: #3b3945; font-size: 16px; }
+  .cards :global(.go) { position: absolute; top: 28px; right: 28px; }
+  .fine { margin-top: 28px; font-size: 13px; color: var(--color-ink-soft); }
+  .also { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--color-cartridge-line); }
+  .also .hud { color: var(--color-ink-soft); width: 100%; }
+  .also a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+</style>

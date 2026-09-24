@@ -1,0 +1,84 @@
+---
+import "@/styles/global.css"
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
+import type { Locale } from "@/i18n/locales"
+import type { SitePage } from "@/lib/routes"
+import { localizedPath } from "@/lib/routes"
+import { getPageMetadata } from "@/lib/metadata"
+import { analyticsConfig } from "@/lib/analytics"
+import { siteConfig } from "@/lib/site-config"
+import { discoveryCopy } from "@/content/discovery"
+import { channelForPage } from "@/content/channels"
+
+interface Props { locale: Locale; page: SitePage; preload?: string[] }
+const { locale, page, preload = [] } = Astro.props
+const meta = getPageMetadata(page, locale)
+const discovery = discoveryCopy(locale)
+const channel = channelForPage(page)
+const jsonLd = JSON.stringify(meta.jsonLd).replace(/</g, "\\u003c")
+---
+<!doctype html>
+<html lang={locale} data-channel={channel}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{meta.title}</title>
+  <meta name="description" content={meta.description} />
+  <meta name="retropa-revision" content={analyticsConfig.revision} />
+  <meta name="retropa-page" content={page} />
+  <meta name="robots" content={page === "not-found" ? "noindex,follow" : "index,follow,max-image-preview:large"} />
+  <link rel="canonical" href={meta.canonical} />
+  {meta.alternates.map(item => <link rel="alternate" hreflang={item.locale} href={item.href} />)}
+  {page !== "not-found" && <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(page, "en"), siteConfig.siteUrl).href} />}
+  <link rel="icon" href="/brand/retropa-site-logo-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/brand/retropa-site-logo-192.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#07070c" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="apple-itunes-app" content="app-id=6758859845" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Retropa" />
+  <meta property="og:title" content={meta.title} />
+  <meta property="og:description" content={meta.description} />
+  <meta property="og:url" content={meta.canonical} />
+  <meta property="og:image" content={meta.socialImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={meta.socialImageAlt} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={meta.title} />
+  <meta name="twitter:description" content={meta.description} />
+  <meta name="twitter:image" content={meta.socialImage} />
+  <meta name="twitter:image:alt" content={meta.socialImageAlt} />
+  <link rel="preload" href="/fonts/anybody-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  {locale === "zh-Hans" && <link rel="preload" href={page === "home" ? "/fonts/smiley-zh-hans-home.woff2" : "/fonts/smiley-zh-hans.woff2"} as="font" type="font/woff2" crossorigin />}
+  {locale === "zh-Hans" && page === "home" && <style is:inline>@font-face { font-family: "SmileyHome"; src: url("/fonts/smiley-zh-hans-home.woff2") format("woff2"); font-weight: 400 900; font-display: fallback; } :lang(zh-Hans) { --display-face: "SmileyHome", "Smiley", var(--font-display); }</style>}
+  {preload.map(href => <link rel="preload" href={href} as="image" fetchpriority="high" />)}
+  <script is:inline>document.documentElement.classList.add("js")</script>
+  <script type="application/ld+json" set:html={jsonLd} />
+</head>
+<body>
+  <a href="#main" class="skip-link">{discovery.skip}</a>
+  <Header locale={locale} page={page} />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer locale={locale} page={page} />
+  <script>
+    import "@/scripts/site.ts"
+  </script>
+  <style is:global>
+    .skip-link { position: absolute; top: -100px; left: 16px; z-index: 100; padding: 12px 18px; border-radius: 12px; background: #f4f2fb; color: #07070c; font-weight: 600; }
+    .skip-link:focus { top: 12px; }
+    .consent { position: relative; }
+    .consent-toggle { border: 0; background: none; padding: 0; font-size: 13px; color: inherit; text-decoration: underline; text-underline-offset: 4px; }
+    .consent-panel { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 60; max-width: 420px; display: grid; gap: 10px; padding: 20px; border-radius: 18px; background: #13131e; color: #f4f2fb; box-shadow: 0 0 0 1px rgb(255 255 255 / .12), 0 24px 60px -12px rgb(0 0 0 / .7); font-size: 14px; }
+    .consent-panel a { text-decoration: underline; text-underline-offset: 3px; color: var(--signal-2); }
+    .consent-actions { display: flex; gap: 8px; justify-content: flex-end; }
+    .consent-actions button { height: 38px; padding: 0 16px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .2); background: transparent; }
+    .consent-actions button:last-child { background: #f4f2fb; color: #07070c; border-color: transparent; }
+  </style>
+</body>
+</html>

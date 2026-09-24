@@ -1,16 +1,23 @@
-import { localizedPath, routeFromPath, type SitePage } from "@/lib/routes"
-import { familyForPage } from "@/lib/page-families"
 import { siteConfig } from "@/lib/site-config"
 import type { DisplayModeName } from "@/content/display-study"
+
+// Client-side: the page identity comes from the rendered document (html lang,
+// retropa-page meta, canonical link), so this module never bundles the route
+// registry or page content.
+function currentPage(): { page: string; locale: string; location: string } {
+  const page = document.querySelector<HTMLMetaElement>("meta[name=retropa-page]")?.content ?? "not-found"
+  const location = document.querySelector<HTMLLinkElement>("link[rel=canonical]")?.href ?? `${siteConfig.siteUrl}/404.html`
+  return { page, locale: document.documentElement.lang || "en", location }
+}
 
 export const analyticsConfig = {
   measurementId: import.meta.env.VITE_GA4_MEASUREMENT_ID ?? "",
   providerToken: import.meta.env.VITE_ASC_PROVIDER_TOKEN ?? "",
-  revision: "discovery-2026-09-v8",
+  revision: "channel-surf-2026-09-v9",
 } as const
 export type Consent = "unknown" | "granted" | "denied"
 type EventName = "web_page_view" | "web_download_clicked" | "web_feature_viewed" | "web_feature_selected" | "web_guide_opened" | "web_filter_preview_changed"
-type Attributes = { placement?: "header" | "hero" | "footer" | "guide" | "filters"; feature_id?: "skins" | "filters" | "library" | "plus"; display_mode?: DisplayModeName }
+type Attributes = { placement?: "header" | "hero" | "footer" | "guide" | "filters"; feature_id?: "skins" | "filters" | "library" | "plus" | "channel" | "skin_rack" | "console_mode" | "collection" | "arcade" | "qr"; display_mode?: DisplayModeName }
 type Evidence = { name: EventName; parameters: Record<string, string | number>; delivery: "consent_blocked" | "unconfigured" | "queued"; timestamp: string }
 type AnalyticsWindow = Window & {
   dataLayer?: unknown[]
@@ -28,22 +35,6 @@ const storage = (): Consent => {
 let sessionConsent: Consent | undefined
 export const readConsent = (): Consent => typeof window === "undefined" ? "unknown" : sessionConsent ?? storage()
 
-export function appStoreLink(page: SitePage = "home"): string {
-  const family = familyForPage(page)
-  const pageId = family?.localesFor(page).length && /^[a-z0-9-]+$/.test(page) ? page : "not-found"
-  let campaign = pageId === "home" ? "retropa_web_v1" : `retropa_${pageId}`
-  if (campaign.length > 30) {
-    let hash = 2166136261
-    for (const character of pageId) hash = Math.imul(hash ^ character.charCodeAt(0), 16777619)
-    campaign = `retropa_${pageId.slice(0, 15)}_${(hash >>> 0).toString(36)}`
-  }
-  const url = new URL(siteConfig.appStoreUrl)
-  url.searchParams.set("ct", campaign)
-  url.searchParams.set("mt", "8")
-  if (/^\d+$/.test(analyticsConfig.providerToken)) url.searchParams.set("pt", analyticsConfig.providerToken)
-  return url.href
-}
-
 function startAnalytics(): void {
   if (!isConfigured() || readConsent() !== "granted") return
   const target = window as AnalyticsWindow
@@ -52,11 +43,11 @@ function startAnalytics(): void {
   // The Google tag queue consumes Arguments objects, not event records.
   // eslint-disable-next-line prefer-rest-params
   target.gtag = function () { target.dataLayer!.push(arguments) }
-  const { page, locale } = routeFromPath(location.pathname)
+  const { location: pageLocation } = currentPage()
   target.gtag("js", new Date())
   target.gtag("config", analyticsConfig.measurementId, {
     send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false,
-    page_location: new URL(localizedPath(page, locale), siteConfig.siteUrl).href,
+    page_location: pageLocation,
     page_referrer: "", cookie_flags: "SameSite=Lax;Secure",
   })
   const script = document.createElement("script")
@@ -80,10 +71,10 @@ function entrySource(): string {
 
 export function track(name: EventName, attributes: Attributes = {}): void {
   if (typeof window === "undefined") return
-  const { page, locale } = routeFromPath(location.pathname)
+  const { page, locale, location: pageLocation } = currentPage()
   const parameters: Record<string, string | number> = {
     schema_version: 1, site_revision: analyticsConfig.revision, page_id: page, locale,
-    page_location: new URL(localizedPath(page, locale), siteConfig.siteUrl).href,
+    page_location: pageLocation,
     page_referrer: "", page_title: `${siteConfig.name} / ${page}`,
     entry_source: readConsent() === "granted" ? entrySource() : "not_collected",
   }

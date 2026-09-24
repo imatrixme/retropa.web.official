@@ -1,0 +1,39 @@
+---
+import { phrases } from "@/lib/phrases"
+import Breadcrumbs from "@/components/Breadcrumbs.astro"
+import AppStoreCTA from "@/components/AppStoreCTA.astro"
+import type { Locale } from "@/i18n/locales"
+import type { SitePage } from "@/lib/routes"
+import { acquisitionCopy } from "@/content/acquisition"
+
+interface Props {
+  locale: Locale; page: SitePage; crumbs?: { label: string; items: { text: string; href?: string }[] }
+  eyebrow: string; title: string; summary?: string; cta?: boolean; mark?: string
+}
+const { locale, page, crumbs, eyebrow, title, summary, cta = true, mark } = Astro.props
+const copy = acquisitionCopy(locale)
+---
+<section class="page-hero ground-tube">
+  <div class="glow" aria-hidden="true"></div>
+  {mark && <div class="mark display" aria-hidden="true">{mark}</div>}
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="shell inner">
+    {crumbs && <Breadcrumbs {...crumbs} />}
+    <p class="eyebrow">{eyebrow}</p>
+    <h1 class="display">{phrases(title).map(part => <span class="phrase">{part}</span>)}</h1>
+    {summary && <p class="summary">{summary}</p>}
+    {cta && <AppStoreCTA locale={locale} page={page} placement="guide" note={copy.free} />}
+    <slot />
+  </div>
+</section>
+<style>
+  @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
+  :lang(ja) h1, :lang(ja) h2 { font-size: clamp(34px, 4.8vw, 76px); line-height: 1.08; }
+  .page-hero { position: relative; overflow: hidden; isolation: isolate; padding: 148px 0 88px; }
+  .glow { position: absolute; z-index: -1; inset: -40% -10% auto 35%; height: 140%; background: radial-gradient(closest-side, color-mix(in oklab, var(--signal) 42%, transparent), transparent 70%); filter: blur(20px); opacity: .75; }
+  .mark { position: absolute; z-index: -1; right: -2vw; bottom: -0.16em; font-size: clamp(120px, 26vw, 420px); line-height: .8; color: transparent; -webkit-text-stroke: 1px color-mix(in oklab, var(--signal) 45%, transparent); white-space: nowrap; font-stretch: 150%; pointer-events: none; }
+  .inner { position: relative; display: grid; gap: 22px; }
+  h1 { max-width: 18ch; font-size: clamp(44px, 6.6vw, 92px); line-height: .94; color: #fff; }
+  :lang(zh-Hans) h1, :lang(zh-Hant) h1, :lang(ja) h1, :lang(ko) h1 { line-height: 1.08; }
+  .summary { max-width: 62ch; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; color: rgb(244 242 251 / .74); }
+</style>

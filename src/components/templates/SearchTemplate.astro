@@ -1,0 +1,29 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Reading from "@/components/Reading.astro"
+import type { Locale } from "@/i18n/locales"
+import type { SearchPageContent } from "@/content/search-pages/types"
+import { relatedSearchPages } from "@/content/search-pages"
+import { discoveryCopy } from "@/content/discovery"
+import { acquisitionCopy } from "@/content/acquisition"
+import { siteLink } from "@/lib/links"
+import { channels, channelForPage } from "@/content/channels"
+
+interface Props { locale: Locale; content: SearchPageContent }
+const { locale, content } = Astro.props
+const discovery = discoveryCopy(locale)
+const copy = acquisitionCopy(locale)
+const zh = locale.startsWith("zh")
+const faqTitle = zh ? "常见问题" : "Questions"
+const channel = channels.find(item => item.id === channelForPage(content.slug))
+const related = [
+  ...relatedSearchPages(content, locale).map(page => ({ ...siteLink(page.slug, locale), text: page.label })),
+  { ...siteLink("cores", locale), text: discovery.more },
+]
+---
+<PageHero locale={locale} page={content.slug} eyebrow={`Retropa / ${content.label}`} title={content.title} summary={content.summary} mark={channel?.short.split(" ")[0]}
+  crumbs={{ label: zh ? "当前位置" : "Breadcrumb", items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: discovery.explore, href: siteLink("cores", locale).href }, { text: content.label }] }} />
+<Reading tocLabel={discovery.onThisPage} asideNote={copy.noRoms}
+  sections={content.sections.map((section, index) => ({ id: `chapter-${index + 1}`, ...section }))}
+  faqs={content.faqs ?? []} faqTitle={faqTitle} attribution={content.attribution}
+  relatedLabel={discovery.related} related={related} />

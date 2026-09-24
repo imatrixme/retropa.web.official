@@ -1,0 +1,31 @@
+---
+// Inline stroke icons. Kept local so static pages ship no icon runtime.
+const paths = {
+  "arrow-right": "M5 12h14M13 6l6 6-6 6",
+  "arrow-up-right": "M7 17 17 7M8 7h9v9",
+  "chevron-down": "m6 9 6 6 6-6",
+  "chevron-right": "m9 6 6 6-6 6",
+  globe: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18",
+  menu: "M4 7h16M4 12h16M4 17h16",
+  close: "M6 6l12 12M18 6 6 18",
+  download: "M12 4v11m0 0-4-4m4 4 4-4M5 20h14",
+  check: "m5 12 5 5L20 7",
+  plus: "M12 5v14M5 12h14",
+  tv: "M4 7h16v11H4zM9 21h6M8 3l4 4 4-4",
+  gamepad: "M6 11h4M8 9v4M15 12h.01M18 10h.01M7 6h10a5 5 0 0 1 4.9 6l-.9 4.4a2.5 2.5 0 0 1-4.3 1.2L14 15h-4l-2.7 2.6a2.5 2.5 0 0 1-4.3-1.2L2.1 12A5 5 0 0 1 7 6Z",
+  rewind: "M11 19 2 12l9-7v14ZM22 19l-9-7 9-7v14Z",
+  wave: "M2 12h3l2-6 3 12 3-9 2 5 2-2h5",
+  cloud: "M17.5 19H8a6 6 0 1 1 5.7-7.9A4.5 4.5 0 1 1 17.5 19Z",
+  sparkle: "M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6",
+  folder: "M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z",
+  wifi: "M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01M1.5 9a15 15 0 0 1 21 0",
+  lock: "M6 11h12v10H6zM8 11V7a4 4 0 1 1 8 0v4",
+  medal: "M8 3h8l-2 6h-4L8 3ZM12 21a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z",
+  film: "M4 4h16v16H4zM8 4v16M16 4v16M4 8h4M4 12h4M4 16h4M16 8h4M16 12h4M16 16h4",
+  bolt: "M13 2 4 14h7l-1 8 9-12h-7l1-8Z",
+} as const
+type Name = keyof typeof paths
+interface Props { name: Name; size?: number; class?: string; strokeWidth?: number }
+const { name, size = 20, class: className, strokeWidth = 1.8 } = Astro.props
+---
+<svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={strokeWidth} stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={paths[name]} /></svg>

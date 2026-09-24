@@ -1,4 +1,4 @@
-import { normalizeLocale, supportedLocales, type Locale } from "@/i18n/locales"
+import { normalizeLocale, publishedLocales as supportedLocales, type Locale } from "@/i18n/locales"
 import type { PageKey } from "@/i18n/pages"
 import type { ProductPage } from "@/content/product-details"
 import { familyForPage, guideLocale, pageFamilies } from "@/lib/page-families"

@@ -1,4 +1,4 @@
-import { supportedLocales } from "../src/i18n/locales"
+import { isPublishedLocale, retiredLocaleFallback, supportedLocales } from "../src/i18n/locales"
 
 const args = process.argv.slice(2)
 if (args.includes("--help")) {
@@ -32,7 +32,8 @@ for (const page of ["/", "/cores/", "/terms/", "/privacy/"]) {
     const response = await request(`${page}?utm_source=seo-check&lang=${locale}&ct=retropa_web_v1`)
     const target = response.headers.get("location")
     const location = target ? new URL(target, base) : null
-    const expected = `${locale === "en" ? "" : `/${locale}`}${page}`
+    const landing = isPublishedLocale(locale) ? locale : retiredLocaleFallback[locale] ?? "en"
+    const expected = `${landing === "en" ? "" : `/${landing}`}${page}`
     if (![301, 308].includes(response.status) || !location || ![base.origin, "https://retropa.com"].includes(location.origin) || location.pathname !== expected || location.searchParams.has("lang") || location.searchParams.get("utm_source") !== "seo-check" || location.searchParams.get("ct") !== "retropa_web_v1") issues.push(`${page} (${locale}): legacy redirect mismatch`)
     await response.body?.cancel()
   }
@@ -43,10 +44,22 @@ for (const query of ["lang=zh-Hans", "lang=zh-Hans&utm_source=a%26b", "utm_sourc
   const location = target ? new URL(target, base) : null
   if (![301, 308].includes(response.status) || location?.pathname !== "/zh-Hans/cores/" || location.searchParams.has("lang") || (query.includes("utm_source") && location.searchParams.get("utm_source") !== "a&b")) issues.push(`HEAD ${query}: query preservation mismatch`)
 }
-for (const path of ["/seo-evidence-missing", "/seo-evidence-missing?lang=zh-Hans", "/ja/route-does-not-exist/", "/de/route-does-not-exist/", "/fr/route-does-not-exist/", "/scripts/social-artwork.html"]) {
+for (const path of ["/seo-evidence-missing", "/seo-evidence-missing?lang=zh-Hans", "/ja/route-does-not-exist/", "/zh-Hans/route-does-not-exist/", "/scripts/social-artwork.html"]) {
   const response = await request(path)
   if (response.status !== 404) issues.push(`${path}: expected 404`)
   await response.body?.cancel()
+}
+// Retired language prefixes move permanently to the fallback language, keeping the query.
+for (const locale of supportedLocales.filter((item) => !isPublishedLocale(item))) {
+  const fallback = retiredLocaleFallback[locale] ?? "en"
+  for (const path of ["/", "/gba-emulator/", "/cores/"]) {
+    const response = await request(`/${locale}${path}?utm_source=retired`)
+    const target = response.headers.get("location")
+    const location = target ? new URL(target, base) : null
+    const expected = `${fallback === "en" ? "" : `/${fallback}`}${path}`
+    if (response.status !== 308 || location?.pathname !== expected || location.searchParams.get("utm_source") !== "retired") issues.push(`/${locale}${path}: retired-language redirect mismatch`)
+    await response.body?.cancel()
+  }
 }
 for (const query of ["lang=unsupported", "lang=en&lang=zh-Hans"]) {
   const response = await request(`/?${query}`)

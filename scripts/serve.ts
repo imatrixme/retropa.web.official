@@ -29,6 +29,11 @@ const server = Bun.serve({
     const content = exists ? file : Bun.file(`${root}/404.html`)
     const headers = { "Content-Type": content.type, "Cache-Control": exists && pathname.startsWith("/assets/") ? "public, max-age=31536000, immutable" : "no-cache", "X-Content-Type-Options": "nosniff" }
     if (extname(path) === ".html") headers["Content-Type"] = "text/html;charset=utf-8"
+    // Mirror production text compression so local performance checks are comparable.
+    const compressible = /^(?:text\/|application\/(?:javascript|json|xml)|image\/svg)/.test(headers["Content-Type"])
+    if (compressible && request.method !== "HEAD" && /\bgzip\b/.test(request.headers.get("accept-encoding") ?? "")) {
+      return new Response(Bun.gzipSync(new Uint8Array(await content.arrayBuffer())), { status: exists && pathname !== "/404.html" ? 200 : 404, headers: { ...headers, "Content-Encoding": "gzip", Vary: "Accept-Encoding" } })
+    }
     return new Response(request.method === "HEAD" ? null : content, { status: exists && pathname !== "/404.html" ? 200 : 404, headers })
   },
 })

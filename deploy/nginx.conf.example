@@ -6,6 +6,10 @@ server {
     root /srv/retropa/current/dist;
     index index.html;
 
+    if ($retropa_retired_target != "") {
+        return 308 https://retropa.com$retropa_retired_target$is_args$args;
+    }
+
     if ($retropa_legacy_target != "") {
         return 308 https://retropa.com$retropa_legacy_target$retropa_query_suffix;
     }

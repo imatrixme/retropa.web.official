@@ -1,0 +1,2383 @@
+{
+ "generatedAt": "2026-09-23T16:41:25.695Z",
+ "sitemap": [
+  "https://retropa.com/",
+  "https://retropa.com/arcade/",
+  "https://retropa.com/ares-core/",
+  "https://retropa.com/cores/",
+  "https://retropa.com/crt-filters/",
+  "https://retropa.com/delta-alternative/",
+  "https://retropa.com/delta-skins/",
+  "https://retropa.com/ds-emulator/",
+  "https://retropa.com/game-gear-emulator/",
+  "https://retropa.com/gb-emulator/",
+  "https://retropa.com/gba-emulator/",
+  "https://retropa.com/gbc-emulator/",
+  "https://retropa.com/guides/",
+  "https://retropa.com/guides/connect-controller-ios/",
+  "https://retropa.com/guides/game-wont-load/",
+  "https://retropa.com/guides/import-roms-iphone/",
+  "https://retropa.com/guides/save-states-and-rewind/",
+  "https://retropa.com/ja/",
+  "https://retropa.com/ja/arcade/",
+  "https://retropa.com/ja/ares-core/",
+  "https://retropa.com/ja/cores/",
+  "https://retropa.com/ja/crt-filters/",
+  "https://retropa.com/ja/delta-alternative/",
+  "https://retropa.com/ja/delta-skins/",
+  "https://retropa.com/ja/ds-emulator/",
+  "https://retropa.com/ja/game-gear-emulator/",
+  "https://retropa.com/ja/gb-emulator/",
+  "https://retropa.com/ja/gba-emulator/",
+  "https://retropa.com/ja/gbc-emulator/",
+  "https://retropa.com/ja/guides/",
+  "https://retropa.com/ja/guides/connect-controller-ios/",
+  "https://retropa.com/ja/guides/game-wont-load/",
+  "https://retropa.com/ja/guides/import-roms-iphone/",
+  "https://retropa.com/ja/guides/save-states-and-rewind/",
+  "https://retropa.com/ja/jgenesis-core/",
+  "https://retropa.com/ja/lakesnes-core/",
+  "https://retropa.com/ja/master-system-emulator/",
+  "https://retropa.com/ja/mgba-core/",
+  "https://retropa.com/ja/neogeo-emulator/",
+  "https://retropa.com/ja/neogeo-pocket-emulator/",
+  "https://retropa.com/ja/nes-emulator/",
+  "https://retropa.com/ja/plus/",
+  "https://retropa.com/ja/privacy/",
+  "https://retropa.com/ja/retropa-vs-delta/",
+  "https://retropa.com/ja/rusticones-core/",
+  "https://retropa.com/ja/sameboy-core/",
+  "https://retropa.com/ja/sega-genesis-emulator/",
+  "https://retropa.com/ja/skyemu-core/",
+  "https://retropa.com/ja/snes-emulator/",
+  "https://retropa.com/ja/start/",
+  "https://retropa.com/ja/terms/",
+  "https://retropa.com/ja/tetanes-core/",
+  "https://retropa.com/ja/wonderswan-emulator/",
+  "https://retropa.com/jgenesis-core/",
+  "https://retropa.com/lakesnes-core/",
+  "https://retropa.com/master-system-emulator/",
+  "https://retropa.com/mgba-core/",
+  "https://retropa.com/neogeo-emulator/",
+  "https://retropa.com/neogeo-pocket-emulator/",
+  "https://retropa.com/nes-emulator/",
+  "https://retropa.com/plus/",
+  "https://retropa.com/privacy/",
+  "https://retropa.com/retropa-vs-delta/",
+  "https://retropa.com/rusticones-core/",
+  "https://retropa.com/sameboy-core/",
+  "https://retropa.com/sega-genesis-emulator/",
+  "https://retropa.com/skyemu-core/",
+  "https://retropa.com/snes-emulator/",
+  "https://retropa.com/start/",
+  "https://retropa.com/terms/",
+  "https://retropa.com/tetanes-core/",
+  "https://retropa.com/wonderswan-emulator/",
+  "https://retropa.com/zh-Hans/",
+  "https://retropa.com/zh-Hans/arcade/",
+  "https://retropa.com/zh-Hans/ares-core/",
+  "https://retropa.com/zh-Hans/cores/",
+  "https://retropa.com/zh-Hans/crt-filters/",
+  "https://retropa.com/zh-Hans/delta-alternative/",
+  "https://retropa.com/zh-Hans/delta-skins/",
+  "https://retropa.com/zh-Hans/ds-emulator/",
+  "https://retropa.com/zh-Hans/game-gear-emulator/",
+  "https://retropa.com/zh-Hans/gb-emulator/",
+  "https://retropa.com/zh-Hans/gba-emulator/",
+  "https://retropa.com/zh-Hans/gbc-emulator/",
+  "https://retropa.com/zh-Hans/guides/",
+  "https://retropa.com/zh-Hans/guides/connect-controller-ios/",
+  "https://retropa.com/zh-Hans/guides/game-wont-load/",
+  "https://retropa.com/zh-Hans/guides/import-roms-iphone/",
+  "https://retropa.com/zh-Hans/guides/save-states-and-rewind/",
+  "https://retropa.com/zh-Hans/jgenesis-core/",
+  "https://retropa.com/zh-Hans/lakesnes-core/",
+  "https://retropa.com/zh-Hans/master-system-emulator/",
+  "https://retropa.com/zh-Hans/mgba-core/",
+  "https://retropa.com/zh-Hans/neogeo-emulator/",
+  "https://retropa.com/zh-Hans/neogeo-pocket-emulator/",
+  "https://retropa.com/zh-Hans/nes-emulator/",
+  "https://retropa.com/zh-Hans/plus/",
+  "https://retropa.com/zh-Hans/privacy/",
+  "https://retropa.com/zh-Hans/retropa-vs-delta/",
+  "https://retropa.com/zh-Hans/rusticones-core/",
+  "https://retropa.com/zh-Hans/sameboy-core/",
+  "https://retropa.com/zh-Hans/sega-genesis-emulator/",
+  "https://retropa.com/zh-Hans/skyemu-core/",
+  "https://retropa.com/zh-Hans/snes-emulator/",
+  "https://retropa.com/zh-Hans/start/",
+  "https://retropa.com/zh-Hans/terms/",
+  "https://retropa.com/zh-Hans/tetanes-core/",
+  "https://retropa.com/zh-Hans/wonderswan-emulator/"
+ ],
+ "routes": {
+  "/wonderswan-emulator/": {
+   "canonical": "https://retropa.com/wonderswan-emulator/",
+   "alternates": [
+    "en https://retropa.com/wonderswan-emulator/",
+    "ja https://retropa.com/ja/wonderswan-emulator/",
+    "x-default https://retropa.com/wonderswan-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/wonderswan-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "WonderSwan Emulator for iPhone & iPad | Retropa",
+   "description": "Bring your own .ws WonderSwan files to iPhone and iPad. How the Ares core handles them, why vertical play matters, and where to look when a game fails to boot."
+  },
+  "/zh-Hans/wonderswan-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/wonderswan-emulator/",
+   "alternates": [
+    "en https://retropa.com/wonderswan-emulator/",
+    "ja https://retropa.com/ja/wonderswan-emulator/",
+    "x-default https://retropa.com/wonderswan-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/wonderswan-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 的 WonderSwan 模拟器 | Retropa",
+   "description": "把自己手里的 .ws WonderSwan 文件拿到 iPhone 与 iPad 上玩。Ares 核心负责运行，竖屏握法照样支持，导入步骤和排障思路都写在这一页。"
+  },
+  "/zh-Hans/rusticones-core/": {
+   "canonical": "https://retropa.com/zh-Hans/rusticones-core/",
+   "alternates": [
+    "en https://retropa.com/rusticones-core/",
+    "ja https://retropa.com/ja/rusticones-core/",
+    "x-default https://retropa.com/rusticones-core/",
+    "zh-Hans https://retropa.com/zh-Hans/rusticones-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "RusticoNES：iPhone 与 iPad 上的 NES 默认核心 | Retropa",
+   "description": "RusticoNES 是 Retropa 默认跑的 NES 核心：卡带与磁盘格式、mapper 检查、首次启动要看什么、存档怎么备份，以及换核心为什么需要 Plus。"
+  },
+  "/zh-Hans/gba-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/gba-emulator/",
+   "alternates": [
+    "en https://retropa.com/gba-emulator/",
+    "ja https://retropa.com/ja/gba-emulator/",
+    "x-default https://retropa.com/gba-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gba-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 的 GBA 模拟器 | Retropa",
+   "description": "把你拥有的 .gba 文件导入 Retropa。先运行游戏，再挑选掌机皮肤、连接手柄，找到记忆里的屏幕观感。"
+  },
+  "/zh-Hans/sega-genesis-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/sega-genesis-emulator/",
+   "alternates": [
+    "en https://retropa.com/sega-genesis-emulator/",
+    "ja https://retropa.com/ja/sega-genesis-emulator/",
+    "x-default https://retropa.com/sega-genesis-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/sega-genesis-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 Genesis 与 Mega Drive 模拟器 | Retropa",
+   "description": "在 iPhone 和 iPad 上跑你自己的 Sega Genesis 与 Mega Drive 游戏。.md、.smd、.gen 都能读，核心是 JGenesis，三键与六键手柄都做了映射，起不来时也有排查思路。"
+  },
+  "/zh-Hans/": {
+   "canonical": "https://retropa.com/zh-Hans/",
+   "alternates": [
+    "en https://retropa.com/",
+    "ja https://retropa.com/ja/",
+    "x-default https://retropa.com/",
+    "zh-Hans https://retropa.com/zh-Hans/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication"
+   ],
+   "title": "Retropa | 街机与掌机模拟器 | iPhone & iPad",
+   "description": "你的游戏，你说了算。在 iPhone 和 iPad 上玩 GBA、DS 和街机，皮肤、按键、滤镜都照你的习惯来。 免费下载，可选内购。需要 iOS 18 或更新版本。"
+  },
+  "/zh-Hans/privacy/": {
+   "canonical": "https://retropa.com/zh-Hans/privacy/",
+   "alternates": [
+    "en https://retropa.com/privacy/",
+    "ja https://retropa.com/ja/privacy/",
+    "x-default https://retropa.com/privacy/",
+    "zh-Hans https://retropa.com/zh-Hans/privacy/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa 隐私政策 · 官方数据声明",
+   "description": "阅读 Retropa 隐私政策：信息范围、处理与存储、共享方式，以及你可对数据行使的权利（iOS 应用与官网）。"
+  },
+  "/zh-Hans/lakesnes-core/": {
+   "canonical": "https://retropa.com/zh-Hans/lakesnes-core/",
+   "alternates": [
+    "en https://retropa.com/lakesnes-core/",
+    "ja https://retropa.com/ja/lakesnes-core/",
+    "x-default https://retropa.com/lakesnes-core/",
+    "zh-Hans https://retropa.com/zh-Hans/lakesnes-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "LakeSnes：iPhone 与 iPad 上的 SNES 核心 | Retropa",
+   "description": "LakeSnes 负责 Retropa 的 SNES / Super Famicom：镜像与拷贝卡格式、卡带芯片的边界、六键手柄，以及换核心需要的 Plus。"
+  },
+  "/zh-Hans/arcade/": {
+   "canonical": "https://retropa.com/zh-Hans/arcade/",
+   "alternates": [
+    "en https://retropa.com/arcade/",
+    "ja https://retropa.com/ja/arcade/",
+    "x-default https://retropa.com/arcade/",
+    "zh-Hans https://retropa.com/zh-Hans/arcade/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 街机模拟器 | Retropa",
+   "description": "在 Retropa 重玩受支持的 CPS、Neo Geo、PGM 与 M92 街机，搭配触控、实体手柄与 CRT 滤镜。运行街机需要 Plus；App 不附带游戏或 BIOS。"
+  },
+  "/zh-Hans/jgenesis-core/": {
+   "canonical": "https://retropa.com/zh-Hans/jgenesis-core/",
+   "alternates": [
+    "en https://retropa.com/jgenesis-core/",
+    "ja https://retropa.com/ja/jgenesis-core/",
+    "x-default https://retropa.com/jgenesis-core/",
+    "zh-Hans https://retropa.com/zh-Hans/jgenesis-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 JGenesis 核心 | Retropa",
+   "description": "JGenesis 在 Retropa 里一个人管着 GB、NES 和世嘉几代主机。本页说清目录收哪些格式、Genesis 与 Mega Drive 怎么分、识别错了该看哪里，以及 Plus 解锁的核心切换。"
+  },
+  "/zh-Hans/sameboy-core/": {
+   "canonical": "https://retropa.com/zh-Hans/sameboy-core/",
+   "alternates": [
+    "en https://retropa.com/sameboy-core/",
+    "ja https://retropa.com/ja/sameboy-core/",
+    "x-default https://retropa.com/sameboy-core/",
+    "zh-Hans https://retropa.com/zh-Hans/sameboy-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 SameBoy 核心 | Retropa",
+   "description": "SameBoy 在 Retropa 里只管 Game Boy 和 Game Boy Color。这一页讲怎么看颜色、范围到哪为止、即时存档的边界，以及什么情况下才值得掏 Plus 换核心。"
+  },
+  "/zh-Hans/skyemu-core/": {
+   "canonical": "https://retropa.com/zh-Hans/skyemu-core/",
+   "alternates": [
+    "en https://retropa.com/skyemu-core/",
+    "ja https://retropa.com/ja/skyemu-core/",
+    "x-default https://retropa.com/skyemu-core/",
+    "zh-Hans https://retropa.com/zh-Hans/skyemu-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 SkyEmu 核心 | Retropa",
+   "description": "SkyEmu 在 Retropa 里既管 Nintendo DS 的 Beta 路径，也管 Game Boy 系列。这一页说清它认的后缀、双屏触控怎么摆、兼容性为什么只能一个个试，以及 Plus 换核心在这里为什么用不上。"
+  },
+  "/zh-Hans/terms/": {
+   "canonical": "https://retropa.com/zh-Hans/terms/",
+   "alternates": [
+    "en https://retropa.com/terms/",
+    "ja https://retropa.com/ja/terms/",
+    "x-default https://retropa.com/terms/",
+    "zh-Hans https://retropa.com/zh-Hans/terms/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa 服务条款 · 官方法务页面",
+   "description": "阅读 Retropa 服务条款（iOS 应用）：使用规则、许可与购买、导入内容的用户责任，以及联系信息。"
+  },
+  "/zh-Hans/snes-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/snes-emulator/",
+   "alternates": [
+    "en https://retropa.com/snes-emulator/",
+    "ja https://retropa.com/ja/snes-emulator/",
+    "x-default https://retropa.com/snes-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/snes-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "在 iPhone 与 iPad 上玩 SNES 游戏 | Retropa",
+   "description": "把你自己手上的 SNES 游戏搬到 iPhone 和 iPad 上。.sfc 与 .smc 都能读，由 LakeSnes 核心跑起来，六个按键可以映射，游戏起不来时也有排查步骤。"
+  },
+  "/zh-Hans/start/": {
+   "canonical": "https://retropa.com/zh-Hans/start/",
+   "alternates": [
+    "en https://retropa.com/start/",
+    "ja https://retropa.com/ja/start/",
+    "x-default https://retropa.com/start/",
+    "zh-Hans https://retropa.com/zh-Hans/start/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa 游戏导入指南 | GBA、DS 与街机",
+   "description": "在 iPhone 和 iPad 上导入 GBA、DS 与街机游戏。了解 ROM、BIOS、Delta 皮肤、手柄、存档、Plus 与无需整数倍缩放的高级滤镜。"
+  },
+  "/zh-Hans/tetanes-core/": {
+   "canonical": "https://retropa.com/zh-Hans/tetanes-core/",
+   "alternates": [
+    "en https://retropa.com/tetanes-core/",
+    "ja https://retropa.com/ja/tetanes-core/",
+    "x-default https://retropa.com/tetanes-core/",
+    "zh-Hans https://retropa.com/zh-Hans/tetanes-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "TetaNES：iPhone 与 iPad 上的 NES 替代核心 | Retropa",
+   "description": "TetaNES 在 Retropa 里多管一条线：NES / Famicom 卡带、磁盘镜像与 NSF 音乐，按格式分开检查，手柄怎么设，换核心为什么要 Plus。"
+  },
+  "/zh-Hans/guides/": {
+   "canonical": "https://retropa.com/zh-Hans/guides/",
+   "alternates": [
+    "en https://retropa.com/guides/",
+    "ja https://retropa.com/ja/guides/",
+    "x-default https://retropa.com/guides/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa 使用指南：导入、手柄与排障 | iPhone 与 iPad",
+   "description": "把游戏导入 Retropa、连接手柄、管理存档，以及游戏无法载入时按顺序排查。适用于 iPhone 与 iPad。"
+  },
+  "/zh-Hans/guides/connect-controller-ios/": {
+   "canonical": "https://retropa.com/zh-Hans/guides/connect-controller-ios/",
+   "alternates": [
+    "en https://retropa.com/guides/connect-controller-ios/",
+    "ja https://retropa.com/ja/guides/connect-controller-ios/",
+    "x-default https://retropa.com/guides/connect-controller-ios/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/connect-controller-ios/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "给 iPhone 与 iPad 上的 Retropa 接手柄",
+   "description": "蓝牙或有线手柄，先在 iOS 里配对，再到 Retropa 里核对映射。按键没反应、映射看着变了，这类问题怎么查，也写在下面。"
+  },
+  "/zh-Hans/guides/game-wont-load/": {
+   "canonical": "https://retropa.com/zh-Hans/guides/game-wont-load/",
+   "alternates": [
+    "en https://retropa.com/guides/game-wont-load/",
+    "ja https://retropa.com/ja/guides/game-wont-load/",
+    "x-default https://retropa.com/guides/game-wont-load/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/game-wont-load/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "游戏打不开？从报错原文往下查 | Retropa",
+   "description": "游戏打不开时别乱试。先看报错原文，再按顺序确认三件事：文件是不是真的下载完整、后缀跟系统对不对得上、手里的镜像是不是完整，最后才轮到核心。"
+  },
+  "/zh-Hans/guides/import-roms-iphone/": {
+   "canonical": "https://retropa.com/zh-Hans/guides/import-roms-iphone/",
+   "alternates": [
+    "en https://retropa.com/guides/import-roms-iphone/",
+    "ja https://retropa.com/ja/guides/import-roms-iphone/",
+    "x-default https://retropa.com/guides/import-roms-iphone/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/import-roms-iphone/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "在 iPhone 与 iPad 上把游戏导入 Retropa",
+   "description": "把你自己的游戏文件放进 Retropa：导入入口在哪儿、云端占位条目为什么总是失败、哪些格式能开，以及文件被拒绝时先查什么。"
+  },
+  "/zh-Hans/guides/save-states-and-rewind/": {
+   "canonical": "https://retropa.com/zh-Hans/guides/save-states-and-rewind/",
+   "alternates": [
+    "en https://retropa.com/guides/save-states-and-rewind/",
+    "ja https://retropa.com/ja/guides/save-states-and-rewind/",
+    "x-default https://retropa.com/guides/save-states-and-rewind/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/save-states-and-rewind/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "即时存档、游戏存档与回退：到底差在哪 | Retropa",
+   "description": "游戏自己写出的存档、模拟器的即时存档、以及回退，是三套不同的机制。这篇讲清各自能做什么、换核心时哪些带得走，还有读不出来时该先看什么。"
+  },
+  "/zh-Hans/ares-core/": {
+   "canonical": "https://retropa.com/zh-Hans/ares-core/",
+   "alternates": [
+    "en https://retropa.com/ares-core/",
+    "ja https://retropa.com/ja/ares-core/",
+    "x-default https://retropa.com/ares-core/",
+    "zh-Hans https://retropa.com/zh-Hans/ares-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 Ares 核心 | Retropa",
+   "description": "Ares 在 Retropa 里负责 GBA、WonderSwan 和 Neo Geo Pocket 这几支掌机。本页讲目录收到哪一步、彩色机型怎么认、竖屏布局要注意什么，以及 Plus 解锁的核心切换。"
+  },
+  "/zh-Hans/gbc-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/gbc-emulator/",
+   "alternates": [
+    "en https://retropa.com/gbc-emulator/",
+    "ja https://retropa.com/ja/gbc-emulator/",
+    "x-default https://retropa.com/gbc-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gbc-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 Game Boy Color 模拟器 | Retropa",
+   "description": "在 iPhone 和 iPad 上玩你自己的 .gbc 游戏：颜色怎么调、核心怎么选、导入几步走完，以及游戏起不来时按什么顺序排查。"
+  },
+  "/zh-Hans/nes-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/nes-emulator/",
+   "alternates": [
+    "en https://retropa.com/nes-emulator/",
+    "ja https://retropa.com/ja/nes-emulator/",
+    "x-default https://retropa.com/nes-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/nes-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 NES 模拟器 | Retropa",
+   "description": "iPhone 和 iPad 上跑你自己的 NES 游戏。.nes、.fds、.nsf 都认，核心怎么选、游戏怎么导入、手柄怎么映射、载入失败怎么查，一并说清。"
+  },
+  "/zh-Hans/neogeo-pocket-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/neogeo-pocket-emulator/",
+   "alternates": [
+    "en https://retropa.com/neogeo-pocket-emulator/",
+    "ja https://retropa.com/ja/neogeo-pocket-emulator/",
+    "x-default https://retropa.com/neogeo-pocket-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/neogeo-pocket-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 的 Neo Geo Pocket 模拟器 | Retropa",
+   "description": "手上的 .ngp 与 .ngpc 文件怎么在 iPhone 与 iPad 上跑：谁负责运行、那颗微动摇杆按起来什么感觉，以及它和 Neo Geo 街机为什么是两回事。"
+  },
+  "/zh-Hans/ds-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/ds-emulator/",
+   "alternates": [
+    "en https://retropa.com/ds-emulator/",
+    "ja https://retropa.com/ja/ds-emulator/",
+    "x-default https://retropa.com/ds-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/ds-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 的 DS 模拟器 | Retropa",
+   "description": "将你拥有的 .nds 游戏导入 Retropa，为上下双屏留出舒适的位置。先检查触控、按键和文件要求，再选择皮肤与滤镜。"
+  },
+  "/zh-Hans/mgba-core/": {
+   "canonical": "https://retropa.com/zh-Hans/mgba-core/",
+   "alternates": [
+    "en https://retropa.com/mgba-core/",
+    "ja https://retropa.com/ja/mgba-core/",
+    "x-default https://retropa.com/mgba-core/",
+    "zh-Hans https://retropa.com/zh-Hans/mgba-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 mGBA 核心 | Retropa",
+   "description": "mGBA 是 Retropa 里 Game Boy 三代的默认核心。这一页讲它认哪些文件、第一次进游戏该看什么、画面不对劲时先怀疑哪里，以及 Plus 换核心要注意的事。"
+  },
+  "/zh-Hans/master-system-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/master-system-emulator/",
+   "alternates": [
+    "en https://retropa.com/master-system-emulator/",
+    "ja https://retropa.com/ja/master-system-emulator/",
+    "x-default https://retropa.com/master-system-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/master-system-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 的 Master System 模拟器 | Retropa",
+   "description": "Sega Master System 的 .sms 文件怎么在 iPhone 与 iPad 上跑起来：认准哪个核心、导入怎么做、键位怎么摆，以及游戏不启动时先从哪儿查。"
+  },
+  "/zh-Hans/game-gear-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/game-gear-emulator/",
+   "alternates": [
+    "en https://retropa.com/game-gear-emulator/",
+    "ja https://retropa.com/ja/game-gear-emulator/",
+    "x-default https://retropa.com/game-gear-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/game-gear-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "在 iPhone 与 iPad 上玩 Game Gear | Retropa",
+   "description": "在 iPhone 和 iPad 上玩你自己的 .gg 游戏。这一页讲哪个核心负责它、文件怎么导入、那块小屏幕怎么设置，以及游戏起不来时该检查什么。"
+  },
+  "/zh-Hans/neogeo-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/neogeo-emulator/",
+   "alternates": [
+    "en https://retropa.com/neogeo-emulator/",
+    "ja https://retropa.com/ja/neogeo-emulator/",
+    "x-default https://retropa.com/neogeo-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/neogeo-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 的 Neo Geo 模拟器 | Retropa",
+   "description": "受支持的 Neo Geo MVS 街机 set 怎么在 iPhone 与 iPad 上运行。这一页讲 set 的内部结构、什么时候要 BIOS、父集和克隆集差在哪，以及启动失败按什么顺序查。"
+  },
+  "/zh-Hans/retropa-vs-delta/": {
+   "canonical": "https://retropa.com/zh-Hans/retropa-vs-delta/",
+   "alternates": [
+    "en https://retropa.com/retropa-vs-delta/",
+    "ja https://retropa.com/ja/retropa-vs-delta/",
+    "x-default https://retropa.com/retropa-vs-delta/",
+    "zh-Hans https://retropa.com/zh-Hans/retropa-vs-delta/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa 和 Delta 放在一起比：街机、滤镜与皮肤",
+   "description": "把 Retropa 与 Delta 并排看：各自能跑哪些系统、街机怎么支持、皮肤能不能互通、滤镜差在哪儿，以及哪一边更适合你。"
+  },
+  "/zh-Hans/crt-filters/": {
+   "canonical": "https://retropa.com/zh-Hans/crt-filters/",
+   "alternates": [
+    "en https://retropa.com/crt-filters/",
+    "ja https://retropa.com/ja/crt-filters/",
+    "x-default https://retropa.com/crt-filters/",
+    "zh-Hans https://retropa.com/zh-Hans/crt-filters/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 模拟器的 CRT 滤镜 | Retropa",
+   "description": "Retropa 高级 CRT 与 LCD 滤镜适应实际显示区域，无需整数倍缩放。不同尺寸的 iPhone、iPad、横竖屏与皮肤布局，都可以保留复古屏幕的细腻观感。"
+  },
+  "/zh-Hans/delta-alternative/": {
+   "canonical": "https://retropa.com/zh-Hans/delta-alternative/",
+   "alternates": [
+    "en https://retropa.com/delta-alternative/",
+    "ja https://retropa.com/ja/delta-alternative/",
+    "x-default https://retropa.com/delta-alternative/",
+    "zh-Hans https://retropa.com/zh-Hans/delta-alternative/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 Delta 替代选择 | Retropa",
+   "description": "想换掉 Delta？先看清两边各自的长处：街机支持、.deltaskin 皮肤导入、显示滤镜，也写明 Delta 更强的那些地方。"
+  },
+  "/zh-Hans/delta-skins/": {
+   "canonical": "https://retropa.com/zh-Hans/delta-skins/",
+   "alternates": [
+    "en https://retropa.com/delta-skins/",
+    "ja https://retropa.com/ja/delta-skins/",
+    "x-default https://retropa.com/delta-skins/",
+    "zh-Hans https://retropa.com/zh-Hans/delta-skins/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "在 iPhone 与 iPad 上导入 Delta 皮肤 | Retropa",
+   "description": "不只是换一张背景。Retropa 支持导入 .deltaskin，也提供自己的皮肤资源，让游戏画面、方向键与操作按钮一起适应你的 iPhone 和 iPad。"
+  },
+  "/zh-Hans/cores/": {
+   "canonical": "https://retropa.com/zh-Hans/cores/",
+   "alternates": [
+    "en https://retropa.com/cores/",
+    "ja https://retropa.com/ja/cores/",
+    "x-default https://retropa.com/cores/",
+    "zh-Hans https://retropa.com/zh-Hans/cores/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa 模拟器核心 · 系统/ROM 支持目录",
+   "description": "查看 Retropa 使用的模拟器核心、每个核心支持的主机系统、ROM 扩展名矩阵，以及各项目在 GitHub 的上游位置。"
+  },
+  "/zh-Hans/gb-emulator/": {
+   "canonical": "https://retropa.com/zh-Hans/gb-emulator/",
+   "alternates": [
+    "en https://retropa.com/gb-emulator/",
+    "ja https://retropa.com/ja/gb-emulator/",
+    "x-default https://retropa.com/gb-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gb-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 与 iPad 上的 Game Boy 模拟器 | Retropa",
+   "description": "Retropa 在 iPhone 和 iPad 上跑你自己的 .gb 文件。哪个核心管 Game Boy、游戏怎么导入、画面与按键怎么调、打不开先查哪里，这一页讲完。"
+  },
+  "/zh-Hans/plus/": {
+   "canonical": "https://retropa.com/zh-Hans/plus/",
+   "alternates": [
+    "en https://retropa.com/plus/",
+    "ja https://retropa.com/ja/plus/",
+    "x-default https://retropa.com/plus/",
+    "zh-Hans https://retropa.com/zh-Hans/plus/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa Plus 解锁了什么 | Retropa",
+   "description": "掌机模拟本来就是免费的；街机家族、高级皮肤、高级显示滤镜归 Retropa Plus。这篇说清分界线在哪，以及价格为什么只在 App 里看。"
+  },
+  "/rusticones-core/": {
+   "canonical": "https://retropa.com/rusticones-core/",
+   "alternates": [
+    "en https://retropa.com/rusticones-core/",
+    "ja https://retropa.com/ja/rusticones-core/",
+    "x-default https://retropa.com/rusticones-core/",
+    "zh-Hans https://retropa.com/zh-Hans/rusticones-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "RusticoNES Core for NES on iPhone & iPad | Retropa",
+   "description": "RusticoNES in Retropa: NES and Famicom cartridge and disk formats, mapper checks, first launch, save precautions and Plus core switching."
+  },
+  "/gba-emulator/": {
+   "canonical": "https://retropa.com/gba-emulator/",
+   "alternates": [
+    "en https://retropa.com/gba-emulator/",
+    "ja https://retropa.com/ja/gba-emulator/",
+    "x-default https://retropa.com/gba-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gba-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "GBA emulator for iPhone and iPad | Retropa",
+   "description": "Retropa runs the .gba files you bring along. Start with a game that actually boots, then pick a handheld skin, map a controller and settle on a screen treatment that suits the way you play."
+  },
+  "/sega-genesis-emulator/": {
+   "canonical": "https://retropa.com/sega-genesis-emulator/",
+   "alternates": [
+    "en https://retropa.com/sega-genesis-emulator/",
+    "ja https://retropa.com/ja/sega-genesis-emulator/",
+    "x-default https://retropa.com/sega-genesis-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/sega-genesis-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Sega Genesis & Mega Drive Emulator for iPhone | Retropa",
+   "description": "Play the Sega Genesis and Mega Drive games you own on iPhone and iPad. Retropa reads .md, .smd and .gen files on the JGenesis core, maps both three- and six-button pads, and walks through the common fixes when a title will not start."
+  },
+  "/": {
+   "canonical": "https://retropa.com/",
+   "alternates": [
+    "en https://retropa.com/",
+    "ja https://retropa.com/ja/",
+    "x-default https://retropa.com/",
+    "zh-Hans https://retropa.com/zh-Hans/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication"
+   ],
+   "title": "Retropa | GBA, DS & Arcade Emulator for iPhone and iPad",
+   "description": "Your games. Your controls. Your way back. GBA, DS and arcade play on iPhone and iPad, with expressive skins and display filters. Free to download. Optional in-app purchases. iOS 18 or later."
+  },
+  "/privacy/": {
+   "canonical": "https://retropa.com/privacy/",
+   "alternates": [
+    "en https://retropa.com/privacy/",
+    "ja https://retropa.com/ja/privacy/",
+    "x-default https://retropa.com/privacy/",
+    "zh-Hans https://retropa.com/zh-Hans/privacy/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa Privacy Policy · Official Data Statement",
+   "description": "Read the Retropa Privacy Policy: information collection scope, data handling, storage, sharing, and user rights for the iOS app and official website."
+  },
+  "/lakesnes-core/": {
+   "canonical": "https://retropa.com/lakesnes-core/",
+   "alternates": [
+    "en https://retropa.com/lakesnes-core/",
+    "ja https://retropa.com/ja/lakesnes-core/",
+    "x-default https://retropa.com/lakesnes-core/",
+    "zh-Hans https://retropa.com/zh-Hans/lakesnes-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "LakeSnes Core for SNES on iPhone & iPad | Retropa",
+   "description": "LakeSnes in Retropa: SNES / Super Famicom formats, cartridge-chip limits, six-button controls, save backups and Plus core switching."
+  },
+  "/arcade/": {
+   "canonical": "https://retropa.com/arcade/",
+   "alternates": [
+    "en https://retropa.com/arcade/",
+    "ja https://retropa.com/ja/arcade/",
+    "x-default https://retropa.com/arcade/",
+    "zh-Hans https://retropa.com/zh-Hans/arcade/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Arcade emulator for iPhone and iPad | Retropa",
+   "description": "Retropa runs the arcade families it supports: CPS, Neo Geo, PGM and M92, with touch controls, external controllers and CRT filters. Arcade emulation needs Retropa Plus, and the app ships without games or BIOS files."
+  },
+  "/jgenesis-core/": {
+   "canonical": "https://retropa.com/jgenesis-core/",
+   "alternates": [
+    "en https://retropa.com/jgenesis-core/",
+    "ja https://retropa.com/ja/jgenesis-core/",
+    "x-default https://retropa.com/jgenesis-core/",
+    "zh-Hans https://retropa.com/zh-Hans/jgenesis-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "JGenesis Core on iPhone & iPad | Retropa",
+   "description": "JGenesis in Retropa: the Sega and Nintendo systems in the catalog, Genesis / Mega Drive naming, format boundaries, system detection and Plus core switching."
+  },
+  "/sameboy-core/": {
+   "canonical": "https://retropa.com/sameboy-core/",
+   "alternates": [
+    "en https://retropa.com/sameboy-core/",
+    "ja https://retropa.com/ja/sameboy-core/",
+    "x-default https://retropa.com/sameboy-core/",
+    "zh-Hans https://retropa.com/zh-Hans/sameboy-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "SameBoy Core on iPhone & iPad | Retropa",
+   "description": "SameBoy sticks to Game Boy and Game Boy Color in Retropa. How to check color honestly, where the file scope ends, and when comparing cores is worth the trouble."
+  },
+  "/ja/wonderswan-emulator/": {
+   "canonical": "https://retropa.com/ja/wonderswan-emulator/",
+   "alternates": [
+    "en https://retropa.com/wonderswan-emulator/",
+    "ja https://retropa.com/ja/wonderswan-emulator/",
+    "x-default https://retropa.com/wonderswan-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/wonderswan-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用 WonderSwan エミュレータ | Retropa",
+   "description": "自分の .ws の WonderSwan ゲームを iPhone と iPad で遊べます。Ares コア、縦向き、読み込み手順、あまり一般的でない携帯機のトラブルシューティングを解説します。"
+  },
+  "/ja/rusticones-core/": {
+   "canonical": "https://retropa.com/ja/rusticones-core/",
+   "alternates": [
+    "en https://retropa.com/rusticones-core/",
+    "ja https://retropa.com/ja/rusticones-core/",
+    "x-default https://retropa.com/rusticones-core/",
+    "zh-Hans https://retropa.com/zh-Hans/rusticones-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad の NES 用 RusticoNES コア | Retropa",
+   "description": "Retropa の RusticoNES: NES と Famicom のカートリッジ形式およびディスク形式、マッパーの確認、初回起動、セーブ時の注意、Plus によるコアの切り替えについて説明します。"
+  },
+  "/ja/gba-emulator/": {
+   "canonical": "https://retropa.com/ja/gba-emulator/",
+   "alternates": [
+    "en https://retropa.com/gba-emulator/",
+    "ja https://retropa.com/ja/gba-emulator/",
+    "x-default https://retropa.com/gba-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gba-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用 GBA エミュレータ | Retropa",
+   "description": "手持ちの .gba ファイルを Retropa に持ち込みましょう。まず動作するゲームから始め、次に携帯ゲーム機のスキンを選び、コントローラーを割り当て、しっくりくる画面処理を見つけます。"
+  },
+  "/ja/sega-genesis-emulator/": {
+   "canonical": "https://retropa.com/ja/sega-genesis-emulator/",
+   "alternates": [
+    "en https://retropa.com/sega-genesis-emulator/",
+    "ja https://retropa.com/ja/sega-genesis-emulator/",
+    "x-default https://retropa.com/sega-genesis-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/sega-genesis-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone 用 Sega Genesis・メガドライブエミュレータ | Retropa",
+   "description": "自分の Sega Genesis とメガドライブのゲームを iPhone と iPad でプレイできます。.md、.smd、.gen 形式、JGenesis コア、6ボタンの割り当て、トラブルシューティングについて説明します。"
+  },
+  "/ja/": {
+   "canonical": "https://retropa.com/ja/",
+   "alternates": [
+    "en https://retropa.com/",
+    "ja https://retropa.com/ja/",
+    "x-default https://retropa.com/",
+    "zh-Hans https://retropa.com/zh-Hans/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication"
+   ],
+   "title": "Retropa | アーケードと携帯ゲームのエミュレータ | iPhone & iPad",
+   "description": "自分のゲームを、自分のスタイルで。iPhone と iPad で GBA、DS、アーケードを楽しみ、スキンやフィルターで遊び心地を整えよう。 無料ダウンロード。任意のアプリ内購入あり。iOS 18 以降。"
+  },
+  "/ja/privacy/": {
+   "canonical": "https://retropa.com/ja/privacy/",
+   "alternates": [
+    "en https://retropa.com/privacy/",
+    "ja https://retropa.com/ja/privacy/",
+    "x-default https://retropa.com/privacy/",
+    "zh-Hans https://retropa.com/zh-Hans/privacy/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa プライバシーポリシー · 公式データ声明",
+   "description": "Retropa プライバシーポリシー：収集する情報の範囲、取り扱い、保管、共有、データに関して行使できる権利を説明します。"
+  },
+  "/ja/lakesnes-core/": {
+   "canonical": "https://retropa.com/ja/lakesnes-core/",
+   "alternates": [
+    "en https://retropa.com/lakesnes-core/",
+    "ja https://retropa.com/ja/lakesnes-core/",
+    "x-default https://retropa.com/lakesnes-core/",
+    "zh-Hans https://retropa.com/zh-Hans/lakesnes-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 向け SNES 用 LakeSnes コア | Retropa",
+   "description": "Retropa の LakeSnes: SNES / Super Famicom の形式、カートリッジ内蔵チップの制限、6 ボタン操作、セーブのバックアップ、Plus によるコア切り替え。"
+  },
+  "/ja/arcade/": {
+   "canonical": "https://retropa.com/ja/arcade/",
+   "alternates": [
+    "en https://retropa.com/arcade/",
+    "ja https://retropa.com/ja/arcade/",
+    "x-default https://retropa.com/arcade/",
+    "zh-Hans https://retropa.com/zh-Hans/arcade/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用アーケードエミュレータ | Retropa",
+   "description": "Retropa で対応する CPS、Neo Geo、PGM、M92 のアーケードファイルを、タッチ操作、外部コントローラー、CRT フィルターで楽しめます。アーケードのプレイには Plus が必要です。ゲームや BIOS ファイルは含まれません。"
+  },
+  "/ja/jgenesis-core/": {
+   "canonical": "https://retropa.com/ja/jgenesis-core/",
+   "alternates": [
+    "en https://retropa.com/jgenesis-core/",
+    "ja https://retropa.com/ja/jgenesis-core/",
+    "x-default https://retropa.com/jgenesis-core/",
+    "zh-Hans https://retropa.com/zh-Hans/jgenesis-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa の JGenesis コア | セガ系マルチシステム対応",
+   "description": "Retropa の JGenesis は、カタログに登録されたセガと任天堂のシステム、Genesis とメガドライブの名称、フォーマットの境界、認識されたシステム、Retropa Plus によるコアの切り替えを扱います。"
+  },
+  "/ja/sameboy-core/": {
+   "canonical": "https://retropa.com/ja/sameboy-core/",
+   "alternates": [
+    "en https://retropa.com/sameboy-core/",
+    "ja https://retropa.com/ja/sameboy-core/",
+    "x-default https://retropa.com/sameboy-core/",
+    "zh-Hans https://retropa.com/zh-Hans/sameboy-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad の SameBoy コア | Retropa",
+   "description": "SameBoy は Retropa で Game Boy と Game Boy Color に特化しています。カラーの挙動、ファイルの対応範囲、セーブステートの制限、コアの切り替えに必要な Retropa Plus について確認できます。"
+  },
+  "/ja/skyemu-core/": {
+   "canonical": "https://retropa.com/ja/skyemu-core/",
+   "alternates": [
+    "en https://retropa.com/skyemu-core/",
+    "ja https://retropa.com/ja/skyemu-core/",
+    "x-default https://retropa.com/skyemu-core/",
+    "zh-Hans https://retropa.com/zh-Hans/skyemu-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用 SkyEmu コア | Retropa",
+   "description": "SkyEmu は Retropa でゲームボーイファミリーと Nintendo DS のベータ経路に対応します。対応形式、2画面のタッチ操作、タイトルごとの互換性、Plus によるコアの切り替えを確認してください。"
+  },
+  "/ja/terms/": {
+   "canonical": "https://retropa.com/ja/terms/",
+   "alternates": [
+    "en https://retropa.com/terms/",
+    "ja https://retropa.com/ja/terms/",
+    "x-default https://retropa.com/terms/",
+    "zh-Hans https://retropa.com/zh-Hans/terms/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa 利用規約 · 公式法務ページ",
+   "description": "Retropa 利用規約（iOS アプリ）：利用条件、ライセンス、購入、インポートしたコンテンツに関する責任、連絡先情報を確認できます。"
+  },
+  "/ja/snes-emulator/": {
+   "canonical": "https://retropa.com/ja/snes-emulator/",
+   "alternates": [
+    "en https://retropa.com/snes-emulator/",
+    "ja https://retropa.com/ja/snes-emulator/",
+    "x-default https://retropa.com/snes-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/snes-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用 SNES エミュレータ | Retropa",
+   "description": "自分の SNES ゲームを iPhone と iPad でプレイできます。.sfc と .smc 形式、LakeSnes コア、6 ボタンのコントローラーマッピング、トラブルシューティング手順に対応しています。"
+  },
+  "/ja/start/": {
+   "canonical": "https://retropa.com/ja/start/",
+   "alternates": [
+    "en https://retropa.com/start/",
+    "ja https://retropa.com/ja/start/",
+    "x-default https://retropa.com/start/",
+    "zh-Hans https://retropa.com/zh-Hans/start/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa で最初のゲームを。",
+   "description": "自分で用意したファイルから、遊べるゲームへ。対応する携帯ゲーム機のシステムから始めて、操作と画面を自分の好みに合わせていきましょう。"
+  },
+  "/ja/tetanes-core/": {
+   "canonical": "https://retropa.com/ja/tetanes-core/",
+   "alternates": [
+    "en https://retropa.com/tetanes-core/",
+    "ja https://retropa.com/ja/tetanes-core/",
+    "x-default https://retropa.com/tetanes-core/",
+    "zh-Hans https://retropa.com/zh-Hans/tetanes-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad の NES 用 TetaNES コア | Retropa",
+   "description": "Retropa の TetaNES は、NES / Famicom のゲーム、ディスクイメージ、NSF 音声に対応し、形式ごとの確認、コントローラーの設定、コア切り替えに Retropa Plus が必要である点を説明します。"
+  },
+  "/ja/guides/": {
+   "canonical": "https://retropa.com/ja/guides/",
+   "alternates": [
+    "en https://retropa.com/guides/",
+    "ja https://retropa.com/ja/guides/",
+    "x-default https://retropa.com/guides/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "読み込み、コントローラー、トラブルシューティングのガイド",
+   "description": "自分のファイルを読み込むところから、コントローラーの接続、セーブの管理、ゲームが起動しない原因の調べ方まで。"
+  },
+  "/ja/guides/connect-controller-ios/": {
+   "canonical": "https://retropa.com/ja/guides/connect-controller-ios/",
+   "alternates": [
+    "en https://retropa.com/guides/connect-controller-ios/",
+    "ja https://retropa.com/ja/guides/connect-controller-ios/",
+    "x-default https://retropa.com/guides/connect-controller-ios/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/connect-controller-ios/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad の Retropa にコントローラーを接続する",
+   "description": "Bluetooth または有線のコントローラーを iOS とペアリングし、Retropa 内でマッピングする方法を説明します。ボタンが反応しない場合や、ゲームごとにマッピングが変わる場合の調べ方も扱います。"
+  },
+  "/ja/guides/game-wont-load/": {
+   "canonical": "https://retropa.com/ja/guides/game-wont-load/",
+   "alternates": [
+    "en https://retropa.com/guides/game-wont-load/",
+    "ja https://retropa.com/ja/guides/game-wont-load/",
+    "x-default https://retropa.com/guides/game-wont-load/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/game-wont-load/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa でゲームが読み込めないときの確認事項",
+   "description": "Retropa でゲームが起動しないときの診断手順です。ダウンロードの完了、拡張子、認識されたシステム、BIOS の不足、対応していないマッパー、コア固有の問題を順に確認します。"
+  },
+  "/ja/guides/import-roms-iphone/": {
+   "canonical": "https://retropa.com/ja/guides/import-roms-iphone/",
+   "alternates": [
+    "en https://retropa.com/guides/import-roms-iphone/",
+    "ja https://retropa.com/ja/guides/import-roms-iphone/",
+    "x-default https://retropa.com/guides/import-roms-iphone/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/import-roms-iphone/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad で Retropa にゲームを読み込む方法",
+   "description": "自分のゲームファイルを iPhone と iPad の Retropa に読み込む方法を説明します。読み込み用の項目の場所、クラウド上のプレースホルダで失敗する理由、対応する形式、ファイルが拒否されたときの対処を扱います。"
+  },
+  "/ja/guides/save-states-and-rewind/": {
+   "canonical": "https://retropa.com/ja/guides/save-states-and-rewind/",
+   "alternates": [
+    "en https://retropa.com/guides/save-states-and-rewind/",
+    "ja https://retropa.com/ja/guides/save-states-and-rewind/",
+    "x-default https://retropa.com/guides/save-states-and-rewind/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/save-states-and-rewind/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa のセーブステートと巻き戻し | iPhone & iPad",
+   "description": "Retropa におけるゲーム内セーブデータ、セーブステート、巻き戻しの違いを理解し、コア間でセーブを安全に移す方法と、セーブが読み込めないときに確認すべき点を解説します。"
+  },
+  "/ja/ares-core/": {
+   "canonical": "https://retropa.com/ja/ares-core/",
+   "alternates": [
+    "en https://retropa.com/ares-core/",
+    "ja https://retropa.com/ja/ares-core/",
+    "x-default https://retropa.com/ares-core/",
+    "zh-Hans https://retropa.com/zh-Hans/ares-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad の Ares コア | Retropa",
+   "description": "Retropa の Ares: GBA、WonderSwan、Neo Geo Pocket のカタログ対応、カラーモデルの認識、回転したレイアウト、セーブ時の注意、Plus によるコアの切り替えを解説します。"
+  },
+  "/ja/gbc-emulator/": {
+   "canonical": "https://retropa.com/ja/gbc-emulator/",
+   "alternates": [
+    "en https://retropa.com/gbc-emulator/",
+    "ja https://retropa.com/ja/gbc-emulator/",
+    "x-default https://retropa.com/gbc-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gbc-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用ゲームボーイカラーエミュレータ | Retropa",
+   "description": "自分の .gbc ファイルを iPhone と iPad で遊べます。カラーパレット、GBC 専用タイトル、コアの選択、読み込み手順、ゲームボーイカラーのゲームが起動しないときの確認項目をまとめました。"
+  },
+  "/ja/nes-emulator/": {
+   "canonical": "https://retropa.com/ja/nes-emulator/",
+   "alternates": [
+    "en https://retropa.com/nes-emulator/",
+    "ja https://retropa.com/ja/nes-emulator/",
+    "x-default https://retropa.com/nes-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/nes-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用 NES エミュレータ | Retropa",
+   "description": "iPhone と iPad で自分の NES ゲームを動作させられます。対応するファイル形式は .nes、.fds、.nsf などで、コアの選択、読み込み手順、コントローラーの割り当て、トラブルシューティングを扱います。"
+  },
+  "/ja/neogeo-pocket-emulator/": {
+   "canonical": "https://retropa.com/ja/neogeo-pocket-emulator/",
+   "alternates": [
+    "en https://retropa.com/neogeo-pocket-emulator/",
+    "ja https://retropa.com/ja/neogeo-pocket-emulator/",
+    "x-default https://retropa.com/neogeo-pocket-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/neogeo-pocket-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone & iPad 用 Neo Geo Pocket エミュレータ | Retropa",
+   "description": "ご自身の .ngp と .ngpc の Neo Geo Pocket ゲームを iPhone と iPad で実行できます。コアの対応範囲、ジョイスティック式の操作、そしてこれが Neo Geo アーケードとどう違うのかを説明します。"
+  },
+  "/ja/ds-emulator/": {
+   "canonical": "https://retropa.com/ja/ds-emulator/",
+   "alternates": [
+    "en https://retropa.com/ds-emulator/",
+    "ja https://retropa.com/ja/ds-emulator/",
+    "x-default https://retropa.com/ds-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/ds-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用 DS エミュレータ | Retropa",
+   "description": "手持ちの .nds ゲームを Retropa に読み込み、2 つの画面のための場所を確保しましょう。新しいレイアウトやフィルターを選ぶ前に、タッチ入力、操作、ファイルの要件を確認します。"
+  },
+  "/ja/mgba-core/": {
+   "canonical": "https://retropa.com/ja/mgba-core/",
+   "alternates": [
+    "en https://retropa.com/mgba-core/",
+    "ja https://retropa.com/ja/mgba-core/",
+    "x-default https://retropa.com/mgba-core/",
+    "zh-Hans https://retropa.com/zh-Hans/mgba-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone & iPad の mGBA コア | Retropa",
+   "description": "Retropa の mGBA でゲームボーイ、ゲームボーイカラー、ゲームボーイアドバンスを利用できます。カタログの形式、初回起動時の確認、セーブに関する注意、Plus によるコアの切り替えについて説明します。"
+  },
+  "/ja/master-system-emulator/": {
+   "canonical": "https://retropa.com/ja/master-system-emulator/",
+   "alternates": [
+    "en https://retropa.com/master-system-emulator/",
+    "ja https://retropa.com/ja/master-system-emulator/",
+    "x-default https://retropa.com/master-system-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/master-system-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用 Master System エミュレータ | Retropa",
+   "description": "自分の .sms ファイルの Sega Master System ゲームを iPhone と iPad で動かせます。コアの対応範囲、読み込み手順、操作レイアウト、タイトルが起動しないときの確認項目を説明します。"
+  },
+  "/ja/game-gear-emulator/": {
+   "canonical": "https://retropa.com/ja/game-gear-emulator/",
+   "alternates": [
+    "en https://retropa.com/game-gear-emulator/",
+    "ja https://retropa.com/ja/game-gear-emulator/",
+    "x-default https://retropa.com/game-gear-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/game-gear-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用ゲームギアエミュレータ | Retropa",
+   "description": "自分の .gg 形式のゲームギア用ゲームを iPhone と iPad で遊べます。どのコアが実行するか、ファイルの読み込み方法、画面の設定方法、ゲームが起動しないときの確認項目をまとめました。"
+  },
+  "/ja/neogeo-emulator/": {
+   "canonical": "https://retropa.com/ja/neogeo-emulator/",
+   "alternates": [
+    "en https://retropa.com/neogeo-emulator/",
+    "ja https://retropa.com/ja/neogeo-emulator/",
+    "x-default https://retropa.com/neogeo-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/neogeo-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 向け Neo Geo エミュレータ | Retropa",
+   "description": "Retropa なら、対応するアーケード版 Neo Geo のセットを iPhone と iPad で楽しめます。セットの構成、BIOS の要件、親セットとクローンセット、ゲームが起動しないときの確認事項を説明します。"
+  },
+  "/ja/retropa-vs-delta/": {
+   "canonical": "https://retropa.com/ja/retropa-vs-delta/",
+   "alternates": [
+    "en https://retropa.com/retropa-vs-delta/",
+    "ja https://retropa.com/ja/retropa-vs-delta/",
+    "x-default https://retropa.com/retropa-vs-delta/",
+    "zh-Hans https://retropa.com/zh-Hans/retropa-vs-delta/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa と Delta の比較: アーケード、フィルター、スキン",
+   "description": "iPhone と iPad における Retropa と Delta の直接比較です。対応するシステム、アーケード対応、スキンの互換性、表示フィルター、そしてどちらがどの用途に向くのかを整理します。"
+  },
+  "/ja/crt-filters/": {
+   "canonical": "https://retropa.com/ja/crt-filters/",
+   "alternates": [
+    "en https://retropa.com/crt-filters/",
+    "ja https://retropa.com/ja/crt-filters/",
+    "x-default https://retropa.com/crt-filters/",
+    "zh-Hans https://retropa.com/zh-Hans/crt-filters/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad のエミュレータ用 CRT フィルター | Retropa",
+   "description": "Retropa の高度な CRT フィルターと LCD フィルターは、整数倍の拡大を必要とせず、実際の表示領域に合わせて働きます。iPhone の画面サイズ、iPad のレイアウト、向きを問わず、レトロな画面らしさを保ちます。"
+  },
+  "/ja/delta-alternative/": {
+   "canonical": "https://retropa.com/ja/delta-alternative/",
+   "alternates": [
+    "en https://retropa.com/delta-alternative/",
+    "ja https://retropa.com/ja/delta-alternative/",
+    "x-default https://retropa.com/delta-alternative/",
+    "zh-Hans https://retropa.com/zh-Hans/delta-alternative/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 向け Delta エミュレータの代わり | Retropa",
+   "description": "iPhone と iPad で Delta の代わりを探している方へ。アーケードの対応、Delta スキンの読み込み、表示フィルター、コンソールモードを比較し、Delta がより有力な選択となる場面もご紹介します。"
+  },
+  "/ja/delta-skins/": {
+   "canonical": "https://retropa.com/ja/delta-skins/",
+   "alternates": [
+    "en https://retropa.com/delta-skins/",
+    "ja https://retropa.com/ja/delta-skins/",
+    "x-default https://retropa.com/delta-skins/",
+    "zh-Hans https://retropa.com/zh-Hans/delta-skins/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad で Delta スキンを読み込む | Retropa",
+   "description": "背景だけでなく、ゲームの周りの操作も変えられます。Retropa は .deltaskin パッケージを読み込み、iPhone と iPad 向けに独自のスキンコレクションも用意しています。"
+  },
+  "/ja/cores/": {
+   "canonical": "https://retropa.com/ja/cores/",
+   "alternates": [
+    "en https://retropa.com/cores/",
+    "ja https://retropa.com/ja/cores/",
+    "x-default https://retropa.com/cores/",
+    "zh-Hans https://retropa.com/zh-Hans/cores/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa エミュレーターコア · 対応システム/ROM カタログ",
+   "description": "Retropa が採用するエミュレーターコア、対応するゲーム機、ROM 拡張子マトリクス、上流 GitHub リポジトリを公式サイトで確認できます。"
+  },
+  "/ja/gb-emulator/": {
+   "canonical": "https://retropa.com/ja/gb-emulator/",
+   "alternates": [
+    "en https://retropa.com/gb-emulator/",
+    "ja https://retropa.com/ja/gb-emulator/",
+    "x-default https://retropa.com/gb-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gb-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "iPhone と iPad 用の Game Boy エミュレータ | Retropa",
+   "description": "Retropa を使えば、手持ちの .gb ファイルを iPhone と iPad で動作させられます。GB を扱うコア、ゲームの読み込み方法、画面とコントローラーの設定、ファイルが開かないときに確認すべき点をまとめています。"
+  },
+  "/ja/plus/": {
+   "canonical": "https://retropa.com/ja/plus/",
+   "alternates": [
+    "en https://retropa.com/plus/",
+    "ja https://retropa.com/ja/plus/",
+    "x-default https://retropa.com/plus/",
+    "zh-Hans https://retropa.com/zh-Hans/plus/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa Plus：無料で使える機能と Plus が必要な機能",
+   "description": "Retropa の機能のうち無料で使えるものと Retropa Plus が必要なものをまとめます。携帯ゲーム機、アーケードの系統、プレミアムスキン、高度なフィルター、コンソールモードが対象です。価格と利用できるプランは App 内に表示されます。"
+  },
+  "/skyemu-core/": {
+   "canonical": "https://retropa.com/skyemu-core/",
+   "alternates": [
+    "en https://retropa.com/skyemu-core/",
+    "ja https://retropa.com/ja/skyemu-core/",
+    "x-default https://retropa.com/skyemu-core/",
+    "zh-Hans https://retropa.com/zh-Hans/skyemu-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "SkyEmu Core on iPhone & iPad | Retropa",
+   "description": "SkyEmu plays the Game Boy family and the Nintendo DS beta path in Retropa. Formats, the touch layer and two-screen layouts, plus what Retropa Plus changes about cores."
+  },
+  "/terms/": {
+   "canonical": "https://retropa.com/terms/",
+   "alternates": [
+    "en https://retropa.com/terms/",
+    "ja https://retropa.com/ja/terms/",
+    "x-default https://retropa.com/terms/",
+    "zh-Hans https://retropa.com/zh-Hans/terms/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa Terms of Service · Official Legal Page",
+   "description": "Read Retropa Terms of Service for iOS app usage, licensing, purchases, user responsibilities, and legal contact information."
+  },
+  "/snes-emulator/": {
+   "canonical": "https://retropa.com/snes-emulator/",
+   "alternates": [
+    "en https://retropa.com/snes-emulator/",
+    "ja https://retropa.com/ja/snes-emulator/",
+    "x-default https://retropa.com/snes-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/snes-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "SNES Emulator for iPhone & iPad | Retropa",
+   "description": "Play your own SNES games on iPhone and iPad. Retropa reads .sfc and .smc files on the LakeSnes core, maps all six buttons and covers the usual troubleshooting when a game refuses to start."
+  },
+  "/start/": {
+   "canonical": "https://retropa.com/start/",
+   "alternates": [
+    "en https://retropa.com/start/",
+    "ja https://retropa.com/ja/start/",
+    "x-default https://retropa.com/start/",
+    "zh-Hans https://retropa.com/zh-Hans/start/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "How to Import ROMs in Retropa | iPhone & iPad Guide",
+   "description": "Import GBA, DS and arcade games on iPhone and iPad. Answers about ROMs, BIOS, Delta skins, controllers, saves, Plus and advanced filters without integer scaling."
+  },
+  "/tetanes-core/": {
+   "canonical": "https://retropa.com/tetanes-core/",
+   "alternates": [
+    "en https://retropa.com/tetanes-core/",
+    "ja https://retropa.com/ja/tetanes-core/",
+    "x-default https://retropa.com/tetanes-core/",
+    "zh-Hans https://retropa.com/zh-Hans/tetanes-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "TetaNES Core for NES on iPhone & iPad | Retropa",
+   "description": "TetaNES in Retropa: NES / Famicom games, disk images and NSF audio, format-specific checks, controller setup and the Plus requirement for switching cores."
+  },
+  "/guides/": {
+   "canonical": "https://retropa.com/guides/",
+   "alternates": [
+    "en https://retropa.com/guides/",
+    "ja https://retropa.com/ja/guides/",
+    "x-default https://retropa.com/guides/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa Guides: Imports, Controllers & Troubleshooting",
+   "description": "Import your own game files into Retropa, pair a controller, manage saves, and work out why a game will not start on iPhone and iPad."
+  },
+  "/guides/connect-controller-ios/": {
+   "canonical": "https://retropa.com/guides/connect-controller-ios/",
+   "alternates": [
+    "en https://retropa.com/guides/connect-controller-ios/",
+    "ja https://retropa.com/ja/guides/connect-controller-ios/",
+    "x-default https://retropa.com/guides/connect-controller-ios/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/connect-controller-ios/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Connect a Controller to Retropa on iPhone & iPad",
+   "description": "Pair a Bluetooth or wired controller with iOS and map it inside Retropa, plus how to diagnose buttons that do not register or mappings that seem to change per game."
+  },
+  "/guides/game-wont-load/": {
+   "canonical": "https://retropa.com/guides/game-wont-load/",
+   "alternates": [
+    "en https://retropa.com/guides/game-wont-load/",
+    "ja https://retropa.com/ja/guides/game-wont-load/",
+    "x-default https://retropa.com/guides/game-wont-load/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/game-wont-load/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Game Will Not Load in Retropa? What to Check",
+   "description": "When a game refuses to start in Retropa, the cause is usually something simple: an unfinished download, the wrong extension, a mismatched system, a missing BIOS or a core that cannot read the file. Work the checks in order."
+  },
+  "/guides/import-roms-iphone/": {
+   "canonical": "https://retropa.com/guides/import-roms-iphone/",
+   "alternates": [
+    "en https://retropa.com/guides/import-roms-iphone/",
+    "ja https://retropa.com/ja/guides/import-roms-iphone/",
+    "x-default https://retropa.com/guides/import-roms-iphone/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/import-roms-iphone/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "How to Import Games in Retropa on iPhone & iPad",
+   "description": "Import your own game files into Retropa on iPhone and iPad: where the import entry lives, why a cloud placeholder fails, which file types work and what to do when a file is rejected."
+  },
+  "/guides/save-states-and-rewind/": {
+   "canonical": "https://retropa.com/guides/save-states-and-rewind/",
+   "alternates": [
+    "en https://retropa.com/guides/save-states-and-rewind/",
+    "ja https://retropa.com/ja/guides/save-states-and-rewind/",
+    "x-default https://retropa.com/guides/save-states-and-rewind/",
+    "zh-Hans https://retropa.com/zh-Hans/guides/save-states-and-rewind/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Save States and Rewind in Retropa | iPhone & iPad",
+   "description": "In-game saves, save states and rewind do different jobs in Retropa. Here is how they differ, why a save state stays tied to one core, and what to try when a save will not load."
+  },
+  "/ares-core/": {
+   "canonical": "https://retropa.com/ares-core/",
+   "alternates": [
+    "en https://retropa.com/ares-core/",
+    "ja https://retropa.com/ja/ares-core/",
+    "x-default https://retropa.com/ares-core/",
+    "zh-Hans https://retropa.com/zh-Hans/ares-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Ares Core on iPhone & iPad | Retropa",
+   "description": "Ares in Retropa: what the catalog covers for GBA, WonderSwan and Neo Geo Pocket, color-model detection, rotated layouts, save precautions and Plus core switching."
+  },
+  "/gbc-emulator/": {
+   "canonical": "https://retropa.com/gbc-emulator/",
+   "alternates": [
+    "en https://retropa.com/gbc-emulator/",
+    "ja https://retropa.com/ja/gbc-emulator/",
+    "x-default https://retropa.com/gbc-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gbc-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Game Boy Color Emulator for iPhone & iPad | Retropa",
+   "description": "Play your own .gbc games on iPhone and iPad. Color handling, GBC-only titles, core choice, import steps and the checks to run when a Game Boy Color game will not start."
+  },
+  "/nes-emulator/": {
+   "canonical": "https://retropa.com/nes-emulator/",
+   "alternates": [
+    "en https://retropa.com/nes-emulator/",
+    "ja https://retropa.com/ja/nes-emulator/",
+    "x-default https://retropa.com/nes-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/nes-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "NES Emulator for iPhone & iPad | Retropa",
+   "description": "Run your own NES games on iPhone and iPad. The formats it opens, including .nes, .fds and .nsf, plus core choice, import steps, controller mapping and troubleshooting."
+  },
+  "/neogeo-pocket-emulator/": {
+   "canonical": "https://retropa.com/neogeo-pocket-emulator/",
+   "alternates": [
+    "en https://retropa.com/neogeo-pocket-emulator/",
+    "ja https://retropa.com/ja/neogeo-pocket-emulator/",
+    "x-default https://retropa.com/neogeo-pocket-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/neogeo-pocket-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Neo Geo Pocket Emulator for iPhone & iPad | Retropa",
+   "description": "Run your own .ngp and .ngpc Neo Geo Pocket games on iPhone and iPad. Which core plays them, how the microswitch stick feels under a thumb, and why the arcade side of the family is a separate thing entirely."
+  },
+  "/ds-emulator/": {
+   "canonical": "https://retropa.com/ds-emulator/",
+   "alternates": [
+    "en https://retropa.com/ds-emulator/",
+    "ja https://retropa.com/ja/ds-emulator/",
+    "x-default https://retropa.com/ds-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/ds-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "DS emulator for iPhone and iPad | Retropa",
+   "description": "Drop your .nds games into Retropa and make room for two screens. Check touch input, controls and file requirements before you go looking for a new layout or filter."
+  },
+  "/mgba-core/": {
+   "canonical": "https://retropa.com/mgba-core/",
+   "alternates": [
+    "en https://retropa.com/mgba-core/",
+    "ja https://retropa.com/ja/mgba-core/",
+    "x-default https://retropa.com/mgba-core/",
+    "zh-Hans https://retropa.com/zh-Hans/mgba-core/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "mGBA Core on iPhone & iPad | Retropa",
+   "description": "Run Game Boy, Game Boy Color and Game Boy Advance games in Retropa with mGBA. What the catalog supports, what to check on a first launch, and how core switching works with Retropa Plus."
+  },
+  "/master-system-emulator/": {
+   "canonical": "https://retropa.com/master-system-emulator/",
+   "alternates": [
+    "en https://retropa.com/master-system-emulator/",
+    "ja https://retropa.com/ja/master-system-emulator/",
+    "x-default https://retropa.com/master-system-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/master-system-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Master System Emulator for iPhone & iPad | Retropa",
+   "description": "Run your own .sms Sega Master System games on iPhone and iPad. What the JGenesis core covers, how import works, control layout, and the checks to try when a title will not start."
+  },
+  "/game-gear-emulator/": {
+   "canonical": "https://retropa.com/game-gear-emulator/",
+   "alternates": [
+    "en https://retropa.com/game-gear-emulator/",
+    "ja https://retropa.com/ja/game-gear-emulator/",
+    "x-default https://retropa.com/game-gear-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/game-gear-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Game Gear Emulator for iPhone & iPad | Retropa",
+   "description": "Play your own .gg Game Gear games on iPhone and iPad. This page covers the core that runs them, how to import a file, how to set up that small screen and what to check when a game will not start."
+  },
+  "/neogeo-emulator/": {
+   "canonical": "https://retropa.com/neogeo-emulator/",
+   "alternates": [
+    "en https://retropa.com/neogeo-emulator/",
+    "ja https://retropa.com/ja/neogeo-emulator/",
+    "x-default https://retropa.com/neogeo-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/neogeo-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Neo Geo Emulator for iPhone & iPad | Retropa",
+   "description": "Play supported Neo Geo MVS arcade sets on iPhone and iPad with Retropa. How a set is built, when a BIOS is required, what parent and clone sets mean, and what to inspect when a game will not boot."
+  },
+  "/retropa-vs-delta/": {
+   "canonical": "https://retropa.com/retropa-vs-delta/",
+   "alternates": [
+    "en https://retropa.com/retropa-vs-delta/",
+    "ja https://retropa.com/ja/retropa-vs-delta/",
+    "x-default https://retropa.com/retropa-vs-delta/",
+    "zh-Hans https://retropa.com/zh-Hans/retropa-vs-delta/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa vs Delta: Arcade, Filters & Skins Compared",
+   "description": "Retropa and Delta, side by side on iPhone and iPad: which systems each one plays, how arcade support and skins line up, what the display filters do, and where each app fits better."
+  },
+  "/crt-filters/": {
+   "canonical": "https://retropa.com/crt-filters/",
+   "alternates": [
+    "en https://retropa.com/crt-filters/",
+    "ja https://retropa.com/ja/crt-filters/",
+    "x-default https://retropa.com/crt-filters/",
+    "zh-Hans https://retropa.com/zh-Hans/crt-filters/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "CRT filters for iPhone and iPad emulators | Retropa",
+   "description": "Retropa's advanced CRT and LCD filters work from the display area you actually have, so integer scaling is not a requirement. Keep the feel of a retro screen across iPhone sizes, iPad layouts and both orientations."
+  },
+  "/delta-alternative/": {
+   "canonical": "https://retropa.com/delta-alternative/",
+   "alternates": [
+    "en https://retropa.com/delta-alternative/",
+    "ja https://retropa.com/ja/delta-alternative/",
+    "x-default https://retropa.com/delta-alternative/",
+    "zh-Hans https://retropa.com/zh-Hans/delta-alternative/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Delta Emulator Alternative for iPhone & iPad | Retropa",
+   "description": "Weighing a Delta alternative on iPhone or iPad? This comparison walks through arcade support, Delta skin import, display filters and console mode, and names the places where Delta is the stronger pick."
+  },
+  "/delta-skins/": {
+   "canonical": "https://retropa.com/delta-skins/",
+   "alternates": [
+    "en https://retropa.com/delta-skins/",
+    "ja https://retropa.com/ja/delta-skins/",
+    "x-default https://retropa.com/delta-skins/",
+    "zh-Hans https://retropa.com/zh-Hans/delta-skins/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "BreadcrumbList",
+    "ListItem",
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Import Delta skins on iPhone and iPad | Retropa",
+   "description": "A skin moves your controls, not just the wallpaper behind them. Retropa opens .deltaskin packages and also ships a skin collection of its own for iPhone and iPad."
+  },
+  "/cores/": {
+   "canonical": "https://retropa.com/cores/",
+   "alternates": [
+    "en https://retropa.com/cores/",
+    "ja https://retropa.com/ja/cores/",
+    "x-default https://retropa.com/cores/",
+    "zh-Hans https://retropa.com/zh-Hans/cores/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "SoftwareApplication",
+    "WebPage",
+    "WebSite"
+   ],
+   "title": "Retropa Core Catalog · Systems, ROM Formats, and Source Links",
+   "description": "Browse Retropa emulator cores, supported systems, ROM extension coverage, and upstream project links in one official catalog."
+  },
+  "/gb-emulator/": {
+   "canonical": "https://retropa.com/gb-emulator/",
+   "alternates": [
+    "en https://retropa.com/gb-emulator/",
+    "ja https://retropa.com/ja/gb-emulator/",
+    "x-default https://retropa.com/gb-emulator/",
+    "zh-Hans https://retropa.com/zh-Hans/gb-emulator/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Game Boy Emulator for iPhone & iPad | Retropa",
+   "description": "Retropa runs the .gb files you own on iPhone and iPad. Here is which core handles Game Boy, how to import a game, how to set up the screen and controls, and what to check when a file refuses to open."
+  },
+  "/plus/": {
+   "canonical": "https://retropa.com/plus/",
+   "alternates": [
+    "en https://retropa.com/plus/",
+    "ja https://retropa.com/ja/plus/",
+    "x-default https://retropa.com/plus/",
+    "zh-Hans https://retropa.com/zh-Hans/plus/"
+   ],
+   "robots": "index,follow,max-image-preview:large",
+   "h1": 1,
+   "jsonLd": [
+    "Answer",
+    "BreadcrumbList",
+    "FAQPage",
+    "ListItem",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "title": "Retropa Plus: What Is Free and What Requires Plus",
+   "description": "Retropa is free to download and handheld emulation needs no purchase. See what Retropa Plus adds, from arcade families and premium skins to advanced filters, core switching and console mode."
+  }
+ }
+}

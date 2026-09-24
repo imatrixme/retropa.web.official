@@ -1,0 +1,39 @@
+---
+import Base from "@/layouts/Base.astro"
+import HomeTemplate from "@/components/templates/HomeTemplate.astro"
+import CoresTemplate from "@/components/templates/CoresTemplate.astro"
+import LegalTemplate from "@/components/templates/LegalTemplate.astro"
+import StartTemplate from "@/components/templates/StartTemplate.astro"
+import GuidesTemplate from "@/components/templates/GuidesTemplate.astro"
+import ProductTemplate from "@/components/templates/ProductTemplate.astro"
+import SearchTemplate from "@/components/templates/SearchTemplate.astro"
+import { publishedPages } from "@/lib/metadata"
+import { localizedPath, type SitePage } from "@/lib/routes"
+import type { Locale } from "@/i18n/locales"
+import { isProductPage } from "@/content/product-details"
+import { isSearchPage, searchPageContent } from "@/content/search-pages"
+import { homePreload } from "@/content/home"
+
+// Every published page/locale pair from the route registry becomes one static
+// HTML file at exactly the path the registry assigns (see src/lib/page-families.ts).
+export function getStaticPaths() {
+  return publishedPages.map(({ page, locale }) => {
+    const slug = localizedPath(page, locale).replace(/^\/|\/$/g, "")
+    return { params: { slug: slug || undefined }, props: { page, locale } }
+  })
+}
+
+interface Props { page: SitePage; locale: Locale }
+const { page, locale } = Astro.props
+const search = isSearchPage(page) ? searchPageContent(page, locale) : null
+---
+<Base locale={locale} page={page} preload={page === "home" ? homePreload : []}>
+  {page === "home" ? <HomeTemplate locale={locale} />
+    : page === "cores" ? <CoresTemplate locale={locale} />
+    : page === "terms" || page === "privacy" ? <LegalTemplate locale={locale} kind={page as "terms" | "privacy"} />
+    : page === "start" ? <StartTemplate locale={locale} />
+    : page === "guides" ? <GuidesTemplate locale={locale} />
+    : isProductPage(page) ? <ProductTemplate locale={locale} page={page} />
+    : search ? <SearchTemplate locale={locale} content={search} />
+    : null}
+</Base>

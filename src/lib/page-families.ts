@@ -1,4 +1,4 @@
-import { supportedLocales, type Locale } from "@/i18n/locales"
+import { publishedLocales as supportedLocales, isPublishedLocale, retiredLocaleFallback, type Locale } from "@/i18n/locales"
 import { pagePathByKey, type PageKey } from "@/i18n/pages"
 import { hasProductBody, productPages } from "@/content/product-details"
 import { hasStartPageContent } from "@/content/start-page"
@@ -25,9 +25,10 @@ export type PageFamily = {
   readonly enumerate: "locale-major" | "page-major"
 }
 
-export const guideLocale = (locale: Locale): Locale => (locale.startsWith("zh") ? "zh-Hans" : "en")
+export const guideLocale = (locale: Locale): Locale => (isPublishedLocale(locale) ? locale : retiredLocaleFallback[locale] ?? "en")
 
-const identity = (locale: Locale): Locale => locale
+/** Resolves a retired language to the published language that replaced it. */
+const identity = (locale: Locale): Locale => isPublishedLocale(locale) ? locale : retiredLocaleFallback[locale] ?? "en"
 const fixed = (locales: readonly Locale[]) => () => locales
 
 const coreFamily: PageFamily = {
@@ -48,7 +49,7 @@ const guideFamily: PageFamily = {
   pages: ["start"],
   localesFor: () => supportedLocales.filter(hasStartPageContent),
   resolveLocale: (locale) =>
-    hasStartPageContent(locale) ? locale : "en",
+    hasStartPageContent(locale) && isPublishedLocale(locale) ? locale : identity(locale),
   path: (page) => `/${page}/`,
   enumerate: "page-major",
 }
@@ -59,7 +60,7 @@ const productFamily: PageFamily = {
   pages: productPages,
   localesFor: (page) => supportedLocales.filter((locale) => hasProductBody(page as (typeof productPages)[number], locale)),
   resolveLocale: (locale, page) =>
-    hasProductBody(page as (typeof productPages)[number], locale) ? locale : "en",
+    hasProductBody(page as (typeof productPages)[number], locale) && isPublishedLocale(locale) ? locale : identity(locale),
   path: (page) => `/${page}/`,
   enumerate: "page-major",
 }
@@ -71,9 +72,9 @@ const productFamily: PageFamily = {
 const searchFamily: PageFamily = {
   id: "search",
   pages: searchPageSlugs,
-  localesFor: (page) => searchPageLocales(page),
+  localesFor: (page) => searchPageLocales(page).filter(isPublishedLocale),
   resolveLocale: (locale, page) => {
-    const locales = searchPageLocales(page)
+    const locales = searchPageLocales(page).filter(isPublishedLocale) as Locale[]
     return locales.includes(locale) ? locale : locales.includes(guideLocale(locale)) ? guideLocale(locale) : locales.includes("en") ? "en" : locales[0] ?? "en"
   },
   path: searchPagePath,
@@ -86,7 +87,7 @@ const guidesIndexFamily: PageFamily = {
   id: "guides-index",
   pages: ["guides"],
   localesFor: () => supportedLocales.filter(hasGuidesIndexContent),
-  resolveLocale: (locale) => (hasGuidesIndexContent(locale) ? locale : "en"),
+  resolveLocale: (locale) => (hasGuidesIndexContent(locale) && isPublishedLocale(locale) ? locale : identity(locale)),
   path: () => "/guides/",
   enumerate: "page-major",
 }

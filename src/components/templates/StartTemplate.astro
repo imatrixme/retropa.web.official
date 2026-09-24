@@ -1,0 +1,51 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Reading from "@/components/Reading.astro"
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import { startPageContent } from "@/content/start-page"
+import { acquisitionCopy } from "@/content/acquisition"
+import { discoveryCopy } from "@/content/discovery"
+import { detailLinkLabel, productPages } from "@/content/product-details"
+import { siteLink } from "@/lib/links"
+import { siteConfig } from "@/lib/site-config"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const guide = startPageContent(locale)
+const copy = acquisitionCopy(locale)
+const discovery = discoveryCopy(locale)
+const quick = (["gba-emulator", "ds-emulator", "arcade"] as const).map(page => ({ ...siteLink(page, locale), text: page === "gba-emulator" ? "GBA" : page === "ds-emulator" ? "DS" : discovery.arcadeLabel }))
+---
+<PageHero locale={locale} page="start" eyebrow={`Retropa / ${copy.start}`} title={guide.title} summary={guide.intro} mark="START">
+  <nav class="quick" aria-label={guide.systems}>
+    {quick.map(item => <a href={item.href} hreflang={item.hreflang}>{item.text}<Icon name="arrow-right" size={15} /></a>)}
+    <a href="#before-you-start">{guide.faqTitle}<Icon name="chevron-down" size={15} /></a>
+  </nav>
+</PageHero>
+<section class="steps ground-tube">
+  <ol class="shell" role="list">
+    {guide.steps.map(([title, body], index) => <li class="reveal"><span class="n display">{index + 1}</span><div><h2>{title}</h2><p>{body}</p></div></li>)}
+  </ol>
+  <div class="shell"><a class="link-arrow sys" href={siteLink("cores", locale).href}>{guide.systems}<Icon name="arrow-right" size={18} /></a></div>
+</section>
+<Reading tocLabel={discovery.onThisPage} sections={[]} faqId="before-you-start" faqTitle={guide.faqTitle}
+  faqs={guide.faqs.map(item => ({ id: item.id, question: item.question, answer: item.answer, open: ["games", "integer-scaling"].includes(item.id), link: item.link ? { href: siteLink(item.link, locale).href, label: item.linkLabel ?? "" } : undefined }))}
+  relatedLabel={copy.start} related={productPages.map(page => ({ ...siteLink(page, locale), text: detailLinkLabel(page, locale) }))}>
+  <p class="support">{guide.support} <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a></p>
+</Reading>
+<style>
+  .quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .quick a { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; background: rgb(255 255 255 / .07); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .12); font-size: 14px; font-weight: 600; }
+  .quick a:hover { background: rgb(255 255 255 / .14); }
+  .steps { padding: 24px 0 96px; }
+  ol { display: grid; gap: 16px; list-style: none; }
+  @media (min-width: 900px) { ol { grid-template-columns: repeat(3, 1fr); } }
+  li { display: grid; gap: 18px; padding: 28px; border-radius: 26px; background: rgb(255 255 255 / .04); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .09); }
+  .n { font-size: 88px; line-height: .8; color: transparent; -webkit-text-stroke: 1.5px var(--signal); }
+  li h2 { font-size: 22px; line-height: 1.2; margin-bottom: 8px; }
+  li p { color: rgb(244 242 251 / .7); font-size: 16px; }
+  .sys { margin-top: 32px; color: var(--signal-2); }
+  .support { margin-top: 40px; }
+  .support a { text-decoration: underline; text-underline-offset: 4px; }
+</style>

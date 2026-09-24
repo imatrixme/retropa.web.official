@@ -1,0 +1,120 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import { getMessages } from "@/i18n/messages"
+import { buildCatalog } from "@/content/emulator-catalog"
+import { acquisitionCopy } from "@/content/acquisition"
+import { discoveryCopy } from "@/content/discovery"
+import { detailLinkLabel } from "@/content/product-details"
+import { searchPageLocales } from "@/content/search-pages"
+import { siteLink } from "@/lib/links"
+import { localizedPath } from "@/lib/routes"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const messages = getMessages(locale)
+const catalog = buildCatalog(messages.catalog)
+const copy = acquisitionCopy(locale)
+const discovery = discoveryCopy(locale)
+
+// Searchable names; the website may use full system names (see channels.ts).
+const systems: Record<string, { name: string; short: string; channel: string; page?: string }> = {
+  "game-boy": { name: "Game Boy", short: "GB", channel: "gb", page: "gb-emulator" },
+  "game-boy-color": { name: "Game Boy Color", short: "GBC", channel: "gb", page: "gbc-emulator" },
+  "game-boy-advance": { name: "Game Boy Advance", short: "GBA", channel: "gba", page: "gba-emulator" },
+  "nintendo-ds": { name: "Nintendo DS", short: "DS", channel: "nds", page: "ds-emulator" },
+  nes: { name: "NES", short: "NES", channel: "nes", page: "nes-emulator" },
+  snes: { name: "Super NES", short: "SNES", channel: "snes", page: "snes-emulator" },
+  "sega-master-system": { name: "Master System", short: "SMS", channel: "genesis", page: "master-system-emulator" },
+  "game-gear": { name: "Game Gear", short: "GG", channel: "genesis", page: "game-gear-emulator" },
+  "mega-drive": { name: "Mega Drive", short: "MD", channel: "genesis", page: "sega-genesis-emulator" },
+  genesis: { name: "Genesis", short: "GEN", channel: "genesis", page: "sega-genesis-emulator" },
+  wonderswan: { name: "WonderSwan", short: "WS", channel: "handheld-alt", page: "wonderswan-emulator" },
+  "wonderswan-color": { name: "WonderSwan Color", short: "WSC", channel: "handheld-alt", page: "wonderswan-emulator" },
+  "neo-geo-pocket": { name: "Neo Geo Pocket", short: "NGP", channel: "handheld-alt", page: "neogeo-pocket-emulator" },
+  "neo-geo-pocket-color": { name: "Neo Geo Pocket Color", short: "NGPC", channel: "handheld-alt", page: "neogeo-pocket-emulator" },
+  containers: { name: "ZIP / RetroPack", short: "ZIP", channel: "brand" },
+}
+const coreLanding: Record<string, string> = { mgba: "mgba-core", skyemu: "skyemu-core", sameboy: "sameboy-core", rusticones: "rusticones-core", tetanes: "tetanes-core", lakesnes: "lakesnes-core", jgenesis: "jgenesis-core", ares: "ares-core" }
+const names = new Map(catalog.emulatorCores.map(core => [core.id, core.label]))
+const pageLink = (slug?: string) => slug && searchPageLocales(slug).includes(locale) ? localizedPath(slug, locale) : null
+const arcade = siteLink("arcade", locale)
+---
+<PageHero locale={locale} page="cores" eyebrow="Retropa" title={messages.home.systemShowcaseTitle} summary={messages.cores.heroDescription} mark="14+" />
+<section class="matrix ground-cartridge">
+  <div class="shell">
+    <p class="notice">{copy.noRoms}</p>
+    <a class="arcade" href={arcade.href} hreflang={arcade.hreflang} data-channel="arcade">
+      <span class="display">{discovery.arcadeLabel}</span>
+      <span class="boards hud">CPS I · CPS II · CPS III · Neo Geo · PGM · M92</span>
+      <span class="plus-line"><span class="plus-tag">Plus</span>{copy.plus}</span>
+      <span class="go">{detailLinkLabel("arcade", locale)}<Icon name="arrow-up-right" size={18} /></span>
+    </a>
+    <h2>{messages.cores.systemMatrixTitle}</h2>
+    <div class="matrix-table" role="region" aria-label={messages.cores.systemMatrixTitle} tabindex="0">
+      <table>
+        <thead><tr><th>{messages.home.systemShowcaseTitle}</th><th>{messages.cores.availableCoresLabel}</th><th>{messages.cores.romCoverageLabel}</th></tr></thead>
+        <tbody>
+          {catalog.systemSupportMatrix.map(system => {
+            const meta = systems[system.id]
+            const link = pageLink(meta?.page)
+            return <tr id={system.id} data-channel={meta?.channel}>
+              <th scope="row"><span class="dot" aria-hidden="true"></span>{link ? <a href={link}>{meta?.name}</a> : meta?.name}<span class="short hud">{meta?.short}</span></th>
+              <td>{system.coreIds.map(id => names.get(id)).join(" / ")}</td>
+              <td class="hud ext">{system.romExtensions.join(" ")}</td>
+            </tr>
+          })}
+        </tbody>
+      </table>
+    </div>
+    <h2>{messages.cores.coreCardsTitle}</h2>
+    <div class="cores">
+      {catalog.emulatorCores.map(core => {
+        const link = pageLink(coreLanding[core.id])
+        return <a class="core reveal" href={link ?? core.githubUrl} {...(link ? {} : { rel: "noopener", target: "_blank" })}>
+          <img src={core.logoPath} width="64" height="40" alt="" loading="lazy" />
+          <strong>{core.label}</strong>
+          <span class="hud repo">{link ? "Retropa" : "GitHub"}</span>
+          <Icon name="arrow-up-right" size={18} class="go-icon" />
+        </a>
+      })}
+    </div>
+    <div class="pillars">
+      {messages.home.compatibilityPillars.map(item => <div><h3>{item.title}</h3><p>{item.description}</p></div>)}
+    </div>
+  </div>
+</section>
+<style>
+  .matrix { padding: 72px 0 120px; }
+  .notice { font-size: 14px; color: var(--color-ink-soft); margin-bottom: 28px; }
+  .arcade { position: relative; display: grid; gap: 14px; padding: clamp(28px, 4vw, 48px); border-radius: 30px; overflow: hidden; isolation: isolate; background: radial-gradient(120% 140% at 100% 0%, color-mix(in oklab, var(--signal) 55%, transparent), transparent 60%), radial-gradient(80% 120% at 0% 100%, color-mix(in oklab, var(--signal-2) 30%, transparent), transparent 60%), var(--color-tube); color: #fff; }
+  .arcade .display { font-size: clamp(56px, 9vw, 128px); }
+  .boards { color: var(--signal-2); font-size: 13px; }
+  .plus-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; max-width: 70ch; color: rgb(244 242 251 / .74); font-size: 15px; }
+  .go { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+  h2 { margin: 88px 0 24px; font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 8%); letter-spacing: calc(var(--display-tracking) * .6); font-size: clamp(30px, 3.6vw, 48px); line-height: 1.05; }
+  .matrix-table { overflow-x: auto; border-radius: 22px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); }
+  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  th, td { text-align: left; padding: 16px 20px; border-bottom: 1px solid var(--color-cartridge-line); vertical-align: middle; font-size: 15px; }
+  thead th { font-family: var(--font-hud); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--color-ink-soft); font-weight: 400; }
+  tbody tr:last-child > * { border-bottom: 0; }
+  tbody th { font-weight: 650; white-space: nowrap; }
+  tbody th a { text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--signal) 60%, transparent); text-underline-offset: 4px; }
+  .dot { display: inline-block; width: 10px; height: 10px; margin-right: 12px; border-radius: 3px; background: var(--signal); box-shadow: 0 0 10px color-mix(in oklab, var(--signal) 70%, transparent); }
+  .short { margin-left: 10px; color: var(--color-ink-soft); font-size: 11px; }
+  .ext { color: #45424f; font-size: 12px; text-transform: none; }
+  .cores { display: grid; gap: 14px; }
+  @media (min-width: 700px) { .cores { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .cores { grid-template-columns: repeat(4, 1fr); } }
+  .core { position: relative; display: grid; align-content: start; gap: 10px; padding: 24px; border-radius: 22px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); transition: transform .25s var(--ease-snap), box-shadow .25s; }
+  .core:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 1px var(--color-ink), 0 20px 36px -24px rgb(14 14 20 / .5); }
+  .core img { height: 40px; width: auto; object-fit: contain; object-position: left; }
+  .core strong { font-size: 19px; }
+  .core .repo { color: var(--color-ink-soft); font-size: 11px; }
+  .core :global(.go-icon) { position: absolute; top: 22px; right: 22px; }
+  .pillars { display: grid; gap: 24px; margin-top: 72px; }
+  @media (min-width: 800px) { .pillars { grid-template-columns: 1fr 1fr; } }
+  .pillars h3 { font-size: 20px; margin-bottom: 8px; }
+  .pillars p { color: #45424f; }
+</style>

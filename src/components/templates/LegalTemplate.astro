@@ -1,0 +1,31 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Reading from "@/components/Reading.astro"
+import type { Locale } from "@/i18n/locales"
+import { getMessages } from "@/i18n/messages"
+import { siteConfig } from "@/lib/site-config"
+
+interface Props { locale: Locale; kind: "terms" | "privacy" }
+const { locale, kind } = Astro.props
+const messages = getMessages(locale)
+const doc = messages[kind]
+const [year, month, day] = siteConfig.legalEffectiveDateISO.split("-").map(Number)
+const effective = new Intl.DateTimeFormat(locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(Date.UTC(year, month - 1, day)))
+const zh = locale.startsWith("zh")
+---
+<PageHero locale={locale} page={kind} eyebrow="Retropa" title={doc.title} summary={doc.subtitle} cta={false}>
+  <p class="effective hud">{messages.shared.legalDocument.effectiveDateLabel}: {effective}</p>
+</PageHero>
+<Reading tocLabel={messages.shared.legalDocument.onThisPageLabel}
+  sections={doc.sections.map(section => ({ id: section.id, title: section.title, body: section.paragraphs }))}>
+  {kind === "privacy" && <section id="website-analytics" class="analytics" lang={zh ? "zh-Hans" : "en"}>
+    <h2>{zh ? "官网使用统计" : "Website analytics"}</h2>
+    <p>{zh ? "官网仅在你允许后加载 Google Analytics。它使用 Cookie 统计页面访问、功能浏览与下载按钮点击，并会处理浏览器和网络请求信息。自定义事件不包含 ROM 名称、完整来源网址、任意查询参数或支付信息。" : "The website loads Google Analytics only after you allow it. It uses cookies to measure page visits, feature views and download clicks, and processes browser and network request information. Custom events exclude ROM names, full referrer URLs, arbitrary query parameters and payment details."}</p>
+    <p>{zh ? "你可以在页脚的隐私设置中拒绝或撤回许可。许可选择保存在本机；下载无需同意统计。App Store campaign 数据仅用于汇总分析，不代表能够识别同一个网站访客与 App 用户。Google Analytics 的保存期限按项目后台配置执行；隐私请求请联系 support@retropa.com。" : "Decline or withdraw permission in the footer's Privacy settings. Consent preferences are stored locally; downloading never requires analytics. App Store campaign data is aggregate evidence, not a way to identify the same person across the website and app. Analytics retention follows the property configuration. Contact support@retropa.com for privacy requests."}</p>
+  </section>}
+</Reading>
+<style>
+  .effective { color: rgb(244 242 251 / .55); }
+  .analytics { padding-top: 40px; border-top: 1px solid var(--color-cartridge-line); display: grid; gap: 14px; }
+  .analytics h2 { font-size: 28px; }
+</style>

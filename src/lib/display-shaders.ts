@@ -84,35 +84,36 @@ uniform int mode;
 uniform float divider;
 in vec2 uv;
 out vec4 outputColor;
-const vec2 sourceSize=vec2(320.0,240.0);
+uniform vec2 sourceSize;
+uniform float curvature;
 ${nativeColorFunctions}
 ${advancedDisplayFunctions}
 float scan(float axis,float count,float strength,float exponent) {
   float phase=1.0-abs(fract(axis*count)-.5)*2.0;
   return mix(1.0-strength,1.0,pow(max(phase,0.0),exponent));
 }
-float response(float a,float b) { return smoothstep(a,b,max(1.0,min(outputSize.x/320.0,outputSize.y/240.0))); }
+float response(float a,float b) { return smoothstep(a,b,max(1.0,min(outputSize.x/sourceSize.x,outputSize.y/sourceSize.y))); }
 void main() {
   // Barrel projection supplies convex glass depth; the shared DOM contour owns clipping.
   vec2 centered=uv*2.0-1.0;
-  vec2 bowed=centered*(1.0+.12*dot(centered,centered))/1.12;
+  vec2 bowed=centered*(1.0+curvature*dot(centered,centered))/(1.0+curvature);
   vec2 p=clamp(bowed*.5+.5,vec2(0.0),vec2(1.0));
   vec3 nearest=texture(nearestSource,p).rgb;
   vec3 c=nearest;
   if (mode==1) {
     float r=response(2.0,5.0);
     c=mix(nearest,texture(linearSource,p).rgb,.20+.08*r);
-    float s=scan(p.y,240.0,mix(.06,.18,r),mix(1.45,2.35,r));
-    float mask=scan(p.x,320.0*mix(1.0,1.35,r),mix(.015,.05,r),1.35);
+    float s=scan(p.y,sourceSize.y,mix(.06,.18,r),mix(1.45,2.35,r));
+    float mask=scan(p.x,sourceSize.x*mix(1.0,1.35,r),mix(.015,.05,r),1.35);
     vec2 ellipse=(p*2.0-1.0)*vec2(.92,1.04);
     float vignette=clamp(1.0-dot(ellipse,ellipse)*mix(.045,.085,r),.86,1.0);
     c*=s*mask*vignette*(1.0+luma(c)*.035)*vec3(1.01,.995,.97);
   } else if (mode==2) {
     float r=response(1.5,4.0);
-    float scale=max(1.0,round(min(outputSize.x/320.0,outputSize.y/240.0)));
+    float scale=max(1.0,round(min(outputSize.x/sourceSize.x,outputSize.y/sourceSize.y)));
     vec2 grid=sourceSize*scale;
-    vec3 right=texture(nearestSource,clamp(p+vec2(1.0/320.0,0.0),0.0,1.0)).rgb;
-    vec3 left=texture(nearestSource,clamp(p-vec2(1.0/320.0,0.0),0.0,1.0)).rgb;
+    vec3 right=texture(nearestSource,clamp(p+vec2(1.0/sourceSize.x,0.0),0.0,1.0)).rgb;
+    vec3 left=texture(nearestSource,clamp(p-vec2(1.0/sourceSize.x,0.0),0.0,1.0)).rgb;
     c=vec3(mix(nearest.r,right.r,.05),mix(nearest.g,(left.g+right.g)*.5,.02),mix(nearest.b,left.b,.05));
     float sub=fract(p.x*grid.x*3.0);
     vec3 mask=vec3(mix(.88,.82,r));
@@ -122,13 +123,13 @@ void main() {
   } else if (mode==3) {
     float r=response(1.5,4.5);
     c=mix(nearest,texture(linearSource,p).rgb,.14);
-    c*=scan(p.y,240.0,mix(.05,.14,r),mix(1.15,1.9,r))*scan(p.x,320.0,mix(.01,.03,r),1.2);
+    c*=scan(p.y,sourceSize.y,mix(.05,.14,r),mix(1.15,1.9,r))*scan(p.x,sourceSize.x,mix(.01,.03,r),1.2);
     c*=1.0+luma(c)*.012;
   } else if(mode==4) c=crtV4(p);
   else if(mode==5) c=trinitron(p);
   else if(mode==6) c=dmg(p);
   if (uv.x<divider) c=nearest;
-  float glassFalloff=1.0-.12*smoothstep(.35,1.75,dot(centered,centered));
+  float glassFalloff=1.0-curvature*smoothstep(.35,1.75,dot(centered,centered));
   outputColor=vec4(clamp(c*glassFalloff,0.0,1.0),1.0);
 }
 `

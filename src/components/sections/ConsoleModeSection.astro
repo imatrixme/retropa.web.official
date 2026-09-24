@@ -1,0 +1,135 @@
+---
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import type { HomeCopy } from "@/content/home"
+import type { ChannelMedia } from "@/content/media"
+import { phrases } from "@/lib/phrases"
+
+interface Props { locale: Locale; copy: HomeCopy["console"]; video?: ChannelMedia }
+const { copy, video } = Astro.props
+---
+<section id="console-mode" class="console ground-tube" data-channel="snes" data-feature="console_mode" aria-labelledby="console-title">
+  <div class="track">
+    <div class="pin">
+      <div class="shell grid">
+        <div class="copy">
+          <p class="eyebrow">{copy.eyebrow} <span class="plus-tag">Plus</span></p>
+          <h2 id="console-title" class="display">{phrases(copy.title).map(part => <span class="phrase">{part}</span>)}</h2>
+          <p class="body">{copy.body}</p>
+          <ol class="steps" role="list">
+            {copy.steps.map(([title, text], i) => <li style={`--i:${i}`}><span class="hud">0{i + 1}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}
+          </ol>
+        </div>
+        <figure class="scene" aria-hidden="true">
+          <div class="room"></div>
+          <div class="tv">
+            <div class="tv-screen">
+              <div class="tv-off"></div>
+              <div class="tv-game">
+                {video?.mp4 || video?.webm
+                  ? <video autoplay muted loop playsinline preload="none" poster={video.poster} data-lazy-video>{video.webm && <source data-src={video.webm} type="video/webm" />}{video.mp4 && <source data-src={video.mp4} type='video/mp4; codecs="hvc1"' />}</video>
+                  : video?.poster ? <img src={video.poster} alt="" aria-hidden="true" loading="lazy" /> : <span class="bars"></span>}
+                <span class="tv-scan"></span>
+              </div>
+            </div>
+            <div class="tv-stand"></div>
+          </div>
+          <svg class="beam" viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M78 52 C 70 30, 55 22, 50 18" pathLength="1" /></svg>
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-game">{video?.poster ? <img src={video.poster} alt="" aria-hidden="true" loading="lazy" /> : <span class="bars"></span>}</div>
+              <div class="pad">
+                <span class="dpad"><i></i><i></i></span>
+                <span class="mid"><i></i><i></i></span>
+                <span class="face"><i>B</i><i>A</i></span>
+              </div>
+            </div>
+          </div>
+          <figcaption class="hud tag">{copy.illustrative}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // Load the TV loop only when the scene approaches the viewport.
+  const video = document.querySelector<HTMLVideoElement>("#console-mode [data-lazy-video]")
+  if (video && "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) { video.pause(); return }
+      if (!video.dataset.loaded) {
+        video.querySelectorAll<HTMLSourceElement>("source[data-src]").forEach((source) => { source.src = source.dataset.src! })
+        video.dataset.loaded = "1"
+        video.load()
+      }
+      void video.play().catch(() => {})
+    }, { rootMargin: "200px 0px" })
+    observer.observe(video)
+  }
+</script>
+<style>
+  .console { position: relative; }
+  .track { position: relative; }
+  .pin { padding: clamp(96px, 12vw, 160px) 0; }
+  .grid { display: grid; gap: 56px; align-items: center; }
+  @media (min-width: 1024px) { .grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); } }
+  .eyebrow { flex-wrap: wrap; }
+  @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
+  :lang(ja) h2 { font-size: clamp(32px, 3.6vw, 56px); line-height: 1.1; }
+  h2 { font-size: clamp(36px, 4.4vw, 68px); font-stretch: 105%; color: #fff; margin: 18px 0 22px; }
+  .body { max-width: 50ch; font-size: clamp(17px, 1.4vw, 20px); color: rgb(244 242 251 / .74); }
+  .steps { display: grid; gap: 12px; margin-top: 36px; list-style: none; }
+  .steps li { display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 16px 18px; border-radius: 18px; background: rgb(255 255 255 / .04); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); }
+  .steps .hud { color: var(--signal); padding-top: 3px; }
+  .steps strong { display: block; color: #fff; font-size: 17px; }
+  .steps p { font-size: 15px; color: rgb(244 242 251 / .64); }
+
+  .scene { position: relative; margin: 0; aspect-ratio: 16 / 11; }
+  .room { position: absolute; inset: 0; border-radius: 36px; background: radial-gradient(70% 60% at 50% 30%, color-mix(in oklab, var(--signal) 26%, transparent), transparent 70%), radial-gradient(90% 60% at 50% 110%, rgb(255 170 90 / .18), transparent 70%), #0d0c14; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .07); }
+  .tv { position: absolute; left: 8%; right: 8%; top: 8%; }
+  .tv-screen { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; background: #050508; box-shadow: 0 0 0 6px #111117, 0 0 0 7px rgb(255 255 255 / .08), 0 30px 80px -20px color-mix(in oklab, var(--signal) 70%, transparent); }
+  .tv-off { position: absolute; inset: 0; background: radial-gradient(60% 50% at 40% 30%, rgb(255 255 255 / .06), transparent); }
+  .tv-game { position: absolute; inset: 0; display: grid; place-items: center; background: #000; }
+  .tv-game video, .tv-game img { height: 100%; width: auto; max-width: 100%; aspect-ratio: 4 / 3; object-fit: cover; image-rendering: pixelated; }
+  .tv-scan { position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .25) 0 1px, transparent 1px 3px); pointer-events: none; }
+  .tv-stand { width: 22%; height: 10px; margin: 16px auto 0; border-radius: 6px; background: linear-gradient(#26252e, #111117); }
+  .beam { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .beam path { fill: none; stroke: var(--signal-2); stroke-width: .5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 2px var(--signal)); opacity: 0; }
+  .phone { position: absolute; right: 6%; bottom: 6%; width: 40%; aspect-ratio: 19.5 / 9; padding: 1.4%; border-radius: 13% / 28%; background: linear-gradient(145deg, #5b5a66, #1b1b22 25%, #0c0c11 65%, #3a3945); box-shadow: 0 0 0 1px rgb(255 255 255 / .14), 0 30px 60px -20px rgb(0 0 0 / .9); transform: rotate(-4deg); }
+  .phone-screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 11.5% / 25%; background: linear-gradient(135deg, var(--shell), #0a0a10); }
+  .phone-game { position: absolute; inset: 0; display: grid; place-items: center; background: #000; }
+  .phone-game img { height: 100%; aspect-ratio: 4 / 3; object-fit: cover; image-rendering: pixelated; }
+  .pad { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 9%; opacity: 1; }
+  .dpad { position: relative; width: 22%; aspect-ratio: 1; }
+  .dpad i { position: absolute; inset: 34% 0; border-radius: 4px; background: rgb(255 255 255 / .85); }
+  .dpad i + i { inset: 0 34%; }
+  .mid { display: flex; gap: 8%; width: 20%; }
+  .mid i { flex: 1; height: 6px; border-radius: 3px; background: rgb(255 255 255 / .4); }
+  .face { display: flex; gap: 10%; width: 24%; }
+  .face i { display: grid; place-items: center; flex: 1; aspect-ratio: 1; border-radius: 50%; background: var(--signal); color: #07070c; font-style: normal; font-weight: 700; font-size: clamp(8px, .9vw, 13px); box-shadow: 0 0 14px color-mix(in oklab, var(--signal) 70%, transparent); }
+  .face i:first-child { transform: translateY(35%); }
+  .phone-game { opacity: 0; }
+  .tag { position: absolute; left: 18px; bottom: 16px; padding: 5px 9px; border-radius: 999px; background: rgb(7 7 12 / .6); color: rgb(244 242 251 / .55); font-size: 10px; }
+  .bars { display: block; width: 100%; height: 100%; background: linear-gradient(135deg, var(--signal), var(--shell)); }
+
+  /* Scroll-driven story: the game leaves the phone and lands on the TV while
+     the phone turns into the controller. Without support, or with reduced
+     motion, the final state is shown statically. */
+  @supports (animation-timeline: view()) {
+    @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+      .track { height: 260vh; view-timeline: --console block; }
+      .pin { position: sticky; top: 0; min-height: 100vh; display: grid; align-items: center; }
+      .tv-game, .phone-game, .pad, .beam path, .steps li { animation-timeline: --console; animation-fill-mode: both; animation-timing-function: linear; }
+      .phone-game { animation-name: phone-game; animation-range: contain 0% contain 55%; }
+      .pad { animation-name: pad-in; animation-range: contain 45% contain 70%; }
+      .tv-game { animation-name: tv-on; animation-range: contain 30% contain 60%; }
+      .beam path { animation-name: beam; animation-range: contain 20% contain 60%; }
+      .steps li { animation-name: step; animation-range: contain calc(var(--i) * 25% + 5%) contain calc(var(--i) * 25% + 25%); }
+    }
+  }
+  @keyframes phone-game { 0%, 60% { opacity: 1; } 100% { opacity: 0; } }
+  @keyframes pad-in { from { opacity: 0; transform: scale(.94); } }
+  @keyframes tv-on { 0% { clip-path: inset(50% 0 50% 0); filter: brightness(3); opacity: 0; } 30% { clip-path: inset(49% 0 49% 0); opacity: 1; } 100% { clip-path: inset(0); filter: none; opacity: 1; } }
+  @keyframes beam { 0% { stroke-dashoffset: 1; opacity: 0; } 20% { opacity: 1; } 80% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+  @keyframes step { from { opacity: .35; } to { opacity: 1; box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--signal) 55%, transparent); } }
+</style>

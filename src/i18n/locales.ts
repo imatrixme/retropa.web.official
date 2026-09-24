@@ -18,6 +18,22 @@ export const supportedLocales = [
 
 export type Locale = (typeof supportedLocales)[number]
 
+/**
+ * Languages actually published on the website. `supportedLocales` still lists
+ * every language with authored content so those modules keep type-checking and
+ * can be republished later; only the languages below are built, linked,
+ * listed in the sitemap or declared as alternates.
+ */
+export const publishedLocales = ["en", "zh-Hans", "ja"] as const satisfies readonly Locale[]
+export type PublishedLocale = (typeof publishedLocales)[number]
+export const isPublishedLocale = (locale: string): locale is PublishedLocale => (publishedLocales as readonly string[]).includes(locale)
+
+/** Retired language prefixes and the published language each one redirects to. */
+export const retiredLocaleFallback: Partial<Record<Locale, PublishedLocale>> = {
+  de: "en", es: "en", fr: "en", it: "en", ko: "en", ru: "en", tr: "en",
+  "pt-BR": "en", vi: "en", id: "en", th: "en", "zh-Hant": "zh-Hans",
+}
+
 export const defaultLocale: Locale = "en"
 export const localeStorageKey = "retropa.locale"
 export const localeQueryParam = "lang"
