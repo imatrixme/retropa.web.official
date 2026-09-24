@@ -60,7 +60,7 @@ VITE_ASC_PROVIDER_TOKEN=YOUR_PROVIDER_TOKEN
 
 ## Deploy
 
-- Publish all of `dist/` as a new release directory and switch the site symlink atomically. See `docs/releases/` for the v8 procedure and paths.
+- Publish all of `dist/` as a new release directory and switch the site symlink atomically. See `docs/releases/2026-09-v9.md` for the current procedure and paths.
 - Include `deploy/legacy-locales.conf` at the `http {}` level.
 - Unknown paths must return 404; do not add an SPA fallback.
-- Rollback target: `releases/20260919-v8-5a1db97d`.
+- Live release: `releases/20260924-v9-8d07b87`. Rollback target: `releases/20260919-v8-5a1db97d`.
