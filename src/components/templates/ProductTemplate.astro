@@ -8,7 +8,9 @@ import { acquisitionCopy } from "@/content/acquisition"
 import { displayCopy } from "@/content/display-study"
 import { siteLink } from "@/lib/links"
 import { channels, channelForPage } from "@/content/channels"
+import { hardwareArt } from "@/content/media"
 import DisplayCompareSection from "@/components/sections/DisplayCompareSection.astro"
+import FilterGallery from "@/components/sections/FilterGallery.astro"
 
 interface Props { locale: Locale; page: ProductPage }
 const { locale, page } = Astro.props
@@ -23,7 +25,7 @@ const related = [
 ]
 const mark = channel ? channel.short.split(" ")[0] : page === "delta-skins" ? "SKINS" : "CRT"
 ---
-<PageHero locale={locale} page={page} eyebrow={`Retropa / ${detail.label}`} title={detail.title} summary={detail.summary} mark={mark}
+<PageHero art={channel ? hardwareArt(channel.id) : null} locale={locale} page={page} eyebrow={`Retropa / ${detail.label}`} title={detail.title} summary={detail.summary} mark={mark}
   crumbs={{ label: zh ? "当前位置" : "Breadcrumb", items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: detail.label }] }} />
 <Reading tocLabel={discovery.onThisPage} asideNote={copy.noRoms}
   sections={detail.sections.map((section, index) => ({ id: `chapter-${index + 1}`, ...section }))}
@@ -32,6 +34,7 @@ const mark = channel ? channel.short.split(" ")[0] : page === "delta-skins" ? "S
   <a slot="default" class="link-arrow detail-link" href={detail.link.startsWith("/") ? siteLink("cores", locale).href : detail.link}>{detail.linkLabel} →</a>
 </Reading>
 {page === "crt-filters" && <DisplayCompareSection locale={locale} linked={false} />}
+{page === "crt-filters" && <FilterGallery locale={locale} />}
 <style>
   .detail-link { display: inline-block; margin-top: 32px; font-weight: 600; color: color-mix(in oklab, var(--signal) 55%, var(--color-ink)); }
 </style>

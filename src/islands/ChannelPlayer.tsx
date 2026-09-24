@@ -9,50 +9,12 @@ export type PlayerChannel = {
 type Copy = { channels: string; pause: string; play: string; live: string }
 
 const DWELL = 7000
-const CRT_V4 = 4
-
-/**
- * Plays a channel loop and, where WebGL2 is available, re-renders every video
- * frame through the Retropa CRT V4 display approximation at the game's native
- * resolution. Without WebGL the plain video stays visible.
- */
-function ShadedVideo({ video, native }: { video: NonNullable<PlayerChannel["video"]>; native: [number, number] }) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [shaded, setShaded] = useState(false)
-  useEffect(() => {
-    const element = videoRef.current
-    const canvas = canvasRef.current
-    if (!element || !canvas) return
-    let disposed = false
-    let frame = 0
-    let lastTime = -1
-    let renderer: { draw: (frame: number, mode: number, divider: number) => void; dispose: () => void } | undefined
-    import("@/lib/display-renderer").then(({ createDisplayRenderer }) => {
-      if (disposed) return
-      try {
-        renderer = createDisplayRenderer(canvas, { source: { video: element, width: native[0], height: native[1] }, curvature: 0, aspect: native[0] / native[1], maxWidth: 960 })
-      } catch { return }
-      const loop = () => {
-        if (disposed) return
-        if (element.readyState >= 2 && element.currentTime !== lastTime) {
-          lastTime = element.currentTime
-          renderer!.draw(0, CRT_V4, 0)
-          setShaded(true)
-        }
-        frame = requestAnimationFrame(loop)
-      }
-      frame = requestAnimationFrame(loop)
-    }).catch(() => {})
-    return () => { disposed = true; cancelAnimationFrame(frame); renderer?.dispose() }
-  }, [native])
-  return <>
-    <video ref={videoRef} className="cp-video" style={{ opacity: shaded ? 0 : 1 }} autoPlay muted loop playsInline preload="auto" poster={video.poster} aria-hidden="true" crossOrigin="anonymous">
-      {video.webm && <source src={video.webm} type="video/webm" />}
-      {video.mp4 && <source src={video.mp4} type='video/mp4; codecs="hvc1"' />}
-    </video>
-    <canvas ref={canvasRef} className="cp-video cp-canvas" style={{ opacity: shaded ? 1 : 0 }} aria-hidden="true" />
-  </>
+/** The channel's gameplay loop. Display filters are shown as native-rendered stills elsewhere; no filter code runs here. */
+function ChannelVideo({ video }: { video: NonNullable<PlayerChannel["video"]> }) {
+  return <video className="cp-video" autoPlay muted loop playsInline preload="auto" poster={video.poster} aria-hidden="true">
+    {video.webm && <source src={video.webm} type="video/webm" />}
+    {video.mp4 && <source src={video.mp4} type='video/mp4; codecs="hvc1"' />}
+  </video>
 }
 const STATIC_MS = 260
 /**
@@ -139,7 +101,7 @@ export default function ChannelPlayer({ channels, copy }: { channels: PlayerChan
           {channel.skin && <img className="cp-skin" src={channel.skin.src} width={channel.skin.width} height={channel.skin.height} alt="" aria-hidden="true" fetchPriority="low" decoding="async" />}
           <div className={`cp-game${channel.skin ? "" : " is-full"}`} style={screen}>
             {playVideo
-              ? <ShadedVideo key={channel.id} video={channel.video!} native={channel.native} />
+              ? <ChannelVideo key={channel.id} video={channel.video!} />
               : channel.video?.poster ? <img className="cp-video" src={channel.video.poster} alt="" aria-hidden="true" fetchPriority="low" decoding="async" />
               : <div className="cp-nosignal hud">{channel.short}</div>}
             <div className="cp-scan" aria-hidden="true" />

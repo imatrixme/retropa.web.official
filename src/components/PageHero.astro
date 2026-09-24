@@ -9,15 +9,17 @@ import { acquisitionCopy } from "@/content/acquisition"
 interface Props {
   locale: Locale; page: SitePage; crumbs?: { label: string; items: { text: string; href?: string }[] }
   eyebrow: string; title: string; summary?: string; cta?: boolean; mark?: string
+  art?: { src: string; small: string; width: number; height: number } | null
 }
-const { locale, page, crumbs, eyebrow, title, summary, cta = true, mark } = Astro.props
+const { locale, page, crumbs, eyebrow, title, summary, cta = true, mark, art } = Astro.props
 const copy = acquisitionCopy(locale)
 ---
 <section class="page-hero ground-tube">
   <div class="glow" aria-hidden="true"></div>
-  {mark && <div class="mark display" aria-hidden="true">{mark}</div>}
+  {mark && !art && <div class="mark display" aria-hidden="true">{mark}</div>}
   <div class="scanlines" aria-hidden="true"></div>
-  <div class="shell inner">
+  <div class:list={["shell inner", { "with-art": art }]}>
+    {art && <img class="art" src={art.src} srcset={`${art.small} 600w, ${art.src} 1200w`} sizes="(min-width: 1024px) 46vw, 100vw" width={art.width} height={art.height} alt="" aria-hidden="true" fetchpriority="high" decoding="async" />}
     {crumbs && <Breadcrumbs {...crumbs} />}
     <p class="eyebrow">{eyebrow}</p>
     <h1 class="display">{phrases(title).map(part => <span class="phrase">{part}</span>)}</h1>
@@ -35,5 +37,12 @@ const copy = acquisitionCopy(locale)
   .inner { position: relative; display: grid; gap: 22px; }
   h1 { max-width: 18ch; font-size: clamp(44px, 6.6vw, 92px); line-height: .94; color: #fff; }
   :lang(zh-Hans) h1, :lang(zh-Hant) h1, :lang(ja) h1, :lang(ko) h1 { line-height: 1.08; }
+  .with-art { grid-template-columns: minmax(0, 1fr); }
+  .art { order: -1; width: 100%; max-width: 560px; height: auto; margin: -24px auto 0; -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent); mask-image: radial-gradient(closest-side, #000 72%, transparent); }
+  @media (min-width: 1024px) {
+    .with-art { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); column-gap: 48px; }
+    .with-art > :not(.art) { grid-column: 1; }
+    .art { order: 0; grid-column: 2; grid-row: 1 / span 6; align-self: center; max-width: none; margin: 0; }
+  }
   .summary { max-width: 62ch; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; color: rgb(244 242 251 / .74); }
 </style>

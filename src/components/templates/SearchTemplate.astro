@@ -8,6 +8,7 @@ import { discoveryCopy } from "@/content/discovery"
 import { acquisitionCopy } from "@/content/acquisition"
 import { siteLink } from "@/lib/links"
 import { channels, channelForPage } from "@/content/channels"
+import { hardwareArt } from "@/content/media"
 
 interface Props { locale: Locale; content: SearchPageContent }
 const { locale, content } = Astro.props
@@ -21,7 +22,7 @@ const related = [
   { ...siteLink("cores", locale), text: discovery.more },
 ]
 ---
-<PageHero locale={locale} page={content.slug} eyebrow={`Retropa / ${content.label}`} title={content.title} summary={content.summary} mark={channel?.short.split(" ")[0]}
+<PageHero art={channel ? hardwareArt(channel.id) : null} locale={locale} page={content.slug} eyebrow={`Retropa / ${content.label}`} title={content.title} summary={content.summary} mark={channel?.short.split(" ")[0]}
   crumbs={{ label: zh ? "当前位置" : "Breadcrumb", items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: discovery.explore, href: siteLink("cores", locale).href }, { text: content.label }] }} />
 <Reading tocLabel={discovery.onThisPage} asideNote={copy.noRoms}
   sections={content.sections.map((section, index) => ({ id: `chapter-${index + 1}`, ...section }))}

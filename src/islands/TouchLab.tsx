@@ -62,6 +62,61 @@ function hitAdaptive(x: number, y: number, drift: Drift, held: Button | null): B
   return Math.abs(angle) < 90 ? "right" : "left"
 }
 
+function roundedCross(inset = 0) {
+  const { x, y, arm, half } = DPAD, r = 0.008, a = arm - inset, h = half - inset
+  const path = new Path2D()
+  const pts: [number, number][] = [[-h, -a], [h, -a], [h, -h], [a, -h], [a, h], [h, h], [h, a], [-h, a], [-h, h], [-a, h], [-a, -h], [-h, -h]]
+  path.moveTo(x + (pts[0][0] + pts[1][0]) / 2, y + pts[0][1])
+  for (let i = 1; i <= pts.length; i++) {
+    const [px, py] = pts[i % pts.length], [nx, ny] = pts[(i + 1) % pts.length]
+    path.arcTo(x + px, y + py, x + nx, y + ny, [2, 5, 8, 11].includes(i % 12) ? r * 0.3 : r)
+  }
+  path.closePath()
+  return path
+}
+
+function drawPad(context: CanvasRenderingContext2D, lit: Button | null) {
+  // Cross pad: soft shadow, moulded gradient, a lit arm and a centre dimple.
+  context.save()
+  context.shadowColor = "rgba(20,16,30,.35)"; context.shadowBlur = 0.025; context.shadowOffsetY = 0.008
+  const body = context.createLinearGradient(0, DPAD.y - DPAD.arm, 0, DPAD.y + DPAD.arm)
+  body.addColorStop(0, "#3a3645"); body.addColorStop(0.5, "#221f2a"); body.addColorStop(1, "#15131b")
+  context.fillStyle = body; context.fill(roundedCross())
+  context.restore()
+  if (lit === "up" || lit === "down" || lit === "left" || lit === "right") {
+    const dx = lit === "left" ? -1 : lit === "right" ? 1 : 0, dy = lit === "up" ? -1 : lit === "down" ? 1 : 0
+    const cx = DPAD.x + dx * DPAD.arm * 0.62, cy = DPAD.y + dy * DPAD.arm * 0.62
+    const glow = context.createRadialGradient(cx, cy, 0, cx, cy, DPAD.arm * 0.7)
+    glow.addColorStop(0, TINT[lit]); glow.addColorStop(1, "rgba(0,0,0,0)")
+    context.save(); context.clip(roundedCross()); context.fillStyle = glow; context.fillRect(DPAD.x - DPAD.arm, DPAD.y - DPAD.arm, DPAD.arm * 2, DPAD.arm * 2); context.restore()
+  }
+  context.lineWidth = 0.002; context.strokeStyle = "rgba(255,255,255,.14)"; context.stroke(roundedCross(0.004))
+  const dimple = context.createRadialGradient(DPAD.x, DPAD.y - 0.004, 0, DPAD.x, DPAD.y, DPAD.half * 0.8)
+  dimple.addColorStop(0, "#131118"); dimple.addColorStop(1, "#2a2732")
+  context.beginPath(); context.arc(DPAD.x, DPAD.y, DPAD.half * 0.62, 0, Math.PI * 2); context.fillStyle = dimple; context.fill()
+  // Arrow nubs.
+  context.fillStyle = "rgba(255,255,255,.22)"
+  for (const [dx, dy] of [[0, -1], [0, 1], [-1, 0], [1, 0]]) {
+    const cx = DPAD.x + dx * (DPAD.arm - 0.022), cy = DPAD.y + dy * (DPAD.arm - 0.022), s = 0.008
+    context.beginPath(); context.moveTo(cx + dx * s, cy + dy * s); context.lineTo(cx - dy * s - dx * s * 0.2, cy + dx * s - dy * s * 0.2); context.lineTo(cx + dy * s - dx * s * 0.2, cy - dx * s - dy * s * 0.2); context.closePath(); context.fill()
+  }
+  // Face buttons: drop shadow, domed gradient, specular highlight, label.
+  for (const key of ["a", "b"] as const) {
+    const { x, y } = FACE[key], on = lit === key
+    context.save()
+    context.shadowColor = on ? TINT[key] : "rgba(20,16,30,.4)"; context.shadowBlur = on ? 0.05 : 0.022; context.shadowOffsetY = on ? 0 : 0.008
+    const dome = context.createRadialGradient(x - FACE_R * 0.35, y - FACE_R * 0.45, FACE_R * 0.1, x, y, FACE_R)
+    dome.addColorStop(0, on ? "#ffffff" : "#57515f"); dome.addColorStop(0.35, on ? TINT[key] : "#2c2834"); dome.addColorStop(1, on ? TINT[key] : "#15131b")
+    context.beginPath(); context.arc(x, y, FACE_R, 0, Math.PI * 2); context.fillStyle = dome; context.fill()
+    context.restore()
+    const shine = context.createLinearGradient(x, y - FACE_R, x, y)
+    shine.addColorStop(0, "rgba(255,255,255,.35)"); shine.addColorStop(1, "rgba(255,255,255,0)")
+    context.beginPath(); context.ellipse(x, y - FACE_R * 0.45, FACE_R * 0.62, FACE_R * 0.36, 0, 0, Math.PI * 2); context.fillStyle = shine; context.fill()
+    context.fillStyle = on ? "#14121c" : "rgba(244,242,251,.9)"; context.font = "800 0.036px system-ui, sans-serif"; context.textAlign = "center"; context.textBaseline = "middle"
+    context.fillText(LABEL[key], x, y + 0.003)
+  }
+}
+
 const clamp = (value: number, limit: number) => Math.max(-limit, Math.min(limit, value))
 
 // A thumb that drifts low and to the right, with presses that land in gaps.
@@ -83,7 +138,6 @@ export default function TouchLab({ copy }: { copy: Copy }) {
   const reported = useRef(false)
   const regions = useRef<HTMLCanvasElement | null>(null)
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot post-hydration flag
   useEffect(() => setHydrated(true), [])
 
   const press = (x: number, y: number) => {
@@ -144,27 +198,13 @@ export default function TouchLab({ copy }: { copy: Copy }) {
       }
       buffer.getContext("2d")!.putImageData(pixels, 0, 0)
       context.imageSmoothingEnabled = true; context.imageSmoothingQuality = "high"
+      context.filter = `blur(${ratio * 1.6}px)`
       context.drawImage(buffer, 0, 0, 1, ASPECT)
-      // Controls.
+      context.filter = "none"
+      // Controls: a moulded cross pad and glossy face buttons.
       const last = taps[taps.length - 1]
       const lit = last && performance.now() - last.at < 450 ? last.hit : null
-      context.lineWidth = 0.004
-      context.strokeStyle = "rgba(20,18,28,.85)"
-      const arms: [Button, number, number, number, number][] = [
-        ["up", DPAD.x - DPAD.half, DPAD.y - DPAD.arm, DPAD.half * 2, DPAD.arm - DPAD.half],
-        ["down", DPAD.x - DPAD.half, DPAD.y + DPAD.half, DPAD.half * 2, DPAD.arm - DPAD.half],
-        ["left", DPAD.x - DPAD.arm, DPAD.y - DPAD.half, DPAD.arm - DPAD.half, DPAD.half * 2],
-        ["right", DPAD.x + DPAD.half, DPAD.y - DPAD.half, DPAD.arm - DPAD.half, DPAD.half * 2],
-      ]
-      context.fillStyle = "#1c1a24"
-      context.fillRect(DPAD.x - DPAD.half, DPAD.y - DPAD.half, DPAD.half * 2, DPAD.half * 2)
-      for (const [key, x, y, w, h] of arms) { context.fillStyle = lit === key ? TINT[key] : "#1c1a24"; context.fillRect(x, y, w, h) }
-      for (const key of ["a", "b"] as const) {
-        context.beginPath(); context.arc(FACE[key].x, FACE[key].y, FACE_R, 0, Math.PI * 2)
-        context.fillStyle = lit === key ? TINT[key] : "#1c1a24"; context.fill()
-        context.fillStyle = "#f4f2fb"; context.font = "700 0.04px system-ui, sans-serif"; context.textAlign = "center"; context.textBaseline = "middle"
-        context.fillText(LABEL[key], FACE[key].x, FACE[key].y + 0.002)
-      }
+      drawPad(context, lit)
       // Logical centers after drift.
       if (mode === "adaptive") for (const key of ["a", "b"] as const) {
         const d = drift.current[key]
@@ -177,9 +217,11 @@ export default function TouchLab({ copy }: { copy: Copy }) {
       for (const tap of taps) {
         const age = Math.min(1, (now - tap.at) / 5000)
         context.globalAlpha = 1 - age * 0.8
-        context.beginPath(); context.arc(tap.x, tap.y, 0.013, 0, Math.PI * 2)
-        context.fillStyle = tap.hit ? "#fff" : "rgba(255,255,255,.2)"; context.fill()
-        context.lineWidth = 0.004; context.strokeStyle = tap.hit ? TINT[tap.hit] : "#ff3b3b"; context.stroke()
+        const ring = context.createRadialGradient(tap.x, tap.y, 0, tap.x, tap.y, 0.016)
+        ring.addColorStop(0, tap.hit ? "rgba(255,255,255,.95)" : "rgba(255,255,255,.35)"); ring.addColorStop(1, "rgba(255,255,255,0)")
+        context.beginPath(); context.arc(tap.x, tap.y, 0.016, 0, Math.PI * 2); context.fillStyle = ring; context.fill()
+        context.beginPath(); context.arc(tap.x, tap.y, 0.011, 0, Math.PI * 2)
+        context.lineWidth = 0.0035; context.strokeStyle = tap.hit ? TINT[tap.hit] : "#e5484d"; context.stroke()
         context.globalAlpha = 1
       }
       if (focused) {
@@ -233,7 +275,10 @@ export default function TouchLab({ copy }: { copy: Copy }) {
     <p className="tl-status" id="tl-status" aria-live="polite">
       {last ? (last.hit ? <><span className="hud">{copy.registered}</span> <strong>{LABEL[last.hit]}</strong></> : <span className="tl-miss">{copy.missed}</span>) : copy.hint}
     </p>
-    <p className="tl-caption">{mode === "fixed" ? copy.fixedCaption : copy.adaptiveCaption}</p>
+    <div className="tl-caption">
+      <p className={mode === "fixed" ? "is-on" : undefined} aria-hidden={mode !== "fixed"}>{copy.fixedCaption}</p>
+      <p className={mode === "adaptive" ? "is-on" : undefined} aria-hidden={mode !== "adaptive"}>{copy.adaptiveCaption}</p>
+    </div>
     <p className="tl-note">{copy.note}</p>
   </div>
 }

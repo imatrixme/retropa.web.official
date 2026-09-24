@@ -3,7 +3,7 @@ import Icon from "@/components/Icon.astro"
 import TouchLabBlock from "@/components/TouchLabBlock.astro"
 import type { Locale } from "@/i18n/locales"
 import { feelCopy } from "@/content/feel-import"
-import { uiShot } from "@/content/media"
+import { uiShot, media, mediaUrl } from "@/content/media"
 import { siteLink } from "@/lib/links"
 import { phrases } from "@/lib/phrases"
 
@@ -11,22 +11,9 @@ interface Props { locale: Locale }
 const { locale } = Astro.props
 const t = feelCopy(locale)
 const controls = siteLink("controls", locale)
-const shots = { hotzone: uiShot("hotzone-adaptive"), curve: uiShot("haptics-curve"), turbo: uiShot("turbo"), audio: uiShot("audio") }
+const shots = { hotzone: uiShot("hotzone-adaptive"), curve: uiShot("haptics-curve"), pack: uiShot("haptics-pack"), turbo: uiShot("turbo"), audio: uiShot("audio") }
 
-// Waveform sketches for the four haptic packs: time on x, intensity on y.
-const packs: { name: string; points: [number, number][] }[] = [
-  { name: "Classic", points: [[0, 0], [4, 92], [12, 30], [22, 8], [40, 0], [100, 0]] },
-  { name: "Best", points: [[0, 0], [3, 100], [9, 55], [18, 70], [30, 22], [48, 6], [100, 0]] },
-  { name: "Soft", points: [[0, 0], [14, 34], [30, 46], [48, 30], [70, 10], [100, 0]] },
-  { name: "Retropa", points: [[0, 0], [4, 96], [11, 12], [20, 0], [26, 78], [33, 14], [46, 4], [100, 0]] },
-]
-const path = (points: [number, number][]) => points.map(([x, y], i) => `${i ? "L" : "M"}${x} ${40 - y * 0.36}`).join(" ")
-const pads: { name: string; d: string; sticks: number[][]; dpad: number[] }[] = [
-  { name: "Xbox", d: "M22 14h56c10 0 16 8 18 20l3 16c1 8-8 12-13 6l-9-10H23l-9 10c-5 6-14 2-13-6l3-16C6 22 12 14 22 14Z", sticks: [[24, 28], [62, 42]], dpad: [36, 42] },
-  { name: "DualSense", d: "M24 15h52c9 0 15 6 17 16l4 20c1 7-7 11-12 5l-10-12H25L15 56c-5 6-13 2-12-5l4-20c2-10 8-16 17-16Z", sticks: [[38, 44], [62, 44]], dpad: [24, 30] },
-  { name: "Nintendo", d: "M20 16h60c10 0 16 7 17 18l2 15c1 8-8 11-13 5l-9-11H23l-9 11c-5 6-14 3-13-5l2-15c1-11 7-18 17-18Z", sticks: [[24, 28], [62, 42]], dpad: [36, 42] },
-  { name: "8BitDo", d: "M26 18h48c14 0 22 8 22 18s-8 18-22 18H26C12 54 4 46 4 36s8-18 22-18Z", sticks: [], dpad: [27, 36] },
-]
+const pads = [["pad-xbox", "Xbox"], ["pad-dualsense", "DualSense"], ["pad-pro", "Nintendo"], ["pad-retro", "8BitDo"]].map(([id, name]) => ({ name, art: media(`hardware/${id}.webp`) })).filter(pad => pad.art)
 ---
 <section id="feel" class="feel ground-cartridge" data-feature="touch_lab" aria-labelledby="feel-title">
   <div class="shell">
@@ -58,9 +45,7 @@ const pads: { name: string; d: string; sticks: number[][]; dpad: number[] }[] = 
       <li class="card card-haptics reveal" data-feature="haptics">
         <h3>{t.haptics.title}<span class="plus-tag">Plus</span></h3>
         <p>{t.haptics.body}</p>
-        <ul class="packs" role="list" aria-label={t.haptics.packs}>
-          {packs.map(pack => <li><svg viewBox="0 0 100 42" aria-hidden="true"><path d={`${path(pack.points)}`} /></svg><span class="hud">{pack.name}</span></li>)}
-        </ul>
+        <ul class="packs" role="list" aria-label={t.haptics.packs}>{t.haptics.packs.split(" · ").map(name => <li>{name}</li>)}</ul>
         <p class="note">{t.haptics.note}</p>
         {shots.curve && <span class="crop crop-curve"><img src={shots.curve.src} width={shots.curve.width} height={shots.curve.height} alt={t.shotAlt.curve} loading="lazy" decoding="async" /></span>}
       </li>
@@ -68,14 +53,13 @@ const pads: { name: string; d: string; sticks: number[][]; dpad: number[] }[] = 
         <h3>{t.controllers.title}</h3>
         <p>{t.controllers.body}</p>
         <ul class="pads" role="list">
-          {pads.map(pad => <li><svg viewBox="0 0 100 64" aria-hidden="true"><path d={pad.d} />{pad.sticks.map(([x, y]) => <circle cx={x} cy={y} r="6" />)}<circle class="face" cx="74" cy="28" r="3" /><circle class="face" cx="80" cy="34" r="3" /><circle class="face" cx="68" cy="34" r="3" /><circle class="face" cx="74" cy="40" r="3" /><path class="dpad" d={`M${pad.dpad[0] - 5} ${pad.dpad[1]}h10M${pad.dpad[0]} ${pad.dpad[1] - 5}v10`} /></svg><span class="hud">{pad.name}</span></li>)}
+          {pads.map(pad => <li><img src={mediaUrl(pad.art!.path)} width={pad.art!.width} height={pad.art!.height} alt="" aria-hidden="true" loading="lazy" decoding="async" /><span class="hud">{pad.name}</span></li>)}
         </ul>
         <p class="turbo"><Icon name="bolt" size={18} />{t.controllers.turbo}<span class="plus-tag">Plus</span></p>
       </li>
       <li class="card card-sound reveal">
         <h3>{t.sound.title}</h3>
         <p>{t.sound.body}</p>
-        <span class="eq" aria-hidden="true">{Array.from({ length: 17 }, (_, i) => <i style={`--i:${i};height:${18 + (i * 41) % 80}%`} />)}</span>
         <p class="sound-tags"><span class="free-tag">▶▶</span><span class="plus-tag">Plus</span><span class="hud">GBA SP · HRTF · Tape</span></p>
         {shots.audio && <span class="crop crop-audio"><img src={shots.audio.src} width={shots.audio.width} height={shots.audio.height} alt={t.shotAlt.audio} loading="lazy" decoding="async" /></span>}
       </li>
@@ -117,11 +101,9 @@ const pads: { name: string; d: string; sticks: number[][]; dpad: number[] }[] = 
   .card { position: relative; display: grid; align-content: start; gap: 14px; overflow: hidden; padding: 30px; border-radius: 30px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); }
   .card p { max-width: 46ch; color: #45424f; }
 
-  .packs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; list-style: none; }
-  .packs li { display: grid; gap: 6px; padding: 10px; border-radius: 14px; background: var(--color-ink); }
-  .packs svg { width: 100%; height: 38px; }
-  .packs path { fill: none; stroke: var(--signal-2); stroke-width: 2.4; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
-  .packs .hud { font-size: 10px; color: rgb(244 242 251 / .7); }
+  .packs { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+  .packs li { padding: 8px 14px; border-radius: 999px; background: var(--color-ink); color: #f4f2fb; font-family: var(--font-hud); font-size: 12px; letter-spacing: .04em; }
+  .packs li:last-child { background: linear-gradient(135deg, var(--signal), color-mix(in oklab, var(--signal) 50%, var(--color-ink))); }
   .note { font-size: 13px; color: var(--color-ink-soft) !important; }
   /* Screenshot crops: show the informative middle of a tall app screen. */
   .crop { display: block; overflow: hidden; margin-top: 6px; border-radius: 20px; aspect-ratio: 4 / 3; background: #f3f0f8; box-shadow: 0 0 0 1px rgb(14 14 20 / .1), 0 24px 40px -26px rgb(14 14 20 / .45); }
@@ -131,19 +113,14 @@ const pads: { name: string; d: string; sticks: number[][]; dpad: number[] }[] = 
   .card:hover .crop-curve img { transform: translateY(-34%); }
   .card:hover .crop-audio img { transform: translateY(-40%); }
   .pads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; list-style: none; }
-  .pads li { display: grid; gap: 4px; justify-items: center; padding: 12px 8px; border-radius: 16px; background: rgb(14 14 20 / .04); }
-  .pads svg { width: 100%; max-width: 120px; height: auto; }
-  .pads path { fill: var(--color-ink); }
-  .pads circle { fill: #3a3845; }
-  .pads .face { fill: var(--signal-2); }
-  .pads .dpad { fill: none; stroke: #f4f2fb; stroke-width: 3; stroke-linecap: round; }
-  .pads .hud { font-size: 10px; color: var(--color-ink-soft); }
-  .turbo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-weight: 600; color: var(--color-ink) !important; }
-  .eq { display: flex; align-items: flex-end; gap: 4px; height: 90px; margin-top: 8px; }
-  .eq i { flex: 1; border-radius: 4px 4px 2px 2px; background: linear-gradient(to top, var(--color-ink), color-mix(in oklab, var(--signal) 70%, var(--color-ink))); animation: eq 1.6s ease-in-out infinite; animation-delay: calc(var(--i) * -90ms); transform-origin: bottom; }
-  @keyframes eq { 50% { transform: scaleY(.45); } }
+  .pads li { position: relative; display: grid; overflow: hidden; border-radius: 16px; background: #0b0b12; aspect-ratio: 3 / 2; }
+  .pads img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-snap); }
+  .card-pads:hover .pads img { transform: scale(1.05); }
+  .pads .hud { position: absolute; left: 10px; bottom: 8px; font-size: 10px; color: rgb(244 242 251 / .8); }
+  .turbo { display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 8px; row-gap: 8px; align-items: start; font-weight: 600; color: var(--color-ink) !important; }
+  .turbo :global(svg) { margin-top: 3px; }
+  .turbo .plus-tag { grid-column: 2; justify-self: start; }
   .sound-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
   .sound-tags .hud { font-size: 11px; color: var(--color-ink-soft); }
   .more { display: inline-flex; margin-top: 40px; color: var(--color-ink); }
-  @media (prefers-reduced-motion: reduce) { .eq i { animation: none; } }
 </style>

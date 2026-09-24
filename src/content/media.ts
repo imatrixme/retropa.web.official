@@ -97,3 +97,10 @@ export const footageCredits = () => {
   for (const entry of mediaManifest) if (entry.kind === "video" && entry.title && !seen.has(entry.title)) seen.set(entry.title, entry)
   return [...seen.values()]
 }
+
+/** Generated hardware artwork for a channel (see manifest `hardware-*` entries). */
+export const hardwareArt = (channel: ChannelId) => {
+  const full = media(`hardware/${channel}.webp`)
+  const small = media(`hardware/${channel}-sm.webp`)
+  return full && small ? { src: mediaUrl(full.path), small: mediaUrl(small.path), width: full.width ?? 1200, height: full.height ?? 800 } : null
+}

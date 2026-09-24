@@ -27,12 +27,12 @@ async function htmlFiles(dir: string): Promise<string[]> {
   }
   return out
 }
-async function displayCharacters(files: readonly string[]) {
+async function displayCharacters(files: readonly string[], selector = "[class~=display], h1, h2, h3") {
   const characters = new Set<string>()
   for (const file of files) {
     const html = await readFile(file, "utf8")
     let depth = 0
-    const rewriter = new HTMLRewriter().on("[class~=display], h1, h2, h3", {
+    const rewriter = new HTMLRewriter().on(selector, {
       element(element) { depth++; element.onEndTag(() => { depth-- }) },
       text(chunk) { if (depth > 0) for (const character of chunk.text) characters.add(character) },
     })
@@ -43,10 +43,11 @@ async function displayCharacters(files: readonly string[]) {
 }
 const source = await readFile("fonts-src/SmileySans-Oblique.ttf")
 await mkdir("dist/fonts", { recursive: true })
-// A site-wide subset, plus a much smaller one for the homepage so its first
-// paint only waits on the characters the hero and section titles use.
-for (const [name, files] of [["smiley-zh-hans", await htmlFiles("dist/zh-Hans")], ["smiley-zh-hans-home", ["dist/zh-Hans/index.html"]]] as const) {
-  const characters = await displayCharacters(files)
+// A site-wide subset, plus a tiny one holding only the homepage headline, so
+// the first paint waits on a few kilobytes; other headings fall back to the
+// site-wide face as they scroll in.
+for (const [name, files, selector] of [["smiley-zh-hans", await htmlFiles("dist/zh-Hans"), undefined], ["smiley-zh-hans-home", ["dist/zh-Hans/index.html"], "h1"]] as const) {
+  const characters = await displayCharacters(files, selector)
   const subset = await subsetFont(source, [...characters].join(""), { targetFormat: "woff2" })
   await writeFile(`dist/fonts/${name}.woff2`, subset)
   console.log(`Smiley Sans ${name}: ${characters.size} characters, ${(subset.length / 1024).toFixed(1)} KB`)

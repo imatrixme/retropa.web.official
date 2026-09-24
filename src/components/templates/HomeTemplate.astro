@@ -10,7 +10,7 @@ import SkinRack from "@/islands/SkinRack.tsx"
 import type { Locale } from "@/i18n/locales"
 import { homeCopy, homeFaqIds } from "@/content/home"
 import { channels, channelName } from "@/content/channels"
-import { channelMedia, skinFor, skins, uiShot, footageCredits } from "@/content/media"
+import { channelMedia, skinFor, skins, uiShot, footageCredits, hardwareArt } from "@/content/media"
 import { acquisitionCopy } from "@/content/acquisition"
 import { startPageContent } from "@/content/start-page"
 import { siteLink, languageTag } from "@/lib/links"
@@ -76,10 +76,12 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
       {channels.map(channel => {
         const target = link(channel.page)
         const media = channelMedia(channel.id)
+        const art = hardwareArt(channel.id)
         return <li class="reveal" data-channel={channel.id}>
           <a href={target.href} hreflang={target.hreflang}>
-            <span class="ch-screen">
-              {media?.poster ? <img src={media.poster} alt="" aria-hidden="true" loading="lazy" width="480" height="320" /> : <span class="ch-bars" />}
+            <span class:list={["ch-screen", { "has-art": art }]}>
+              {art && <img class="ch-art" src={art.small} srcset={`${art.small} 600w, ${art.src} 1200w`} sizes="(min-width: 900px) 25vw, 50vw" alt="" aria-hidden="true" loading="lazy" decoding="async" width="600" height="400" />}
+              {media?.poster ? <img class="ch-play" src={media.poster} alt="" aria-hidden="true" loading="lazy" width="480" height="320" /> : !art && <span class="ch-bars" />}
               <span class="ch-num hud">CH {channel.number}</span>
             </span>
             <span class="ch-name">{channelName(channel, locale)}{target.foreign && <small lang={target.hreflang}>{languageTag(target.hreflang)}</small>}</span>
@@ -257,7 +259,7 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
   .hero :global(.cp-static.is-on) { animation: static-burst .26s steps(4) both; }
   @keyframes static-burst { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: .95; transform: translateY(-3%); } 70% { opacity: .8; transform: translateY(4%) scaleY(1.04); } 100% { opacity: 0; transform: none; } }
   .hero :global(.cp-island) { position: absolute; top: 1.6%; left: 50%; width: 30%; height: 3.2%; transform: translateX(-50%); border-radius: 999px; background: #000; }
-  .hero :global(.cp-caption) { display: flex; align-items: center; gap: 8px; color: rgb(244 242 251 / .6); font-size: 11px; }
+  .hero :global(.cp-caption) { display: flex; align-items: center; gap: 8px; max-width: 100%; height: 18px; overflow: hidden; white-space: nowrap; color: rgb(244 242 251 / .6); font-size: 11px; }
   .hero :global(.cp-caption a) { color: #fff; text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--signal) 70%, transparent); text-underline-offset: 3px; }
   .hero :global(.cp-dot) { width: 8px; height: 8px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 10px #ff3b3b; animation: blink 1.6s ease-in-out infinite; }
   @keyframes blink { 50% { opacity: .35; } }
@@ -288,12 +290,15 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
   .systems { padding: clamp(96px, 12vw, 168px) 0; }
   .channel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; list-style: none; }
   @media (min-width: 900px) { .channel-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; } }
-  .channel-grid a { position: relative; display: grid; gap: 8px; padding: 10px 10px 18px; border-radius: 24px; background: linear-gradient(180deg, color-mix(in oklab, var(--shell) 70%, #0e0e17), #0e0e17); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); transition: transform .3s var(--ease-snap), box-shadow .3s; }
+  .channel-grid a { position: relative; display: grid; grid-template-rows: auto auto 1fr; gap: 8px; height: 100%; padding: 10px 10px 18px; border-radius: 24px; background: linear-gradient(180deg, color-mix(in oklab, var(--shell) 70%, #0e0e17), #0e0e17); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); transition: transform .3s var(--ease-snap), box-shadow .3s; }
   .channel-grid a:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--signal) 60%, transparent), 0 30px 60px -30px var(--signal); }
   .ch-screen { position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 16px; background: #000; box-shadow: inset 0 0 30px rgb(0 0 0 / .8); }
-  .ch-screen img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; filter: saturate(1.1); transition: transform .5s var(--ease-snap); }
-  .channel-grid a:hover .ch-screen img { transform: scale(1.04); }
-  .ch-screen::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .22) 0 1px, transparent 1px 3px), radial-gradient(120% 90% at 50% 50%, transparent 55%, rgb(0 0 0 / .55)); pointer-events: none; }
+  .ch-screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .45s ease, transform .6s var(--ease-snap); }
+  .ch-play { image-rendering: pixelated; filter: saturate(1.1); }
+  .has-art .ch-play { opacity: 0; }
+  .channel-grid a:hover .ch-art, .channel-grid a:focus-visible .ch-art { opacity: 0; transform: scale(1.04); }
+  .channel-grid a:hover .ch-play, .channel-grid a:focus-visible .ch-play { opacity: 1; }
+  .ch-screen:not(.has-art)::after, .channel-grid a:hover .ch-screen::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .22) 0 1px, transparent 1px 3px), radial-gradient(120% 90% at 50% 50%, transparent 55%, rgb(0 0 0 / .55)); pointer-events: none; }
   .ch-bars { display: block; width: 100%; height: 100%; background: linear-gradient(135deg, var(--signal), var(--shell)); }
   .ch-num { position: absolute; top: 10px; left: 10px; z-index: 1; padding: 4px 7px; border-radius: 6px; background: rgb(7 7 12 / .7); color: var(--signal); font-size: 10px; }
   .ch-name { padding: 6px 8px 0; font-family: var(--display-face); font-weight: 750; font-stretch: 105%; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.1; color: #fff; }
@@ -321,7 +326,7 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
   @keyframes skin-in { from { opacity: 0; transform: scale(.985); filter: blur(4px); } }
   .skins :global(.rack-screen) { position: absolute; overflow: hidden; background: #000; }
   .skins :global(.rack-screen video), .skins :global(.rack-screen img) { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
-  .skins :global(.rack-name) { position: relative; z-index: 1; display: flex; align-items: center; gap: 10px; font-size: 15px; }
+  .skins :global(.rack-name) { position: relative; z-index: 1; display: flex; align-items: center; gap: 10px; max-width: 100%; height: 28px; overflow: hidden; white-space: nowrap; font-size: 15px; }
   .skins :global(.rack-shelf) { display: flex; gap: 10px; max-width: 100%; overflow-x: auto; padding: 8px; scrollbar-width: none; }
   .skins :global(.rack-shelf button) { position: relative; flex: none; width: 58px; height: 104px; padding: 3px; border: 0; border-radius: 14px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); transition: transform .2s var(--ease-snap), box-shadow .2s; }
   .skins :global(.rack-shelf button img) { width: 100%; height: 100%; object-fit: cover; border-radius: 11px; }

@@ -1,0 +1,105 @@
+---
+import { phrases } from "@/lib/phrases"
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import { galleryFilters, filterGroupCopy, galleryCopy, filterText, filterImage, type FilterGroup } from "@/content/filter-gallery"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const t = galleryCopy(locale)
+const groups = (["display", "museum", "lab"] as FilterGroup[]).map(group => ({
+  id: group, title: filterGroupCopy[group][locale as "en"] ?? filterGroupCopy[group].en, items: galleryFilters.filter(item => item.group === group),
+}))
+---
+<section id="gallery" class="gallery ground-tube" data-feature="filters" aria-labelledby="gallery-title">
+  <div class="shell">
+    <header class="head reveal">
+      <p class="eyebrow">Retropa Premium · {galleryFilters.length} {t.count}</p>
+      <h2 id="gallery-title" class="display">{phrases(t.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <p class="intro">{t.intro}</p>
+    </header>
+    {groups.map(group => <section class="group" aria-label={group.title}>
+      <h3><span class="hud">{String(group.items.length).padStart(2, "0")}</span>{group.title}</h3>
+      <ul class="grid" role="list">
+        {group.items.map(item => {
+          const image = filterImage(item.id)
+          return <li>
+            <a class="card" href={image.full} data-filter-card data-name={item.name} data-text={filterText(item, locale)} data-full={image.full} data-macro={image.macro}>
+              <span class="thumb"><img src={`/media/filters/${item.id}-thumb.webp`} width="480" height={item.fixture === "gb" ? 432 : item.fixture === "vector" ? 360 : 320} alt={item.name} loading="lazy" decoding="async" /></span>
+              <span class="name">{item.name.replace(/^Retropa /, "")}</span>
+              <span class="text">{filterText(item, locale)}</span>
+            </a>
+          </li>
+        })}
+      </ul>
+    </section>)}
+    <p class="source">{t.source}</p>
+  </div>
+  <dialog class="viewer" data-filter-viewer aria-labelledby="viewer-name">
+    <div class="viewer-inner">
+      <button class="viewer-close" type="button" data-close aria-label={t.close}><Icon name="close" size={22} /></button>
+      <figure class="viewer-full" data-full></figure>
+      <div class="viewer-side">
+        <h3 id="viewer-name" data-name></h3>
+        <p data-text></p>
+        <figure class="viewer-macro"><span data-macro></span><figcaption class="hud">{t.detail}</figcaption></figure>
+      </div>
+    </div>
+  </dialog>
+</section>
+<script>
+  // Opens a filter in the viewer; without JavaScript the card links to the still.
+  const viewer = document.querySelector<HTMLDialogElement>("[data-filter-viewer]")
+  if (viewer && typeof viewer.showModal === "function") {
+    const set = (selector: string, apply: (element: HTMLElement) => void) => { const element = viewer.querySelector<HTMLElement>(selector); if (element) apply(element) }
+    document.querySelectorAll<HTMLAnchorElement>("[data-filter-card]").forEach(card => card.addEventListener("click", event => {
+      event.preventDefault()
+      const { name = "", text = "", full = "", macro = "" } = card.dataset
+      const picture = (src: string, width: number, height: number) => Object.assign(new Image(width, height), { src, alt: name, decoding: "async" })
+      set("[data-full]", element => element.replaceChildren(picture(full, 960, 640)))
+      set("[data-macro]", element => element.replaceChildren(picture(macro, 480, 300)))
+      set("[data-name]", element => { element.textContent = name })
+      set("[data-text]", element => { element.textContent = text })
+      viewer.showModal()
+    }))
+    viewer.querySelector("[data-close]")?.addEventListener("click", () => viewer.close())
+    viewer.addEventListener("click", event => { if (event.target === viewer) viewer.close() })
+  }
+</script>
+<style>
+  @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
+  .gallery { padding: clamp(96px, 12vw, 160px) 0; }
+  .head { display: grid; gap: 18px; max-width: 900px; margin-bottom: 56px; }
+  h2 { font-size: clamp(40px, 6vw, 92px); line-height: .98; color: #fff; }
+  :lang(ja) h2, :lang(zh-Hans) h2 { font-size: clamp(34px, 4.6vw, 72px); line-height: 1.08; }
+  .intro { max-width: 62ch; font-size: clamp(17px, 1.45vw, 20px); color: rgb(244 242 251 / .72); }
+  .group + .group { margin-top: 72px; }
+  .group h3 { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 6%); font-size: clamp(24px, 2.4vw, 34px); color: #fff; }
+  .group h3 .hud { color: var(--signal-2); font-size: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 14px; list-style: none; }
+  .card { display: grid; grid-template-rows: auto auto 1fr; gap: 8px; height: 100%; padding: 10px 10px 16px; border-radius: 20px; background: rgb(255 255 255 / .03); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); transition: transform .25s var(--ease-snap), box-shadow .25s, background-color .25s; }
+  .card:hover, .card:focus-visible { transform: translateY(-3px); background: rgb(255 255 255 / .05); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--signal) 55%, transparent), 0 24px 48px -28px var(--signal); }
+  .thumb { display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 12px; background: #000; }
+  .thumb img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s var(--ease-snap); }
+  .card:hover .thumb img { transform: scale(1.03); }
+  .name { padding: 4px 4px 0; font-weight: 700; color: #fff; }
+  .text { padding: 0 4px; font-size: 13.5px; line-height: 1.5; color: rgb(244 242 251 / .62); }
+  .source { margin-top: 48px; max-width: 90ch; font-size: 13px; color: rgb(244 242 251 / .45); }
+
+  .viewer { margin: auto; width: min(1360px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 0; border-radius: 26px; background: #0d0d14; color: #f4f2fb; box-shadow: 0 0 0 1px rgb(255 255 255 / .1), 0 60px 160px rgb(0 0 0 / .8); }
+  .viewer::backdrop { background: rgb(4 4 8 / .78); backdrop-filter: blur(6px); }
+  .viewer[open] { animation: viewer-in .28s var(--ease-snap); }
+  @keyframes viewer-in { from { opacity: 0; transform: translateY(12px) scale(.985); } }
+  .viewer-inner { position: relative; display: grid; gap: 22px; padding: clamp(14px, 2vw, 22px); }
+  @media (min-width: 900px) { .viewer-inner { grid-template-columns: minmax(0, 1fr) minmax(280px, 480px); align-items: start; } }
+  .viewer-close { position: absolute; top: 14px; right: 14px; z-index: 2; display: grid; place-items: center; width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgb(255 255 255 / .1); color: #fff; cursor: pointer; }
+  .viewer-full { margin: 0; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 16px; background: #000; }
+  .viewer-full :global(img) { width: 100%; height: 100%; object-fit: contain; }
+  .viewer-side { display: grid; gap: 14px; padding-top: 8px; }
+  .viewer-side h3 { padding-right: 48px; font-size: 22px; line-height: 1.2; }
+  .viewer-side p { color: rgb(244 242 251 / .72); font-size: 15px; line-height: 1.6; }
+  .viewer-macro { display: grid; gap: 8px; margin: 0; }
+  .viewer-macro :global(img) { width: 100%; max-width: 480px; height: auto; aspect-ratio: 480 / 300; object-fit: cover; border-radius: 12px; image-rendering: pixelated; background: #000; }
+  .viewer-macro .hud { color: rgb(244 242 251 / .5); font-size: 11px; }
+  @media (prefers-reduced-motion: reduce) { .viewer[open] { animation: none; } .card, .thumb img { transition: none; } }
+</style>
