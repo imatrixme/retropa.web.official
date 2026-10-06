@@ -1,0 +1,71 @@
+---
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import { filmCopy } from "@/content/looks"
+import { media, mediaUrl } from "@/content/media"
+import { siteConfig } from "@/lib/site-config"
+
+// The brand film renders only when its manifest entries exist and are shipped,
+// so a film whose screen content is not cleared never reaches a page. It loads
+// nothing before the visitor presses play, and it never autoplays sound. A video
+// poster is fetched as soon as it is parsed, ahead of the hero, so scripts set it
+// once the film nears the viewport; without scripts the player has no poster.
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const t = filmCopy(locale)
+const video = media("film/after-lights-out.mp4")
+const poster = media("film/after-lights-out-poster.jpg")
+const absolute = (path: string) => new URL(mediaUrl(path), siteConfig.siteUrl).href
+const videoObject = video && poster ? JSON.stringify({
+  "@context": "https://schema.org", "@type": "VideoObject", name: `Retropa: ${t.title}`, description: t.body,
+  thumbnailUrl: absolute(poster.path), contentUrl: absolute(video.path), uploadDate: video.capturedAt, duration: "PT42S",
+  publisher: { "@type": "Organization", name: "Retropa", url: siteConfig.siteUrl },
+}).replace(/</g, "\\u003c") : null
+---
+{video && poster && <section id="film" class="film ground-tube" aria-labelledby="film-title" data-film>
+  <div class="shell layout">
+    <header class="head reveal">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="film-title" class="display">{t.title}</h2>
+      <p class="body">{t.body}</p>
+      <p class="note">{t.note}</p>
+    </header>
+    <figure class="screen">
+      <video controls preload="none" playsinline data-poster={mediaUrl(poster.path)} width={video.width ?? 864} height={video.height ?? 1536} aria-labelledby="film-title">
+        <source src={mediaUrl(video.path)} type="video/mp4" />
+      </video>
+      <button type="button" class="play" data-film-play><Icon name="film" size={20} />{t.play}</button>
+    </figure>
+  </div>
+  <script type="application/ld+json" set:html={videoObject} />
+  <script is:inline>
+    (() => {
+      const root = document.currentScript.closest("[data-film]")
+      const video = root.querySelector("video")
+      const play = root.querySelector("[data-film-play]")
+      // With scripts the poster carries one button; the player's own controls
+      // return as soon as it plays, or if playback is refused.
+      video.controls = false
+      new IntersectionObserver((entries, observer) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return
+        video.poster = video.dataset.poster
+        observer.disconnect()
+      }, { rootMargin: "800px 0px" }).observe(video)
+      play.addEventListener("click", () => { video.controls = true; video.play().catch(() => {}) })
+      video.addEventListener("play", () => { video.controls = true; play.hidden = true }, { once: true })
+    })()
+  </script>
+</section>}
+<style>
+  .film { padding: clamp(96px, 12vw, 168px) 0; }
+  .layout { display: grid; gap: 40px; align-items: center; }
+  @media (min-width: 1000px) { .layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(40px, 6vw, 96px); } }
+  .head { display: grid; gap: 18px; max-width: 520px; }
+  h2 { font-size: clamp(34px, 5vw, 72px); line-height: 1; color: #fff; }
+  .body { font-size: clamp(17px, 1.4vw, 19px); line-height: 1.6; color: rgb(244 242 251 / .74); }
+  .note { font-size: 13px; color: rgb(244 242 251 / .5); }
+  .screen { position: relative; justify-self: center; width: min(100%, 420px); }
+  video { width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 28px; background: #000; box-shadow: 0 0 0 1px rgb(255 255 255 / .1), 0 50px 90px -40px rgb(0 0 0 / .9); }
+  .play { display: none; position: absolute; left: 50%; bottom: 32px; transform: translateX(-50%); align-items: center; gap: 10px; height: 48px; padding: 0 22px; border: 0; border-radius: 999px; background: rgb(244 242 251 / .94); color: #07070c; font-weight: 600; box-shadow: 0 12px 30px -10px rgb(0 0 0 / .6); }
+  :global(html.js) .play:not([hidden]) { display: inline-flex; }
+</style>

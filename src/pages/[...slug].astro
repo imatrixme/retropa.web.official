@@ -8,6 +8,7 @@ import GuidesTemplate from "@/components/templates/GuidesTemplate.astro"
 import ProductTemplate from "@/components/templates/ProductTemplate.astro"
 import SearchTemplate from "@/components/templates/SearchTemplate.astro"
 import FeatureTemplate from "@/components/templates/FeatureTemplate.astro"
+import ChangelogTemplate from "@/components/templates/ChangelogTemplate.astro"
 import { publishedPages } from "@/lib/metadata"
 import { localizedPath, type SitePage } from "@/lib/routes"
 import type { Locale } from "@/i18n/locales"
@@ -35,6 +36,7 @@ const search = isSearchPage(page) ? searchPageContent(page, locale) : null
     : page === "terms" || page === "privacy" ? <LegalTemplate locale={locale} kind={page as "terms" | "privacy"} />
     : page === "start" ? <StartTemplate locale={locale} />
     : page === "guides" ? <GuidesTemplate locale={locale} />
+    : page === "changelog" ? <ChangelogTemplate locale={locale} />
     : isProductPage(page) ? <ProductTemplate locale={locale} page={page} />
     : isFeaturePage(page) ? <FeatureTemplate locale={locale} page={page} />
     : search ? <SearchTemplate locale={locale} content={search} />

@@ -1,4 +1,5 @@
 import type { ChannelId } from "@/content/channels"
+import { isShipped } from "@/content/releases"
 
 /**
  * Product media registry. Every published media file must have an entry in
@@ -32,11 +33,17 @@ export type MediaEntry = {
   name?: string
   premium?: boolean
   channel?: ChannelId
+  /** The App release this file shows; it publishes only once that release ships. */
+  release?: string
+  /** Games whose picture appears inside this file (a film's in-scene screens), each with its license. */
+  gameplay?: { title: string; author?: string; license?: string; sourceURL?: string; licenseURL?: string }[]
 }
 
 const files = import.meta.glob<{ default: MediaEntry[] | { entries: MediaEntry[] } }>("/public/media/manifest.json", { eager: true })
 const raw = Object.values(files)[0]?.default
-export const mediaManifest: MediaEntry[] = Array.isArray(raw) ? raw : raw?.entries ?? []
+// Media of an unreleased App version is invisible to every page; the build also
+// removes those files from dist (scripts/build.ts).
+export const mediaManifest: MediaEntry[] = (Array.isArray(raw) ? raw : raw?.entries ?? []).filter((entry) => !entry.release || isShipped(entry.release))
 
 const byPath = new Map(mediaManifest.map((entry) => [entry.path.replace(/^\.?\//, ""), entry]))
 export const media = (path: string) => byPath.get(path)
@@ -91,10 +98,18 @@ export const uiShot = (name: string) => {
   return entry ? { src: mediaUrl(entry.path), width: entry.width ?? 1179, height: entry.height ?? 2556, entry } : null
 }
 
-/** Homebrew titles credited for footage shown on the page. */
+export type FootageCredit = Pick<MediaEntry, "title" | "author" | "license" | "sourceURL" | "licenseURL">
+
+/**
+ * Homebrew titles credited for footage shown on the site: each gameplay clip,
+ * and each game a film shows on its in-scene screens.
+ */
 export const footageCredits = () => {
-  const seen = new Map<string, MediaEntry>()
-  for (const entry of mediaManifest) if (entry.kind === "video" && entry.title && !seen.has(entry.title)) seen.set(entry.title, entry)
+  const seen = new Map<string, FootageCredit>()
+  for (const entry of mediaManifest) {
+    if (entry.kind !== "video") continue
+    for (const credit of entry.gameplay ?? (entry.title ? [entry] : [])) if (credit.title && !seen.has(credit.title)) seen.set(credit.title, credit)
+  }
   return [...seen.values()]
 }
 

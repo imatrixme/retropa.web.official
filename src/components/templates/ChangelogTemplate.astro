@@ -1,0 +1,120 @@
+---
+import PageHero from "@/components/PageHero.astro"
+import Icon from "@/components/Icon.astro"
+import type { Locale } from "@/i18n/locales"
+import { changelogContent, releaseHistory, releaseMonth, shippedVersion } from "@/content/releases"
+import { discoveryCopy } from "@/content/discovery"
+import { acquisitionCopy } from "@/content/acquisition"
+import { siteLink, languageTag } from "@/lib/links"
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const text = changelogContent(locale)
+const discovery = discoveryCopy(locale)
+const copy = acquisitionCopy(locale)
+const lines = releaseHistory(locale)
+const anchor = (version: string) => `v${version.replace(/\./g, "-")}`
+const target = (page: string, hash?: string) => {
+  const link = siteLink(page, locale)
+  return { ...link, href: hash ? `${link.href}#${hash}` : link.href }
+}
+const related = [
+  { ...siteLink("plus", locale), text: text.plus },
+  { ...siteLink("cores", locale), text: discovery.more },
+  { ...siteLink("start", locale), text: copy.start },
+]
+---
+<PageHero locale={locale} page="changelog" eyebrow={`Retropa / ${text.eyebrow}`} title={text.title} summary={text.intro} mark={shippedVersion}
+  crumbs={{ label: text.breadcrumb, items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: text.breadcrumb }] }} />
+<section class="history ground-cartridge">
+  <div class="shell layout">
+    <nav class="index" aria-label={text.breadcrumb}>
+      <ol role="list">
+        {lines.map(line => <li><a href={`#line-${anchor(line.id)}`}><span class="hud">{line.id}</span>{line.title}</a></li>)}
+      </ol>
+    </nav>
+    <div class="lines">
+      <p class="months"><Icon name="sparkle" size={16} />{text.months}</p>
+      {lines.map(line => <section class="line" id={`line-${anchor(line.id)}`} aria-labelledby={`line-${anchor(line.id)}-title`}>
+        <h2 id={`line-${anchor(line.id)}-title`}><span class="num display">{line.id}</span><span class="name">{line.title}</span></h2>
+        <div class="releases">
+          {line.releases.map(release => {
+            const link = release.page ? target(release.page, release.anchor) : null
+            return <article id={anchor(release.version)} class:list={["release", { feature: release.changes.length > 1 }]}>
+              <div class="head">
+                <h3>{text.version} {release.version}</h3>
+                {release.version === shippedVersion && <span class="current hud">{text.current}</span>}
+                <time class="hud" datetime={release.month}>{releaseMonth(release.month, locale)}</time>
+              </div>
+              {release.changes.length > 1
+                ? <ul role="list">{release.changes.map(change => <li>{change}</li>)}</ul>
+                : <p>{release.changes[0]}</p>}
+              {release.note && <p class="note">{release.note}</p>}
+              {link && <a class="link-arrow" href={link.href} hreflang={link.hreflang}>{text.more}{link.foreign && <small lang={link.hreflang}>{languageTag(link.hreflang)}</small>}<Icon name="arrow-right" size={16} /></a>}
+            </article>
+          })}
+        </div>
+      </section>)}
+      <p class="fine">{copy.noRoms}</p>
+      <nav class="also" aria-label={discovery.related}>
+        <p class="hud">{discovery.related}</p>
+        {related.map(link => <a href={link.href} hreflang={link.hreflang}>{link.text}{link.foreign && <small lang={link.hreflang}>{languageTag(link.hreflang)}</small>}<Icon name="arrow-right" size={16} /></a>)}
+      </nav>
+    </div>
+  </div>
+</section>
+<style>
+  .history { padding: clamp(72px, 9vw, 120px) 0 clamp(96px, 11vw, 144px); }
+  .layout { display: grid; gap: 40px; }
+  @media (min-width: 1000px) { .layout { grid-template-columns: 220px minmax(0, 1fr); column-gap: clamp(48px, 6vw, 96px); align-items: start; } }
+
+  .index ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+  .index a { display: inline-flex; align-items: baseline; gap: 8px; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--color-ink-soft); box-shadow: inset 0 0 0 1px var(--color-cartridge-line); transition: color .2s, background-color .2s; }
+  .index a:hover { color: var(--color-ink); background: #fbf8f1; }
+  .index .hud { color: var(--color-ink); }
+  /* One sideways row of lines on narrow screens, so the history starts in view. */
+  @media (max-width: 999px) {
+    .index { --bleed: 24px; min-width: 0; }
+    .index ol { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--bleed)); padding: 2px var(--bleed); }
+    .index ol::-webkit-scrollbar { display: none; }
+    .index a { white-space: nowrap; }
+  }
+  @media (min-width: 768px) and (max-width: 999px) { .index { --bleed: 48px; } }
+  @media (min-width: 1000px) {
+    .index { position: sticky; top: 104px; }
+    .index ol { display: grid; gap: 2px; }
+    .index a { display: flex; padding: 7px 0; border-radius: 0; box-shadow: none; }
+    .index a:hover { background: none; }
+    .index .hud { min-width: 34px; }
+  }
+
+  .lines { display: grid; gap: clamp(56px, 7vw, 88px); min-width: 0; }
+  .months { display: flex; gap: 10px; align-items: flex-start; max-width: 64ch; font-size: 14px; line-height: 1.55; color: var(--color-ink-soft); }
+  .months :global(svg) { flex: none; margin-top: 2px; color: var(--signal); }
+
+  .line h2 { display: flex; align-items: baseline; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--color-ink); }
+  .num { font-size: clamp(44px, 5.4vw, 72px); line-height: .9; font-variant-numeric: tabular-nums; }
+  .name { font-size: clamp(18px, 1.6vw, 22px); font-weight: 600; letter-spacing: -.01em; color: var(--color-ink-soft); }
+
+  .releases { display: grid; }
+  .release { display: grid; gap: 12px; padding: 24px 0; border-bottom: 1px solid var(--color-cartridge-line); }
+  @media (min-width: 760px) { .release { grid-template-columns: 220px minmax(0, 1fr); column-gap: 32px; } .release > :not(.head) { grid-column: 2; } }
+  .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+  @media (min-width: 760px) { .head { flex-direction: column; gap: 6px; grid-row: 1 / span 4; } }
+  h3 { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .feature h3 { font-size: 19px; }
+  time { color: var(--color-ink-soft); }
+  .current { display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: 999px; background: var(--color-ink); color: var(--color-cartridge); font-size: 10px; }
+  .release p, .release li { max-width: 68ch; font-size: 16px; line-height: 1.6; color: #2c2a35; }
+  .release ul { display: grid; gap: 10px; list-style: none; }
+  .release ul li { position: relative; padding-left: 20px; }
+  .release ul li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 6px; height: 6px; border-radius: 2px; background: var(--signal); }
+  .release .note { font-size: 14px; color: var(--color-ink-soft); }
+  .release .link-arrow { justify-self: start; font-size: 15px; color: var(--color-ink); }
+  small { margin-left: 6px; font-family: var(--font-hud); font-size: 10px; opacity: .6; }
+
+  .fine { font-size: 13px; color: var(--color-ink-soft); }
+  .also { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; padding-top: 28px; border-top: 1px solid var(--color-cartridge-line); }
+  .also .hud { color: var(--color-ink-soft); width: 100%; }
+  .also a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+</style>

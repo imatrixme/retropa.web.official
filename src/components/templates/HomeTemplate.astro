@@ -5,6 +5,8 @@ import DisplayCompareSection from "@/components/sections/DisplayCompareSection.a
 import ConsoleModeSection from "@/components/sections/ConsoleModeSection.astro"
 import FeelSection from "@/components/sections/FeelSection.astro"
 import ImportSection from "@/components/sections/ImportSection.astro"
+import LooksSection from "@/components/sections/LooksSection.astro"
+import FilmSection from "@/components/sections/FilmSection.astro"
 import ChannelPlayer from "@/islands/ChannelPlayer.tsx"
 import SkinRack from "@/islands/SkinRack.tsx"
 import type { Locale } from "@/i18n/locales"
@@ -16,6 +18,7 @@ import { startPageContent } from "@/content/start-page"
 import { siteLink, languageTag } from "@/lib/links"
 import { phrases } from "@/lib/phrases"
 import { searchPageContent } from "@/content/search-pages"
+import { changelogContent, isShipped, shippedVersion } from "@/content/releases"
 
 interface Props { locale: Locale }
 const { locale } = Astro.props
@@ -46,6 +49,8 @@ const link = (page: string) => siteLink(page, locale)
 const skinsLink = link("delta-skins")
 const arcadeLink = link("arcade")
 const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
+const changelog = link("changelog")
+const whatsNew = changelogContent(locale).whatsNew.replace("{version}", shippedVersion)
 ---
 <section class="hero" data-hero data-channel="gba" aria-labelledby="hero-title">
   <div class="hero-bg" aria-hidden="true"><div class="hero-glow"></div><div class="scanlines"></div></div>
@@ -60,10 +65,15 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
     <div class="h-cta">
       <AppStoreCTA locale={locale} page="home" placement="hero" qr tone="black" />
       <ul class="trust hud" role="list">{t.hero.trust.map(item => <li>{item}</li>)}</ul>
+      <a class="whats-new" href={changelog.href} hreflang={changelog.hreflang}><span class="dot" aria-hidden="true"></span>{whatsNew}<Icon name="arrow-right" size={16} /></a>
     </div>
     <p class="h-lead">{t.hero.lead}</p>
   </div>
 </section>
+
+{isShipped("2.4.0") && <LooksSection locale={locale} />}
+
+{isShipped("2.4.0") && <FilmSection locale={locale} />}
 
 <section id="systems" class="systems ground-tube" data-feature="channel" aria-labelledby="systems-title">
   <div class="shell">
@@ -215,9 +225,8 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
 <style>
   /* CJK headlines: keep phrases whole where there is room; small screens wrap freely. */
   @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
-  :lang(ja) .skins h2, :lang(zh-Hans) .skins h2 { font-size: clamp(48px, 5.4vw, 96px); }
-  :lang(ja) h1, :lang(zh-Hans) h1 { font-size: clamp(52px, 7.6vw, 128px); line-height: 1.02; }
-  :lang(ja) .sec-head h2 { font-size: clamp(32px, 4.8vw, 76px); line-height: 1.06; }
+  :lang(ja) .skins h2, :lang(zh-Hans) .skins h2 { font-size: clamp(44px, 4.8vw, 84px); }
+  :lang(ja) .sec-head h2 { font-size: clamp(30px, 4.2vw, 64px); line-height: 1.06; }
 
   /* ---------- Hero ---------- */
   .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 100svh; padding: 88px 0 56px; background: var(--color-tube); transition: --signal .6s; }
@@ -229,10 +238,13 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
   .h-device { grid-area: device; }
   .h-cta { grid-area: cta; display: grid; gap: 18px; }
   .h-lead { grid-area: lead; max-width: 38ch; font-size: clamp(17px, 1.45vw, 21px); line-height: 1.55; color: rgb(244 242 251 / .78); }
-  h1 { font-size: clamp(52px, 10vw, 168px); color: #fff; text-shadow: 0 0 60px color-mix(in oklab, var(--signal) 40%, transparent); }
-  :lang(zh-Hans) h1, :lang(zh-Hant) h1, :lang(ja) h1, :lang(ko) h1 { font-size: clamp(56px, 9vw, 150px); line-height: 1; }
+  h1 { font-size: clamp(48px, 8.4vw, 140px); color: #fff; }
+  :lang(zh-Hans) h1, :lang(zh-Hant) h1, :lang(ja) h1, :lang(ko) h1 { font-size: clamp(50px, 7.6vw, 124px); line-height: 1; }
   .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; color: rgb(244 242 251 / .55); }
   .trust li + li::before { content: "·"; margin-right: 18px; color: var(--signal); }
+  .whats-new { display: inline-flex; align-items: center; gap: 10px; justify-self: start; font-size: 14px; font-weight: 500; color: rgb(244 242 251 / .8); transition: color .2s; }
+  .whats-new:hover { color: #fff; }
+  .whats-new .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--signal-2); }
   @media (min-width: 1024px) {
     .hero { display: grid; align-items: center; padding: 96px 0 64px; }
     .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); grid-template-areas: "title device" "lead device" "cta device"; grid-template-rows: auto auto 1fr; column-gap: clamp(32px, 5vw, 80px); row-gap: 28px; align-items: start; }
@@ -241,12 +253,12 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
 
   /* Channel player island */
   .hero :global(.cp) { display: grid; justify-items: center; gap: 18px; }
-  .hero :global(.cp-marquee) { position: absolute; left: 0; right: 0; bottom: -0.12em; z-index: -1; overflow: hidden; white-space: nowrap; text-align: center; font-size: clamp(90px, 17vw, 300px); font-stretch: 150%; line-height: .8; color: transparent; -webkit-text-stroke: 1.5px color-mix(in oklab, var(--signal) 55%, transparent); opacity: .5; pointer-events: none; }
+  .hero :global(.cp-marquee) { position: absolute; left: 0; right: 0; bottom: -0.12em; z-index: -1; overflow: hidden; white-space: nowrap; text-align: center; font-size: clamp(90px, 17vw, 300px); font-stretch: 150%; line-height: .8; color: transparent; -webkit-text-stroke: 1.5px color-mix(in oklab, var(--signal) 55%, transparent); opacity: .28; pointer-events: none; }
   .hero :global(.cp-marquee span) { display: inline-block; animation: marquee-in .7s var(--ease-snap) both; }
   @keyframes marquee-in { from { opacity: 0; transform: scaleX(.6); filter: blur(6px); } }
   .hero :global(.cp-stage) { position: relative; display: grid; justify-items: center; gap: 14px; }
-  .hero :global(.cp-glow) { position: absolute; inset: 8% -30% 12%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in oklab, var(--signal) 70%, transparent), transparent); filter: blur(40px); opacity: .7; transition: background .6s; }
-  .hero :global(.cp-device) { position: relative; height: clamp(300px, 42svh, 780px); aspect-ratio: 9 / 19.5; padding: 2.2%; border-radius: 15% / 7%; background: linear-gradient(145deg, #5b5a66, #1b1b22 22%, #0c0c11 60%, #3a3945); box-shadow: 0 0 0 1px rgb(255 255 255 / .16), inset 0 0 0 1px rgb(255 255 255 / .06), 0 50px 100px -30px rgb(0 0 0 / .9), 0 0 120px -20px color-mix(in oklab, var(--signal) 60%, transparent); }
+  .hero :global(.cp-glow) { position: absolute; inset: 8% -30% 12%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in oklab, var(--signal) 70%, transparent), transparent); filter: blur(40px); opacity: .5; transition: background .6s; }
+  .hero :global(.cp-device) { position: relative; height: clamp(300px, 42svh, 780px); aspect-ratio: 9 / 19.5; padding: 2.2%; border-radius: 15% / 7%; background: linear-gradient(145deg, #5b5a66, #1b1b22 22%, #0c0c11 60%, #3a3945); box-shadow: 0 0 0 1px rgb(255 255 255 / .16), inset 0 0 0 1px rgb(255 255 255 / .06), 0 50px 100px -30px rgb(0 0 0 / .9), 0 0 120px -20px color-mix(in oklab, var(--signal) 40%, transparent); }
   @media (min-width: 1024px) { .hero :global(.cp-device) { height: clamp(520px, 74svh, 780px); } }
   .hero :global(.cp-screen) { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 13.4% / 6.2%; background: var(--shell); }
   .hero :global(.cp-skin) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -281,7 +293,7 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
 
   /* ---------- Section heads ---------- */
   .sec-head { display: grid; gap: 18px; max-width: 880px; margin-bottom: clamp(40px, 6vw, 72px); }
-  .sec-head h2 { font-size: clamp(34px, 6vw, 92px); line-height: .96; }
+  .sec-head h2 { font-size: clamp(32px, 5vw, 76px); line-height: .96; }
   .ground-tube .sec-head h2 { color: #fff; }
   .sec-body { max-width: 58ch; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.6; opacity: .74; }
   small { font-family: var(--font-hud); font-size: 10px; opacity: .6; margin-left: 6px; }
@@ -312,7 +324,7 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
   .skins-grid { display: grid; gap: 48px; align-items: center; }
   @media (min-width: 1024px) { .skins-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
   .skins .sec-head { margin-bottom: 0; }
-  .skins h2 { font-size: clamp(64px, 11vw, 176px); }
+  .skins h2 { font-size: clamp(56px, 9vw, 144px); }
   .skin-tags { display: grid; gap: 10px; list-style: none; }
   .skin-tags li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; }
   .skins .link-arrow { color: var(--color-ink); }
@@ -350,7 +362,7 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
   .arcade-bg { position: absolute; inset: 0; z-index: -1; background: radial-gradient(80% 90% at 90% 10%, color-mix(in oklab, var(--signal) 55%, transparent), transparent 60%), radial-gradient(70% 80% at 0% 100%, color-mix(in oklab, var(--signal-2) 30%, transparent), transparent 60%); }
   .arcade-grid { display: grid; gap: 56px; align-items: center; }
   @media (min-width: 1000px) { .arcade-grid { grid-template-columns: 1.1fr .9fr; } }
-  .arcade h2 { font-size: clamp(72px, 13vw, 220px); margin: 18px 0 24px; color: var(--signal-2); text-shadow: 0 0 40px color-mix(in oklab, var(--signal-2) 50%, transparent), 4px 4px 0 var(--signal); }
+  .arcade h2 { font-size: clamp(64px, 10.5vw, 176px); margin: 18px 0 24px; color: var(--signal-2); text-shadow: 3px 3px 0 var(--signal); }
   .arcade .eyebrow { color: var(--signal-2); }
   .arcade .sec-body { opacity: .82; margin-bottom: 20px; }
   .arcade-plus { margin-bottom: 28px; }
@@ -380,7 +392,7 @@ const plusLabel = searchPageContent("plus", locale)?.title ?? "Retropa Plus"
   .credits { padding: clamp(96px, 12vw, 168px) 0 40px; }
   .credits-grid { display: grid; gap: 40px; }
   @media (min-width: 1000px) { .credits-grid { grid-template-columns: 1.3fr .7fr; align-items: end; } }
-  .credits h2 { font-size: clamp(36px, 4.6vw, 72px); color: #fff; margin: 18px 0 20px; }
+  .credits h2 { font-size: clamp(34px, 4vw, 60px); color: #fff; margin: 18px 0 20px; }
   .privacy { display: grid; gap: 10px; padding: 30px; border-radius: 28px; background: rgb(255 255 255 / .04); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .09); }
   .privacy :global(svg) { color: var(--signal-2); }
   .privacy h3 { font-size: 22px; color: #fff; }

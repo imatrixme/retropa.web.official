@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile } from "node:fs/promises"
+import { readFile, readdir, stat, writeFile } from "node:fs/promises"
 import { publishedLocales as supportedLocales } from "../src/i18n/locales.ts"
 
 type Check = "metadata" | "crawl-assets" | "image-alt" | "structured-data" | "language-coverage" | "english-residue" | "capability-claims" | "pricing" | "content-quality"
@@ -661,6 +661,28 @@ for (const match of sitemap.html.matchAll(/<loc\b[^>]*>([^<]*)<\/loc\s*>/gi)) {
 for (const route of published) if (!sitemapPaths.has(route)) record(pages.get(route)!, "crawl-assets", "indexable HTML file is missing from the sitemap")
 const robots = await load("dist/robots.txt", "/robots.txt")
 if (!/^Sitemap:\s*https:\/\/retropa\.com\/sitemap\.xml\s*$/im.test(robots.html)) record(robots, "crawl-assets", "robots.txt does not announce the sitemap")
+// Content Signals state usage preferences for what the crawl rules let through.
+// search and ai-input are always stated; ai-train may stay unstated, which
+// neither grants nor restricts it. An open site keeps search=yes, and a closed
+// one grants nothing.
+const signals = new Map((/^Content-Signal:\s*(.+)$/im.exec(robots.html)?.[1] ?? "").split(",").map((part) => part.split("=").map((value) => value.trim().toLowerCase()) as [string, string]))
+const closed = /^Disallow:\s*\/\s*$/im.test(robots.html)
+for (const key of ["search", "ai-input", "ai-train"]) {
+  const value = signals.get(key)
+  if (value === undefined && key === "ai-train") continue
+  if (value !== "yes" && value !== "no") record(robots, "crawl-assets", `robots.txt Content-Signal does not declare ${key}=yes or ${key}=no`)
+  else if (closed ? value === "yes" : key === "search" && value === "no") record(robots, "crawl-assets", `robots.txt Content-Signal ${key}=${value} disagrees with its ${closed ? "Disallow" : "Allow"} rule`)
+}
+// Agent-readable copies (scripts/agent-assets.ts): each indexable page declares
+// its Markdown, the file exists, and /llms.txt opens with an H1.
+for (const route of published) {
+  const page = pages.get(route)!
+  const declaresMarkdown = tags(page.html).some((tag) => tag.name === "link" && hasRel(tag, "alternate") && attribute(tag, "type") === "text/markdown" && attribute(tag, "href") === `${page.canonical}index.md`)
+  if (!declaresMarkdown) record(page, "crawl-assets", "page does not declare its Markdown alternate")
+  if (!await stat(`dist${route}index.md`).then(() => true, () => false)) record(page, "crawl-assets", `missing Markdown copy dist${route}index.md`)
+}
+const llms = await load("dist/llms.txt", "/llms.txt")
+if (!/^# \S/.test(llms.html)) record(llms, "crawl-assets", "llms.txt does not open with an H1")
 
 // A locale file that exists on disk but is not registered in its loader is
 // invisible: the translation is finished, yet the route silently falls back to

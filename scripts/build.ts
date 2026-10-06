@@ -2,12 +2,14 @@
 // this script writes crawl assets and build evidence and runs the gates on
 // exactly what will be deployed.
 import { spawnSync } from "node:child_process"
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises"
-import { join } from "node:path"
+import { mkdir, readFile, readdir, rm, rmdir, writeFile } from "node:fs/promises"
+import { dirname, join } from "node:path"
 import subsetFont from "subset-font"
 import { publishedPages } from "../src/lib/metadata.ts"
 import { localizedPath } from "../src/lib/routes.ts"
 import { analyticsConfig } from "../src/lib/analytics.ts"
+import { isShipped, shippedVersion } from "../src/content/releases.ts"
+import { writeAgentAssets } from "./agent-assets.ts"
 
 const run = (command: string, args: string[]) => {
   const result = spawnSync(command, args, { stdio: "inherit" })
@@ -53,11 +55,37 @@ for (const [name, files, selector] of [["smiley-zh-hans", await htmlFiles("dist/
   console.log(`Smiley Sans ${name}: ${characters.size} characters, ${(subset.length / 1024).toFixed(1)} KB`)
 }
 
+// Media of an unreleased App version never ships: remove it from the output and
+// make sure no page points at it (src/content/media.ts hides it from templates).
+const raw = JSON.parse(await readFile("public/media/manifest.json", "utf8"))
+const manifest: { path: string; release?: string }[] = Array.isArray(raw) ? raw : raw.entries ?? []
+const held = manifest.filter((entry) => entry.release && !isShipped(entry.release)).map((entry) => entry.path.replace(/^\.?\//, ""))
+for (const path of held) await rm(`dist/media/${path}`, { force: true })
+// Folders left empty go too; a folder that still holds shipped media stays.
+for (const folder of [...new Set(held.map((path) => dirname(`dist/media/${path}`)))].sort((a, b) => b.length - a.length)) {
+  await rmdir(folder).catch(() => {})
+  await rmdir(dirname(folder)).catch(() => {})
+}
+const pages = await htmlFiles("dist")
+const leaks: string[] = []
+for (const file of pages) {
+  const html = await readFile(file, "utf8")
+  for (const path of held) if (html.includes(`/media/${path}`)) leaks.push(`${file} references unreleased media ${path}`)
+}
+for (const leak of leaks) console.log(`FAIL ${leak}`)
+if (leaks.length) process.exit(1)
+console.log(`App version ${shippedVersion}: ${held.length} media files held for a later release.`)
+
+const agent = await writeAgentAssets("dist")
+for (const failure of agent.failures) console.log(`FAIL ${failure}`)
+if (agent.failures.length) process.exit(1)
+console.log(`Agent assets: ${agent.pages} Markdown pages and llms.txt.`)
+
 const paths = publishedPages.map(({ page, locale }) => localizedPath(page, locale))
 const guideLanguages = publishedPages.filter(({ page }) => page === "guides").map(({ locale }) => locale)
 await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<url><loc>https://retropa.com${path}</loc></url>`).join("")}</urlset>`)
 await writeFile("dist/build-evidence.json", JSON.stringify({
-  schemaVersion: 1, revision: analyticsConfig.revision, generatedAt: new Date().toISOString(), paths,
+  schemaVersion: 1, revision: analyticsConfig.revision, appVersion: shippedVersion, generatedAt: new Date().toISOString(), paths,
   analyticsConfigured: /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId),
   campaignProviderConfigured: /^\d+$/.test(analyticsConfig.providerToken),
   attribution: "aggregate_only", guideLanguages,

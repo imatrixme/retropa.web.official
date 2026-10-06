@@ -31,6 +31,7 @@ const jsonLd = JSON.stringify(meta.jsonLd).replace(/</g, "\\u003c")
   <link rel="canonical" href={meta.canonical} />
   {meta.alternates.map(item => <link rel="alternate" hreflang={item.locale} href={item.href} />)}
   {page !== "not-found" && <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(page, "en"), siteConfig.siteUrl).href} />}
+  {page !== "not-found" && <link rel="alternate" type="text/markdown" href={`${meta.canonical}index.md`} />}
   <link rel="icon" href="/brand/retropa-site-logo-192.png" type="image/png" />
   <link rel="apple-touch-icon" href="/brand/retropa-site-logo-192.png" />
   <link rel="manifest" href="/site.webmanifest" />

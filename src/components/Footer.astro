@@ -13,6 +13,7 @@ import { searchPageContent } from "@/content/search-pages"
 import { productDetail, isProductPage } from "@/content/product-details"
 import { startPageContent } from "@/content/start-page"
 import { guidesIndexContent } from "@/content/guides-index"
+import { changelogContent } from "@/content/releases"
 import { getMessages } from "@/i18n/messages"
 import { siteConfig } from "@/lib/site-config"
 import { analyticsConfig } from "@/lib/analytics"
@@ -36,7 +37,7 @@ const label = (target: string) => {
 const item = (target: string, text?: string) => ({ ...siteLink(target, locale), text: text ?? label(target) })
 const systems = channels.map(channel => item(channel.page, channelName(channel, locale)))
 const features = [item("controls"), item("delta-skins", labels[1]), item("crt-filters", labels[2]), item("save-states-and-rewind"), item("connect-controller-ios"), item("plus")]
-const learn = [item("start"), item("import"), item("guides"), item("import-roms-iphone"), item("game-wont-load"), item("retropa-vs-delta"), item("cores", messages.shared.footer.emulatorCores)]
+const learn = [item("start"), item("import"), item("guides"), item("import-roms-iphone"), item("game-wont-load"), item("retropa-vs-delta"), item("cores", messages.shared.footer.emulatorCores), item("changelog", changelogContent(locale).breadcrumb)]
 const company = [item("terms", messages.shared.footer.terms), item("privacy", messages.shared.footer.privacy)]
 const consentEnabled = /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId)
 ---
@@ -71,7 +72,7 @@ const consentEnabled = /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId)
   .site-footer { position: relative; overflow: hidden; padding: clamp(80px, 12vw, 160px) 0 0; border-top: 1px solid rgb(255 255 255 / .06); }
   .cta { display: grid; gap: 32px; align-items: end; padding-bottom: 72px; border-bottom: 1px solid rgb(255 255 255 / .08); }
   @media (min-width: 900px) { .cta { grid-template-columns: 1fr auto; } }
-  .line { font-size: clamp(56px, 9vw, 132px); color: #f4f2fb; }
+  .line { font-size: clamp(48px, 7.4vw, 108px); color: #f4f2fb; }
   .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; padding: 56px 0; }
   @media (min-width: 900px) { .columns { grid-template-columns: 1.3fr 1fr 1fr 1fr; } }
   .columns .hud { color: var(--signal); margin-bottom: 16px; }
@@ -81,5 +82,5 @@ const consentEnabled = /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId)
   small { font-family: var(--font-hud); font-size: 10px; opacity: .6; }
   .notice { max-width: 90ch; font-size: 12px; line-height: 1.6; color: rgb(244 242 251 / .4); }
   .base { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 32px 0 24px; font-size: 13px; color: rgb(244 242 251 / .5); }
-  .wordmark { font-family: var(--font-display); font-weight: 900; font-stretch: 150%; font-size: clamp(64px, 17.5vw, 300px); line-height: .72; letter-spacing: -.04em; text-align: center; color: transparent; -webkit-text-stroke: 1px rgb(255 255 255 / .1); background: linear-gradient(180deg, color-mix(in oklab, var(--signal) 38%, transparent), transparent 70%); -webkit-background-clip: text; background-clip: text; user-select: none; margin-top: 16px; transform: translateY(8%); }
+  .wordmark { font-family: var(--font-display); font-weight: 900; font-stretch: 150%; font-size: clamp(64px, 17.5vw, 300px); line-height: .72; letter-spacing: -.04em; text-align: center; color: transparent; -webkit-text-stroke: 1px rgb(255 255 255 / .07); background: linear-gradient(180deg, color-mix(in oklab, var(--signal) 24%, transparent), transparent 70%); -webkit-background-clip: text; background-clip: text; user-select: none; margin-top: 16px; transform: translateY(8%); }
 </style>

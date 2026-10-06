@@ -5,6 +5,7 @@ import { featurePages, hasFeatureBody } from "@/content/feature-pages"
 import { hasStartPageContent } from "@/content/start-page"
 import { hasGuidesIndexContent } from "@/content/guides-index"
 import { searchPageLocales, searchPagePath, searchPageSlugs } from "@/content/search-pages"
+import { hasChangelogContent } from "@/content/releases"
 
 /**
  * A page family groups pages that share publication rules, path generation and
@@ -104,7 +105,17 @@ const guidesIndexFamily: PageFamily = {
   enumerate: "page-major",
 }
 
-export const pageFamilies: readonly PageFamily[] = [coreFamily, guideFamily, productFamily, featureFamily, searchFamily, guidesIndexFamily]
+/** The release history publishes in every language that has its copy. */
+const changelogFamily: PageFamily = {
+  id: "changelog",
+  pages: ["changelog"],
+  localesFor: () => supportedLocales.filter(hasChangelogContent),
+  resolveLocale: (locale) => (hasChangelogContent(locale) ? locale : identity(locale)),
+  path: () => "/changelog/",
+  enumerate: "page-major",
+}
+
+export const pageFamilies: readonly PageFamily[] = [coreFamily, guideFamily, productFamily, featureFamily, searchFamily, guidesIndexFamily, changelogFamily]
 
 export function familyForPage(page: string): PageFamily | undefined {
   return pageFamilies.find((family) => family.pages.includes(page))

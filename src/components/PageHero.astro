@@ -30,12 +30,12 @@ const copy = acquisitionCopy(locale)
 </section>
 <style>
   @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
-  :lang(ja) h1, :lang(ja) h2 { font-size: clamp(34px, 4.8vw, 76px); line-height: 1.08; }
+  :lang(ja) h1, :lang(ja) h2 { font-size: clamp(32px, 4.4vw, 68px); line-height: 1.08; }
   .page-hero { position: relative; overflow: hidden; isolation: isolate; padding: 148px 0 88px; }
-  .glow { position: absolute; z-index: -1; inset: -40% -10% auto 35%; height: 140%; background: radial-gradient(closest-side, color-mix(in oklab, var(--signal) 42%, transparent), transparent 70%); filter: blur(20px); opacity: .75; }
-  .mark { position: absolute; z-index: -1; right: -2vw; bottom: -0.16em; font-size: clamp(120px, 26vw, 420px); line-height: .8; color: transparent; -webkit-text-stroke: 1px color-mix(in oklab, var(--signal) 45%, transparent); white-space: nowrap; font-stretch: 150%; pointer-events: none; }
+  .glow { position: absolute; z-index: -1; inset: -40% -10% auto 35%; height: 140%; background: radial-gradient(closest-side, color-mix(in oklab, var(--signal) 42%, transparent), transparent 70%); filter: blur(20px); opacity: .5; }
+  .mark { position: absolute; z-index: -1; right: -2vw; bottom: -0.16em; font-size: clamp(120px, 26vw, 420px); line-height: .8; color: transparent; -webkit-text-stroke: 1px color-mix(in oklab, var(--signal) 28%, transparent); white-space: nowrap; font-stretch: 150%; pointer-events: none; }
   .inner { position: relative; display: grid; gap: 22px; }
-  h1 { max-width: 18ch; font-size: clamp(44px, 6.6vw, 92px); line-height: .94; color: #fff; }
+  h1 { max-width: 18ch; font-size: clamp(40px, 5.6vw, 80px); line-height: .94; color: #fff; }
   :lang(zh-Hans) h1, :lang(zh-Hant) h1, :lang(ja) h1, :lang(ko) h1 { line-height: 1.08; }
   .with-art { grid-template-columns: minmax(0, 1fr); }
   .art { order: -1; width: 100%; max-width: 560px; height: auto; margin: -24px auto 0; -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent); mask-image: radial-gradient(closest-side, #000 72%, transparent); }

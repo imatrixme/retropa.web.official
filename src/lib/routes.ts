@@ -10,7 +10,7 @@ import { familyForPage, guideLocale, pageFamilies } from "@/lib/page-families"
  * registered from content modules. Their validity is enforced by the route
  * registry and the build integrity gate rather than by the type system.
  */
-export type SitePage = PageKey | ProductPage | FeaturePage | "start" | "guides" | "not-found" | (string & {})
+export type SitePage = PageKey | ProductPage | FeaturePage | "start" | "guides" | "changelog" | "not-found" | (string & {})
 
 export { guideLocale }
 

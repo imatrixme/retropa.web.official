@@ -9,6 +9,7 @@ import { startPageContent } from "@/content/start-page"
 import { guidesIndexContent } from "@/content/guides-index"
 import { featureContent, isFeaturePage } from "@/content/feature-pages"
 import { publishedEntries } from "@/lib/page-families"
+import { changelogContent, isShipped, shippedVersion } from "@/content/releases"
 
 export const publishedPages: { page: SitePage; locale: Locale }[] = publishedEntries().map((entry) => ({
   page: entry.page as SitePage,
@@ -35,8 +36,9 @@ export function getPageMetadata(page: SitePage, locale: Locale) {
   const start = page === "start" ? startPageContent(locale) : null
   const guides = page === "guides" ? guidesIndexContent(locale) : null
   const feature = page !== "not-found" && isFeaturePage(page) ? featureContent(page, locale) : null
-  const title = page === "home" ? locale === "en" ? "Retropa | GBA, DS & Arcade Emulator for iPhone and iPad" : `Retropa | ${copy.category} | iPhone & iPad` : start ? (start.metaTitle ?? start.title) : guides ? (guides.metaTitle ?? guides.title) : feature ? feature.metaTitle : page === "not-found" ? "Page not found | Retropa" : detail ? `${detail.title} | Retropa` : search ? search.title : messages.seo[page as "cores" | "terms" | "privacy"].title
-  const description = page === "home" ? `${copy.intro} ${copy.free}` : start ? (start.description ?? start.intro) : guides ? (guides.description ?? guides.intro) : feature ? feature.description : page === "not-found" ? "Return to Retropa." : detail ? detail.summary : search ? search.description : messages.seo[page as "cores" | "terms" | "privacy"].description
+  const changelog = page === "changelog" ? changelogContent(locale) : null
+  const title = page === "home" ? locale === "en" ? "Retropa | GBA, DS & Arcade Emulator for iPhone and iPad" : `Retropa | ${copy.category} | iPhone & iPad` : start ? (start.metaTitle ?? start.title) : guides ? (guides.metaTitle ?? guides.title) : changelog ? changelog.metaTitle : feature ? feature.metaTitle : page === "not-found" ? "Page not found | Retropa" : detail ? `${detail.title} | Retropa` : search ? search.title : messages.seo[page as "cores" | "terms" | "privacy"].title
+  const description = page === "home" ? `${copy.intro} ${copy.free}` : start ? (start.description ?? start.intro) : guides ? (guides.description ?? guides.intro) : changelog ? changelog.description : feature ? feature.description : page === "not-found" ? "Return to Retropa." : detail ? detail.summary : search ? search.description : messages.seo[page as "cores" | "terms" | "privacy"].description
   const alternates = publishedPages.filter(route => route.page === page).map(route => ({ locale: route.locale, href: new URL(localizedPath(page, route.locale), siteConfig.siteUrl).href }))
 
   // FAQ structured data mirrors the questions rendered on the page, so the two
@@ -53,13 +55,15 @@ export function getPageMetadata(page: SitePage, locale: Locale) {
     "@context": "https://schema.org", "@type": "SoftwareApplication", "@id": `${siteConfig.siteUrl}/#app`, name: "Retropa", applicationCategory: "GameApplication",
     operatingSystem: "iOS 18 or later", url: canonical, description, inLanguage: locale,
     downloadUrl: siteConfig.appStoreUrl, image: socialImage,
-    featureList: ["GBA and DS emulation", "CPS, Neo Geo, PGM and M92 arcade families", "Delta .deltaskin import", "Advanced CRT and LCD filters without an integer-scaling requirement", "RetroArch .slang and .slangp workflows", "External controller mapping with vendor templates", "Adaptive touch hot zones with genre touch styles", "Waveform haptics with per-button curves", "Wi-Fi Portal import from a computer browser"],
+    softwareVersion: shippedVersion, releaseNotes: new URL(localizedPath("changelog", locale), siteConfig.siteUrl).href,
+    featureList: [...(isShipped("2.4.0") ? ["44 console shells in eight material families, with texture and gloss dials and PRO key kits"] : []), "GBA and DS emulation", "CPS, Neo Geo, PGM and M92 arcade families", "Delta .deltaskin import", "Advanced CRT and LCD filters without an integer-scaling requirement", "RetroArch .slang and .slangp workflows", "External controller mapping with vendor templates", "Adaptive touch hot zones with genre touch styles", "Waveform haptics with per-button curves", "Wi-Fi Portal import from a computer browser"],
   } : { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: locale,
     about: { "@type": "SoftwareApplication", "@id": `${siteConfig.siteUrl}/#app`, name: "Retropa" },
     isPartOf: { "@type": "WebSite", name: "Retropa", url: siteConfig.siteUrl },
     ...(detail ? { breadcrumb: crumbs(locale, canonical, null, detail.label) } : {}),
     ...(search ? { breadcrumb: crumbs(locale, canonical, { name: locale.startsWith("zh") ? "模拟器核心" : "Emulator cores", href: new URL(localizedPath("cores", locale), siteConfig.siteUrl).href }, search.label) } : {}),
     ...(feature ? { breadcrumb: crumbs(locale, canonical, null, feature.label) } : {}),
+    ...(changelog ? { breadcrumb: crumbs(locale, canonical, null, changelog.breadcrumb) } : {}),
     ...(feature ? { mainEntity: { "@type": "FAQPage", mainEntity: feature.faqs.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } } : {}),
     ...faqLd,
   }

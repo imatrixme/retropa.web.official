@@ -1,0 +1,177 @@
+---
+import type { Locale } from "@/i18n/locales"
+import { featuredShell, keyKits, looksCopy, shellFamilies } from "@/content/looks"
+import { media, mediaUrl } from "@/content/media"
+import { phrases } from "@/lib/phrases"
+
+// The 2.4 looks chapter. Swatches are native radio buttons, so keyboard and
+// assistive technology get a real choice; a small inline script swaps the large
+// rendering. Without scripts the chapter shows every swatch and one rendering.
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const t = looksCopy(locale)
+const families = shellFamilies(locale).map(family => ({
+  ...family,
+  shells: family.shells.flatMap(shell => {
+    const render = media(`looks/shells/${shell.id}.webp`)
+    const swatch = media(`looks/swatches/${shell.id}.webp`)
+    return render && swatch ? [{ ...shell, src: mediaUrl(render.path), swatch: mediaUrl(swatch.path), alt: t.shellAlt.replace("{name}", shell.name).replace("{family}", family.name) }] : []
+  }),
+})).filter(family => family.shells.length > 0)
+const shells = families.flatMap(family => family.shells.map(shell => ({ ...shell, family })))
+const featured = shells.find(shell => shell.id === featuredShell) ?? shells[0]
+const dials = media(`looks/dials-${featuredShell}.webp`)
+---
+{featured && <section id="looks" class="looks ground-cartridge" aria-labelledby="looks-title" data-looks>
+  <div class="shell layout">
+    <header class="sec-head reveal">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="looks-title" class="display">{phrases(t.title).map(part => <span class="phrase">{part}</span>)}</h2>
+      <p class="sec-body">{t.body}</p>
+    </header>
+    <figure class="stage">
+      <div class="device"><img data-looks-render src={featured.src} width="540" height="1110" alt={featured.alt} loading="lazy" decoding="async" /></div>
+      <figcaption>
+        <strong data-looks-name>{featured.name}</strong>
+        <span class="hud" data-looks-family>{featured.family.name}</span>
+        <span class="free-tag" data-looks-free hidden={featured.family.plus}>{t.free}</span>
+        <span class="plus-tag" data-looks-plus hidden={!featured.family.plus}>Plus</span>
+      </figcaption>
+    </figure>
+    <div class="board">
+      <p class="hud board-title" id="looks-pick">{t.pick}</p>
+      <div class="families" role="radiogroup" aria-labelledby="looks-pick">
+        {families.map(family => <fieldset>
+          <legend><span>{family.name}</span>{family.plus ? <span class="plus-tag">Plus</span> : <span class="free-tag">{t.free}</span>}</legend>
+          <div class="swatches">
+            {family.shells.map(shell => <label class="swatch">
+              <input type="radio" name="looks-shell" value={shell.id} checked={shell.id === featured.id}
+                data-src={shell.src} data-alt={shell.alt} data-name={shell.name} data-family={family.name} data-plus={family.plus ? "" : undefined} />
+              <img src={shell.swatch} width="96" height="96" alt={shell.name} loading="lazy" decoding="async" />
+            </label>)}
+          </div>
+        </fieldset>)}
+      </div>
+      <p class="note">{t.plusNote}</p>
+    </div>
+  </div>
+  <div class="shell details">
+    {dials && <div class="dials reveal">
+      <h3>{t.dialsTitle}</h3>
+      <p>{t.dialsBody}</p>
+      <figure class="dial-grid">
+        <span class="axis axis-gloss hud">{t.axes[1]} →</span>
+        <span class="axis axis-texture hud">{t.axes[0]} <span class="arrow">↓</span></span>
+        {t.gloss.map((label, index) => <span class="col hud" style={`grid-column: ${index + 3}`}>{label}</span>)}
+        {t.texture.map((label, index) => <span class="row hud" style={`grid-row: ${index + 3}`}>{label}</span>)}
+        <img src={mediaUrl(dials.path)} width={dials.width ?? 720} height={dials.height ?? 720} alt={t.dialsAlt} loading="lazy" decoding="async" />
+      </figure>
+    </div>}
+    <div class="kits reveal">
+      <h3>{t.keysTitle}</h3>
+      <p>{t.keysBody}</p>
+      <ul role="list">
+        {keyKits.map((kit, index) => <li><span class="dots" aria-hidden="true">{kit.colors.map(color => <i style={`--dot: ${color}`}></i>)}</span>{t.kits[index]}</li>)}
+      </ul>
+      <p class="apply">{t.apply}</p>
+    </div>
+  </div>
+  <script is:inline>
+    (() => {
+      const root = document.currentScript.closest("[data-looks]")
+      const render = root.querySelector("[data-looks-render]")
+      const name = root.querySelector("[data-looks-name]")
+      const family = root.querySelector("[data-looks-family]")
+      const free = root.querySelector("[data-looks-free]")
+      const plus = root.querySelector("[data-looks-plus]")
+      root.addEventListener("change", (event) => {
+        const input = event.target
+        if (!(input instanceof HTMLInputElement) || input.name !== "looks-shell") return
+        const next = new Image()
+        next.src = input.dataset.src
+        next.decode().catch(() => {}).then(() => {
+          if (!input.checked) return
+          render.src = input.dataset.src
+          render.alt = input.dataset.alt
+          name.textContent = input.dataset.name
+          family.textContent = input.dataset.family
+          plus.hidden = !("plus" in input.dataset)
+          free.hidden = "plus" in input.dataset
+        })
+      })
+    })()
+  </script>
+</section>}
+<style>
+  .looks { padding: clamp(96px, 12vw, 168px) 0; overflow: hidden; }
+  .layout { display: grid; gap: 40px; grid-template-areas: "head" "stage" "board"; }
+  @media (min-width: 1024px) {
+    .layout { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); grid-template-areas: "head stage" "board stage"; column-gap: clamp(40px, 6vw, 96px); row-gap: 40px; align-items: start; }
+  }
+  .sec-head { grid-area: head; display: grid; gap: 18px; max-width: 760px; }
+  .sec-head h2 { font-size: clamp(34px, 5.2vw, 76px); line-height: .98; }
+  .sec-body { max-width: 58ch; font-size: clamp(17px, 1.4vw, 19px); line-height: 1.6; color: #3b3945; }
+  @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
+  :lang(ja) .sec-head h2 { font-size: clamp(32px, 4.4vw, 64px); line-height: 1.08; }
+
+  /* The rendering is a full phone face, so it is framed as a phone. */
+  .stage { grid-area: stage; display: grid; justify-items: center; gap: 18px; }
+  @media (min-width: 1024px) { .stage { position: sticky; top: 96px; } }
+  .device { padding: 9px; border-radius: 46px; background: linear-gradient(150deg, #44434d, #15151b 32%, #0b0b10 70%, #34333d); box-shadow: 0 0 0 1px rgb(14 14 20 / .35), 0 48px 80px -36px rgb(50 36 12 / .55); }
+  .device img { width: auto; height: clamp(420px, 64svh, 660px); aspect-ratio: 540 / 1110; border-radius: 38px; object-fit: cover; background: #1b1a20; }
+  @media (max-width: 599px) { .device img { height: min(560px, 118vw); } }
+  figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px; min-height: 28px; font-size: 15px; }
+  figcaption strong { font-weight: 600; }
+  figcaption .hud { color: var(--color-ink-soft); }
+
+  .board { grid-area: board; display: grid; gap: 20px; min-width: 0; }
+  .board-title { color: var(--color-ink-soft); }
+  .families { display: grid; gap: 18px; }
+  @media (min-width: 640px) { .families { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; } }
+  fieldset { min-width: 0; margin: 0; padding: 14px 0 0; border: 0; border-top: 1px solid var(--color-cartridge-line); }
+  legend { display: flex; align-items: center; gap: 10px; float: left; width: 100%; margin-bottom: 12px; padding: 0; font-size: 14px; font-weight: 600; }
+  legend + * { clear: both; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+  .swatch { position: relative; display: block; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; }
+  .swatch input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+  .swatch img { width: 100%; height: 100%; border-radius: 50%; box-shadow: inset 0 0 0 1px rgb(14 14 20 / .12), 0 1px 2px rgb(14 14 20 / .2); pointer-events: none; transition: transform .2s var(--ease-snap); }
+  html.js .swatch:hover img { transform: scale(1.06); }
+  html.js .swatch:has(input:checked) { box-shadow: 0 0 0 2px var(--color-cartridge), 0 0 0 4px var(--color-ink); }
+  .swatch:has(input:focus-visible) { outline: 2px solid var(--signal); outline-offset: 5px; }
+  /* Below the two-column layout the rendering sits above the board, so the
+     families run in one sideways strip right under it and a pick stays in view. */
+  @media (max-width: 1023px) {
+    .board { --bleed: 24px; }
+    .families { display: flex; gap: 28px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scroll-padding-inline: var(--bleed); scrollbar-width: none; margin-inline: calc(-1 * var(--bleed)); padding: 0 var(--bleed) 8px; }
+    .families::-webkit-scrollbar { display: none; }
+    fieldset { flex: none; scroll-snap-align: start; }
+    legend { white-space: nowrap; }
+    .swatches { flex-wrap: nowrap; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) { .board { --bleed: 48px; } }
+  /* Without scripts the board is a palette, not a picker. */
+  html:not(.js) .swatch { pointer-events: none; }
+  .note { max-width: 60ch; font-size: 13px; color: var(--color-ink-soft); }
+
+  .details { display: grid; gap: 16px; align-items: start; margin-top: clamp(56px, 7vw, 96px); }
+  @media (min-width: 1000px) { .details { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); } }
+  .dials, .kits { display: grid; align-content: start; gap: 14px; padding: clamp(24px, 3vw, 36px); border-radius: 28px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); }
+  .dials h3, .kits h3 { font-family: var(--display-face); font-weight: 720; font-stretch: calc(var(--display-stretch) - 6%); font-size: clamp(24px, 2.2vw, 32px); line-height: 1.08; }
+  .dials > p, .kits > p { max-width: 52ch; color: #45424f; }
+  .dial-grid { display: grid; grid-template-columns: auto auto repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto repeat(3, minmax(0, 1fr)); gap: 8px 10px; margin-top: 8px; }
+  .dial-grid img { grid-column: 3 / 6; grid-row: 3 / 6; width: 100%; height: auto; }
+  .axis { color: var(--color-ink); }
+  .axis-gloss { grid-column: 3 / 6; grid-row: 1; }
+  .axis-texture { grid-column: 1; grid-row: 3 / 6; align-self: center; writing-mode: vertical-rl; }
+  /* Vertical text turns arrows on their side; this one keeps pointing down. */
+  .axis-texture .arrow { text-orientation: upright; }
+  .col { grid-row: 2; text-align: center; color: var(--color-ink-soft); font-size: 11px; }
+  .row { grid-column: 2; align-self: center; color: var(--color-ink-soft); font-size: 11px; writing-mode: vertical-rl; transform: rotate(180deg); }
+  :lang(ja) .row, :lang(zh-Hans) .row, :lang(ja) .axis-texture, :lang(zh-Hans) .axis-texture { transform: none; }
+  .kits ul { display: grid; gap: 2px; list-style: none; }
+  .kits li { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-top: 1px solid var(--color-cartridge-line); font-weight: 600; }
+  .dots { display: inline-flex; }
+  .dots i { width: 18px; height: 18px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 0 2px #fbf8f1, inset 0 -3px 5px rgb(0 0 0 / .25), inset 0 2px 3px rgb(255 255 255 / .25); }
+  .dots i + i { margin-left: -5px; }
+  .apply { font-size: 14px; color: var(--color-ink-soft) !important; }
+</style>
