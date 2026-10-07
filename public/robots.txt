@@ -1,10 +1,4 @@
-# Content Signals (https://contentsignals.org): how content from this site may be
-# used once it has been accessed. search: build a search index and show links and
-# short excerpts. ai-input: use as input to an AI answer (retrieval, grounding).
-# ai-train (training or fine-tuning AI models) is not stated, which neither grants
-# nor restricts it.
 User-agent: *
-Content-Signal: search=yes, ai-input=yes
 Allow: /
 
 Sitemap: https://retropa.com/sitemap.xml

@@ -1,6 +1,6 @@
 # Retropa 官网关键词与内容计划
 
-更新：2026-09-05；2026-10-06 修订“搜索与 AI 抓取”一节。状态：本地实现，未部署。本文是 Agent 对只读证据的分析，不是采集脚本生成的评分，也不是搜索量预测。
+更新：2026-09-05；2026-10-06 修订“搜索与 AI 抓取”一节，同日按用户要求暂时隐藏 agent 可读层。状态：本地实现，未部署。本文是 Agent 对只读证据的分析，不是采集脚本生成的评分，也不是搜索量预测。
 
 ## 证据与口径
 
@@ -85,7 +85,9 @@ I1 证实：首页、核心页均为 `PASS / Submitted and indexed`，抓取成�
 
 已实现：完整静态正文、确定语言路径、自指 canonical、互惠 hreflang、语义标题、原图及说明、真实内链、与可见事实一致的 SoftwareApplication/WebPage 数据。重要内容不依赖点击标签才出现，也不按 User-Agent 给爬虫不同正文。
 
-`robots.txt` 的现有通用放行保持不变，已覆盖搜索爬虫；不擅自改变训练爬虫授权。2026-10 起在放行规则旁声明 [Content Signals](https://contentsignals.org)：`search=yes, ai-input=yes`；`ai-train` 不声明，按规范等于既不授权也不限制，与此前状态一致，是否授权仍由用户决定，改动只涉及这一行。完整性检查要求 `search` 与 `ai-input` 必须声明，且声明与抓取规则一致。上线后还要验证 CDN/WAF 的实际放行与日志，模拟 User-Agent 的本地 200 不是实际机器人已经抓取的证据。
+**2026-10-06 起暂时隐藏**：用户要求“AI相关先隐藏”。下面两段说的 Content Signals、`/llms.txt`、`index.md` 和 Markdown 协商，都由 `src/lib/site-config.ts` 的 `agentReadable` 控制。它现在是 `false`，构建不发布其中任何一项，`robots.txt` 回到 v10 的通用放行。关闭时，完整性检查和 HTTP 证据会确认这些产物都不存在。重新开启只需改这个值，并在同一次发布中合入 `deploy/nginx-agent-readable.conf.example`。以下两段是开启后的行为。
+
+`robots.txt` 的现有通用放行保持不变，已覆盖搜索爬虫；不擅自改变训练爬虫授权。开启时，构建在放行规则旁声明 [Content Signals](https://contentsignals.org)：`search=yes, ai-input=yes`；`ai-train` 不声明，按规范等于既不授权也不限制，与此前状态一致，是否授权仍由用户决定，改动只涉及这一行。完整性检查要求 `search` 与 `ai-input` 必须声明，且声明与抓取规则一致。上线后还要验证 CDN/WAF 的实际放行与日志，模拟 User-Agent 的本地 200 不是实际机器人已经抓取的证据。
 
 按用户 2026-10 的要求（参照 Cloudflare 对 agent 友好性的检查项），新增 `/llms.txt` 站点概览，并在每个可索引页旁生成 `index.md`。`index.md` 由该页 `<main>` 转换而来，与 HTML 内容一致；页面用 `<link rel="alternate" type="text/markdown">` 声明它，响应用 `Link: rel="canonical"` 指回 HTML。同一 URL 按请求的 `Accept` 返回 Markdown，而不是按 User-Agent 区分，因此不是隐藏的“AI 版”，也不构成 cloaking。Google 不需要这些文件：AI 搜索仍以可抓取、可索引、有用的内容为基础。它们服务于直接读取页面的其他 agent。仍然不做虚构评分或关键词 meta 堆砌，结构化数据也必须符合页面事实。[Google AI features](https://developers.google.com/search/docs/appearance/ai-features/)
 

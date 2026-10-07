@@ -1,8 +1,10 @@
-// Agent-readable copies of the published site, written after Astro renders it:
-// an index.md beside every indexable page (that page's <main> as Markdown) and
-// /llms.txt, the site overview. They carry the same facts as the HTML, without
-// navigation, scripts or decoration; deploy/nginx.conf.example serves them to
-// requests that prefer text/markdown.
+// Agent-readable copies of the published site, written after Astro renders it
+// and only while `agentReadable` (src/lib/site-config.ts) is on: an index.md
+// beside every indexable page (that page's <main> as Markdown), /llms.txt, the
+// site overview, and the Content Signals in robots.txt. They carry the same
+// facts as the HTML, without navigation, scripts or decoration;
+// deploy/nginx-agent-readable.conf.example serves them to requests that prefer
+// text/markdown.
 import { readFile, writeFile } from "node:fs/promises"
 import { getPageMetadata, publishedPages } from "../src/lib/metadata.ts"
 import { localizedPath } from "../src/lib/routes.ts"
@@ -160,9 +162,17 @@ export async function mainMarkdown(html: string, canonical: string): Promise<str
 const pageUrl = (page: string, locale: string) => new URL(localizedPath(page, locale as never), siteConfig.siteUrl).href
 const markdownUrl = (page: string, locale: string) => `${pageUrl(page, locale)}index.md`
 const languageName: Record<string, string> = { en: "English", "zh-Hans": "简体中文", ja: "日本語" }
+const contentSignalNote = `# Content Signals (https://contentsignals.org): how content from this site may be
+# used once it has been accessed. search: build a search index and show links and
+# short excerpts. ai-input: use as input to an AI answer (retrieval, grounding).
+# ai-train (training or fine-tuning AI models) is not stated, which neither grants
+# nor restricts it.
+`
+/** Joins the robots.txt `User-agent: *` group. ai-train stays unstated: granting or refusing it is the owner's call. */
+const contentSignal = "Content-Signal: search=yes, ai-input=yes"
 const otherLanguages: Record<string, string> = { en: "Other languages", "zh-Hans": "其他语言", ja: "他の言語" }
 
-/** Writes index.md beside every indexable page and /llms.txt; returns the problems found. */
+/** Writes index.md beside every indexable page, /llms.txt and the robots.txt Content Signals; returns the problems found. */
 export async function writeAgentAssets(dist: string): Promise<{ pages: number; failures: string[] }> {
   const failures: string[] = []
   for (const { page, locale } of publishedPages) {
@@ -210,5 +220,9 @@ export async function writeAgentAssets(dist: string): Promise<{ pages: number; f
     ["## Optional", entry("terms", "en"), entry("privacy", "en")].join("\n"),
   ]
   await writeFile(`${dist}/llms.txt`, `${sections.join("\n\n")}\n`)
+
+  const robots = await readFile(`${dist}/robots.txt`, "utf8")
+  if (!robots.includes("User-agent: *\n")) failures.push("robots.txt has no User-agent: * group for the Content Signals")
+  await writeFile(`${dist}/robots.txt`, `${contentSignalNote}${robots.replace("User-agent: *\n", `User-agent: *\n${contentSignal}\n`)}`)
   return { pages: publishedPages.length, failures }
 }

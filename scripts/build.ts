@@ -9,6 +9,7 @@ import { publishedPages } from "../src/lib/metadata.ts"
 import { localizedPath } from "../src/lib/routes.ts"
 import { analyticsConfig } from "../src/lib/analytics.ts"
 import { isShipped, shippedVersion } from "../src/content/releases.ts"
+import { agentReadable } from "../src/lib/site-config.ts"
 import { writeAgentAssets } from "./agent-assets.ts"
 
 const run = (command: string, args: string[]) => {
@@ -76,16 +77,18 @@ for (const leak of leaks) console.log(`FAIL ${leak}`)
 if (leaks.length) process.exit(1)
 console.log(`App version ${shippedVersion}: ${held.length} media files held for a later release.`)
 
-const agent = await writeAgentAssets("dist")
-for (const failure of agent.failures) console.log(`FAIL ${failure}`)
-if (agent.failures.length) process.exit(1)
-console.log(`Agent assets: ${agent.pages} Markdown pages and llms.txt.`)
+if (agentReadable) {
+  const agent = await writeAgentAssets("dist")
+  for (const failure of agent.failures) console.log(`FAIL ${failure}`)
+  if (agent.failures.length) process.exit(1)
+  console.log(`Agent assets: ${agent.pages} Markdown pages, llms.txt and Content Signals.`)
+} else console.log("Agent assets: hidden (agentReadable is off in src/lib/site-config.ts).")
 
 const paths = publishedPages.map(({ page, locale }) => localizedPath(page, locale))
 const guideLanguages = publishedPages.filter(({ page }) => page === "guides").map(({ locale }) => locale)
 await writeFile("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map((path) => `<url><loc>https://retropa.com${path}</loc></url>`).join("")}</urlset>`)
 await writeFile("dist/build-evidence.json", JSON.stringify({
-  schemaVersion: 1, revision: analyticsConfig.revision, appVersion: shippedVersion, generatedAt: new Date().toISOString(), paths,
+  schemaVersion: 1, revision: analyticsConfig.revision, appVersion: shippedVersion, agentReadable, generatedAt: new Date().toISOString(), paths,
   analyticsConfigured: /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId),
   campaignProviderConfigured: /^\d+$/.test(analyticsConfig.providerToken),
   attribution: "aggregate_only", guideLanguages,

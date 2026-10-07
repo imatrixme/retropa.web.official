@@ -10,6 +10,14 @@ export const siteConfig = {
   socialImage: "/brand/retropa-site-logo-512.png",
 } as const
 
+/**
+ * Agent-readable layer: an index.md beside every page, /llms.txt, the page
+ * links that announce them, Markdown negotiation and the robots.txt Content
+ * Signals. Hidden for now, so the build publishes none of it; turning it on is
+ * this one value plus the nginx rules in deploy/nginx-agent-readable.conf.example.
+ */
+export const agentReadable: boolean = false
+
 export type LegalSection = {
   id: string
   title: string

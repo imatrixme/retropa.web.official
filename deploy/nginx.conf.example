@@ -1,13 +1,7 @@
 # Include legacy-locales.conf inside http {} before these server blocks.
 # Merge into the existing TLS virtual host. Certificate paths are intentionally omitted.
-
-# Also inside http {}: a request that lists text/markdown (without q=0) gets the
-# page's Markdown copy (built by scripts/agent-assets.ts). Browsers never send it.
-map $http_accept $retropa_markdown {
-    default 0;
-    "~*(^|,)\s*text/markdown(?!\s*;\s*q=0(\.0*)?\s*(,|$))" 1;
-}
-
+# A build with agentReadable on (src/lib/site-config.ts) also needs the rules in
+# nginx-agent-readable.conf.example; the default build ships none of that layer.
 server {
     listen 443 ssl;
     server_name retropa.com;
@@ -27,45 +21,6 @@ server {
         return 308 https://retropa.com$1$is_args$args;
     }
 
-    # Pages have two representations, HTML by default and Markdown for agents, so
-    # every page response carries Vary: Accept. HTML is not cached by Cloudflare
-    # (cf-cache-status DYNAMIC), so the Vary costs nothing there. Pages are served
-    # with try_files rather than the index module: its internal redirect would
-    # move the request to location / and drop these headers. The build writes an
-    # index.md beside every index.html, so the rewrite always finds one.
-    location = / {
-        add_header Cache-Control "no-cache";
-        add_header Vary "Accept";
-        add_header Link '</llms.txt>; rel="describedby"; type="text/plain", </index.md>; rel="alternate"; type="text/markdown"';
-        if ($retropa_markdown) {
-            rewrite ^ /index.md last;
-        }
-        try_files /index.html =404;
-    }
-    location ~ /$ {
-        add_header Cache-Control "no-cache";
-        add_header Vary "Accept";
-        if ($retropa_markdown) {
-            rewrite ^(.*/)$ $1index.md last;
-        }
-        try_files ${uri}index.html =404;
-    }
-    # The Markdown copy names its HTML page as canonical, so search engines treat
-    # it as a duplicate of the page rather than a page of its own.
-    location ~ ^(?<retropa_page>.*/)index\.md$ {
-        types { }
-        default_type "text/markdown; charset=utf-8";
-        add_header Cache-Control "no-cache";
-        add_header Vary "Accept";
-        add_header Link "<https://retropa.com$retropa_page>; rel=\"canonical\"";
-        try_files $uri =404;
-    }
-    location = /llms.txt {
-        types { }
-        default_type "text/plain; charset=utf-8";
-        add_header Cache-Control "no-cache";
-        try_files $uri =404;
-    }
     location / {
         try_files $uri $uri/ =404;
         add_header Cache-Control "no-cache";

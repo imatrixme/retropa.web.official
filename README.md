@@ -10,7 +10,7 @@ The spec is the OpenSpec change `rebuild-official-website-astro-experience` in t
 bun install --frozen-lockfile
 bun run dev            # astro dev on :4321
 bun run build          # astro build → font subsets → sitemap/evidence → media + integrity gates
-bun run preview        # dist/ on :4178 with real 404, 308 legacy-locale redirects, gzip and Markdown negotiation
+bun run preview        # dist/ on :4178 with real 404, 308 legacy-locale redirects, gzip, and Markdown negotiation when the build publishes it
 bun run lint           # eslint + astro check
 bun run snapshot       # compare dist/ routes, canonicals and hreflang with baseline/v11-changelog-snapshot.json
 bun run evidence       # static page evidence
@@ -20,8 +20,8 @@ bun run evidence:http --base http://127.0.0.1:4178
 A build fails on any of the following:
 - a media file without a provenance entry, or a published file that shows a game without a license (`scripts/verify-media.ts`);
 - a page that references media held for an unreleased App version (`scripts/build.ts`);
-- an agent copy that is missing, empty or keeps HTML (`scripts/agent-assets.ts`);
-- an integrity finding (`scripts/verify-integrity.ts`), which covers metadata, hreflang, alt text, English residue, capability claims, pricing, the robots Content-Signal and the Markdown alternates.
+- with `agentReadable` on, an agent copy that is missing, empty or keeps HTML (`scripts/agent-assets.ts`);
+- an integrity finding (`scripts/verify-integrity.ts`), which covers metadata, hreflang, alt text, English residue, capability claims, pricing, and the agent-readable layer: whole while `agentReadable` is on, absent while it is off.
 
 ## App release gate
 
@@ -33,9 +33,11 @@ The site describes only the App version that is on the App Store. `releasedVersi
 
 ## Agent-readable copies
 
-- `robots.txt` states [Content Signals](https://contentsignals.org) next to the crawl rules; the integrity gate keeps the two in agreement.
+Hidden for now: `agentReadable` in `src/lib/site-config.ts` is `false`, so the build ships none of the layer below and `public/robots.txt` is the v10 file. The integrity and HTTP gates fail if any part of it leaks. Turning it on is that one value plus the rules in `deploy/nginx-agent-readable.conf.example`, shipped in the same deploy. While it is on:
+
+- The build adds [Content Signals](https://contentsignals.org) to `dist/robots.txt` next to the crawl rules; the integrity gate keeps the two in agreement.
 - Every indexable page has an `index.md` beside it: its `<main>` as Markdown, declared with `<link rel="alternate" type="text/markdown">`. `/llms.txt` is the site overview.
-- A request whose `Accept` lists `text/markdown` gets the Markdown copy at the page's own URL, with `Vary: Accept` and a canonical `Link` to the HTML page. The preview server does this, and `deploy/nginx.conf.example` shows the production rules.
+- A request whose `Accept` lists `text/markdown` gets the Markdown copy at the page's own URL, with `Vary: Accept` and a canonical `Link` to the HTML page. The preview server does this, and `deploy/nginx-agent-readable.conf.example` shows the production rules.
 
 ## Layout
 
@@ -53,7 +55,7 @@ The site describes only the App version that is on the App Store. `releasedVersi
 | `src/styles/global.css` | Tokens, channel colours, fonts |
 | `public/media/` | Published product media and `manifest.json` (source, license, capture details) |
 | `fonts-src/` | Smiley Sans source; subset at build time into `smiley-zh-hans*.woff2` |
-| `scripts/agent-assets.ts` | Writes the Markdown copies and `/llms.txt` after the build |
+| `scripts/agent-assets.ts` | While `agentReadable` is on, writes the Markdown copies, `/llms.txt` and the Content Signals after the build |
 | `deploy/` | Nginx reference config and the legacy-locale map |
 
 ## Media
@@ -81,5 +83,5 @@ VITE_ASC_PROVIDER_TOKEN=YOUR_PROVIDER_TOKEN
 - Publish all of `dist/` as a new release directory and switch the site symlink atomically. See `docs/releases/2026-09-v10.md` for the current procedure and paths, and `docs/releases/2026-10-v11.md` for what v11 adds.
 - Include `deploy/legacy-locales.conf` at the `http {}` level.
 - Unknown paths must return 404; do not add an SPA fallback.
-- Markdown negotiation needs the `map` and the page locations from `deploy/nginx.conf.example`; without them the Markdown copies are still served at their own `index.md` URLs.
+- The default build needs only `deploy/nginx.conf.example`, unchanged since v10. With `agentReadable` on, Markdown negotiation also needs the `map` and the locations from `deploy/nginx-agent-readable.conf.example`; without them the Markdown copies are still served at their own `index.md` URLs.
 - Live release: `releases/20260924-v10-4b3bf0e`. Rollback target: `releases/20260924-v9-8d07b87`.

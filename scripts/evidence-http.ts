@@ -2,13 +2,15 @@ import { isPublishedLocale, retiredLocaleFallback, supportedLocales } from "../s
 
 const args = process.argv.slice(2)
 if (args.includes("--help")) {
-  console.log("Usage: bun run evidence:http [--base http://127.0.0.1:4178]\nRead-only HTTP checks for static pages, Markdown negotiation, legacy redirects and 404 responses.")
+  console.log("Usage: bun run evidence:http [--base http://127.0.0.1:4178]\nRead-only HTTP checks for static pages, Markdown negotiation (or its absence while the build hides it), legacy redirects and 404 responses.")
   process.exit(0)
 }
 if (args.length && (args.length !== 2 || args[0] !== "--base")) throw new Error("Expected --base URL")
 const base = new URL(args[1] ?? "http://127.0.0.1:4178")
 if (!["http:", "https:"].includes(base.protocol) || base.username || base.password || base.pathname !== "/" || base.search || base.hash) throw new Error("Expected an HTTP origin without credentials, path or query")
 const build = await Bun.file("dist/build-evidence.json").json()
+// The agent-readable layer is served whole or not at all (agentReadable in src/lib/site-config.ts).
+const agentReadable = build.agentReadable === true
 const issues: string[] = []
 let requests = 0
 async function request(path: string, method = "GET", headers: Record<string, string> = {}) {
@@ -27,16 +29,32 @@ for (const path of build.paths as string[]) {
     .on('meta[name="retropa-revision"]', { element(element) { revision = element.getAttribute("content") ?? "" } })
     .transform(new Response(content)).text()
   if (response.status !== 200 || h1 !== 1 || text.trim().length < 120 || canonical !== `https://retropa.com${path}` || revision !== build.revision) issues.push(`${path}: status, static body, canonical or revision mismatch`)
-  if (!varies(response, "accept")) issues.push(`${path}: HTML response does not vary on Accept`)
-  // The same address answers agents that ask for Markdown, naming the HTML page as canonical.
+  // The same address answers agents that ask for Markdown, naming the HTML page
+  // as canonical; while the layer is hidden they get the HTML page.
   const markdown = await request(path, "GET", { Accept: "text/markdown" })
   const body = await markdown.text()
-  if (markdown.status !== 200 || !(markdown.headers.get("content-type") ?? "").startsWith("text/markdown") || !varies(markdown, "accept") || !(markdown.headers.get("link") ?? "").includes(`<https://retropa.com${path}>; rel="canonical"`) || !/^# \S/.test(body)) issues.push(`${path}: Markdown negotiation mismatch`)
+  const type = markdown.headers.get("content-type") ?? ""
+  if (!agentReadable) {
+    if (markdown.status !== 200 || !type.startsWith("text/html")) issues.push(`${path}: Markdown served while agentReadable is off`)
+    continue
+  }
+  if (!varies(response, "accept")) issues.push(`${path}: HTML response does not vary on Accept`)
+  if (markdown.status !== 200 || !type.startsWith("text/markdown") || !varies(markdown, "accept") || !(markdown.headers.get("link") ?? "").includes(`<https://retropa.com${path}>; rel="canonical"`) || !/^# \S/.test(body)) issues.push(`${path}: Markdown negotiation mismatch`)
 }
 const home = await request("/", "HEAD")
-if (!(home.headers.get("link") ?? "").includes('</llms.txt>; rel="describedby"')) issues.push("Homepage Link header does not describe the site with /llms.txt")
+const homeLink = home.headers.get("link") ?? ""
 const llms = await request("/llms.txt")
-if (llms.status !== 200 || !(llms.headers.get("content-type") ?? "").startsWith("text/plain") || !(await llms.text()).startsWith("# Retropa")) issues.push("/llms.txt is missing or not plain text")
+const llmsBody = await llms.text()
+if (agentReadable) {
+  if (!homeLink.includes('</llms.txt>; rel="describedby"')) issues.push("Homepage Link header does not describe the site with /llms.txt")
+  if (llms.status !== 200 || !(llms.headers.get("content-type") ?? "").startsWith("text/plain") || !llmsBody.startsWith("# Retropa")) issues.push("/llms.txt is missing or not plain text")
+} else {
+  if (/llms\.txt|text\/markdown/.test(homeLink)) issues.push("Homepage Link header announces the agent-readable layer while agentReadable is off")
+  if (llms.status !== 404) issues.push("/llms.txt answers while agentReadable is off")
+  const copy = await request("/index.md")
+  await copy.text()
+  if (copy.status !== 404) issues.push("/index.md answers while agentReadable is off")
+}
 for (const page of ["/", "/cores/", "/terms/", "/privacy/"]) {
   for (const locale of supportedLocales) {
     const response = await request(`${page}?utm_source=seo-check&lang=${locale}&ct=retropa_web_v1`)
@@ -82,6 +100,7 @@ if (sitemap.status !== 200 || (build.paths as string[]).some(path => !sitemapBod
 const robots = await request("/robots.txt")
 const robotsBody = await robots.text()
 if (robots.status !== 200 || !robotsBody.includes("Sitemap: https://retropa.com/sitemap.xml")) issues.push("Robots sitemap reference missing")
-if (!/^Content-Signal:\s*\S/m.test(robotsBody)) issues.push("Robots Content-Signal line missing")
-console.log(JSON.stringify({ origin: base.origin, revision: build.revision, requests, status: issues.length ? "failed" : "passed", issues, limitations: ["This does not prove indexing, crawler access through all WAF rules, analytics delivery or Core Web Vitals."] }, null, 2))
+if (agentReadable && !/^Content-Signal:\s*\S/m.test(robotsBody)) issues.push("Robots Content-Signal line missing")
+if (!agentReadable && /^Content-Signal:/m.test(robotsBody)) issues.push("Robots states Content Signals while agentReadable is off")
+console.log(JSON.stringify({ origin: base.origin, revision: build.revision, agentReadable, requests, status: issues.length ? "failed" : "passed", issues, limitations: ["This does not prove indexing, crawler access through all WAF rules, analytics delivery or Core Web Vitals."] }, null, 2))
 if (issues.length) process.exitCode = 1

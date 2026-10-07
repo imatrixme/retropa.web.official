@@ -3,12 +3,16 @@ import { stat } from "node:fs/promises"
 import { legacyLocaleTarget } from "../src/lib/legacy-locale"
 
 // Local preview with the production behavior that matters for checks: legacy
-// redirects, index.html canonicalization, gzip, and the Markdown negotiation
-// documented in deploy/nginx.conf.example.
+// redirects, index.html canonicalization, gzip, and, when the build publishes
+// the agent-readable layer, the Markdown negotiation documented in
+// deploy/nginx-agent-readable.conf.example.
 const root = resolve("dist")
 const port = Number(process.env.RETROPA_PREVIEW_PORT ?? 4178)
 const site = "https://retropa.com"
 const homeLinks = '</llms.txt>; rel="describedby"; type="text/plain", </index.md>; rel="alternate"; type="text/markdown"'
+
+/** Read per request, so a rebuild in the other mode needs no restart. */
+const agentReadable = async () => (await Bun.file(`${root}/build-evidence.json`).json().catch(() => ({}))).agentReadable === true
 
 /** True when the request lists text/markdown without q=0, as agents that want Markdown do. */
 const prefersMarkdown = (request: Request) => (request.headers.get("accept") ?? "").split(",").some((part) => {
@@ -37,7 +41,8 @@ const server = Bun.serve({
       return Response.redirect(url.href, 308)
     }
     const page = info?.isDirectory() === true
-    const markdown = page && prefersMarkdown(request) && await Bun.file(`${path}/index.md`).exists()
+    const agent = page && await agentReadable()
+    const markdown = agent && prefersMarkdown(request) && await Bun.file(`${path}/index.md`).exists()
     const file = Bun.file(page ? `${path}/index.${markdown ? "md" : "html"}` : path)
     const exists = await file.exists()
     const content = exists ? file : Bun.file(`${root}/404.html`)
@@ -45,11 +50,11 @@ const server = Bun.serve({
     if (extname(path) === ".html" || (page && !markdown) || !exists) headers["Content-Type"] = "text/html;charset=utf-8"
     // Pages have two representations, so caches must key on Accept; the
     // Markdown copy names its HTML page as canonical so it never competes with it.
-    if (page) headers.Vary = "Accept"
+    if (agent) headers.Vary = "Accept"
     if (markdown || (exists && pathname.endsWith("/index.md"))) {
       headers["Content-Type"] = "text/markdown; charset=utf-8"
       headers.Link = `<${site}${markdown ? pathname : pathname.slice(0, -8)}>; rel="canonical"`
-    } else if (page && pathname === "/") headers.Link = homeLinks
+    } else if (agent && pathname === "/") headers.Link = homeLinks
     const status = exists && pathname !== "/404.html" ? 200 : 404
     // Mirror production text compression so local performance checks are comparable.
     const compressible = /^(?:text\/|application\/(?:javascript|json|xml)|image\/svg)/.test(headers["Content-Type"])
