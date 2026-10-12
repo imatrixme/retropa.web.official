@@ -67,6 +67,8 @@ const releases: Release[] = [
         "Highlight clips stay in sync through pauses and fast-forward, and fast-forwarded play is saved at the speed you played it.",
         "Smoother filter browsing and lower memory use.",
         "A new graphite interface and a new opening animation.",
+        "A new welcome tour shows every platform and core in under a minute. Watch it again any time from Settings.",
+        "A new Stage color style, stage black under a warm key light, alongside Graphite.",
       ],
       "zh-Hans": [
         "8 大系列共 44 款主机外壳：从经典塑料、半透明、金属，到胡桃木、大理石、软木、鳄鱼纹皮革、牛仔布和仿毛绒。",
@@ -84,6 +86,8 @@ const releases: Release[] = [
         "高光片段在暂停和快进时也保持音画同步，快进的部分按你实际游玩的速度保存。",
         "滤镜浏览更流畅，内存占用更低。",
         "全新的石墨色界面与开场动画。",
+        "全新欢迎导览，一分钟看完所有平台和核心；随时可以在设置中“再看一遍导览”。",
+        "新增 Stage 配色：暖光照亮的舞台黑，与石墨色并列可选。",
       ],
       ja: [
         "44 種類の本体シェルを 8 シリーズで。クラシックなプラスチック、スケルトン、メタルから、ウォールナット、大理石、コルク、クロコ調レザー、デニム、フェイクファーまで。",
@@ -101,6 +105,8 @@ const releases: Release[] = [
         "ハイライトは一時停止や早送りをしても映像と音がずれません。早送りした場面は、プレイした速さのまま保存されます。",
         "フィルター選びがなめらかになり、メモリ使用量も減りました。",
         "グラファイトを基調にした新しいインターフェイスと、新しいオープニングアニメーション。",
+        "新しいウェルカムツアーで、すべてのプラットフォームとコアを 1 分で紹介。設定の「もう一度ツアーを見る」からいつでも見返せます。",
+        "新しいカラースタイル「Stage」：暖かなキーライトに照らされたステージブラック。グラファイトと並んで選べます。",
       ],
     },
     note: { en: "Some finishes and features require Retropa Plus.", "zh-Hans": "部分外观和功能需要 Retropa Plus。", ja: "一部のデザインと機能には Retropa Plus が必要です。" },
