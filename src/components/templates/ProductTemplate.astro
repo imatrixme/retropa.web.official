@@ -31,7 +31,7 @@ const mark = channel ? channel.short.split(" ")[0] : page === "delta-skins" ? "S
   sections={detail.sections.map((section, index) => ({ id: `chapter-${index + 1}`, ...section }))}
   extraToc={page === "crt-filters" ? [{ href: "#display-study", text: displayCopy(locale).eyebrow }] : []}
   relatedLabel={discovery.related} related={related}>
-  <a slot="default" class="link-arrow detail-link" href={detail.link.startsWith("/") ? siteLink("cores", locale).href : detail.link}>{detail.linkLabel} →</a>
+  <a slot="default" class="link-arrow detail-link" href={detail.link.startsWith("/") ? siteLink("cores", locale).href : detail.link} {...(detail.link.startsWith("/") ? {} : { target: "_blank", rel: "noopener" })}>{detail.linkLabel} →</a>
 </Reading>
 {page === "crt-filters" && <DisplayCompareSection locale={locale} linked={false} />}
 {page === "crt-filters" && <FilterGallery locale={locale} />}
