@@ -2,7 +2,8 @@
 import PageHero from "@/components/PageHero.astro"
 import Reading from "@/components/Reading.astro"
 import TouchLabBlock from "@/components/TouchLabBlock.astro"
-import PackHubCatalogs from "@/components/PackHubCatalogs.astro"
+import LinkCards from "@/components/LinkCards.astro"
+import { resolveCard } from "@/lib/link-cards"
 import type { Locale } from "@/i18n/locales"
 import { featureContent, isFeaturePage, type FeaturePage } from "@/content/feature-pages"
 import { feelCopy } from "@/content/feel-import"
@@ -27,12 +28,13 @@ const sections = content.sections.map(section => {
     shot: shot && section.shot ? { src: shot.src, width: shot.width, height: shot.height, alt: section.shot.alt, wide: shot.width > shot.height } : undefined,
   }
 })
-const catalogs = content.sections.find(section => section.catalogs?.length)?.catalogs ?? []
-const marks: Record<FeaturePage, string> = { controls: "A · B", import: "IN", packhub: "HUB" }
+const cards = (content.sections.find(section => section.catalogs?.length)?.catalogs ?? []).map(card => resolveCard(card, page, locale, "guide"))
+const marks: Record<FeaturePage, string> = { controls: "A · B", import: "IN", packhub: "HUB", products: "GET" }
 const relatedPages: Record<FeaturePage, string[]> = {
   controls: ["import", "connect-controller-ios", "start", "plus"],
   import: ["controls", "import-roms-iphone", "cores", "arcade"],
-  packhub: ["delta-skins", "crt-filters", "import", "start"],
+  packhub: ["products", "delta-skins", "crt-filters", "import"],
+  products: ["packhub", "start", "plus", "cores"],
 }
 const titleFor = (key: string) => key === "start" ? copy.start : key === "cores" ? discovery.more : isFeaturePage(key) ? featureContent(key, locale).title : key === "delta-skins" || key === "arcade" || key === "crt-filters" ? productDetail(key, locale).title : searchPageContent(key, locale)?.title ?? key
 const related = relatedPages[page].map(key => ({ ...siteLink(key, locale), text: titleFor(key) }))
@@ -43,5 +45,5 @@ const related = relatedPages[page].map(key => ({ ...siteLink(key, locale), text:
   faqs={content.faqs} faqTitle={content.faqTitle} faqId="questions"
   relatedLabel={content.related} related={related}>
   {page === "controls" && <TouchLabBlock slot="embed" copy={feelCopy(locale).lab} />}
-  {catalogs.length > 0 && <PackHubCatalogs slot="embed" catalogs={catalogs} />}
+  {cards.length > 0 && <LinkCards slot="embed" cards={cards} />}
 </Reading>

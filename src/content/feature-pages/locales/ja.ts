@@ -266,4 +266,41 @@ export const pages: Record<FeaturePage, FeatureContent> = {
     ],
     related: "あわせて読む",
   },
+  products: {
+    metaTitle: "Retropa の製品：iPhone・iPad アプリと PackHub",
+    description: "Retropa の製品をひとつのページにまとめました。App Store で配信中の iPhone・iPad 向けエミュレータ Retropa と、スキン・シェーダ・言語パック・自作ゲームを無料で配布する PackHub です。",
+    label: "製品",
+    eyebrow: "製品",
+    title: "Retropa の製品を、ひとつのページに。",
+    intro: "Retropa は、遊ぶためのアプリと、そこに中身を届けるカタログでできています。まず App Store でアプリを入れ、スキンやシェーダ、言語パック、自作ゲームは PackHub で探してください。",
+    sections: [
+      {
+        id: "lineup",
+        title: "製品一覧",
+        body: "各製品から、入手先へ直接移動できます。",
+        catalogs: [
+          { appStore: true, title: "Retropa（iPhone・iPad）", body: "エミュレータ本体です。iPhone と iPad で GBA、DS、アーケードを遊べ、スキンや画面フィルタ、操作を好みに合わせて調整できます。ダウンロードは無料で、iOS 18 以降に対応しています。", action: "App Store で入手", note: "アプリ本体（App Store）" },
+          { page: "packhub", title: "PackHub", body: "スキン、シェーダ、言語パック、自作ゲームを無料で配布するカタログです。ダウンロードして Retropa に読み込むだけで、アカウントは必要ありません。", action: "PackHub について", note: "スキン・シェーダ・各種パック" },
+        ],
+      },
+      {
+        id: "together",
+        title: "ふたつの関係",
+        body: "ゲームを動かすのはアプリ、遊び方を広げる素材を届けるのが PackHub です。PackHub を使わなくても Retropa は単体で使えます。PackHub の素材はどれも Retropa に読み込むためのものです。",
+        points: [
+          "Retropa は無料でダウンロードできます。プレミアムスキン、高度なフィルタ、アーケードのプレイは Retropa Plus に含まれ、任意の App 内課金です。",
+          "PackHub の閲覧とダウンロードは無料です。プレミアムスキンをアプリで使うには、引き続き Retropa Plus が必要です。",
+          "Retropa にはゲームも BIOS ファイルも含まれません。利用する権利のあるファイルを読み込むか、PackHub の自作ゲームから始めてください。",
+        ],
+      },
+    ],
+    faqTitle: "製品についての質問",
+    faqs: [
+      { id: "free", question: "Retropa は無料でダウンロードできますか？", answer: "はい。Retropa は App Store で無料でダウンロードでき、Retropa Plus は任意の App 内課金です。内容は App Store の表示をご確認ください。" },
+      { id: "need-packhub", question: "Retropa を使うには PackHub が必要ですか？", answer: "いいえ。Retropa は単体で使えます。スキン、シェーダ、言語パック、自作ゲームを増やしたくなったときに PackHub を使ってください。" },
+      { id: "devices", question: "Retropa はどのデバイスで動きますか？", answer: "iOS 18 以降の iPhone と iPad です。" },
+    ],
+    related: "あわせて読む",
+    menuAll: "すべての製品",
+  },
 }

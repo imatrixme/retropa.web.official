@@ -36,7 +36,7 @@ const label = (target: string) => {
 }
 const item = (target: string, text?: string) => ({ ...siteLink(target, locale), text: text ?? label(target) })
 const systems = channels.map(channel => item(channel.page, channelName(channel, locale)))
-const features = [item("controls"), item("delta-skins", labels[1]), item("crt-filters", labels[2]), item("packhub"), item("save-states-and-rewind"), item("connect-controller-ios"), item("plus")]
+const features = [item("controls"), item("delta-skins", labels[1]), item("crt-filters", labels[2]), item("packhub"), item("products"), item("save-states-and-rewind"), item("connect-controller-ios"), item("plus")]
 const learn = [item("start"), item("import"), item("guides"), item("import-roms-iphone"), item("game-wont-load"), item("retropa-vs-delta"), item("cores", messages.shared.footer.emulatorCores), item("changelog", changelogContent(locale).breadcrumb)]
 const company = [item("terms", messages.shared.footer.terms), item("privacy", messages.shared.footer.privacy)]
 const consentEnabled = /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId)

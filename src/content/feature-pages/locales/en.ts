@@ -266,4 +266,41 @@ export const pages: Record<FeaturePage, FeatureContent> = {
     ],
     related: "Keep reading",
   },
+  products: {
+    metaTitle: "Retropa Products: The iPhone & iPad App and PackHub",
+    description: "Everything Retropa makes in one place: the Retropa emulator for iPhone and iPad on the App Store, and PackHub, the free catalog of skins, shaders, language packs and homebrew games.",
+    label: "Products",
+    eyebrow: "Products",
+    title: "Everything Retropa makes, in one place.",
+    intro: "Retropa is an app you play on and a catalog that feeds it. Start with the app on the App Store, then turn to PackHub for skins, shaders, language packs and homebrew games.",
+    sections: [
+      {
+        id: "lineup",
+        title: "The lineup",
+        body: "Each product links straight to where you get it.",
+        catalogs: [
+          { appStore: true, title: "Retropa for iPhone and iPad", body: "The emulator: GBA, DS and arcade play with skins, display filters and controls you can tune. Free to download, for iOS 18 or later.", action: "Get it on the App Store", note: "The app, on the App Store" },
+          { page: "packhub", title: "PackHub", body: "A free catalog of skins, shaders, language packs and homebrew games to import into Retropa. No account needed.", action: "About PackHub", note: "Skins, shaders and packs" },
+        ],
+      },
+      {
+        id: "together",
+        title: "How they fit together",
+        body: "The app does the playing; PackHub is where to find more for it. You can use Retropa without ever visiting PackHub, and everything on PackHub is made to be imported into Retropa.",
+        points: [
+          "Retropa is free to download. Retropa Plus adds premium skins, advanced filters and arcade play as optional in-app purchases.",
+          "PackHub is free to browse and download from. A premium skin still needs Retropa Plus once it is in the app.",
+          "Retropa ships without games or BIOS files. Bring your own, or start with PackHub's homebrew.",
+        ],
+      },
+    ],
+    faqTitle: "Product questions",
+    faqs: [
+      { id: "free", question: "Is Retropa free to download?", answer: "Yes. Retropa is free on the App Store, and Retropa Plus is an optional in-app purchase. The App Store shows the current options." },
+      { id: "need-packhub", question: "Do I need PackHub to use Retropa?", answer: "No. Retropa works on its own. PackHub is where to find extra skins, shaders, language packs and homebrew games when you want them." },
+      { id: "devices", question: "Which devices does Retropa run on?", answer: "iPhone and iPad with iOS 18 or later." },
+    ],
+    related: "Keep reading",
+    menuAll: "All products",
+  },
 }

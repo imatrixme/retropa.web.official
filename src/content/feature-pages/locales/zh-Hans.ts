@@ -266,4 +266,41 @@ export const pages: Record<FeaturePage, FeatureContent> = {
     ],
     related: "继续阅读",
   },
+  products: {
+    metaTitle: "Retropa 产品：iPhone 与 iPad 应用和 PackHub",
+    description: "Retropa 的全部产品都在这里：App Store 上的 Retropa iPhone 与 iPad 模拟器，以及免费的皮肤、着色器、语言包和自制游戏目录 PackHub。",
+    label: "产品",
+    eyebrow: "产品",
+    title: "Retropa 的全部产品，都在这一页。",
+    intro: "Retropa 由两部分组成：用来玩的应用，和为它提供内容的目录。先从 App Store 安装应用，再到 PackHub 挑选皮肤、着色器、语言包和自制游戏。",
+    sections: [
+      {
+        id: "lineup",
+        title: "产品一览",
+        body: "每个产品都直接链接到获取它的地方。",
+        catalogs: [
+          { appStore: true, title: "Retropa（iPhone 与 iPad）", body: "模拟器本体：在 iPhone 和 iPad 上玩 GBA、DS 和街机，皮肤、滤镜、按键都能按自己的习惯调。免费下载，需要 iOS 18 或更新版本。", action: "前往 App Store", note: "应用本体，在 App Store 获取" },
+          { page: "packhub", title: "PackHub", body: "免费的皮肤、着色器、语言包和自制游戏目录，下载后导入 Retropa 即可使用，无需注册账号。", action: "了解 PackHub", note: "皮肤、着色器与资源包" },
+        ],
+      },
+      {
+        id: "together",
+        title: "两者如何配合",
+        body: "应用负责运行游戏，PackHub 负责提供更多内容。不打开 PackHub 也能正常使用 Retropa；PackHub 上的每一项内容都是为导入 Retropa 而准备的。",
+        points: [
+          "Retropa 可免费下载。高级皮肤、高级滤镜和街机游戏属于 Retropa Plus，是可选的 App 内购买项目。",
+          "在 PackHub 浏览和下载都免费。高级皮肤导入应用后，仍需要 Retropa Plus 才能使用。",
+          "Retropa 不附带任何游戏或 BIOS 文件。请导入你有权使用的文件，或者先从 PackHub 的自制游戏玩起。",
+        ],
+      },
+    ],
+    faqTitle: "产品常见问题",
+    faqs: [
+      { id: "free", question: "Retropa 可以免费下载吗？", answer: "可以。Retropa 在 App Store 免费下载，Retropa Plus 是可选的 App 内购买项目，具体方案以 App Store 显示为准。" },
+      { id: "need-packhub", question: "使用 Retropa 必须用 PackHub 吗？", answer: "不必。Retropa 可以单独使用。想要更多皮肤、着色器、语言包或自制游戏时，再去 PackHub 找。" },
+      { id: "devices", question: "Retropa 支持哪些设备？", answer: "iOS 18 或更新版本的 iPhone 和 iPad。" },
+    ],
+    related: "继续阅读",
+    menuAll: "全部产品",
+  },
 }
