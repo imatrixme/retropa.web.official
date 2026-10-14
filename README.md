@@ -12,7 +12,7 @@ bun run dev            # astro dev on :4321
 bun run build          # astro build → font subsets → sitemap/evidence → media + integrity gates
 bun run preview        # dist/ on :4178 with real 404, 308 legacy-locale redirects, gzip, and Markdown negotiation when the build publishes it
 bun run lint           # eslint + astro check
-bun run snapshot       # compare dist/ routes, canonicals and hreflang with baseline/v11-changelog-snapshot.json
+bun run snapshot       # compare dist/ routes, canonicals and hreflang with baseline/v12-packhub-snapshot.json
 bun run evidence       # static page evidence
 bun run evidence:http --base http://127.0.0.1:4178
 ```
