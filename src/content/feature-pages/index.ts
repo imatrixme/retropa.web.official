@@ -1,5 +1,5 @@
 import type { Locale } from "@/i18n/locales"
-import type { FeatureContent, FeaturePage } from "@/content/feature-pages/types"
+import { featurePages, type FeatureContent, type FeaturePage } from "@/content/feature-pages/types"
 import { pages as en } from "@/content/feature-pages/locales/en"
 import { pages as zhHans } from "@/content/feature-pages/locales/zh-Hans"
 import { pages as ja } from "@/content/feature-pages/locales/ja"
@@ -12,6 +12,6 @@ export { featurePages, type FeaturePage } from "@/content/feature-pages/types"
  */
 const byLocale: Partial<Record<Locale, Partial<Record<FeaturePage, FeatureContent>>>> = { en, "zh-Hans": zhHans, ja }
 
-export const isFeaturePage = (page: string): page is FeaturePage => page === "controls" || page === "import"
+export const isFeaturePage = (page: string): page is FeaturePage => (featurePages as readonly string[]).includes(page)
 export const hasFeatureBody = (page: FeaturePage, locale: Locale): boolean => Boolean(byLocale[locale]?.[page]?.sections.length)
 export const featureContent = (page: FeaturePage, locale: Locale): FeatureContent => byLocale[locale]?.[page] ?? en[page]

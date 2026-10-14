@@ -1,4 +1,4 @@
-export const featurePages = ["controls", "import"] as const
+export const featurePages = ["controls", "import", "packhub"] as const
 export type FeaturePage = typeof featurePages[number]
 
 export type FeatureTable = { head: string[]; rows: string[][] }
@@ -14,7 +14,10 @@ export type FeatureSection = {
   table?: FeatureTable
   /** Embeds the Touch Lab demonstration after the body. */
   lab?: boolean
+  /** Entry cards into PackHub catalogs, rendered after the body. Links open hub.retropa.com in a new tab. */
+  catalogs?: FeatureCatalog[]
 }
+export type FeatureCatalog = { href: string; title: string; body: string; action: string }
 export type FeatureFaq = { id: string; question: string; answer: string }
 
 export type FeatureContent = {

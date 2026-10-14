@@ -200,4 +200,70 @@ export const pages: Record<FeaturePage, FeatureContent> = {
     ],
     related: "继续阅读",
   },
+  packhub: {
+    metaTitle: "PackHub：Retropa 免费皮肤、滤镜、语言包与 Homebrew 游戏",
+    description: "PackHub 是 Retropa 的免费资源目录，收录手柄皮肤、画面着色器、界面语言包和 Homebrew 游戏。按系统筛选、逐个预览，下载后导入 Retropa 即可使用。",
+    label: "PackHub",
+    eyebrow: "PackHub",
+    title: "Retropa 的免费资源目录。",
+    intro: "Retropa 的皮肤、着色器、语言包和 Homebrew 游戏都收录在 PackHub。每个资源都有独立页面，写明预览、版本和适用系统。浏览和下载都免费，也不用注册账号。",
+    sections: [
+      {
+        id: "catalogs",
+        title: "四个目录，一个站点",
+        body: "PackHub 是独立站点，地址是 hub.retropa.com。四个目录分别管游戏界面长什么样、画面怎么呈现、App 用什么语言，以及先玩点什么。",
+        catalogs: [
+          { href: "https://hub.retropa.com/skins", title: "皮肤", body: "手柄布局，下载前先在手机外形上看效果。标题栏里可以直接按系统筛选。", action: "浏览皮肤" },
+          { href: "https://hub.retropa.com/shaders", title: "着色器", body: "社区分享的画面着色器，从 CRT 扫描线到干净的像素缩放，都能拖动对比前后效果。", action: "浏览着色器" },
+          { href: "https://hub.retropa.com/language", title: "语言包", body: "Retropa 界面的翻译，随 App 一起更新。", action: "浏览语言包" },
+          { href: "https://hub.retropa.com/homebrew", title: "Homebrew", body: "作者公开发布的免费游戏，每款都附有授权协议和文件信息。", action: "浏览 Homebrew" },
+        ],
+      },
+      {
+        id: "install",
+        title: "从资源页到游戏里",
+        body: "资源下载下来就是一个文件。Retropa 用导入游戏的同一套流程安装它，不需要再熟悉一个商店。",
+        points: [
+          "在 iPhone 或 iPad 上下载资源，然后在游戏内菜单打开 Importer，选择 Select Files。",
+          "用电脑的话，在 Retropa 里启动 Wi‑Fi Portal，把资源拖进 Import 页。",
+          "Retropa 能识别 .retropack、.retropaskin 资源包和 Delta 的 .deltaskin 文件，导入后的结果卡片会写明新增了什么。",
+        ],
+      },
+      {
+        id: "skins",
+        title: "按系统找皮肤",
+        body: "皮肤按系统归类，每个资源页都会在手机外形上预览布局，下载前就能看清按键的位置。Delta 皮肤可以原样导入；Delta 兼容指文件格式支持，不代表与 Delta 项目存在关联。",
+        points: [
+          "高级皮肤需要 Retropa Plus。无论从 PackHub 还是别处导入资源包，都不会绕过权益检查。",
+          "购买前请先在 App 内核对资源的适用系统和要求。",
+        ],
+      },
+      {
+        id: "shaders",
+        title: "社区着色器与 Retropa 自己的滤镜",
+        body: "PackHub 上的着色器是社区分享的 RetroArch 预设。Retropa 只以整数倍缩放运行它们，画面会对齐到原始分辨率的整数倍，因此不一定能铺满屏幕。",
+        points: [
+          "Retropa 高级滤镜属于 Retropa Plus，不受整数倍缩放限制：画面按屏幕取最合适的尺寸，也不会出现摩尔纹。",
+          "想要 Retropa 自带滤镜里没有的风格时，社区着色器仍然是好选择。",
+        ],
+      },
+      {
+        id: "language-homebrew",
+        title: "语言包与 Homebrew",
+        body: "语言包用来翻译 Retropa 的界面，随 App 一起更新。Homebrew 目录收录作者允许任何人下载的游戏，在导入自己的游戏之前，可以先用它们试试皮肤、着色器和操控。",
+        points: [
+          "部分 Homebrew 游戏需要到作者自己的网站下载，游戏页面上会注明。",
+          "Retropa 和 PackHub 都不提供商业 ROM 或 BIOS 文件。",
+        ],
+      },
+    ],
+    faqTitle: "PackHub 常见问题",
+    faqs: [
+      { id: "free", question: "PackHub 收费吗？", answer: "不收费。浏览和下载都免费，也不用注册账号。不过高级皮肤在 App 内使用时仍需要 Retropa Plus。" },
+      { id: "publish", question: "我能在 PackHub 发布自己的资源吗？", answer: "暂时还不行。PackHub 上的资源目前由 Retropa 团队发布。" },
+      { id: "shader-size", question: "为什么用了社区着色器，画面四周会留边？", answer: "Retropa 只以整数倍缩放运行社区着色器，所以画面可能到不了屏幕边缘。Retropa 高级滤镜属于 Retropa Plus，不受这个限制。" },
+      { id: "delta", question: "PackHub 和 Delta 是一家吗？", answer: "不是。Retropa 支持导入 Delta 皮肤格式，PackHub 也收录这种格式的皮肤，但两者都与 Delta 项目没有关联。" },
+    ],
+    related: "继续阅读",
+  },
 }

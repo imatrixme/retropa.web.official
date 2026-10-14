@@ -1,0 +1,26 @@
+---
+import Icon from "@/components/Icon.astro"
+import type { FeatureCatalog } from "@/content/feature-pages/types"
+
+interface Props { catalogs: FeatureCatalog[] }
+const { catalogs } = Astro.props
+---
+<ul class="catalogs" role="list" data-feature="packhub_catalogs">
+  {catalogs.map(catalog => <li>
+    <a href={catalog.href} target="_blank" rel="noopener">
+      <span class="title">{catalog.title}</span>
+      <span class="body">{catalog.body}</span>
+      <span class="action hud">{catalog.action}<Icon name="arrow-up-right" size={14} /></span>
+    </a>
+  </li>)}
+</ul>
+<style>
+  .catalogs { display: grid; gap: 12px; list-style: none; }
+  @media (min-width: 640px) { .catalogs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .catalogs a { display: grid; gap: 8px; height: 100%; padding: 20px 22px; border-radius: 22px; background: #fbf8f1; box-shadow: inset 0 0 0 1px var(--color-cartridge-line); transition: box-shadow .2s, transform .2s var(--ease-snap); }
+  .catalogs a:hover { box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--signal) 55%, var(--color-cartridge-line)), 0 18px 32px -24px rgb(14 14 20 / .45); transform: translateY(-2px); }
+  .catalogs a:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+  .title { font-size: 19px; font-weight: 700; line-height: 1.3; color: var(--color-ink); }
+  .body { font-size: 15px; line-height: 1.55; color: #45424f; }
+  .action { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; color: color-mix(in oklab, var(--signal) 70%, var(--color-ink)); }
+</style>

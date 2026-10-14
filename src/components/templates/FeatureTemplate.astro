@@ -2,8 +2,9 @@
 import PageHero from "@/components/PageHero.astro"
 import Reading from "@/components/Reading.astro"
 import TouchLabBlock from "@/components/TouchLabBlock.astro"
+import PackHubCatalogs from "@/components/PackHubCatalogs.astro"
 import type { Locale } from "@/i18n/locales"
-import { featureContent, featurePages, type FeaturePage } from "@/content/feature-pages"
+import { featureContent, isFeaturePage, type FeaturePage } from "@/content/feature-pages"
 import { feelCopy } from "@/content/feel-import"
 import { discoveryCopy } from "@/content/discovery"
 import { acquisitionCopy } from "@/content/acquisition"
@@ -22,22 +23,25 @@ const sections = content.sections.map(section => {
   const shot = section.shot ? uiShot(section.shot.name) : null
   return {
     id: section.id, title: section.title, body: section.body, points: section.points, table: section.table,
-    badge: section.plus ? "Plus" : undefined, embed: section.lab,
+    badge: section.plus ? "Plus" : undefined, embed: section.lab || Boolean(section.catalogs?.length),
     shot: shot && section.shot ? { src: shot.src, width: shot.width, height: shot.height, alt: section.shot.alt, wide: shot.width > shot.height } : undefined,
   }
 })
-const other = featurePages.find(key => key !== page)!
-const titleFor = (key: string) => key === "start" ? copy.start : key === "cores" ? discovery.more : key === "delta-skins" || key === "arcade" ? productDetail(key, locale).title : searchPageContent(key, locale)?.title ?? key
-const relatedPages = page === "controls" ? ["connect-controller-ios", "start", "plus"] : ["import-roms-iphone", "cores", "arcade"]
-const related = [
-  { ...siteLink(other, locale), text: featureContent(other, locale).title },
-  ...relatedPages.map(key => ({ ...siteLink(key, locale), text: titleFor(key) })),
-]
+const catalogs = content.sections.find(section => section.catalogs?.length)?.catalogs ?? []
+const marks: Record<FeaturePage, string> = { controls: "A · B", import: "IN", packhub: "HUB" }
+const relatedPages: Record<FeaturePage, string[]> = {
+  controls: ["import", "connect-controller-ios", "start", "plus"],
+  import: ["controls", "import-roms-iphone", "cores", "arcade"],
+  packhub: ["delta-skins", "crt-filters", "import", "start"],
+}
+const titleFor = (key: string) => key === "start" ? copy.start : key === "cores" ? discovery.more : isFeaturePage(key) ? featureContent(key, locale).title : key === "delta-skins" || key === "arcade" || key === "crt-filters" ? productDetail(key, locale).title : searchPageContent(key, locale)?.title ?? key
+const related = relatedPages[page].map(key => ({ ...siteLink(key, locale), text: titleFor(key) }))
 ---
-<PageHero locale={locale} page={page} eyebrow={`Retropa / ${content.eyebrow}`} title={content.title} summary={content.intro} mark={page === "controls" ? "A · B" : "IN"}
+<PageHero locale={locale} page={page} eyebrow={`Retropa / ${content.eyebrow}`} title={content.title} summary={content.intro} mark={marks[page]}
   crumbs={{ label: zh ? "当前位置" : "Breadcrumb", items: [{ text: discovery.home, href: siteLink("home", locale).href }, { text: content.label }] }} />
 <Reading tocLabel={discovery.onThisPage} asideNote={copy.noRoms} sections={sections}
   faqs={content.faqs} faqTitle={content.faqTitle} faqId="questions"
   relatedLabel={content.related} related={related}>
   {page === "controls" && <TouchLabBlock slot="embed" copy={feelCopy(locale).lab} />}
+  {catalogs.length > 0 && <PackHubCatalogs slot="embed" catalogs={catalogs} />}
 </Reading>

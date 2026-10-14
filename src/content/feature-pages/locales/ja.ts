@@ -200,4 +200,70 @@ export const pages: Record<FeaturePage, FeatureContent> = {
     ],
     related: "あわせて読む",
   },
+  packhub: {
+    metaTitle: "PackHub：Retropa の無料スキン・シェーダー・言語パック・Homebrew",
+    description: "PackHub は Retropa の無料カタログです。コントローラースキン、画面シェーダー、インターフェースの言語パック、Homebrew ゲームを、システム別に探してプレビューし、Retropa に取り込めます。",
+    label: "PackHub",
+    eyebrow: "PackHub",
+    title: "Retropa のための、無料のパックカタログ。",
+    intro: "Retropa のスキン、シェーダー、言語パック、Homebrew ゲームは PackHub に集まっています。パックごとにページがあり、プレビュー、バージョン、対応システムを確かめられます。閲覧もダウンロードも無料で、アカウント登録もいりません。",
+    sections: [
+      {
+        id: "catalogs",
+        title: "4つのカタログを、ひとつのサイトに",
+        body: "PackHub は hub.retropa.com にある独立したサイトです。ゲーム画面の見た目、映像の描き方、アプリの表示言語、そして最初に遊ぶゲームを、4つのカタログで扱っています。",
+        catalogs: [
+          { href: "https://hub.retropa.com/skins", title: "スキン", body: "コントローラーのレイアウトを、ダウンロードの前にスマートフォンの画面で確かめられます。タイトルバーからシステム別に絞り込めます。", action: "スキンを見る" },
+          { href: "https://hub.retropa.com/shaders", title: "シェーダー", body: "コミュニティが公開した画面シェーダー。CRT の走査線からくっきりしたピクセル拡大まで、適用前後を見比べられます。", action: "シェーダーを見る" },
+          { href: "https://hub.retropa.com/language", title: "言語パック", body: "Retropa のインターフェースの翻訳で、アプリと一緒に更新されます。", action: "言語パックを見る" },
+          { href: "https://hub.retropa.com/homebrew", title: "Homebrew", body: "作者が公開している無料のゲーム。ライセンスとファイルの情報が添えてあります。", action: "Homebrew を見る" },
+        ],
+      },
+      {
+        id: "install",
+        title: "パックのページから、ゲームの中へ",
+        body: "パックはファイルとしてダウンロードされます。Retropa はゲームの取り込みと同じ手順でインストールするので、新しくストアの使い方を覚える必要はありません。",
+        points: [
+          "iPhone や iPad でパックをダウンロードし、ゲーム内メニューから Importer を開いて Select Files を選びます。",
+          "パソコンからなら、Retropa で Wi‑Fi Portal を起動し、Import タブにパックをドロップします。",
+          "Retropa は .retropack と .retropaskin のパック、Delta の .deltaskin ファイルを読み込めます。何が追加されたかは結果カードに表示されます。",
+        ],
+      },
+      {
+        id: "skins",
+        title: "遊ぶシステムに合わせてスキンを",
+        body: "スキンはシステムごとに分かれていて、各ページではスマートフォンの画面にレイアウトを重ねて見せるので、ボタンの位置をダウンロード前に確かめられます。Delta のスキンはそのまま取り込めます。Delta への対応はファイル形式を指すもので、Delta プロジェクトとの提携関係を意味するものではありません。",
+        points: [
+          "プレミアムスキンには Retropa Plus が必要です。PackHub からでもほかの場所からでも、パックを取り込むことで購入状態の確認を回避することはできません。",
+          "購入する前に、パックの対応システムと要件をアプリで確認してください。",
+        ],
+      },
+      {
+        id: "shaders",
+        title: "コミュニティのシェーダーと、Retropa のフィルター",
+        body: "PackHub のシェーダーは、コミュニティが公開している RetroArch のプリセットです。Retropa ではこれらを整数倍の拡大でのみ動かすため、映像は元の解像度の整数倍にそろい、画面いっぱいにならないことがあります。",
+        points: [
+          "Retropa Plus に含まれる Retropa の高度なフィルターには整数倍の制限がありません。画面に合った最適な大きさで表示され、モアレも出ません。",
+          "Retropa のフィルターにない雰囲気を出したいときは、コミュニティのシェーダーが役に立ちます。",
+        ],
+      },
+      {
+        id: "language-homebrew",
+        title: "言語パックと Homebrew",
+        body: "言語パックは Retropa のインターフェースを翻訳するもので、アプリと一緒に更新されます。Homebrew のカタログには、作者が誰でもダウンロードしてよいとしているゲームが並んでいます。自分のゲームを取り込む前に、スキンやシェーダー、操作感を試すのにちょうどいいはずです。",
+        points: [
+          "作者のサイトからダウンロードする Homebrew ゲームもあり、その場合はゲームのページに書いてあります。",
+          "Retropa も PackHub も、市販の ROM や BIOS ファイルは提供していません。",
+        ],
+      },
+    ],
+    faqTitle: "PackHub についての質問",
+    faqs: [
+      { id: "free", question: "PackHub は無料ですか？", answer: "はい。閲覧もダウンロードも無料で、アカウントもいりません。ただし、プレミアムスキンをアプリで使うには Retropa Plus が必要です。" },
+      { id: "publish", question: "自分で作ったパックを PackHub で公開できますか？", answer: "今はまだできません。PackHub のパックは、現在 Retropa のチームが公開しています。" },
+      { id: "shader-size", question: "コミュニティのシェーダーを使うと、映像のまわりに余白が出るのはなぜですか？", answer: "Retropa はコミュニティのシェーダーを整数倍の拡大でのみ動かすため、映像が画面の端まで届かないことがあります。Retropa Plus に含まれる高度なフィルターなら、この制限はありません。" },
+      { id: "delta", question: "PackHub は Delta の一部ですか？", answer: "いいえ。Retropa は Delta のスキン形式を取り込めて、PackHub にもその形式のスキンがありますが、どちらも Delta プロジェクトとは提携していません。" },
+    ],
+    related: "あわせて読む",
+  },
 }

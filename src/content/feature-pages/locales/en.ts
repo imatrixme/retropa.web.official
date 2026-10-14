@@ -200,4 +200,70 @@ export const pages: Record<FeaturePage, FeatureContent> = {
     ],
     related: "Keep reading",
   },
+  packhub: {
+    metaTitle: "PackHub: Free Skins, Shaders, Language Packs & Homebrew for Retropa",
+    description: "PackHub is Retropa's free catalog of controller skins, screen shaders, interface translations and homebrew games. Browse by system, preview every pack, and import it into Retropa.",
+    label: "PackHub",
+    eyebrow: "PackHub",
+    title: "A free catalog of packs for Retropa.",
+    intro: "PackHub is where Retropa's skins, shaders, language packs and homebrew games live. Every pack has its own page with a preview, its version and the system it is made for. Browsing and downloading are free, with no account to create.",
+    sections: [
+      {
+        id: "catalogs",
+        title: "Four catalogs, one site",
+        body: "PackHub is a separate site at hub.retropa.com. Its four catalogs cover how a game looks, how the picture is drawn, what language the app speaks and what to play first.",
+        catalogs: [
+          { href: "https://hub.retropa.com/skins", title: "Skins", body: "Controller layouts, shown on a phone before you download one. Filter by system from the title bar.", action: "Browse skins" },
+          { href: "https://hub.retropa.com/shaders", title: "Shaders", body: "Screen shaders from the community, from CRT scanlines to clean pixel scaling, with a before-and-after view.", action: "Browse shaders" },
+          { href: "https://hub.retropa.com/language", title: "Language packs", body: "Translations of the Retropa interface, updated alongside the app.", action: "Browse language packs" },
+          { href: "https://hub.retropa.com/homebrew", title: "Homebrew", body: "Free games released by their authors, each with its license and file details.", action: "Browse homebrew" },
+        ],
+      },
+      {
+        id: "install",
+        title: "From a pack page to your game",
+        body: "A pack downloads as a file. Retropa installs it the same way it imports anything else, so there is no separate store to learn.",
+        points: [
+          "On iPhone or iPad, download the pack, then open the Importer from Retropa's in-game menu and choose Select Files.",
+          "From a computer, start the Wi‑Fi Portal in Retropa and drop the pack into its Import tab.",
+          "Retropa reads .retropack and .retropaskin packs as well as Delta .deltaskin files, and the result card says what was added.",
+        ],
+      },
+      {
+        id: "skins",
+        title: "Skins for the systems you play",
+        body: "Skins are grouped by system, and each page previews the layout on a phone so you can see where the buttons sit before you download it. Delta skins import as they are; Delta compatibility refers to the file format and implies no affiliation with the Delta project.",
+        points: [
+          "Premium skins need Retropa Plus. Importing a pack from PackHub or anywhere else does not get around that check.",
+          "Check a pack's system and requirements in the app before you buy anything.",
+        ],
+      },
+      {
+        id: "shaders",
+        title: "Community shaders, and Retropa's own filters",
+        body: "PackHub's shaders are RetroArch presets shared by the community. Retropa runs them at integer scale only, so the picture snaps to whole multiples of the original resolution and may not fill the screen.",
+        points: [
+          "Retropa's advanced filters, part of Retropa Plus, have no integer-scale limit: the picture takes the best size for your screen and keeps moiré out of it.",
+          "A community shader is still the way to go for a look that Retropa's own filters do not have.",
+        ],
+      },
+      {
+        id: "language-homebrew",
+        title: "Language packs and homebrew",
+        body: "Language packs translate Retropa's interface and are updated alongside the app. The homebrew catalog lists games that their authors allow anyone to download, which makes them a good way to try skins, shaders and controls before you bring your own library.",
+        points: [
+          "Some homebrew games download from their author's own site; PackHub says so on the game's page.",
+          "Retropa and PackHub do not supply commercial ROMs or BIOS files.",
+        ],
+      },
+    ],
+    faqTitle: "PackHub questions",
+    faqs: [
+      { id: "free", question: "Is PackHub free?", answer: "Yes. Browsing and downloading are free and need no account. Premium skins still need Retropa Plus to use in the app." },
+      { id: "publish", question: "Can I publish my own pack on PackHub?", answer: "Not yet. Packs on PackHub are currently published by the Retropa team." },
+      { id: "shader-size", question: "Why does a community shader leave borders around the picture?", answer: "Retropa runs community shaders at integer scale only, so the picture can stop short of the screen edge. Retropa's advanced filters, part of Retropa Plus, size the picture without that limit." },
+      { id: "delta", question: "Is PackHub part of Delta?", answer: "No. Retropa imports the Delta skin format, and PackHub lists skins in that format, but neither is affiliated with the Delta project." },
+    ],
+    related: "Keep reading",
+  },
 }
