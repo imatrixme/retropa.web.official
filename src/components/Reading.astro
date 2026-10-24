@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/locales"
 
 export type ReadingSection = {
   id: string; title: string; body: string | string[]; points?: string[]
+  link?: { href: string; label: string }
   /** Optional extras used by reference pages; other templates leave them out. */
   badge?: string
   table?: { head: string[]; rows: string[][] }
@@ -53,6 +54,7 @@ const pad = (index: number) => String(index + 1).padStart(2, "0")
           <tbody>{section.table.rows.map(row => <tr>{row.map((cell, i) => i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody>
         </table></div>}
         {section.points && <ul class="points">{section.points.map(point => <li>{point}</li>)}</ul>}
+        {section.link && <a class="link-arrow" href={section.link.href} rel="noopener">{section.link.label}<Icon name="arrow-right" size={16} /></a>}
         {section.shot && <figure class:list={["shot", { wide: section.shot.wide }]}><img src={section.shot.src} width={section.shot.width} height={section.shot.height} alt={section.shot.alt} loading="lazy" decoding="async" /></figure>}
       </section>)}
       {faqs.length > 0 && <section class="faqs" id={faqId}>

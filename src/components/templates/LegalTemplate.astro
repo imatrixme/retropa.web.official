@@ -17,7 +17,7 @@ const zh = locale.startsWith("zh")
   <p class="effective hud">{messages.shared.legalDocument.effectiveDateLabel}: {effective}</p>
 </PageHero>
 <Reading tocLabel={messages.shared.legalDocument.onThisPageLabel}
-  sections={doc.sections.map(section => ({ id: section.id, title: section.title, body: section.paragraphs }))}>
+  sections={doc.sections.map(section => ({ id: section.id, title: section.title, body: section.paragraphs, link: section.link }))}>
   {kind === "privacy" && <section id="website-analytics" class="analytics" lang={zh ? "zh-Hans" : "en"}>
     <h2>{zh ? "官网使用统计" : "Website analytics"}</h2>
     <p>{zh ? "官网仅在你允许后加载 Google Analytics。它使用 Cookie 统计页面访问、功能浏览与下载按钮点击，并会处理浏览器和网络请求信息。自定义事件不包含 ROM 名称、完整来源网址、任意查询参数或支付信息。" : "The website loads Google Analytics only after you allow it. It uses cookies to measure page visits, feature views and download clicks, and processes browser and network request information. Custom events exclude ROM names, full referrer URLs, arbitrary query parameters and payment details."}</p>

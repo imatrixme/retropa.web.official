@@ -30,8 +30,13 @@ export const termsSections: LegalSection[] = [
     title: "4. Purchases and Subscriptions",
     paragraphs: [
       "Paid plans and in-app purchases are processed through Apple's billing platform, and your use of those features is also subject to Apple's terms.",
+      "Retropa Plus monthly and annual plans are auto-renewable subscriptions. Your use of Retropa is also governed by Apple's Licensed Application End User License Agreement (Standard EULA).",
       "Subscription renewals, cancellations, and refunds are managed by Apple unless otherwise stated by mandatory local law.",
     ],
+    link: {
+      href: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      label: "Apple Standard EULA (Terms of Use)",
+    },
   },
   {
     id: "availability",
