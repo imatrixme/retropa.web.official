@@ -13,7 +13,7 @@ function currentPage(): { page: string; locale: string; location: string } {
 export const analyticsConfig = {
   measurementId: import.meta.env.VITE_GA4_MEASUREMENT_ID ?? "",
   providerToken: import.meta.env.VITE_ASC_PROVIDER_TOKEN ?? "",
-  revision: "channel-surf-2026-10-v13",
+  revision: "channel-surf-2026-10-v14",
 } as const
 export type Consent = "unknown" | "granted" | "denied"
 type EventName = "web_page_view" | "web_download_clicked" | "web_feature_viewed" | "web_feature_selected" | "web_guide_opened" | "web_filter_preview_changed"
