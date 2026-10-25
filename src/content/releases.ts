@@ -15,7 +15,7 @@ import { isPublishedLocale, type Locale, type PublishedLocale } from "@/i18n/loc
  * Notes are curated from each version's App Store "What's New" text: no prices,
  * trial durations or plan tiers, and no product names the site cannot claim.
  */
-const releasedVersion = "2.3.2"
+const releasedVersion = "2.4.0"
 
 type Text = Record<PublishedLocale, string>
 type Lines = Record<PublishedLocale, string[]>
