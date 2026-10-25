@@ -61,7 +61,7 @@ Hidden for now: `agentReadable` in `src/lib/site-config.ts` is `false`, so the b
 ## Media
 
 - **Gameplay footage:** in-app captures of Homebrew titles from the Retropa catalog, each with an explicit open license. Credits are rendered on the homepage.
-- **Skins and looks:** Retropa's first-party Pro skins, and shell renders from the app's own shell baker (`tools/skin/shell-material-probe` in the parent repository).
+- **Skins and looks:** Retropa's first-party Pro skins, and captures of the app itself: every shell, dial setting and key kit is worn in the app and captured (`app-store-screenshots/scripts/shell-captures.py` in the parent repository), and `looks-web.py` there lights the shell captures into a rendered iPhone.
 - **Film:** a video that shows games on screen lists each one under `gameplay`, with its license. A published file without one fails the build.
 - **Raw captures:** kept outside the repo in `~/.retropa/official-website/media-src/`.
 - **Adding media:** every new file needs a manifest entry, or the build fails. Do not publish commercial game content or manufacturer logos.

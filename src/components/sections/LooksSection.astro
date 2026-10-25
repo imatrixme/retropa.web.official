@@ -20,7 +20,8 @@ const families = shellFamilies(locale).map(family => ({
 })).filter(family => family.shells.length > 0)
 const shells = families.flatMap(family => family.shells.map(shell => ({ ...shell, family })))
 const featured = shells.find(shell => shell.id === featuredShell) ?? shells[0]
-const dials = media(`looks/dials-${featuredShell}.webp`)
+const dials = featured && media(`looks/dials-${featured.id}.webp`)
+const kits = keyKits.map((id, index) => ({ name: t.kits[index], image: media(`looks/kits/${id}.webp`) }))
 ---
 {featured && <section id="looks" class="looks ground-cartridge" aria-labelledby="looks-title" data-looks>
   <div class="shell layout">
@@ -58,20 +59,23 @@ const dials = media(`looks/dials-${featuredShell}.webp`)
   <div class="shell details">
     {dials && <div class="dials reveal">
       <h3>{t.dialsTitle}</h3>
-      <p>{t.dialsBody}</p>
+      <p>{t.dialsBody.replace("{name}", featured.name)}</p>
       <figure class="dial-grid">
         <span class="axis axis-gloss hud">{t.axes[1]} →</span>
         <span class="axis axis-texture hud">{t.axes[0]} <span class="arrow">↓</span></span>
         {t.gloss.map((label, index) => <span class="col hud" style={`grid-column: ${index + 3}`}>{label}</span>)}
         {t.texture.map((label, index) => <span class="row hud" style={`grid-row: ${index + 3}`}>{label}</span>)}
-        <img src={mediaUrl(dials.path)} width={dials.width ?? 720} height={dials.height ?? 720} alt={t.dialsAlt} loading="lazy" decoding="async" />
+        <img src={mediaUrl(dials.path)} width={dials.width ?? 720} height={dials.height ?? 720} alt={t.dialsAlt.replace("{name}", featured.name)} loading="lazy" decoding="async" />
       </figure>
     </div>}
     <div class="kits reveal">
       <h3>{t.keysTitle}</h3>
       <p>{t.keysBody}</p>
       <ul role="list">
-        {keyKits.map((kit, index) => <li><span class="dots" aria-hidden="true">{kit.colors.map(color => <i style={`--dot: ${color}`}></i>)}</span>{t.kits[index]}</li>)}
+        {kits.map(kit => <li>
+          {kit.image && <img src={mediaUrl(kit.image.path)} width={kit.image.width ?? 800} height={kit.image.height ?? 300} alt="" aria-hidden="true" loading="lazy" decoding="async" />}
+          <span>{kit.name}</span>
+        </li>)}
       </ul>
       <p class="apply">{t.apply}</p>
     </div>
@@ -169,10 +173,9 @@ const dials = media(`looks/dials-${featuredShell}.webp`)
   .col { grid-row: 2; text-align: center; color: var(--color-ink-soft); font-size: 11px; }
   .row { grid-column: 2; align-self: center; color: var(--color-ink-soft); font-size: 11px; writing-mode: vertical-rl; transform: rotate(180deg); }
   :lang(ja) .row, :lang(zh-Hans) .row, :lang(ja) .axis-texture, :lang(zh-Hans) .axis-texture { transform: none; }
-  .kits ul { display: grid; gap: 2px; list-style: none; }
-  .kits li { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-top: 1px solid var(--color-cartridge-line); font-weight: 600; }
-  .dots { display: inline-flex; }
-  .dots i { width: 18px; height: 18px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 0 2px #fbf8f1, inset 0 -3px 5px rgb(0 0 0 / .25), inset 0 2px 3px rgb(255 255 255 / .25); }
-  .dots i + i { margin-left: -5px; }
+  /* Each kit is the app's own capture of its D-pad, B and A keys on the featured shell. */
+  .kits ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); column-gap: 20px; list-style: none; }
+  .kits li { display: grid; gap: 10px; padding: 14px 0; border-top: 1px solid var(--color-cartridge-line); font-weight: 600; }
+  .kits li img { width: 100%; height: auto; border-radius: 14px; }
   .apply { font-size: 14px; color: var(--color-ink-soft) !important; }
 </style>

@@ -102,15 +102,10 @@ const families: Family[] = [
 ]
 
 /** The shell the chapter opens on, and the one its texture and gloss comparison shows. */
-export const featuredShell = "cognac-croc"
+export const featuredShell = "american-walnut"
 
-/** PRO key kits with their face, D-pad and pill colors (FallbackControlStyleStore+ProKits.swift). */
-export const keyKits = [
-  { id: "smoked-resin", colors: ["#4d3375", "#1a1a1c", "#a8abb0"] },
-  { id: "amethyst-chrome", colors: ["#451f75", "#6b6b73", "#9999a1"] },
-  { id: "bronze-relief", colors: ["#4d2175", "#785933", "#806138"] },
-  { id: "classic-matte", colors: ["#8c214d", "#29292e", "#66666e"] },
-] as const
+/** PRO key kits in the Looks room's order (FallbackControlStyleStore+ProKits.swift), each shown worn on the featured shell. */
+export const keyKits = ["smoked-resin", "amethyst-chrome", "bronze-relief", "classic-matte"] as const
 
 export type LooksCopy = {
   eyebrow: string
@@ -122,6 +117,7 @@ export type LooksCopy = {
   shellAlt: string
   plusNote: string
   dialsTitle: string
+  /** `{name}` is the featured shell, as in dialsAlt. */
   dialsBody: string
   dialsAlt: string
   axes: [string, string]
@@ -145,8 +141,8 @@ const looks: Record<PublishedLocale, LooksCopy> = {
     shellAlt: "Retropa on an iPhone in the {name} shell ({family}), Metal Warrior 4 on screen",
     plusNote: "Classic plastic is free. The other seven families, and some other finishes and features, require Retropa Plus.",
     dialsTitle: "Texture and gloss, on every shell.",
-    dialsBody: "Two dials tune the material: texture from smooth to deep relief, gloss from matte to polished. Shown here on cognac croc leather.",
-    dialsAlt: "Nine samples of cognac croc leather: texture rises down the rows, gloss across the columns",
+    dialsBody: "Two dials tune the material: texture from smooth to deep relief, gloss from matte to polished. Shown here on {name}.",
+    dialsAlt: "Nine samples of {name}: texture rises down the rows, gloss across the columns",
     axes: ["Texture", "Gloss"],
     texture: ["Smooth", "Textured", "Deep relief"],
     gloss: ["Matte", "Satin", "Polished"],
@@ -164,8 +160,8 @@ const looks: Record<PublishedLocale, LooksCopy> = {
     shellAlt: "iPhone 上的 Retropa 换上{name}外壳（{family}），屏幕里是 Metal Warrior 4",
     plusNote: "经典塑料系列免费。其余 7 个系列，以及部分外观和功能，需要 Retropa Plus。",
     dialsTitle: "每款外壳，都能调纹理和光泽。",
-    dialsBody: "两个旋钮微调材质：纹理从平滑到深浮雕，光泽从哑光到抛光。图中是干邑色鳄鱼纹皮革。",
-    dialsAlt: "干邑色鳄鱼纹皮革的九个样本：自上而下纹理加深，自左向右光泽增强",
+    dialsBody: "两个旋钮微调材质：纹理从平滑到深浮雕，光泽从哑光到抛光。图中是{name}。",
+    dialsAlt: "{name}的九个样本：自上而下纹理加深，自左向右光泽增强",
     axes: ["纹理", "光泽"],
     texture: ["平滑", "细纹", "深浮雕"],
     gloss: ["哑光", "缎面", "抛光"],
@@ -183,8 +179,8 @@ const looks: Record<PublishedLocale, LooksCopy> = {
     shellAlt: "{name}のシェル（{family}）を着せた iPhone 上の Retropa。画面は Metal Warrior 4",
     plusNote: "クラシックシリーズは無料です。ほかの 7 シリーズと、一部のデザインと機能には Retropa Plus が必要です。",
     dialsTitle: "すべてのシェルに、質感とツヤ。",
-    dialsBody: "2 つのダイヤルで素材感を調整。質感はなめらかから深いレリーフまで、ツヤはマットから鏡面まで。写真はコニャックのクロコ調レザーです。",
-    dialsAlt: "コニャックのクロコ調レザーの 9 つのサンプル。下の段ほど質感が深く、右の列ほどツヤが強くなります",
+    dialsBody: "2 つのダイヤルで素材感を調整。質感はなめらかから深いレリーフまで、ツヤはマットから鏡面まで。写真は{name}です。",
+    dialsAlt: "{name}の 9 つのサンプル。下の段ほど質感が深く、右の列ほどツヤが強くなります",
     axes: ["質感", "ツヤ"],
     texture: ["なめらか", "ほどよく", "深いレリーフ"],
     gloss: ["マット", "サテン", "鏡面"],
