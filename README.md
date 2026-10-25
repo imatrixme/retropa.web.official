@@ -80,9 +80,9 @@ VITE_ASC_PROVIDER_TOKEN=YOUR_PROVIDER_TOKEN
 
 ## Deploy
 
-- Publish all of `dist/` as a new release directory and switch the site symlink atomically. See `docs/releases/2026-09-v10.md` for the current procedure and paths, `docs/releases/2026-10-v11.md` for what v11 adds, `docs/releases/2026-10-v12.md` for the v12 release, which shipped v11 with it, `docs/releases/2026-10-v13.md` for v13, the first delta release, and `docs/releases/2026-10-v14.md` for v14, which links the Apple Standard EULA from the terms.
+- Publish all of `dist/` as a new release directory and switch the site symlink atomically. See `docs/releases/2026-09-v10.md` for the current procedure and paths, `docs/releases/2026-10-v11.md` for what v11 adds, `docs/releases/2026-10-v12.md` for the v12 release, which shipped v11 with it, `docs/releases/2026-10-v13.md` for v13, the first delta release, `docs/releases/2026-10-v14.md` for v14, which links the Apple Standard EULA from the terms, and `docs/releases/2026-10-v15.md` for v15, which opens the 2.4 release gate.
 - Include `deploy/legacy-locales.conf` at the `http {}` level.
 - Unknown paths must return 404; do not add an SPA fallback.
 - The default build needs only `deploy/nginx.conf.example`, unchanged since v10. With `agentReadable` on, Markdown negotiation also needs the `map` and the locations from `deploy/nginx-agent-readable.conf.example`; without them the Markdown copies are still served at their own `index.md` URLs.
-- Live release: `releases/20261024-v14-bb153a5`. Rollback target: `releases/20261014-v13-898f154`.
+- Live release: `releases/20261025-v15-7bb7143`. Rollback target: `releases/20261024-v14-bb153a5`.
 - Release scripts (package, deploy, rollback, live verification) live in the parent repository under `scripts/deploy/official-website/`; see `scripts/MODULE.md` there.
