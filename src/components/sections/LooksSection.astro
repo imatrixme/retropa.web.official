@@ -15,7 +15,7 @@ const families = shellFamilies(locale).map(family => ({
   shells: family.shells.flatMap(shell => {
     const render = media(`looks/shells/${shell.id}.webp`)
     const swatch = media(`looks/swatches/${shell.id}.webp`)
-    return render && swatch ? [{ ...shell, src: mediaUrl(render.path), swatch: mediaUrl(swatch.path), alt: t.shellAlt.replace("{name}", shell.name).replace("{family}", family.name) }] : []
+    return render?.width && render.height && swatch ? [{ ...shell, src: mediaUrl(render.path), width: render.width, height: render.height, swatch: mediaUrl(swatch.path), alt: t.shellAlt.replace("{name}", shell.name).replace("{family}", family.name) }] : []
   }),
 })).filter(family => family.shells.length > 0)
 const shells = families.flatMap(family => family.shells.map(shell => ({ ...shell, family })))
@@ -30,7 +30,7 @@ const dials = media(`looks/dials-${featuredShell}.webp`)
       <p class="sec-body">{t.body}</p>
     </header>
     <figure class="stage">
-      <div class="device"><img data-looks-render src={featured.src} width="540" height="1110" alt={featured.alt} loading="lazy" decoding="async" /></div>
+      <img class="device" data-looks-render src={featured.src} width={featured.width} height={featured.height} alt={featured.alt} loading="lazy" decoding="async" />
       <figcaption>
         <strong data-looks-name>{featured.name}</strong>
         <span class="hud" data-looks-family>{featured.family.name}</span>
@@ -103,7 +103,8 @@ const dials = media(`looks/dials-${featuredShell}.webp`)
   </script>
 </section>}
 <style>
-  .looks { padding: clamp(96px, 12vw, 168px) 0; overflow: hidden; }
+  /* clip, not hidden: a hidden overflow would make the section the sticky stage's scroller, so it never stuck. */
+  .looks { padding: clamp(96px, 12vw, 168px) 0; overflow: hidden; overflow: clip; }
   .layout { display: grid; gap: 40px; grid-template-areas: "head" "stage" "board"; }
   @media (min-width: 1024px) {
     .layout { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); grid-template-areas: "head stage" "board stage"; column-gap: clamp(40px, 6vw, 96px); row-gap: 40px; align-items: start; }
@@ -114,12 +115,12 @@ const dials = media(`looks/dials-${featuredShell}.webp`)
   @media (min-width: 768px) { :lang(ja) .phrase, :lang(zh-Hans) .phrase { display: inline-block; white-space: nowrap; } }
   :lang(ja) .sec-head h2 { font-size: clamp(32px, 4.4vw, 64px); line-height: 1.08; }
 
-  /* The rendering is a full phone face, so it is framed as a phone. */
+  /* The rendering is the app's own screen in a rendered phone, its shadow included: the phone is about four fifths
+     of the image's height. The sticky stage keeps its caption in view on short screens. */
   .stage { grid-area: stage; display: grid; justify-items: center; gap: 18px; }
   @media (min-width: 1024px) { .stage { position: sticky; top: 96px; } }
-  .device { padding: 9px; border-radius: 46px; background: linear-gradient(150deg, #44434d, #15151b 32%, #0b0b10 70%, #34333d); box-shadow: 0 0 0 1px rgb(14 14 20 / .35), 0 48px 80px -36px rgb(50 36 12 / .55); }
-  .device img { width: auto; height: clamp(420px, 64svh, 660px); aspect-ratio: 540 / 1110; border-radius: 38px; object-fit: cover; background: #1b1a20; }
-  @media (max-width: 599px) { .device img { height: min(560px, 118vw); } }
+  .device { width: auto; height: clamp(480px, calc(100svh - 160px), 840px); }
+  @media (max-width: 599px) { .device { height: min(700px, 146vw); } }
   figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px; min-height: 28px; font-size: 15px; }
   figcaption strong { font-weight: 600; }
   figcaption .hud { color: var(--color-ink-soft); }

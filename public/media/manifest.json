@@ -4039,661 +4039,1057 @@
     "id": "looks-shell-warm-grey-handheld",
     "kind": "image",
     "path": "looks/shells/warm-grey-handheld.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"warm-grey-handheld\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"warm-grey-handheld\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:14Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/warm-grey-handheld.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-indigo-handheld",
     "kind": "image",
     "path": "looks/shells/indigo-handheld.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"indigo-handheld\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"indigo-handheld\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:28Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/indigo-handheld.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-lilac-grey-16bit",
     "kind": "image",
     "path": "looks/shells/lilac-grey-16bit.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"lilac-grey-16bit\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"lilac-grey-16bit\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:44Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/lilac-grey-16bit.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-indigo-cube",
     "kind": "image",
     "path": "looks/shells/indigo-cube.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"indigo-cube\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"indigo-cube\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:58Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/indigo-cube.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-soft-touch-charcoal",
     "kind": "image",
     "path": "looks/shells/soft-touch-charcoal.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"soft-touch-charcoal\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"soft-touch-charcoal\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:45:11Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/soft-touch-charcoal.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-soft-touch-sage",
     "kind": "image",
     "path": "looks/shells/soft-touch-sage.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"soft-touch-sage\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"soft-touch-sage\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:04:31Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/soft-touch-sage.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-milk-white",
     "kind": "image",
     "path": "looks/shells/milk-white.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"milk-white\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"milk-white\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:46:56Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/milk-white.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-milk-tea",
     "kind": "image",
     "path": "looks/shells/milk-tea.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"milk-tea\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"milk-tea\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:47:09Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/milk-tea.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-atomic-purple",
     "kind": "image",
     "path": "looks/shells/atomic-purple.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"atomic-purple\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"atomic-purple\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:04:17Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/atomic-purple.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-ice-clear",
     "kind": "image",
     "path": "looks/shells/ice-clear.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"ice-clear\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"ice-clear\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:54:33Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/ice-clear.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-smoke-black",
     "kind": "image",
     "path": "looks/shells/smoke-black.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"smoke-black\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"smoke-black\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:54:50Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/smoke-black.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-jungle-green",
     "kind": "image",
     "path": "looks/shells/jungle-green.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"jungle-green\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"jungle-green\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:06Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/jungle-green.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-frosted-ice",
     "kind": "image",
     "path": "looks/shells/frosted-ice.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"frosted-ice\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"frosted-ice\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:19Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/frosted-ice.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-frosted-mint",
     "kind": "image",
     "path": "looks/shells/frosted-mint.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"frosted-mint\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"frosted-mint\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:33Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/frosted-mint.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-prototype-aluminum",
     "kind": "image",
     "path": "looks/shells/prototype-aluminum.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"prototype-aluminum\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"prototype-aluminum\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:46Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/prototype-aluminum.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-titanium-smoke",
     "kind": "image",
     "path": "looks/shells/titanium-smoke.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"titanium-smoke\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"titanium-smoke\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:59Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/titanium-smoke.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-gunmetal-anodized",
     "kind": "image",
     "path": "looks/shells/gunmetal-anodized.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"gunmetal-anodized\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"gunmetal-anodized\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:12Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/gunmetal-anodized.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-carbon-twill",
     "kind": "image",
     "path": "looks/shells/carbon-twill.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"carbon-twill\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"carbon-twill\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:25Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/carbon-twill.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-blue-carbon",
     "kind": "image",
     "path": "looks/shells/blue-carbon.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"blue-carbon\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"blue-carbon\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:38Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/blue-carbon.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-bronze-lotus",
     "kind": "image",
     "path": "looks/shells/bronze-lotus.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"bronze-lotus\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"bronze-lotus\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:52Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/bronze-lotus.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-verdigris",
     "kind": "image",
     "path": "looks/shells/verdigris.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"verdigris\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"verdigris\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:05Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/verdigris.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-red-cream-8bit",
     "kind": "image",
     "path": "looks/shells/red-cream-8bit.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"red-cream-8bit\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"red-cream-8bit\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:18Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/red-cream-8bit.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-piano-black-portable",
     "kind": "image",
     "path": "looks/shells/piano-black-portable.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"piano-black-portable\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"piano-black-portable\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:32Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/piano-black-portable.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-pearl-white-portable",
     "kind": "image",
     "path": "looks/shells/pearl-white-portable.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"pearl-white-portable\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"pearl-white-portable\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:45Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/pearl-white-portable.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-charcoal-64",
     "kind": "image",
     "path": "looks/shells/charcoal-64.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"charcoal-64\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"charcoal-64\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:59Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/charcoal-64.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-grey-disc-console",
     "kind": "image",
     "path": "looks/shells/grey-disc-console.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"grey-disc-console\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"grey-disc-console\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:12Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/grey-disc-console.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-starlight-glitter",
     "kind": "image",
     "path": "looks/shells/starlight-glitter.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"starlight-glitter\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"starlight-glitter\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:25Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/starlight-glitter.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-rose-gold-glitter",
     "kind": "image",
     "path": "looks/shells/rose-gold-glitter.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"rose-gold-glitter\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"rose-gold-glitter\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:38Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/rose-gold-glitter.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-pearl-white",
     "kind": "image",
     "path": "looks/shells/pearl-white.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"pearl-white\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"pearl-white\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:51Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/pearl-white.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-lilac-pearl",
     "kind": "image",
     "path": "looks/shells/lilac-pearl.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"lilac-pearl\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"lilac-pearl\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:04Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/lilac-pearl.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-american-walnut",
     "kind": "image",
     "path": "looks/shells/american-walnut.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"american-walnut\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"american-walnut\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:18Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/american-walnut.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-light-walnut",
     "kind": "image",
     "path": "looks/shells/light-walnut.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"light-walnut\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"light-walnut\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:31Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/light-walnut.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-oak-table",
     "kind": "image",
     "path": "looks/shells/oak-table.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"oak-table\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"oak-table\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:44Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/oak-table.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-farmhouse-pine",
     "kind": "image",
     "path": "looks/shells/farmhouse-pine.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"farmhouse-pine\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"farmhouse-pine\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:57Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/farmhouse-pine.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-carrara-marble",
     "kind": "image",
     "path": "looks/shells/carrara-marble.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"carrara-marble\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"carrara-marble\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:10Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/carrara-marble.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-nero-marquina",
     "kind": "image",
     "path": "looks/shells/nero-marquina.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"nero-marquina\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"nero-marquina\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:23Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/nero-marquina.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-natural-cork",
     "kind": "image",
     "path": "looks/shells/natural-cork.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"natural-cork\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"natural-cork\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:36Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/natural-cork.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-smoked-cork",
     "kind": "image",
     "path": "looks/shells/smoked-cork.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"smoked-cork\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"smoked-cork\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:48Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/smoked-cork.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-black-croc",
     "kind": "image",
     "path": "looks/shells/black-croc.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"black-croc\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"black-croc\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:01Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/black-croc.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-cognac-croc",
     "kind": "image",
     "path": "looks/shells/cognac-croc.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"cognac-croc\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"cognac-croc\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:14Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/cognac-croc.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-snow-fox",
     "kind": "image",
     "path": "looks/shells/snow-fox.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"snow-fox\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"snow-fox\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:26Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/snow-fox.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-tabby-brown",
     "kind": "image",
     "path": "looks/shells/tabby-brown.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"tabby-brown\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"tabby-brown\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:38Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/tabby-brown.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-raw-indigo",
     "kind": "image",
     "path": "looks/shells/raw-indigo.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"raw-indigo\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"raw-indigo\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:51Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/raw-indigo.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-shell-stonewash-denim",
     "kind": "image",
     "path": "looks/shells/stonewash-denim.webp",
-    "width": 540,
-    "height": 1110,
-    "source": "Phone sample of the built-in shell template \"stonewash-denim\" (FallbackPaletteStore+Shells.swift), rendered at 3x on a 180x370 pt canvas with lens and default keys",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 868,
+    "height": 1604,
+    "source": "The built-in shell \"stonewash-denim\" (FallbackPaletteStore+Shells.swift) worn in the Retropa app over Metal Warrior 4's title screen with the Retropa CRT V4 filter and the default Classic keys, shown as the screen of a rendered 6.9-inch phone",
+    "license": "Retropa first-party app capture and device render; the game picture inside is the listed homebrew title",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:02:03Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/samples/stonewash-denim.png (540x1110) -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> lit into the Cycles render of phone-device.py -> WebP q86 by looks-web.py",
+    "gameplay": [
+      {
+        "title": "METAL WARRIOR 4: AGENTS OF METAL",
+        "author": "Covert Bitops",
+        "license": "BSD-style (redistribution permitted with copyright notice; Covert Bitops); license text: https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "licenseURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.txt",
+        "sourceURL": "https://github.com/retrobrews/gba-games/blob/master/metalwarrior4.gba"
+      }
+    ]
   },
   {
     "id": "looks-swatch-warm-grey-handheld",
@@ -4701,14 +5097,14 @@
     "path": "looks/swatches/warm-grey-handheld.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"warm-grey-handheld\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"warm-grey-handheld\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:14Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/warm-grey-handheld.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-indigo-handheld",
@@ -4716,14 +5112,14 @@
     "path": "looks/swatches/indigo-handheld.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"indigo-handheld\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"indigo-handheld\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:28Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/indigo-handheld.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-lilac-grey-16bit",
@@ -4731,14 +5127,14 @@
     "path": "looks/swatches/lilac-grey-16bit.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"lilac-grey-16bit\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"lilac-grey-16bit\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:44Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/lilac-grey-16bit.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-indigo-cube",
@@ -4746,14 +5142,14 @@
     "path": "looks/swatches/indigo-cube.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"indigo-cube\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"indigo-cube\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:44:58Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/indigo-cube.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-soft-touch-charcoal",
@@ -4761,14 +5157,14 @@
     "path": "looks/swatches/soft-touch-charcoal.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"soft-touch-charcoal\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"soft-touch-charcoal\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:45:11Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/soft-touch-charcoal.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-soft-touch-sage",
@@ -4776,14 +5172,14 @@
     "path": "looks/swatches/soft-touch-sage.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"soft-touch-sage\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"soft-touch-sage\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:04:31Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/soft-touch-sage.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-milk-white",
@@ -4791,14 +5187,14 @@
     "path": "looks/swatches/milk-white.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"milk-white\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"milk-white\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:46:56Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/milk-white.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-milk-tea",
@@ -4806,14 +5202,14 @@
     "path": "looks/swatches/milk-tea.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"milk-tea\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"milk-tea\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:47:09Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/milk-tea.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-atomic-purple",
@@ -4821,14 +5217,14 @@
     "path": "looks/swatches/atomic-purple.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"atomic-purple\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"atomic-purple\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:04:17Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/atomic-purple.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-ice-clear",
@@ -4836,14 +5232,14 @@
     "path": "looks/swatches/ice-clear.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"ice-clear\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"ice-clear\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:54:33Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/ice-clear.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-smoke-black",
@@ -4851,14 +5247,14 @@
     "path": "looks/swatches/smoke-black.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"smoke-black\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"smoke-black\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:54:50Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/smoke-black.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-jungle-green",
@@ -4866,14 +5262,14 @@
     "path": "looks/swatches/jungle-green.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"jungle-green\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"jungle-green\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:06Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/jungle-green.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-frosted-ice",
@@ -4881,14 +5277,14 @@
     "path": "looks/swatches/frosted-ice.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"frosted-ice\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"frosted-ice\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:19Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/frosted-ice.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-frosted-mint",
@@ -4896,14 +5292,14 @@
     "path": "looks/swatches/frosted-mint.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"frosted-mint\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"frosted-mint\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:33Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/frosted-mint.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-prototype-aluminum",
@@ -4911,14 +5307,14 @@
     "path": "looks/swatches/prototype-aluminum.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"prototype-aluminum\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"prototype-aluminum\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:46Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/prototype-aluminum.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-titanium-smoke",
@@ -4926,14 +5322,14 @@
     "path": "looks/swatches/titanium-smoke.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"titanium-smoke\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"titanium-smoke\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:55:59Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/titanium-smoke.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-gunmetal-anodized",
@@ -4941,14 +5337,14 @@
     "path": "looks/swatches/gunmetal-anodized.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"gunmetal-anodized\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"gunmetal-anodized\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:12Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/gunmetal-anodized.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-carbon-twill",
@@ -4956,14 +5352,14 @@
     "path": "looks/swatches/carbon-twill.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"carbon-twill\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"carbon-twill\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:25Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/carbon-twill.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-blue-carbon",
@@ -4971,14 +5367,14 @@
     "path": "looks/swatches/blue-carbon.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"blue-carbon\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"blue-carbon\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:38Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/blue-carbon.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-bronze-lotus",
@@ -4986,14 +5382,14 @@
     "path": "looks/swatches/bronze-lotus.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"bronze-lotus\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"bronze-lotus\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:56:52Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/bronze-lotus.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-verdigris",
@@ -5001,14 +5397,14 @@
     "path": "looks/swatches/verdigris.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"verdigris\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"verdigris\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:05Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/verdigris.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-red-cream-8bit",
@@ -5016,14 +5412,14 @@
     "path": "looks/swatches/red-cream-8bit.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"red-cream-8bit\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"red-cream-8bit\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:18Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/red-cream-8bit.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-piano-black-portable",
@@ -5031,14 +5427,14 @@
     "path": "looks/swatches/piano-black-portable.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"piano-black-portable\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"piano-black-portable\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:32Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/piano-black-portable.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-pearl-white-portable",
@@ -5046,14 +5442,14 @@
     "path": "looks/swatches/pearl-white-portable.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"pearl-white-portable\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"pearl-white-portable\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:45Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/pearl-white-portable.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-charcoal-64",
@@ -5061,14 +5457,14 @@
     "path": "looks/swatches/charcoal-64.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"charcoal-64\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"charcoal-64\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:57:59Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/charcoal-64.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-grey-disc-console",
@@ -5076,14 +5472,14 @@
     "path": "looks/swatches/grey-disc-console.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"grey-disc-console\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"grey-disc-console\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:12Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/grey-disc-console.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-starlight-glitter",
@@ -5091,14 +5487,14 @@
     "path": "looks/swatches/starlight-glitter.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"starlight-glitter\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"starlight-glitter\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:25Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/starlight-glitter.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-rose-gold-glitter",
@@ -5106,14 +5502,14 @@
     "path": "looks/swatches/rose-gold-glitter.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"rose-gold-glitter\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"rose-gold-glitter\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:38Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/rose-gold-glitter.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-pearl-white",
@@ -5121,14 +5517,14 @@
     "path": "looks/swatches/pearl-white.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"pearl-white\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"pearl-white\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:58:51Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/pearl-white.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-lilac-pearl",
@@ -5136,14 +5532,14 @@
     "path": "looks/swatches/lilac-pearl.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"lilac-pearl\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"lilac-pearl\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:04Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/lilac-pearl.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-american-walnut",
@@ -5151,14 +5547,14 @@
     "path": "looks/swatches/american-walnut.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"american-walnut\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"american-walnut\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:18Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/american-walnut.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-light-walnut",
@@ -5166,14 +5562,14 @@
     "path": "looks/swatches/light-walnut.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"light-walnut\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"light-walnut\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:31Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/light-walnut.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-oak-table",
@@ -5181,14 +5577,14 @@
     "path": "looks/swatches/oak-table.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"oak-table\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"oak-table\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:44Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/oak-table.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-farmhouse-pine",
@@ -5196,14 +5592,14 @@
     "path": "looks/swatches/farmhouse-pine.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"farmhouse-pine\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"farmhouse-pine\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T08:59:57Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/farmhouse-pine.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-carrara-marble",
@@ -5211,14 +5607,14 @@
     "path": "looks/swatches/carrara-marble.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"carrara-marble\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"carrara-marble\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:10Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/carrara-marble.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-nero-marquina",
@@ -5226,14 +5622,14 @@
     "path": "looks/swatches/nero-marquina.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"nero-marquina\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"nero-marquina\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:23Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/nero-marquina.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-natural-cork",
@@ -5241,14 +5637,14 @@
     "path": "looks/swatches/natural-cork.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"natural-cork\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"natural-cork\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:36Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/natural-cork.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-smoked-cork",
@@ -5256,14 +5652,14 @@
     "path": "looks/swatches/smoked-cork.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"smoked-cork\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"smoked-cork\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:00:48Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/smoked-cork.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-black-croc",
@@ -5271,14 +5667,14 @@
     "path": "looks/swatches/black-croc.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"black-croc\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"black-croc\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:01Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/black-croc.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-cognac-croc",
@@ -5286,14 +5682,14 @@
     "path": "looks/swatches/cognac-croc.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"cognac-croc\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"cognac-croc\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:14Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/cognac-croc.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-snow-fox",
@@ -5301,14 +5697,14 @@
     "path": "looks/swatches/snow-fox.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"snow-fox\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"snow-fox\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:26Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/snow-fox.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-tabby-brown",
@@ -5316,14 +5712,14 @@
     "path": "looks/swatches/tabby-brown.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"tabby-brown\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"tabby-brown\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:38Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/tabby-brown.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-raw-indigo",
@@ -5331,14 +5727,14 @@
     "path": "looks/swatches/raw-indigo.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"raw-indigo\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"raw-indigo\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:01:51Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/raw-indigo.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-swatch-stonewash-denim",
@@ -5346,28 +5742,28 @@
     "path": "looks/swatches/stonewash-denim.webp",
     "width": 96,
     "height": 96,
-    "source": "Material close-up of the built-in shell template \"stonewash-denim\": a 330x330 crop of the 3x full-screen body bake",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "source": "The plain body of the in-app capture of shell \"stonewash-denim\", between the shoulder keys and the D-pad",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:02:03Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/closeups/stonewash-denim.png (330x330) -> 96x96 Lanczos -> WebP q80 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py shells) -> crop (525, 1715, 795, 1985) -> 96x96 -> WebP q90 by looks-web.py"
   },
   {
     "id": "looks-dials-cognac-croc",
     "kind": "image",
     "path": "looks/dials-cognac-croc.webp",
-    "width": 720,
-    "height": 720,
-    "source": "Texture and gloss dials on the built-in shell template \"cognac-croc\": texture 0, 0.5 and 1 down the rows, gloss 0, 0.5 and 1 across, each a 140x140 pt body bake at 3x",
-    "license": "Retropa first-party render of a built-in Retropa shell (no game imagery, logos or marks)",
+    "width": 864,
+    "height": 864,
+    "source": "The built-in shell \"cognac-croc\" saved as custom shells at texture and gloss 0, 0.5 and 1 and worn in the Retropa app: the same patch of body from each capture, texture down the rows and gloss across the columns",
+    "license": "Retropa first-party app capture (no game imagery)",
     "attribution": "Retropa",
-    "appVersion": "2.4.0 (app sources at 6e2e62ea9 on branch 2610/website, which includes the 2609/duo merge; MARKETING_VERSION not yet bumped)",
-    "device": "macOS desktop probe tools/skin/shell-material-probe/run.sh: the app's own shell baker (FallbackBodyPBR and FallbackPlatePBR Metal kernels, Core Graphics finish and keys)",
-    "capturedAt": "2026-10-06T08:03:34Z",
+    "appVersion": "2.4.0 (202610211906), Debug simulator build of 2.4.0-6-g6a23463db",
+    "device": "\"Store Shots\" iPhone 17 Pro Max simulator (iOS 27.0), 1320x2868 portrait, status bar 9:41",
+    "capturedAt": "2026-10-25T09:03:57Z",
     "release": "2.4.0",
-    "derivedFrom": "~/.retropa/official-website/media-src/shells-2.4/dials-cognac-croc.png (1324x1414 labelled sheet) -> nine 420x420 tiles without captions -> 232x232 Lanczos, 18 px corners, 12 px transparent gaps -> WebP q82 (bun ~/.retropa/official-website/tools/looks-media.mjs)"
+    "derivedFrom": "xcrun simctl io screenshot, Dynamic Island kept (app-store-screenshots/scripts/shell-captures.py grid) -> crop (520, 1705, 800, 1985) each -> 3x3, 12 px apart -> WebP q88 by looks-web.py"
   }
 ]
