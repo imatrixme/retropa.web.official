@@ -161,12 +161,15 @@ export const pages: Record<FeaturePage, FeatureContent> = {
           rows: [
             ["GBA BIOS", "JGenesis、ares（GBA 备选核心）", ".bin .rom .bios"],
             ["Neo Geo Pocket · Color BIOS", "ares", ".bin .rom .bios"],
-            ["NDS BIOS", "SkyEmu", ".bin .rom"],
+            ["Sega CD BIOS", "JGenesis", ".bin .rom .bios"],
             ["GB · GBC 启动 ROM（可选）", "SameBoy", ".bin .rom"],
             ["街机 BIOS", "街机，例如 QSound、Neo Geo 或 PGM", "压缩包或 ROM 文件"],
           ],
         },
         points: ["一个系统的 BIOS 不能代替另一个系统的 BIOS。", "Retropa 不提供 BIOS 文件。"],
+        catalogs: [
+          { href: "https://hub.retropa.com/bios", title: "PackHub 上的 BIOS 参考", body: "上表每个 BIOS 的文件名、大小和 CRC32、SHA-1 校验值，用来核对你自己导出的文件。PackHub 不提供 BIOS 文件。", action: "查看 BIOS 列表" },
+        ],
         shot: { name: "bios", alt: "BIOS 管理页，按核心分组，每项显示缺失" },
       },
       {

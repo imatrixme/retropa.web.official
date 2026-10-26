@@ -161,12 +161,15 @@ export const pages: Record<FeaturePage, FeatureContent> = {
           rows: [
             ["GBA BIOS", "JGenesis、ares（GBA の代替コア）", ".bin .rom .bios"],
             ["ネオジオポケット · カラー BIOS", "ares", ".bin .rom .bios"],
-            ["NDS BIOS", "SkyEmu", ".bin .rom"],
+            ["メガCD BIOS", "JGenesis", ".bin .rom .bios"],
             ["GB · GBC ブートROM（任意）", "SameBoy", ".bin .rom"],
             ["アーケード BIOS", "アーケード（QSound、ネオジオ、PGM など）", "アーカイブまたは ROM ファイル"],
           ],
         },
         points: ["ある機種の BIOS を別の機種の代わりに使うことはできません。", "Retropa は BIOS ファイルを提供しません。"],
+        catalogs: [
+          { href: "https://hub.retropa.com/bios", title: "PackHub の BIOS リファレンス", body: "上の表にある各 BIOS のファイル名、サイズ、CRC32 と SHA-1。自分で吸い出したファイルの確認に使えます。PackHub は BIOS ファイルを提供しません。", action: "BIOS 一覧を開く" },
+        ],
         shot: { name: "bios", alt: "コアごとにまとめられ、各項目が未登録と表示された BIOS 管理画面" },
       },
       {

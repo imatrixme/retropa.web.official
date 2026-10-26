@@ -161,12 +161,15 @@ export const pages: Record<FeaturePage, FeatureContent> = {
           rows: [
             ["GBA BIOS", "JGenesis, ares (alternative GBA cores)", ".bin .rom .bios"],
             ["Neo Geo Pocket · Color BIOS", "ares", ".bin .rom .bios"],
-            ["NDS BIOS", "SkyEmu", ".bin .rom"],
+            ["Sega CD BIOS", "JGenesis", ".bin .rom .bios"],
             ["GB · GBC boot ROM (optional)", "SameBoy", ".bin .rom"],
             ["Arcade BIOS", "Arcade — for example QSound, Neo Geo or PGM", "archive or ROM files"],
           ],
         },
         points: ["A BIOS for one system never substitutes for another.", "Retropa does not provide BIOS files."],
+        catalogs: [
+          { href: "https://hub.retropa.com/bios", title: "BIOS reference on PackHub", body: "File names, sizes and CRC32 and SHA-1 checksums for every BIOS above, to check a file you dumped yourself. PackHub hosts no BIOS files.", action: "Open the BIOS list" },
+        ],
         shot: { name: "bios", alt: "BIOS Management grouped by core with each entry marked Missing" },
       },
       {
