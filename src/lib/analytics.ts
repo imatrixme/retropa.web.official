@@ -13,11 +13,15 @@ function currentPage(): { page: string; locale: string; location: string } {
 export const analyticsConfig = {
   measurementId: import.meta.env.VITE_GA4_MEASUREMENT_ID ?? "",
   providerToken: import.meta.env.VITE_ASC_PROVIDER_TOKEN ?? "",
-  revision: "ga4-2026-10-v19",
+  revision: "engage-2026-10-v20",
 } as const
 export type Consent = "unknown" | "granted" | "denied"
 type EventName = "web_page_view" | "web_download_clicked" | "web_feature_viewed" | "web_feature_selected" | "web_guide_opened" | "web_filter_preview_changed"
-type Attributes = { placement?: "header" | "hero" | "footer" | "guide" | "filters"; feature_id?: "skins" | "filters" | "library" | "plus" | "channel" | "skin_rack" | "console_mode" | "collection" | "arcade" | "qr" | "touch_lab" | "haptics" | "import_routes" | "portal"; display_mode?: DisplayModeName }
+  | "web_page_engaged" | "web_section_viewed" | "web_link_clicked" | "web_detail_opened"
+export type Attributes = { placement?: "header" | "hero" | "footer" | "guide" | "filters" | "content"; feature_id?: "skins" | "filters" | "library" | "plus" | "channel" | "skin_rack" | "console_mode" | "collection" | "arcade" | "qr" | "touch_lab" | "haptics" | "import_routes" | "portal"; display_mode?: DisplayModeName
+  // Page engagement (engagement.ts): closed sets only, never a URL.
+  section_id?: string; link_kind?: "internal" | "anchor" | "locale" | "outbound"; link_target?: string
+  scroll_depth?: "0" | "25" | "50" | "75" | "100"; engaged_seconds?: number }
 type Evidence = { name: EventName; parameters: Record<string, string | number>; delivery: "consent_blocked" | "unconfigured" | "queued"; timestamp: string }
 type AnalyticsWindow = Window & {
   dataLayer?: unknown[]
@@ -81,6 +85,10 @@ export function track(name: EventName, attributes: Attributes = {}): void {
   if (attributes.placement) parameters.placement = attributes.placement
   if (attributes.feature_id) parameters.feature_id = attributes.feature_id
   if (attributes.display_mode) parameters.display_mode = attributes.display_mode
+  for (const key of ["section_id", "link_kind", "link_target", "scroll_depth", "engaged_seconds"] as const) {
+    const value = attributes[key]
+    if (value !== undefined) parameters[key] = value
+  }
   const delivery = readConsent() !== "granted" ? "consent_blocked" : !isConfigured() ? "unconfigured" : "queued"
   const target = window as AnalyticsWindow
   if (import.meta.env.DEV || new URLSearchParams(location.search).get("analytics_debug") === "1") {

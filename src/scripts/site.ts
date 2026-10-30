@@ -1,6 +1,7 @@
 // Site-wide behavior shared by every page. Everything here enhances markup
 // that already works without JavaScript.
 import { observeAcquisition, track } from "@/lib/analytics"
+import { observeEngagement } from "@/lib/engagement"
 import { legacyLocaleTarget } from "@/lib/legacy-locale"
 
 // The HTTP layer already answers legacy ?lang= entrypoints with 308; this covers
@@ -8,6 +9,7 @@ import { legacyLocaleTarget } from "@/lib/legacy-locale"
 const legacy = legacyLocaleTarget(new URL(location.href))
 if (legacy) location.replace(legacy.href)
 observeAcquisition()
+observeEngagement()
 
 type Placement = "header" | "hero" | "footer" | "guide" | "filters"
 const placements: readonly Placement[] = ["header", "hero", "footer", "guide", "filters"]
