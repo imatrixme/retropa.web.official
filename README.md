@@ -84,5 +84,5 @@ VITE_ASC_PROVIDER_TOKEN=YOUR_PROVIDER_TOKEN
 - Include `deploy/legacy-locales.conf` at the `http {}` level.
 - Unknown paths must return 404; do not add an SPA fallback.
 - The default build needs only `deploy/nginx.conf.example`, unchanged since v10. With `agentReadable` on, Markdown negotiation also needs the `map` and the locations from `deploy/nginx-agent-readable.conf.example`; without them the Markdown copies are still served at their own `index.md` URLs.
-- Live release: `releases/20261030-v20-ab7c35a`. Rollback target: `releases/20261030-v19-dbd4d6f`.
+- Live release: `releases/20261101-v21-1d3dc5f`. Rollback target: `releases/20261030-v20-ab7c35a`.
 - Release scripts (package, deploy, rollback, live verification) live in the parent repository under `scripts/deploy/official-website/`; see `scripts/MODULE.md` there.
