@@ -108,6 +108,24 @@ OpenAI 的搜索爬虫与训练爬虫具有不同用途；放行并不保证被�
 
 商店截图应使用原生输出，在两个真实手机视窗尺寸下展示同一帧，解释留白、比例与滤镜结构；网页 WebGL 预览不是商店真机证据。不要为了同步卖点，把已占有排名的 Arcade/GBA 标题直接替换为低需求滤镜词。商店关键词、截图、价格分开观察，不把整体改版伪称单变量实验。
 
+### 2026-11-01 v21 搜索意图修正
+
+依据 GSC 2026-10-02 至 10-29 的查询（`node --experimental-strip-types scripts/seo/search-console.mts query URL_PREFIX --by query,page`，在仓库根目录运行）：
+
+| 页面 | 观察到的查询 | v21 变更 | 变量 |
+| --- | --- | --- | --- |
+| `/mgba-core/` 及 ja、zh-Hans | `mgba ios` 159、`mgba iphone` 30、`mgba for ios` 21 等 iOS/iPhone/iPad 查询共 249 次曝光、4 次点击，排名 9–10 | 标题与描述直接回答“mGBA 有没有 iOS 版”：上游 FAQ 写明尚无官方 iOS 版；Retropa 在 App Store 内置 mGBA 核心，无需侧载。新增 FAQ `ios` | 标题 + 描述 + 1 条 FAQ，作为一组意图修正 |
+| en 系统页 10 个、核心页 7 个，`/gba-emulator/`、`/ds-emulator/`、`/arcade/` | 系统与核心页 671 次曝光、10 次点击；其中含 `ios` 的查询 288 次曝光、6 次点击 | 标题加 iOS：`… for iOS (iPhone & iPad)` | 仅标题 |
+| `/ja/delta-skins/` | `delta スキン` 78（5 次点击）、`delta(スキン) ダウンロード` 38、`delta skin 変え方` 8 | 标题改为「Delta スキンのダウンロードと変え方」；新增下载段（PackHub 系统列表与 3 个具体皮肤页）和 Retropa 内的更换步骤；summary 随之改写 | 标题 + 描述 + 2 段 |
+| `/ja/wonderswan-emulator/` | `ワンダースワン エミュ iphone` 29，排名 7，0 次点击 | 标题用用户写法「ワンダースワン エミュ」 | 仅标题 |
+| `/ja/ds-emulator/` | `ipad ds エミュレータ` 17 | 标题改为「iPad・iPhone 用 DS エミュレータ（iOS）」 | 仅标题 |
+
+- mGBA 页只说明上游没有官方 iOS 版，不冒充 mGBA，也不提供 mGBA 下载，仍符合“不竞争上游项目的下载入口”。
+- ja、zh-Hans 的其他系统页与核心页保留原标题：ja 页面含 `ios` 的查询只占 344 次曝光中的 17 次。
+- ja 皮肤页按客户端实际能力描述导入：Retropa 读取 `.retropack` 里的 Delta 皮肤（「管理」的导入只接受 `.retropack` 和 `.retropaskin`），单个 `.deltaskin` 文件不能直接导入。
+- 同一版本起，商店链接带 `pt`（ASC provider ID，取自 fastlane `itc_team_id`，写在未提交的 `.env`）。ASC 的 Campaign 列可以按 `ct=retropa_<page>` 读取官网带来的产品页浏览和下载。
+- 观察：新标题收录后满 28 天（约 2026-12-01 之后），用同一命令对比各页的曝光、CTR 和排名，再决定保留、回退或只改其中一页。
+
 ### 发布与观察
 
 1. 先完成人工视觉与产品文案验收，再单独授权部署，保留发布时间与制品版本。

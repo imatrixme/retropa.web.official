@@ -1,7 +1,7 @@
 export const productPages = ["gba-emulator", "ds-emulator", "arcade", "delta-skins", "crt-filters"] as const
 export type ProductPage = typeof productPages[number]
 
-export type ProductSection = { title: string; body: string; points?: string[] }
+export type ProductSection = { title: string; body: string; points?: string[]; links?: { href: string; label: string }[] }
 
 export type ProductDetail = {
   title: string

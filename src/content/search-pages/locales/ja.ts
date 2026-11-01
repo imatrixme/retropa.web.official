@@ -548,7 +548,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "wonderswan-emulator",
     "label": "WonderSwan",
-    "title": "iPhone と iPad 用 WonderSwan エミュレータ | Retropa",
+    "title": "iPhone・iPad で遊べるワンダースワン エミュ（WonderSwan） | Retropa",
     "description": "自分の .ws の WonderSwan ゲームを iPhone と iPad で遊べます。Ares コア、縦向き、読み込み手順、あまり一般的でない携帯機のトラブルシューティングを解説します。",
     "summary": "Retropa は、自分の .ws ファイルから WonderSwan のゲームを Ares コアで動作させます。実機が前提として設計された縦向きにも対応しています。",
     "sections": [
@@ -772,8 +772,8 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "mgba-core",
     "label": "mGBA",
-    "title": "iPhone & iPad の mGBA コア | Retropa",
-    "description": "Retropa の mGBA でゲームボーイ、ゲームボーイカラー、ゲームボーイアドバンスを利用できます。カタログの形式、初回起動時の確認、セーブに関する注意、Plus によるコアの切り替えについて説明します。",
+    "title": "iOS（iPhone・iPad）で mGBA コアを使う | Retropa",
+    "description": "mGBA プロジェクトは公式の iPhone アプリを出していません。App Store から無料でダウンロードできる Retropa は、オープンソースの mGBA コアを搭載し、サイドロードなしでゲームボーイ系のゲームを動かせます。",
     "summary": "mGBA は Retropa でゲームボーイ系の携帯ゲーム機をカバーします。まずはデフォルトのレイアウトと元の映像で始め、表示設定を変更する前に実際のゲームプレイのシーンで確認してください。",
     "sections": [
       {
@@ -813,6 +813,11 @@ export const pages: Record<string, SearchPageContent> = {
       }
     ],
     "faqs": [
+      {
+        "id": "ios",
+        "question": "iPhone 版の mGBA はありますか。",
+        "answer": "mGBA プロジェクト自体は iPhone 版を出しておらず、公式 FAQ でも公式の iOS 版はまだないとしています。コアはオープンソースなので iOS アプリに組み込むことができ、Retropa は App Store の通常のアプリとして mGBA コアを搭載しています。サイドロードもパソコンも不要で、手持ちの .gb、.gbc、.gba ファイルを動かせます。"
+      },
       {
         "id": "switch",
         "question": "1 つのゲームだけコアを変更できますか。",

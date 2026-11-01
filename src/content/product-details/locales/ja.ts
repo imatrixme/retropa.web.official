@@ -52,7 +52,7 @@ export const pages: Record<string, ProductDetail> = {
     "linkLabel": "対応ファイルと GBA コアを見る"
   },
   "ds-emulator": {
-    "title": "iPhone と iPad 用 DS エミュレータ",
+    "title": "iPad・iPhone 用 DS エミュレータ（iOS）",
     "label": "DS",
     "image": "library",
     "summary": "手持ちの .nds ゲームを Retropa に読み込み、2 つの画面のための場所を確保しましょう。新しいレイアウトやフィルターを選ぶ前に、タッチ入力、操作、ファイルの要件を確認します。",
@@ -139,10 +139,10 @@ export const pages: Record<string, ProductDetail> = {
     "linkLabel": "システムとコアの一覧を見る"
   },
   "delta-skins": {
-    "title": "iPhone と iPad で Delta スキンを読み込む",
+    "title": "Delta スキンのダウンロードと変え方（iPhone・iPad）",
     "label": "スキン",
     "image": "material",
-    "summary": "背景だけでなく、ゲームの周りの操作も変えられます。Retropa は .deltaskin パッケージを読み込み、iPhone と iPad 向けに独自のスキンコレクションも用意しています。",
+    "summary": "Delta 形式のスキンは、Retropa のスキンカタログ PackHub で探してダウンロードできます。アプリ内の SkinHub から入れる方法、ブラウザで保存したパッケージを読み込む方法、iPhone と iPad でスキンを変える手順をまとめました。",
     "imageAlt": "さまざまな素材の縦向き・横向きコントローラースキンを紹介する Retropa 製品画像",
     "sections": [
       {
@@ -155,12 +155,30 @@ export const pages: Record<string, ProductDetail> = {
         ]
       },
       {
-        "title": ".deltaskin パッケージを読み込む",
-        "body": "元のスキンファイルを保管し、Retropa のスキン読み込み項目を開き、ファイル App からパッケージを選びます。読み込んだら、対応するシステム用に選んでください。ゲームを起動し、画面の領域、方向操作、すべてのアクションボタンを確認してから、いつものレイアウトに決めます。",
+        "title": "Delta スキンはどこでダウンロードできる？",
+        "body": "Retropa で使えるスキンは PackHub（hub.retropa.com）にまとまっています。コミュニティで作られた Delta 形式のスキンが、Retropa で読み込める .retropack パッケージとしてシステム別に並んでいます。いちばん簡単なのは、アプリ内の SkinHub からそのままダウンロードする方法です。ブラウザで PackHub を開いた場合は、.retropack ファイルとして保存してから Retropa に読み込みます。",
         "points": [
-          "スキンのスクリーンショットではなく、完全な .deltaskin パッケージを使ってください。",
-          "パッケージが読み込めない場合は、別のレイアウトを試す前に、その形式と対象システムを確認します。",
-          "必要な操作が隠れてしまう場合は、動作するスキンに戻してください。"
+          "システムで絞り込むと、GBA、GBC、DS などのスキンだけを一覧できます。",
+          "iPad で使うなら、名前に iPad とあるスキンなど、iPad のレイアウトを含むものを選んでください。",
+          "Retropa が読み込むのは .retropack パッケージです。単体の .deltaskin ファイルは今のバージョンではそのまま読み込めないので、PackHub で同じスキンを探してください。"
+        ],
+        "links": [
+          { "label": "PackHub の GBA スキン一覧", "href": "https://hub.retropa.com/skins?system=com.rileytestut.delta.game.gba" },
+          { "label": "PackHub の GBC スキン一覧", "href": "https://hub.retropa.com/skins?system=com.rileytestut.delta.game.gbc" },
+          { "label": "PackHub の DS スキン一覧", "href": "https://hub.retropa.com/skins?system=com.rileytestut.delta.game.ds" },
+          { "label": "例：Minimal Dark GBA（無料）", "href": "https://hub.retropa.com/packs/minimal-dark-gba" },
+          { "label": "例：PlayLite GBC Light（無料）", "href": "https://hub.retropa.com/packs/playlite-gbc-light-starvingartist" },
+          { "label": "例：Blue Steel NDS for iPad（無料）", "href": "https://hub.retropa.com/packs/blue-steel-nds-for-ipad-by-stragest" }
+        ]
+      },
+      {
+        "title": "Retropa でスキンを変える手順",
+        "body": "スキンはシステムごとに設定します。変えたいシステムのゲームを一度起動してから、次の順に進めてください。読み込めない場合は、パッケージの対象システムが合っているか確認します。必要な操作が隠れてしまうときは、動作するスキンに戻してください。",
+        "points": [
+          "手順 1：「設定」→「スキン」を開き、「ルックを変更」をタップして「アートワーク」の棚を表示します。",
+          "手順 2：「SkinHub」をタップし、使いたいスキンをダウンロードします。",
+          "手順 3：ブラウザで保存した .retropack は、「管理」を開き、右上のインポートボタンからファイル App で選びます。",
+          "手順 4：「アートワーク」の棚に並んだスキンをタップすると切り替わります。ゲームに戻り、画面の領域、方向操作、すべてのアクションボタンを確認します。"
         ]
       },
       {

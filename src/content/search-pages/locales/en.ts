@@ -10,7 +10,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "gb-emulator",
     "label": "GB",
-    "title": "Game Boy Emulator for iPhone & iPad | Retropa",
+    "title": "Game Boy Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Retropa runs the .gb files you own on iPhone and iPad. Here is which core handles Game Boy, how to import a game, how to set up the screen and controls, and what to check when a file refuses to open.",
     "summary": "Play your own .gb files on iPhone and iPad. Four cores to pick from, handheld skins, LCD and CRT looks, and controller mapping.",
     "sections": [
@@ -92,7 +92,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "gbc-emulator",
     "label": "GBC",
-    "title": "Game Boy Color Emulator for iPhone & iPad | Retropa",
+    "title": "Game Boy Color Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Play your own .gbc games on iPhone and iPad. Color handling, GBC-only titles, core choice, import steps and the checks to run when a Game Boy Color game will not start.",
     "summary": "Play Game Boy Color games from the .gbc files you own, with palette handling, a core choice per game and display treatments made for the original reflective screen.",
     "sections": [
@@ -173,7 +173,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "nes-emulator",
     "label": "NES",
-    "title": "NES Emulator for iPhone & iPad | Retropa",
+    "title": "NES Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Run your own NES games on iPhone and iPad. The formats it opens, including .nes, .fds and .nsf, plus core choice, import steps, controller mapping and troubleshooting.",
     "summary": "Retropa runs NES games from the files you own, covering .nes, .fds and NSF audio, with three cores to choose from, gamepad mapping and CRT treatments.",
     "sections": [
@@ -255,7 +255,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "snes-emulator",
     "label": "SNES",
-    "title": "SNES Emulator for iPhone & iPad | Retropa",
+    "title": "SNES Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Play your own SNES games on iPhone and iPad. Retropa reads .sfc and .smc files on the LakeSnes core, maps all six buttons and covers the usual troubleshooting when a game refuses to start.",
     "summary": "Retropa plays the SNES games you already own, straight from .sfc and .smc files. LakeSnes handles the emulation, six-button pads are fully mapped, and save states plus CRT-style filters are built in.",
     "sections": [
@@ -337,7 +337,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "sega-genesis-emulator",
     "label": "Genesis",
-    "title": "Sega Genesis & Mega Drive Emulator for iPhone | Retropa",
+    "title": "Sega Genesis & Mega Drive Emulator for iOS | Retropa",
     "description": "Play the Sega Genesis and Mega Drive games you own on iPhone and iPad. Retropa reads .md, .smd and .gen files on the JGenesis core, maps both three- and six-button pads, and walks through the common fixes when a title will not start.",
     "summary": "Retropa runs Genesis and Mega Drive cartridges from files you supply. JGenesis does the emulation, six-button pads are covered, and save states and CRT-style filters come standard.",
     "sections": [
@@ -418,7 +418,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "game-gear-emulator",
     "label": "Game Gear",
-    "title": "Game Gear Emulator for iPhone & iPad | Retropa",
+    "title": "Game Gear Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Play your own .gg Game Gear games on iPhone and iPad. This page covers the core that runs them, how to import a file, how to set up that small screen and what to check when a game will not start.",
     "summary": "Retropa runs Game Gear games from your own .gg files on the JGenesis core. You get a backlit-panel look, handheld skins and full control mapping.",
     "sections": [
@@ -484,7 +484,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "master-system-emulator",
     "label": "Master System",
-    "title": "Master System Emulator for iPhone & iPad | Retropa",
+    "title": "Master System Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Run your own .sms Sega Master System games on iPhone and iPad. What the JGenesis core covers, how import works, control layout, and the checks to try when a title will not start.",
     "summary": "Retropa plays Master System games from .sms files you already own, on the JGenesis core, with skins, display filters and mappable controls.",
     "sections": [
@@ -548,7 +548,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "wonderswan-emulator",
     "label": "WonderSwan",
-    "title": "WonderSwan Emulator for iPhone & iPad | Retropa",
+    "title": "WonderSwan Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Bring your own .ws WonderSwan files to iPhone and iPad. How the Ares core handles them, why vertical play matters, and where to look when a game fails to boot.",
     "summary": "Retropa plays WonderSwan games from your own .ws files on the Ares core, and it honors the vertical orientation the hardware was built around.",
     "sections": [
@@ -617,7 +617,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "neogeo-pocket-emulator",
     "label": "Neo Geo Pocket",
-    "title": "Neo Geo Pocket Emulator for iPhone & iPad | Retropa",
+    "title": "Neo Geo Pocket Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Run your own .ngp and .ngpc Neo Geo Pocket games on iPhone and iPad. Which core plays them, how the microswitch stick feels under a thumb, and why the arcade side of the family is a separate thing entirely.",
     "summary": "Retropa plays Neo Geo Pocket and Neo Geo Pocket Color files on the Ares core, and the handheld pair needs no Plus upgrade. Neo Geo arcade is a different story.",
     "sections": [
@@ -686,7 +686,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "system",
     "slug": "neogeo-emulator",
     "label": "Neo Geo",
-    "title": "Neo Geo Emulator for iPhone & iPad | Retropa",
+    "title": "Neo Geo Emulator for iOS (iPhone & iPad) | Retropa",
     "description": "Play supported Neo Geo MVS arcade sets on iPhone and iPad with Retropa. How a set is built, when a BIOS is required, what parent and clone sets mean, and what to inspect when a game will not boot.",
     "summary": "Retropa runs supported Neo Geo arcade sets on iPhone and iPad with touch controls, external controllers and CRT filters. Arcade play requires Retropa Plus, and the app ships no games or BIOS files.",
     "sections": [
@@ -772,8 +772,8 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "mgba-core",
     "label": "mGBA",
-    "title": "mGBA Core on iPhone & iPad | Retropa",
-    "description": "Run Game Boy, Game Boy Color and Game Boy Advance games in Retropa with mGBA. What the catalog supports, what to check on a first launch, and how core switching works with Retropa Plus.",
+    "title": "mGBA on iOS: Run the mGBA Core on iPhone & iPad | Retropa",
+    "description": "The mGBA project has no official iPhone app. Retropa, a free download on the App Store, runs the open-source mGBA core for Game Boy, Game Boy Color and Game Boy Advance games, with no sideloading.",
     "summary": "mGBA is the core Retropa picks by default across the Game Boy handhelds. Leave the layout and the picture alone at first, then judge it on a real gameplay scene instead of the title screen.",
     "sections": [
       {
@@ -816,6 +816,11 @@ export const pages: Record<string, SearchPageContent> = {
     ],
     "faqs": [
       {
+        "id": "ios",
+        "question": "Is there mGBA for iPhone?",
+        "answer": "Not from the mGBA project itself: its FAQ says there is no official iOS version yet. The core is open source, so iOS apps can build it in. Retropa ships the mGBA core in a regular App Store app, so you install it like any other app, with no sideloading or computer, and it runs the .gb, .gbc and .gba files you bring."
+      },
+      {
         "id": "switch",
         "question": "Can I change the core for one game only?",
         "answer": "Yes, with Retropa Plus. Retropa stores the choice per game, but back up your saves first and do not count on states moving between cores."
@@ -837,7 +842,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "skyemu-core",
     "label": "SkyEmu",
-    "title": "SkyEmu Core on iPhone & iPad | Retropa",
+    "title": "SkyEmu Core for iOS (iPhone & iPad) | Retropa",
     "description": "SkyEmu plays the Game Boy family and the Nintendo DS beta path in Retropa. Formats, the touch layer and two-screen layouts, plus what Retropa Plus changes about cores.",
     "summary": "SkyEmu is the one core behind the Nintendo DS beta path in Retropa, and it covers the Game Boy handhelds too. DS results depend on the title, so nobody can promise that every game or every touch interaction behaves.",
     "sections": [
@@ -907,7 +912,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "sameboy-core",
     "label": "SameBoy",
-    "title": "SameBoy Core on iPhone & iPad | Retropa",
+    "title": "SameBoy Core for iOS (iPhone & iPad) | Retropa",
     "description": "SameBoy sticks to Game Boy and Game Boy Color in Retropa. How to check color honestly, where the file scope ends, and when comparing cores is worth the trouble.",
     "summary": "SameBoy handles the original monochrome and color Game Boy hardware and stops there. That narrow focus makes it a handy comparison point, not proof that any other core is worse.",
     "sections": [
@@ -967,7 +972,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "rusticones-core",
     "label": "RusticoNES",
-    "title": "RusticoNES Core for NES on iPhone & iPad | Retropa",
+    "title": "RusticoNES Core for NES on iOS (iPhone & iPad) | Retropa",
     "description": "RusticoNES in Retropa: NES and Famicom cartridge and disk formats, mapper checks, first launch, save precautions and Plus core switching.",
     "summary": "RusticoNES is the NES runtime path Retropa picks by default. On the emulator core list it sits first, so most NES games never need another choice. Reach for it when your file is a cartridge or disk image and the boot fails for a reason you can name.",
     "sections": [
@@ -1032,7 +1037,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "tetanes-core",
     "label": "TetaNES",
-    "title": "TetaNES Core for NES on iPhone & iPad | Retropa",
+    "title": "TetaNES Core for NES on iOS (iPhone & iPad) | Retropa",
     "description": "TetaNES in Retropa: NES / Famicom games, disk images and NSF audio, format-specific checks, controller setup and the Plus requirement for switching cores.",
     "summary": "TetaNES is the alternative NES core in Retropa, and the one to try when RusticoNES will not cooperate. Its catalog entry reaches past cartridge games to disk images and NSF music, so know which kind of file you imported before you expect a game screen.",
     "sections": [
@@ -1097,7 +1102,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "lakesnes-core",
     "label": "LakeSnes",
-    "title": "LakeSnes Core for SNES on iPhone & iPad | Retropa",
+    "title": "LakeSnes Core for SNES on iOS (iPhone & iPad) | Retropa",
     "description": "LakeSnes in Retropa: SNES / Super Famicom formats, cartridge-chip limits, six-button controls, save backups and Plus core switching.",
     "summary": "LakeSnes handles SNES and Super Famicom in Retropa, and it is the default there. The catalog takes a handful of image and copier formats, but recognizing a file and emulating a game's cartridge hardware are two separate questions.",
     "sections": [
@@ -1165,7 +1170,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "jgenesis-core",
     "label": "JGenesis",
-    "title": "JGenesis Core on iPhone & iPad | Retropa",
+    "title": "JGenesis Core for iOS (iPhone & iPad) | Retropa",
     "description": "JGenesis in Retropa: the Sega and Nintendo systems in the catalog, Genesis / Mega Drive naming, format boundaries, system detection and Plus core switching.",
     "summary": "One core family, many systems. In Retropa the detected system still decides the hardware, the controls and the save context, so files from one console do not become files from another just because JGenesis runs both.",
     "sections": [
@@ -1242,7 +1247,7 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "ares-core",
     "label": "Ares",
-    "title": "Ares Core on iPhone & iPad | Retropa",
+    "title": "Ares Core for iOS (iPhone & iPad) | Retropa",
     "description": "Ares in Retropa: what the catalog covers for GBA, WonderSwan and Neo Geo Pocket, color-model detection, rotated layouts, save precautions and Plus core switching.",
     "summary": "Ares is a general-purpose emulator upstream, but Retropa wires up a specific slice of it. Several handheld families appear here, and the desktop project's longer system list does not come along for the ride.",
     "sections": [

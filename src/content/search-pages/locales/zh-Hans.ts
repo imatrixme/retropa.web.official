@@ -772,8 +772,8 @@ export const pages: Record<string, SearchPageContent> = {
     "kind": "core",
     "slug": "mgba-core",
     "label": "mGBA",
-    "title": "iPhone 与 iPad 上的 mGBA 核心 | Retropa",
-    "description": "mGBA 是 Retropa 里 Game Boy 三代的默认核心。这一页讲它认哪些文件、第一次进游戏该看什么、画面不对劲时先怀疑哪里，以及 Plus 换核心要注意的事。",
+    "title": "iOS 上的 mGBA：在 iPhone 与 iPad 用 mGBA 核心 | Retropa",
+    "description": "mGBA 项目没有出官方 iPhone 版。Retropa 可在 App Store 免费下载，内置开源的 mGBA 核心，不用侧载就能玩 Game Boy、Game Boy Color 和 Game Boy Advance 游戏。",
     "summary": "Game Boy、Game Boy Color、Game Boy Advance 都归 mGBA 管，而且它本来就是默认选中的那个。多数人其实不用动它：先把游戏跑起来，画面和按键确认没问题，再谈皮肤和滤镜。",
     "sections": [
       {
@@ -813,6 +813,11 @@ export const pages: Record<string, SearchPageContent> = {
       }
     ],
     "faqs": [
+      {
+        "id": "ios",
+        "question": "有 iPhone 版的 mGBA 吗？",
+        "answer": "mGBA 项目本身没有出 iPhone 版，官方 FAQ 也说目前还没有正式的 iOS 版本。不过核心是开源的，iOS App 可以把它集成进来：Retropa 就是一款上架 App Store 的普通 App，内置 mGBA 核心，不用侧载、不用电脑，导入自己的 .gb、.gbc、.gba 文件就能玩。"
+      },
       {
         "id": "switch",
         "question": "可以只给一个游戏换核心吗？",

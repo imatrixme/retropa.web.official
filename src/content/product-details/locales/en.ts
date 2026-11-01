@@ -6,7 +6,7 @@ import type { ProductDetail } from "@/content/product-details/types"
  */
 export const pages: Record<string, ProductDetail> = {
   "gba-emulator": {
-    "title": "GBA emulator for iPhone and iPad",
+    "title": "GBA emulator for iOS (iPhone and iPad)",
     "label": "GBA",
     "image": "material",
     "summary": "Retropa runs the .gba files you bring along. Start with a game that actually boots, then pick a handheld skin, map a controller and settle on a screen treatment that suits the way you play.",
@@ -52,7 +52,7 @@ export const pages: Record<string, ProductDetail> = {
     "linkLabel": "See supported files and GBA cores"
   },
   "ds-emulator": {
-    "title": "DS emulator for iPhone and iPad",
+    "title": "DS emulator for iOS (iPhone and iPad)",
     "label": "DS",
     "image": "library",
     "summary": "Drop your .nds games into Retropa and make room for two screens. Check touch input, controls and file requirements before you go looking for a new layout or filter.",
@@ -93,7 +93,7 @@ export const pages: Record<string, ProductDetail> = {
     "linkLabel": "See supported files and DS cores"
   },
   "arcade": {
-    "title": "Arcade emulator for iPhone and iPad",
+    "title": "Arcade emulator for iOS (iPhone and iPad)",
     "label": "Arcade",
     "image": "library",
     "summary": "Retropa runs the arcade families it supports: CPS, Neo Geo, PGM and M92, with touch controls, external controllers and CRT filters. Arcade emulation needs Retropa Plus, and the app ships without games or BIOS files.",

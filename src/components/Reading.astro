@@ -5,7 +5,7 @@ import type { Locale } from "@/i18n/locales"
 
 export type ReadingSection = {
   id: string; title: string; body: string | string[]; points?: string[]
-  link?: { href: string; label: string }
+  links?: { href: string; label: string }[]
   /** Optional extras used by reference pages; other templates leave them out. */
   badge?: string
   table?: { head: string[]; rows: string[][] }
@@ -54,7 +54,7 @@ const pad = (index: number) => String(index + 1).padStart(2, "0")
           <tbody>{section.table.rows.map(row => <tr>{row.map((cell, i) => i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody>
         </table></div>}
         {section.points && <ul class="points">{section.points.map(point => <li>{point}</li>)}</ul>}
-        {section.link && <a class="link-arrow" href={section.link.href} rel="noopener">{section.link.label}<Icon name="arrow-right" size={16} /></a>}
+        {section.links?.map(link => <a class="link-arrow" href={link.href} rel="noopener">{link.label}<Icon name="arrow-right" size={16} /></a>)}
         {section.shot && <figure class:list={["shot", { wide: section.shot.wide }]}><img src={section.shot.src} width={section.shot.width} height={section.shot.height} alt={section.shot.alt} loading="lazy" decoding="async" /></figure>}
       </section>)}
       {faqs.length > 0 && <section class="faqs" id={faqId}>
@@ -94,6 +94,7 @@ const pad = (index: number) => String(index + 1).padStart(2, "0")
   h2 { font-family: var(--display-face); font-weight: 750; font-stretch: calc(var(--display-stretch) - 8%); letter-spacing: calc(var(--display-tracking) * .6); font-size: clamp(28px, 3vw, 40px); line-height: 1.08; margin-bottom: 18px; }
   .chapter p + p { margin-top: 14px; }
   .chapter > .link-arrow { display: flex; width: fit-content; margin-top: 14px; }
+  .chapter > .link-arrow + .link-arrow { margin-top: 8px; }
   .body p { font-size: 18px; line-height: 1.72; color: #2a2832; }
   .points { display: grid; gap: 10px; margin-top: 20px; list-style: none; }
   .points li { position: relative; padding-left: 26px; font-size: 16px; line-height: 1.6; color: #3b3945; }
