@@ -33,7 +33,7 @@ The site describes only the App version that is on the App Store. `releasedVersi
 
 ## Agent-readable copies
 
-Hidden for now: `agentReadable` in `src/lib/site-config.ts` is `false`, so the build ships none of the layer below and `public/robots.txt` is the v10 file. The integrity and HTTP gates fail if any part of it leaks. Turning it on is that one value plus the rules in `deploy/nginx-agent-readable.conf.example`, shipped in the same deploy. While it is on:
+On since v22 (2026-11-01): `agentReadable` in `src/lib/site-config.ts` is `true`, and the host's Nginx site carries the rules from `deploy/nginx-agent-readable.conf.example` (backup and rollback in `docs/releases/2026-11-v22.md`). Turning it off is that value set to `false` plus those rules removed, in the same deploy; while it is off the build ships none of the layer below, `public/robots.txt` is the v10 file, and the integrity and HTTP gates fail if any part of it leaks. While it is on:
 
 - The build adds [Content Signals](https://contentsignals.org) to `dist/robots.txt` next to the crawl rules; the integrity gate keeps the two in agreement.
 - Every indexable page has an `index.md` beside it: its `<main>` as Markdown, declared with `<link rel="alternate" type="text/markdown">`. `/llms.txt` is the site overview.
@@ -84,5 +84,5 @@ VITE_ASC_PROVIDER_TOKEN=YOUR_PROVIDER_TOKEN
 - Include `deploy/legacy-locales.conf` at the `http {}` level.
 - Unknown paths must return 404; do not add an SPA fallback.
 - The default build needs only `deploy/nginx.conf.example`, unchanged since v10. With `agentReadable` on, Markdown negotiation also needs the `map` and the locations from `deploy/nginx-agent-readable.conf.example`; without them the Markdown copies are still served at their own `index.md` URLs.
-- Live release: `releases/20261101-v21-1d3dc5f`. Rollback target: `releases/20261030-v20-ab7c35a`.
+- Live release: `releases/20261101-v22.1-98ad7ee`. Rollback target: `releases/20261101-v22-9340b2b`. Going back to v21 or earlier also means restoring the host's Nginx backup, because those builds have no Markdown copies (see `docs/releases/2026-11-v22.md`).
 - Release scripts (package, deploy, rollback, live verification) live in the parent repository under `scripts/deploy/official-website/`; see `scripts/MODULE.md` there.
