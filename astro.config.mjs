@@ -9,9 +9,10 @@ export default defineConfig({
   site: "https://retropa.com",
   output: "static",
   trailingSlash: "always",
-  // Stylesheets are inlined (about 6 KB compressed per page): a first visit can
-  // paint from the HTML alone instead of waiting on two CSS requests.
-  build: { format: "directory", assets: "assets", inlineStylesheets: "always" },
+  // Stylesheets stay external (Astro inlines only the small ones). Inlining all of
+  // them was tried in v22: each page grew by about 25 KB as Cloudflare compresses
+  // it, the hero image was found later and FCP rose on every measured page.
+  build: { format: "directory", assets: "assets", inlineStylesheets: "auto" },
   compressHTML: true,
   // Islands are written against the React API and run on preact/compat (~4 KB).
   integrations: [preact({ compat: true })],
