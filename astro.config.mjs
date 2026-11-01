@@ -9,7 +9,9 @@ export default defineConfig({
   site: "https://retropa.com",
   output: "static",
   trailingSlash: "always",
-  build: { format: "directory", assets: "assets" },
+  // Stylesheets are inlined (about 6 KB compressed per page): a first visit can
+  // paint from the HTML alone instead of waiting on two CSS requests.
+  build: { format: "directory", assets: "assets", inlineStylesheets: "always" },
   compressHTML: true,
   // Islands are written against the React API and run on preact/compat (~4 KB).
   integrations: [preact({ compat: true })],

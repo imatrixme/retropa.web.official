@@ -56,7 +56,8 @@ const consentEnabled = /^G-[A-Z0-9]+$/.test(analyticsConfig.measurementId)
         <p class="hud">{chrome.footerCompany}</p>
         <ul role="list">
           {company.map(link => <li><a href={link.href}>{link.text}</a></li>)}
-          <li><a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}<Icon name="arrow-up-right" size={14} /></a></li>
+          {/* email_off keeps Cloudflare from swapping the address for a script-decoded link that readers without JavaScript, agents included, cannot use. */}
+          <li><!--email_off--><a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}<Icon name="arrow-up-right" size={14} /></a><!--/email_off--></li>
         </ul>
       </div>
     </div>

@@ -77,6 +77,17 @@ for (const leak of leaks) console.log(`FAIL ${leak}`)
 if (leaks.length) process.exit(1)
 console.log(`App version ${shippedVersion}: ${held.length} media files held for a later release.`)
 
+// Cloudflare Rocket Loader is on for the zone and rewrites every script to run
+// after the page has loaded, so the html.js class, the reveal observer and the
+// islands start late, and shown content fades out and back in. data-cfasync
+// opts a script out; these scripts are already modules or a few inline bytes.
+for (const file of pages) {
+  const html = await readFile(file, "utf8")
+  await writeFile(file, await new HTMLRewriter().on("script:not([type='application/ld+json'])", {
+    element(element) { element.setAttribute("data-cfasync", "false") },
+  }).transform(new Response(html)).text())
+}
+
 if (agentReadable) {
   const agent = await writeAgentAssets("dist")
   for (const failure of agent.failures) console.log(`FAIL ${failure}`)

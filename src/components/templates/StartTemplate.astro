@@ -32,7 +32,7 @@ const quick = (["gba-emulator", "ds-emulator", "arcade"] as const).map(page => (
 <Reading tocLabel={discovery.onThisPage} sections={[]} faqId="before-you-start" faqTitle={guide.faqTitle}
   faqs={guide.faqs.map(item => ({ id: item.id, question: item.question, answer: item.answer, open: ["games", "integer-scaling"].includes(item.id), link: item.link ? { href: siteLink(item.link, locale).href, label: item.linkLabel ?? "" } : undefined }))}
   relatedLabel={copy.start} related={productPages.map(page => ({ ...siteLink(page, locale), text: detailLinkLabel(page, locale) }))}>
-  <p class="support">{guide.support} <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a></p>
+  <p class="support">{guide.support} <!--email_off--><a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a><!--/email_off--></p>
 </Reading>
 <style>
   .quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }

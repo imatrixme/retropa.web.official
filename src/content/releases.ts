@@ -15,7 +15,7 @@ import { isPublishedLocale, type Locale, type PublishedLocale } from "@/i18n/loc
  * Notes are curated from each version's App Store "What's New" text: no prices,
  * trial durations or plan tiers, and no product names the site cannot claim.
  */
-const releasedVersion = "2.4.0"
+const releasedVersion = "2.4.1"
 
 type Text = Record<PublishedLocale, string>
 type Lines = Record<PublishedLocale, string[]>
@@ -48,6 +48,14 @@ const lines: Record<string, Text> = {
 }
 
 const releases: Release[] = [
+  {
+    version: "2.4.1", month: "2026-10",
+    changes: {
+      en: ["A new guide shows how to get your own games onto the device: the Wi-Fi portal, the Files app, or a free homebrew game to start with.", "Import from Files in the library opens the file picker again.", "Opening the library or settings no longer ends the current play session, so play time keeps counting.", "Fixed a crash when previewing filters on older iPads, and a crash when leaving the library.", "Text no longer gets cut off on smaller screens."],
+      "zh-Hans": ["新增导入指南，介绍把自己的游戏放到设备上的几种方式：Wi-Fi 传输、“文件”App，或先从一款免费的自制游戏开始。", "游戏库里的“从文件导入”可以重新打开文件选择器。", "游玩时打开游戏库或设置，不会再结束当前的游玩，游玩时间继续累计。", "修复在较旧的 iPad 上预览滤镜时闪退，以及离开游戏库时闪退的问题。", "小屏设备上的文字不再被截断。"],
+      ja: ["自分のゲームをデバイスに入れる方法を案内する新しいガイド：Wi-Fi ポータル、「ファイル」App、まずは無料のホームブリューゲームから。", "ライブラリの「ファイルから読み込む」でファイルピッカーが再び開くようになりました。", "プレイ中にライブラリや設定を開いてもプレイセッションが終了しなくなり、プレイ時間が引き続き記録されます。", "古い iPad でフィルタをプレビューするとクラッシュする問題と、ライブラリを閉じるときにクラッシュする問題を修正しました。", "小さい画面で文字が途切れなくなりました。"],
+    },
+  },
   {
     version: "2.4.0", month: "2026-10", page: "home", anchor: "looks",
     changes: {

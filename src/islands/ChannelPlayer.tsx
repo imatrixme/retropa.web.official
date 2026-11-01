@@ -38,7 +38,8 @@ export default function ChannelPlayer({ channels, copy }: { channels: PlayerChan
   const [reduced, setReduced] = useState(false)
   const channel = channels[index]
   // Footage starts only after the page has loaded and the browser is idle, and
-  // never on Save-Data connections, so the poster stays the largest paint.
+  // never on Save-Data connections, so the skin stays the largest paint; it is
+  // fetched at high priority, the poster under it at low.
   const [ready, setReady] = useState(false)
   useEffect(() => {
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
@@ -98,7 +99,7 @@ export default function ChannelPlayer({ channels, copy }: { channels: PlayerChan
       <div className="cp-glow" aria-hidden="true" />
       <div className="cp-device">
         <div className="cp-screen">
-          {channel.skin && <img className="cp-skin" src={channel.skin.src} width={channel.skin.width} height={channel.skin.height} alt="" aria-hidden="true" fetchPriority="low" decoding="async" />}
+          {channel.skin && <img className="cp-skin" src={channel.skin.src} width={channel.skin.width} height={channel.skin.height} alt="" aria-hidden="true" fetchPriority="high" decoding="async" />}
           <div className={`cp-game${channel.skin ? "" : " is-full"}`} style={screen}>
             {playVideo
               ? <ChannelVideo key={channel.id} video={channel.video!} />

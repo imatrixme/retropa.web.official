@@ -13,10 +13,11 @@ export const siteConfig = {
 /**
  * Agent-readable layer: an index.md beside every page, /llms.txt, the page
  * links that announce them, Markdown negotiation and the robots.txt Content
- * Signals. Hidden for now, so the build publishes none of it; turning it on is
- * this one value plus the nginx rules in deploy/nginx-agent-readable.conf.example.
+ * Signals. On since v22 (2026-11-01), with the rules from
+ * deploy/nginx-agent-readable.conf.example merged on the host. Turning it off is
+ * this value plus removing those rules in the same deploy.
  */
-export const agentReadable: boolean = false
+export const agentReadable: boolean = true
 
 export type LegalSection = {
   id: string
