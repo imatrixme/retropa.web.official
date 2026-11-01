@@ -57,7 +57,7 @@ const jsonLd = JSON.stringify(meta.jsonLd).replace(/</g, "\\u003c")
   {locale === "zh-Hans" && <link rel="preload" href={page === "home" ? "/fonts/smiley-zh-hans-home.woff2" : "/fonts/smiley-zh-hans.woff2"} as="font" type="font/woff2" crossorigin />}
   {locale === "zh-Hans" && page === "home" && <style is:inline>@font-face { font-family: "SmileyHome"; src: url("/fonts/smiley-zh-hans-home.woff2") format("woff2"); font-weight: 400 900; font-display: fallback; } :lang(zh-Hans) { --display-face: "SmileyHome", "Smiley", var(--font-display); }</style>}
   {preload.map(href => <link rel="preload" href={href} as="image" fetchpriority="high" />)}
-  <script is:inline>document.documentElement.classList.add("js")</script>
+  <script is:inline>document.documentElement.classList.add("js");document.addEventListener("load",(event)=>event.target.removeAttribute?.("data-lqip"),true)</script>
   <script type="application/ld+json" set:html={jsonLd} />
 </head>
 <body>

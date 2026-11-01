@@ -152,42 +152,42 @@
     "mgba": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/mgba-emu/mgba/master/res/scripts/demos/logo.png",
-      "output": "logo-wall/cores/mgba.png"
+      "output": "logo-wall/cores/mgba.webp"
     },
     "skyemu": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/skylersaleh/SkyEmu/dev/src/resources/icons/Apple/iPhone/AppIcon.appiconset/ios-marketing-1024x1024.png",
-      "output": "logo-wall/cores/skyemu.png"
+      "output": "logo-wall/cores/skyemu.webp"
     },
     "sameboy": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/LIJI32/SameBoy/master/iOS/logo@3x.png",
-      "output": "logo-wall/cores/sameboy.png"
+      "output": "logo-wall/cores/sameboy.webp"
     },
     "rusticones": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/zeta0134/rustico/master/wasm/public/favicon.png",
-      "output": "logo-wall/cores/rusticones.png"
+      "output": "logo-wall/cores/rusticones.webp"
     },
     "tetanes": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/lukexor/tetanes/main/tetanes/assets/tetanes_icon.png",
-      "output": "logo-wall/cores/tetanes.png"
+      "output": "logo-wall/cores/tetanes.webp"
     },
     "lakesnes": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/dinkc64/LakeSnes/main/resources/winicon.ico",
-      "output": "logo-wall/cores/lakesnes.png"
+      "output": "logo-wall/cores/lakesnes.webp"
     },
     "jgenesis": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/jsgroth/jgenesis/master/frontend/32x32.png",
-      "output": "logo-wall/cores/jgenesis.png"
+      "output": "logo-wall/cores/jgenesis.webp"
     },
     "ares": {
       "sourceType": "github-repo-logo",
       "source": "https://raw.githubusercontent.com/ares-emulator/ares/master/ares/ares/resource/logo@2x.png",
-      "output": "logo-wall/cores/ares.png"
+      "output": "logo-wall/cores/ares.webp"
     }
   },
   "brand": {

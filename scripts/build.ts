@@ -2,8 +2,9 @@
 // this script writes crawl assets and build evidence and runs the gates on
 // exactly what will be deployed.
 import { spawnSync } from "node:child_process"
-import { mkdir, readFile, readdir, rm, rmdir, writeFile } from "node:fs/promises"
+import { mkdir, readFile, readdir, rm, rmdir, stat, writeFile } from "node:fs/promises"
 import { dirname, join } from "node:path"
+import sharp from "sharp"
 import subsetFont from "subset-font"
 import { publishedPages } from "../src/lib/metadata.ts"
 import { localizedPath } from "../src/lib/routes.ts"
@@ -77,6 +78,26 @@ for (const leak of leaks) console.log(`FAIL ${leak}`)
 if (leaks.length) process.exit(1)
 console.log(`App version ${shippedVersion}: ${held.length} media files held for a later release.`)
 
+// WebP has no progressive mode, so every large local image carries a blurred
+// preview (a 24px WebP under an SVG blur, about half a kilobyte) that paints with
+// the HTML. The head script removes data-lqip once the image has loaded, so the
+// preview never shows through transparent pixels; without JavaScript it is unused.
+const previewSources = new Set<string>()
+for (const file of pages) {
+  await new HTMLRewriter().on("img[src^='/']:not([hidden])", {
+    element(element) { previewSources.add(element.getAttribute("src")!) },
+  }).transform(new Response(await readFile(file, "utf8"))).text()
+}
+const previews = new Map<string, string>()
+for (const src of previewSources) {
+  const path = join("dist", src)
+  const size = (await stat(path).catch(() => null))?.size ?? 0
+  if (size < 40 * 1024) continue
+  const { data, info } = await sharp(path).resize(24, 24, { fit: "inside" }).webp({ quality: 50 }).toBuffer({ resolveWithObject: true })
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${info.width} ${info.height}' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='1'/></filter><image width='100%' height='100%' preserveAspectRatio='none' filter='url(#b)' href='data:image/webp;base64,${data.toString("base64")}'/></svg>`
+  previews.set(src, `url("data:image/svg+xml,${svg.replace(/[%#<>]/g, encodeURIComponent)}")`)
+}
+
 // Cloudflare Rocket Loader is on for the zone and rewrites every script to run
 // after the page has loaded, so the html.js class, the reveal observer and the
 // islands start late, and shown content fades out and back in. data-cfasync
@@ -85,8 +106,17 @@ for (const file of pages) {
   const html = await readFile(file, "utf8")
   await writeFile(file, await new HTMLRewriter().on("script:not([type='application/ld+json'])", {
     element(element) { element.setAttribute("data-cfasync", "false") },
+  }).on("img[src^='/']:not([hidden])", {
+    element(element) {
+      const preview = previews.get(element.getAttribute("src")!)
+      if (!preview) return
+      const style = element.getAttribute("style")
+      element.setAttribute("style", `${style ? `${style};` : ""}--lqip:${preview}`)
+      element.setAttribute("data-lqip", "")
+    },
   }).transform(new Response(html)).text())
 }
+console.log(`Blurred previews: ${previews.size} images of 40 KB or more.`)
 
 if (agentReadable) {
   const agent = await writeAgentAssets("dist")

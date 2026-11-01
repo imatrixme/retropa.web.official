@@ -128,6 +128,8 @@
 @layer utilities {
   .glow-text { text-shadow: 0 0 24px color-mix(in oklab, var(--signal) 55%, transparent); }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  /* Blurred preview from scripts/build.ts, shown until the head script sees the image load. */
+  html.js img[data-lqip] { background: var(--lqip) center / cover no-repeat; }
 }
 
 /* Power-on reveal: a bright line expands into the picture. */

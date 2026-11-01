@@ -84,43 +84,43 @@ export type CatalogData = {
 const coreDefinitions: CoreDefinition[] = [
   {
     id: "mgba",
-    logoPath: "/logo-wall/cores/mgba.png",
+    logoPath: "/logo-wall/cores/mgba.webp",
     githubUrl: "https://github.com/mgba-emu/mgba",
     romExtensions: [".gb", ".gbc", ".gba"],
   },
   {
     id: "skyemu",
-    logoPath: "/logo-wall/cores/skyemu.png",
+    logoPath: "/logo-wall/cores/skyemu.webp",
     githubUrl: "https://github.com/skylersaleh/SkyEmu",
     romExtensions: [".gb", ".gbc", ".gba", ".nds"],
   },
   {
     id: "sameboy",
-    logoPath: "/logo-wall/cores/sameboy.png",
+    logoPath: "/logo-wall/cores/sameboy.webp",
     githubUrl: "https://github.com/LIJI32/SameBoy",
     romExtensions: [".gb", ".gbc"],
   },
   {
     id: "rusticones",
-    logoPath: "/logo-wall/cores/rusticones.png",
+    logoPath: "/logo-wall/cores/rusticones.webp",
     githubUrl: "https://github.com/zeta0134/rustico",
     romExtensions: [".nes", ".fds", ".unf", ".unif"],
   },
   {
     id: "tetanes",
-    logoPath: "/logo-wall/cores/tetanes.png",
+    logoPath: "/logo-wall/cores/tetanes.webp",
     githubUrl: "https://github.com/lukexor/tetanes",
     romExtensions: [".nes", ".fds", ".nsf", ".nsfe"],
   },
   {
     id: "lakesnes",
-    logoPath: "/logo-wall/cores/lakesnes.png",
+    logoPath: "/logo-wall/cores/lakesnes.webp",
     githubUrl: "https://github.com/dinkc64/LakeSnes",
     romExtensions: [".sfc", ".smc", ".fig", ".swc", ".bs", ".st"],
   },
   {
     id: "jgenesis",
-    logoPath: "/logo-wall/cores/jgenesis.png",
+    logoPath: "/logo-wall/cores/jgenesis.webp",
     githubUrl: "https://github.com/jsgroth/jgenesis",
     romExtensions: [
       ".gb",
@@ -138,7 +138,7 @@ const coreDefinitions: CoreDefinition[] = [
   },
   {
     id: "ares",
-    logoPath: "/logo-wall/cores/ares.png",
+    logoPath: "/logo-wall/cores/ares.webp",
     githubUrl: "https://github.com/ares-emulator/ares",
     romExtensions: [".gba", ".ws", ".wsc", ".ngp", ".ngpc", ".ngc"],
   },
